@@ -65,30 +65,35 @@ Kami memastikan setiap fitur memiliki logic yang terisolasi:
 
 ### 1. Clone & Install Dependencies
 
-````bash
-git clone [https://github.com/reiyan/reiyan-store-backend.git](https://github.com/reiyan/reiyan-store-backend.git)
+```sh
+git clone git@github.com:achmadnoerhidayat/reiyan-store-backend.git
 cd reiyan-store-backend
-composer install ```
+```
 
 ### 2. Environment Configuration
+
 Salin .env.example, buat database, dan sesuaikan kredensial:
+
+```sh
 cp .env.example .env
 php artisan key:generate
+```
 
 ### 3. Database Migration & Seeding
 
 Jalankan migrasi untuk membangun seluruh struktur tabel dan mengisi data master:
 
+```sh
 php artisan migrate --seed
+```
 
 ### 4. Running the Engine
 
 Untuk memproses transaksi dan notifikasi secara asinkron, jalankan worker:
 
+```sh
 php artisan serve
 php artisan queue:work
-
-
-````
+```
 
 👨‍💻 Reiyan - Fullstack Developer Specializing in High-Traffic Fintech & PPOB Solutions
