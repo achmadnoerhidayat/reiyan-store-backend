@@ -31,6 +31,11 @@ class ProdukRepository
         return Product::with('kategori')->find($id);
     }
 
+    public function findLayannById($id)
+    {
+        return Service::find($id);
+    }
+
     public function findSlug($slug)
     {
         return Product::with(['kategori', 'layanan' => function ($query) {

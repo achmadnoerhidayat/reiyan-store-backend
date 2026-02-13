@@ -14,4 +14,14 @@ class Voucher extends Model
         'start_at' => 'datetime',
         'end_at' => 'datetime',
     ];
+
+    public function produk()
+    {
+        return $this->belongsTo(Product::class, 'produk_id');
+    }
+
+    public function voucherUser()
+    {
+        return $this->hasMany(UserVoucher::class, 'voucher_id');
+    }
 }

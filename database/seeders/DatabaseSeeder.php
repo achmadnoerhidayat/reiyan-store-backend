@@ -139,18 +139,19 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Payment Gateway Duitku',
                 'code' => 'payment-gateway-duitku',
                 'driver' => 'App\Services\DuitkuService',
-                'is_active' => false,
+                'is_active' => true,
                 'payload' => [
                     'username' => encrypt(env("DUITKU_NAME")),
                     'api_key' => encrypt(env("DUITKU_KEY")),
-                    'type' => "Basic",
                     'url' => "https://sandbox.duitku.com/webapi/api/merchant",
+                    'url_js' => "https://app-sandbox.duitku.com/lib/js/duitku.js",
                 ],
             ],
         ];
         foreach ($provider as $value) {
             Provider::updateOrCreate([
-                'name' => $value['name']
+                'name' => $value['name'],
+                'payload' => $value['payload'],
             ], $value);
         }
     }

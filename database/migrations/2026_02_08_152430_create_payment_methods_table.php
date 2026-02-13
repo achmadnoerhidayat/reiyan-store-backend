@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('category');
             $table->string('code')->unique();
             $table->string('gateway');
             $table->string('image_url')->nullable();

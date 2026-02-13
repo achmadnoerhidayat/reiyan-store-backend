@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Helper\UploadImage;
 use App\Repositories\MemberRepository;
 use App\Repositories\ProdukRepository;
 use App\Repositories\ProviderRepository;
@@ -231,13 +232,13 @@ class ProdukService
         try {
             return DB::transaction(function () use ($data, $imageLogo, $imageBanner, &$logoPath, &$bannerPath) {
                 if ($imageLogo) {
-                    $logo = $imageLogo->store('asset/produk', 'public');
+                    $logo = UploadImage::upload($imageLogo, 'asset/produk');
                     $logoPath = $logo;
                     $data['logo'] = $logo;
                 }
 
                 if ($imageBanner) {
-                    $baner = $imageBanner->store('asset/produk', 'public');
+                    $baner = UploadImage::upload($imageBanner, 'asset/produk');
                     $bannerPath = $baner;
                     $data['banner'] = $baner;
                 }
@@ -275,7 +276,7 @@ class ProdukService
                     if ($produk->logo) {
                         Storage::disk('public')->delete($produk->logo);
                     }
-                    $logo = $imageLogo->store('asset/produk', 'public');
+                    $logo = UploadImage::upload($imageLogo, 'asset/produk');
                     $logoPath = $logo;
                     $data['logo'] = $logo;
                 }
@@ -284,7 +285,7 @@ class ProdukService
                     if ($produk->banner) {
                         Storage::disk('public')->delete($produk->banner);
                     }
-                    $baner = $imageBanner->store('asset/produk', 'public');
+                    $baner = UploadImage::upload($imageBanner, 'asset/produk');
                     $bannerPath = $baner;
                     $data['banner'] = $baner;
                 }

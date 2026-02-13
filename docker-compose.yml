@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: reiyan-store
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    volumes:
+      - ./:/var/www
+    ports:
+      - "9000:9000"  # expose php-fpm
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: reiyan-store-nginx
+    ports:
+      - "8000:80"   # akses via port 8000 di host ke port 80 nginx
+    volumes:
+      - ./:/var/www
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+
+  db:
+    image: mysql:8.0
+    container_name: reiyan-store-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: reiyan_store
+      MYSQL_USER: reiyan_store
+      MYSQL_PASSWORD: reiyan_store
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: reiyan-store-phpmyadmin
+    depends_on:
+      - db
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root
+
+volumes:
+  db_data:

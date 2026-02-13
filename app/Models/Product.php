@@ -14,6 +14,8 @@ class Product extends Model
 
     protected $hidden = ['categori_id', 'provider_id'];
 
+    protected $appends = ['average_rating'];
+
     protected function casts(): array
     {
         return [
@@ -49,5 +51,15 @@ class Product extends Model
     public function provider()
     {
         return $this->belongsTo(Provider::class, 'provider_id');
+    }
+
+    public function rating()
+    {
+        return $this->hasMany(Rating::class, 'produk_id');
+    }
+
+    public function getAverageRatingAttribute()
+    {
+        return round($this->rating()->avg('rating'), 1);
     }
 }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('link_url')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamp('starts_at')->nullable(); // Penjadwalan promo
-            $table->timestamp('ends_at')->nullable();
+            $table->timestamp('end_at')->nullable();
             $table->timestamps();
         });
     }

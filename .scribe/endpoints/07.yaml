@@ -1,0 +1,388 @@
+name: Banner
+description: |-
+
+  API untuk mengelola Banner
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: banner
+    metadata:
+      custom: []
+      groupName: Banner
+      groupDescription: |-
+
+        API untuk mengelola Banner
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        List Banner
+        Endpoint ini digunakan untuk mengambil semua data banner.
+      description: 'Cocok digunakan di halaman admin.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      search:
+        custom: []
+        name: search
+        description: 'Mencari banner berdasarkan nama.'
+        required: false
+        example: Mobile
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      starts_at:
+        custom: []
+        name: starts_at
+        description: 'date Mencari banner berdasarkan tanggal dimulai.'
+        required: false
+        example: '2026-02-15'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      ends_at:
+        custom: []
+        name: ends_at
+        description: 'date Mencari banner berdasarkan tanggal berakhir.'
+        required: false
+        example: '2026-02-30'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: 'Mencari banner berdasarkan status aktif.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      limit:
+        custom: []
+        name: limit
+        description: 'Batasi jumlah data yang tampil.'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      search: Mobile
+      starts_at: '2026-02-15'
+      ends_at: '2026-02-30'
+      is_active: true
+      limit: 10
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 403
+        content: '{"meta":{"code":403,"status":"error","message":"SQLSTATE[42S22]: Column not found: 1054 Unknown column ''ends_at'' in ''where clause'' (Connection: mysql, Host: db, Port: 3306, Database: reiyan_store, SQL: select * from `banners` where (`title` like %Mobile% and `starts_at` like %2026-02-15% and `ends_at` like %2026-02-30% and `is_active` = 1) order by `created_at` desc limit 4)"},"data":null}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IlR2THpsU29kU3lDMHJmZ05JRU1JclE9PSIsInZhbHVlIjoiWmNsUU1MWnhueEhGUnU0Y2NiSlVCcEVLZEpNRm0vaWJvT0JqaWVWSnNxSktBb2l6Y3RyNTluQzdoOHZkWktMWVJ5dkF2cTVxMmxSWlF3cWduOW1BTlE5cUkxYTRxakdPbGRvMVVEUzlOd2F4TU5YeE00VzFhcUJNSXk1YjBXTUkiLCJtYWMiOiJmOGE3NDJkOGY1ODY1NGJiMjkwMDA0ZmI0N2Q1YTBjODJmY2JjYTJjNWQyMzkwNzUyZGNjN2IxNDI2YWQ0OWVhIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjFUQVJsNGN2QUMwRHBQeVFwM00zenc9PSIsInZhbHVlIjoiWDJBcjlPcVhjc3p5K0hDc2hJSGJwS09uR2NXU2s5YUR4dyszRTd4TWtiM01PTXNsdWZOMm16WWZRb1p1WkxWdkswZzVMWDNYNVdlYzIySXBzNXAxOHRwSU40UVBiTkFhRHV0amU0ZTVNOTdkZWE4Lzg5c3Z5STMrUTNUMnJCdFAiLCJtYWMiOiJjY2M1OTBhZGY0ZDBhMjYxMmIwMDEwZTAzNzVlODNlZjExY2NjMzk4ZmJhMmU1MzhlNjdjMDhlY2NiMjc2ZjE4IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: banner
+    metadata:
+      custom: []
+      groupName: Banner
+      groupDescription: |-
+
+        API untuk mengelola Banner
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Tambah Banner'
+      description: 'Endpoint ini digunakan untuk menambahkan Banner baru ke dalam sistem.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        custom: []
+        name: title
+        description: 'Title banner.'
+        required: true
+        example: 'Reiyan Store'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      image:
+        custom: []
+        name: image
+        description: 'Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      link_url:
+        custom: []
+        name: link_url
+        description: 'URL tujuan saat banner diklik.'
+        required: true
+        example: 'https://reiyanstore.com/promo/ramadhan'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      starts_at:
+        custom: []
+        name: starts_at
+        description: 'Tanggal mulai publikasi banner (ISO Format).'
+        required: true
+        example: '2026-03-01'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      end_at:
+        custom: []
+        name: end_at
+        description: 'Tanggal berakhir publikasi. Harus setelah tanggal mulai.'
+        required: true
+        example: '2026-03-31'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: 'Status aktif banner (1 untuk aktif, 0 untuk draft).'
+        required: true
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      title: 'Reiyan Store'
+      link_url: 'https://reiyanstore.com/promo/ramadhan'
+      starts_at: '2026-03-01'
+      end_at: '2026-03-31'
+      is_active: true
+    fileParameters:
+      image: null
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'banner/{id}'
+    metadata:
+      custom: []
+      groupName: Banner
+      groupDescription: |-
+
+        API untuk mengelola Banner
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Edit banner'
+      description: 'Endpoint ini digunakan untuk mengubah banner web ke dalam sistem.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the banner.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        custom: []
+        name: title
+        description: 'Title banner.'
+        required: true
+        example: 'Reiyan Store'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      image:
+        custom: []
+        name: image
+        description: 'Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      link_url:
+        custom: []
+        name: link_url
+        description: 'URL tujuan saat banner diklik.'
+        required: true
+        example: 'https://reiyanstore.com/promo/ramadhan'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      starts_at:
+        custom: []
+        name: starts_at
+        description: 'Tanggal mulai publikasi banner (ISO Format).'
+        required: true
+        example: '2026-03-01'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      end_at:
+        custom: []
+        name: end_at
+        description: 'Tanggal berakhir publikasi. Harus setelah tanggal mulai.'
+        required: true
+        example: '2026-03-31'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: 'Status aktif banner (1 untuk aktif, 0 untuk draft).'
+        required: true
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      title: 'Reiyan Store'
+      link_url: 'https://reiyanstore.com/promo/ramadhan'
+      starts_at: '2026-03-01'
+      end_at: '2026-03-31'
+      is_active: true
+    fileParameters:
+      image: null
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'banner/{id}'
+    metadata:
+      custom: []
+      groupName: Banner
+      groupDescription: |-
+
+        API untuk mengelola Banner
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Hapus banner Web'
+      description: 'Endpoint ini digunakan untuk menghapus banner produk ke dalam sistem.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the banner.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null

@@ -30,7 +30,7 @@
 
 ### 3. Service & Provider Management
 
-- **Provider Abstraction:** Integrasi ke berbagai provider (KirimAja, Digiflazz, dll) melalui tabel `providers`.
+- **Provider Abstraction:** Integrasi ke berbagai provider (Mobile Pulsa PPOB, VIP Reseller, DUITKU Payment Gateway, dll) melalui tabel `providers`.
 - **Dynamic Products:** Manajemen ribuan _services_ yang dikelompokkan berdasarkan _products_ dan _categories_.
 
 ### 4. Security & Role Management
@@ -96,4 +96,4 @@ php artisan serve
 php artisan queue:work
 ```
 
-👨‍💻 Reiyan - Fullstack Developer Specializing in High-Traffic Fintech & PPOB Solutions
+👨‍💻 Achmad Noerhidayat - Fullstack Developer Specializing in High-Traffic Fintech & PPOB Solutions

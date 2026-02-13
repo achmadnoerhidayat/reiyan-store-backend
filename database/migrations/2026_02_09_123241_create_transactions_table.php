@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('produk_id')->constrained('products')->cascadeOnDelete();
             $table->foreignId('service_id')->constrained('services')->cascadeOnDelete();
             $table->foreignId('payment_id')->constrained('payment_methods')->cascadeOnDelete();
             $table->foreignId('voucher_id')->nullable()->constrained('vouchers')->cascadeOnDelete();
+            $table->string('order_id');
             $table->bigInteger('price')->default(0);
             $table->bigInteger('profit')->default(0);
             $table->bigInteger('total')->default(0);
@@ -24,7 +26,10 @@ return new class extends Migration
             $table->string('va_number')->nullable();
             $table->string('qr_code')->nullable();
             $table->string('reference')->nullable();
-            $table->enum('status', ['pending', 'process', 'success', 'failed'])->default('pending');
+            $table->enum('status', ['pending', 'process', 'success', 'failed', 'expire'])->default('pending');
+            $table->timestamp('date_exp');
+            $table->json('target_details')->nullable();
+            $table->json('response_provider')->nullable();
             $table->timestamps();
         });
     }

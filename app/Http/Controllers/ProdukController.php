@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProdukRequest;
 use App\Http\Requests\UpdateProdukRequest;
 use App\Services\ProdukService;
+use App\Services\TransactionService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -180,6 +181,42 @@ class ProdukController extends Controller
         try {
             $produk = $service->deleteProduk($id);
             return ResponseFormated::success($produk, 'data produk berhasil ditambahkan');
+        } catch (\Exception $e) {
+            return ResponseFormated::error(null, $e->getMessage(), 500);
+        }
+    }
+
+    /**
+     * Checkout Top Up
+     * Endpoint ini digunakan untuk membuat pesanan top up (Game, Pulsa, E-Wallet).
+     * Sistem akan memvalidasi stok produk, menghitung harga (termasuk diskon voucher),
+     * dan mengembalikan URL pembayaran Snap Invoice Duitku.
+     *
+     * @authenticated
+     *
+     * @bodyParam service_id int required ID dari layanan yang dipilih (contoh: Pulsa, Game, dll). Example: 1
+     * @bodyParam produk_id int required ID produk yang ingin dibeli. Example: 45
+     * @bodyParam payment_id int required ID metode pembayaran (Midtrans, Duitku, dll). Example: 2
+     * @bodyParam voucher_id int ID voucher jika tersedia. Example: 5
+     * @bodyParam target No ID Game / No HP.
+     * @bodyParam server_id No Server.
+     * @bodyParam nick_name Nickname Game.
+     */
+
+    public function payment(Request $request, TransactionService $service)
+    {
+        $data = $request->validate([
+            'service_id' => ['required', 'numeric', 'exists:services,id'],
+            'produk_id' => ['required', 'numeric', 'exists:products,id'],
+            'payment_id' => ['required', 'numeric', 'exists:payment_methods,id'],
+            'voucher_id' => ['nullable', 'numeric', 'exists:vouchers,id'],
+            'target'    => ['required', 'numeric'],
+            'server_id' => ['nullable', 'numeric'],
+            'nick_name' => ['nullable', 'string'],
+        ]);
+        try {
+            $trans = $service->storeTrans($data);
+            return ResponseFormated::success($trans, 'token pembayran berhasil dibuat');
         } catch (\Exception $e) {
             return ResponseFormated::error(null, $e->getMessage(), 500);
         }

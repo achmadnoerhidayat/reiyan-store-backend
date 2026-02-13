@@ -1,0 +1,223 @@
+name: Provider
+description: |-
+
+  API untuk mengelola Provider Reiyan Store
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: provider
+    metadata:
+      custom: []
+      groupName: Provider
+      groupDescription: |-
+
+        API untuk mengelola Provider Reiyan Store
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        List provider
+        Endpoint ini digunakan untuk mengambil semua data provider yang aktif.
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      search:
+        custom: []
+        name: search
+        description: 'Mencari provider berdasarkan nama.'
+        required: false
+        example: Mobile
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      limit:
+        custom: []
+        name: limit
+        description: 'Batasi jumlah data yang tampil.'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      search: Mobile
+      limit: 10
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IlRQdnYwNC9CWTJHb3RTY05aa3VoQXc9PSIsInZhbHVlIjoiMEpvMitPWEt5ZWlHV1ZEeTk1dEt0ellnS3dDRkhKRm1WbmVqNUJWMGJiMFhNbmRaV09TcWZqM01WUU9nS0IvV2l6V2R2d210L2RMOC80YW1vYVRaNHRBeW4rVlVvY2h6ZmxsMkhvNEl0ZjVONUNoKzMramc4SWJWWnNlWlBEODIiLCJtYWMiOiJmNzBjYTNjMTViNWYxNjRhYTM3MDliNzA0YTM1YzkzYjMwYmEyODUwMmUzMjEwYjY4M2NiYzE1MTZlMjA3YzQ2IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Ikl6RlRBOVF1TVJvRzJKUUdXT0JuL2c9PSIsInZhbHVlIjoiOHFCSUdzN2tDbndBNU5qUHdKZ29ZOFRVVnV4ODV1NmZNRENQL2ZnN09obUF0aVFKWUxIWlEyQ0tnZHdsWFJFRjZCUHpyUWYwWW5nVmxqUjA3QzdOaG9ncnlvZjRFVEFsZExqSS9PSDA5Vnc1eGNsWmd5YkhxcmI5R0ZKTUpFZ08iLCJtYWMiOiIxNjQ1MTZjNDc1ZTMyMGQ0ZmEwNjNmNTU3NGEyMzZmMjE2MGI2YjBhM2ZlZDQ2MTk2YTgyOWRjYTYzODVjMmJjIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'provider/{id}'
+    metadata:
+      custom: []
+      groupName: Provider
+      groupDescription: |-
+
+        API untuk mengelola Provider Reiyan Store
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Edit provider'
+      description: 'Endpoint ini digunakan untuk mengubah provider produk ke dalam sistem.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the provider.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Nama provider.'
+        required: true
+        example: Postpaid
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      driver:
+        custom: []
+        name: driver
+        description: Driver.
+        required: true
+        example: App\Services\MobilepulsaService
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: 'Code Provider.'
+        required: true
+        example: 'true'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      payload:
+        custom: []
+        name: payload
+        description: 'nullable Data tambahan konfigurasi (API Key, Secret, dll)'
+        required: false
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      name: Postpaid
+      driver: App\Services\MobilepulsaService
+      is_active: 'true'
+      payload: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'provider/{id}'
+    metadata:
+      custom: []
+      groupName: Provider
+      groupDescription: |-
+
+        API untuk mengelola Provider Reiyan Store
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Hapus provider'
+      description: 'Endpoint ini digunakan untuk menghapus provider produk ke dalam sistem.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the provider.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Helper\UploadImage;
 use App\Repositories\KategoriRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -33,7 +34,7 @@ class KategoriService
         try {
             return DB::transaction(function () use ($data, $file, &$uploadedPaths) {
                 if ($file) {
-                    $path = $file->store('asset/kategori', 'public');
+                    $path = UploadImage::upload($file, 'asset/category');
                     $uploadedPaths = $path;
                     $data['image'] = $path;
                 }
@@ -64,7 +65,7 @@ class KategoriService
                     if ($kategori->image) {
                         Storage::disk('public')->delete($kategori->image);
                     }
-                    $path = $file->store('asset/category', 'public');
+                    $path = UploadImage::upload($file, 'asset/category');
                     $uploadedPaths = $path;
                     $data['image'] = $path;
                 }

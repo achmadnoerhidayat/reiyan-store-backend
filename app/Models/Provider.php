@@ -25,6 +25,7 @@ class Provider extends Model
         return LogOptions::defaults()
             ->logOnly(['payload', 'name', 'driver'])
             ->logOnlyDirty()
+            ->dontSubmitEmptyLogs()
             ->useLogName('administrator');
     }
 
@@ -44,11 +45,17 @@ class Provider extends Model
     // Accessor untuk mendapatkan payload yang sudah disensor
     public function getMaskedPayloadAttribute()
     {
-        return [
-            'type' => $this->payload['type'] ?? '',
+        $data = [
             'url' => $this->payload['url'] ?? '',
             'username' => $this->maskString($this->payload['username'] ?? null),
             'api_key' => $this->maskString($this->payload['api_key'] ?? null),
         ];
+        if (isset($this->payload['type']) && !empty($this->payload['type'] && $this->payload['type'] !== "")) {
+            $data['type'] = $this->payload['type'];
+        }
+        if (isset($this->payload['url_js'])) {
+            $data['url_js'] = $this->payload['url_js'];
+        }
+        return $data;
     }
 }

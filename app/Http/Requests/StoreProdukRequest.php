@@ -14,6 +14,15 @@ class StoreProdukRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'is_check_id' => $this->boolean('is_check_id'),
+            'is_check_server' => $this->boolean('is_check_server'),
+            'is_check_name' => $this->boolean('is_check_name'),
+        ]);
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
