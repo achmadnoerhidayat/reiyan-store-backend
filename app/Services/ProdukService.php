@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Helper\UploadImage;
+use App\Http\Resources\ProviderResource;
 use App\Repositories\MemberRepository;
 use App\Repositories\ProdukRepository;
 use App\Repositories\ProviderRepository;
@@ -32,7 +33,13 @@ class ProdukService
 
         if ($user) {
             if (in_array($user->role->name, ['super_admin', 'administrator'])) {
-                return $this->produkRepo->getAll($data);
+                $produk = $this->produkRepo->getAll($data);
+                foreach ($produk as $value) {
+                    $value->unsetRelation('provider');
+                    $formatted = ProviderResource::collection($value->provider);
+                    $value->setRelation('provider', $formatted);
+                }
+                return $produk;
             }
             $level = $user->level->name;
         }
@@ -50,6 +57,7 @@ class ProdukService
                     'updated_at' => $service->updated_at->format('Y-m-d H:i'),
                 ];
             });
+            $value->unsetRelation('provider');
             $value->unsetRelation('layanan');
             $value->setRelation('layanan', $formatted);
         }
@@ -188,7 +196,7 @@ class ProdukService
                     'price_provider' => $price,
                 ];
             } elseif ($isVIP) {
-                if (!Str::contains($value['game'] ?? '', $produk->code, true)) continue;
+                if (!Str::contains($value['code'] ?? '', $produk->code, true)) continue;
                 $type = strtolower($provider->payload['type'] ?? 'basic');
                 $price = (int) ($value['price'][$type] ?? $value['price']['basic']);
                 if ($price <= 10000) continue;
@@ -289,7 +297,11 @@ class ProdukService
                     $bannerPath = $baner;
                     $data['banner'] = $baner;
                 }
-                return $this->produkRepo->update($data, $produk->id);
+                $produk = $this->produkRepo->update($data, $produk->id);
+                if ($produk) {
+                    $this->createLayanan($produk->slug);
+                }
+                return $produk;
             });
         } catch (\Exception $e) {
             if ($logoPath) {

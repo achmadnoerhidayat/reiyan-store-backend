@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class TransactionController extends Controller
 {
     /**
-     * @group Transaksi User
+     * @group Transaksi
      * List Transaksi User
      * Mengambil semua data transaksi milik user yang sedang login.
      * Bisa difilter berdasarkan ID transaksi untuk detail, atau search order_id.
@@ -35,7 +35,7 @@ class TransactionController extends Controller
     }
 
     /**
-     * @group Transaksi Admin
+     * @group Transaksi
      * List Transaksi (Admin)
      * Mengambil semua data transaksi secara keseluruhan (Global) untuk dashboard admin.
      * @queryParam id int ID transaksi untuk detail admin. Example: 1
@@ -62,7 +62,7 @@ class TransactionController extends Controller
     }
 
     /**
-     * @group Transaksi Admin
+     * @group Transaksi
      * Hapus Transaksi
      * Menghapus data transaksi berdasarkan ID.
      * @urlParam id required ID transaksi yang akan dihapus. Example: 1
@@ -79,7 +79,7 @@ class TransactionController extends Controller
     }
 
     /**
-     * @group Webhook / Callback
+     * @group Transaksi
      * Callback Payment Gateway
      * Endpoint untuk menerima notifikasi status pembayaran dari Midtrans/Duitku.
      */
@@ -94,7 +94,7 @@ class TransactionController extends Controller
     }
 
     /**
-     * @group Webhook / Callback
+     * @group Transaksi
      * Callback Provider PPOB
      * Endpoint untuk menerima status pesanan dari Provider (VIP/IAK/Digiflazz).
      * Pastikan header X-Client-Signature dikirim untuk validasi.

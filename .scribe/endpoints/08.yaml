@@ -20,10 +20,9 @@ endpoints:
         List Payment Method
         Endpoint ini digunakan untuk mengambil semua data Payment Method.
       description: 'Cocok digunakan di halaman pembelian produk.'
-      authenticated: true
+      authenticated: false
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -72,18 +71,15 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 200
+        content: '{"meta":{"code":200,"status":"success","message":"data Payment Method berhasil ditampilkan"},"data":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6ImdzNEx5UUZac1FSZEpVY3RoR3pLUVE9PSIsInZhbHVlIjoiSFNnTVp5TnhGak54T1dGamtXaGVhWEgyUVg2cGk0ZW82empnYVF6NVpCQ2FZOEoxQXBvUkR0Nkhjdi9ISFVua0JmZXpEUTljOEZYajM0STZhUUhWMHB1Tjl3V2dabnJ1eXZ2MU9GaWJESEswU2xYQTZXM3U5NDEvcW1vSjkxMFUiLCJtYWMiOiJlOWVlNDA1YTU2MTAxMDBjMDBkNzM0MDU0Y2U0YmFjMjBkNDI3MThlZDAxMjMzYWZiMDI0MjFjOGY1ZDYxNmIxIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjIxZmpidS9SdUhXa1hZTUJjbzFJVEE9PSIsInZhbHVlIjoiVUU4M2luZGtyTDc1aVhMOUxkY05nbFlKOEpSSDVJV1BKMndReEpENVYxRUs0NTlFZzBDeE9nWmhqdGR6Yk9HWXZVNm1aSGJuWEM0YW9ERS9OYldxY0huSkIzbkszR3ZnM2daYXFzd0tsQ0JyUjZ5NmM3V1YzTHZ6eDFnREZtbVIiLCJtYWMiOiI5YmQxODZlYTI1ODUzZjZlY2I2NDc4ZjUyODViNzg0N2NhZWRmNDQ4ZTZhZjM4NjBlM2MxZTNmYTVjMGRmMWU2IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IjJaUXBncjNadHkyRFFwcU9QQnZJUkE9PSIsInZhbHVlIjoiMWlURHFaYmpacEVFYyt4alhEekkvMUZnV211YjlDS3lqOU9wcURCSTVjaEZPTjh3dFk1Tld1OHlpTnk4eHF0eXM3TlpJVjdqZFRIUWV5Y0hDYlFZNVRCdVBydGRHbFVYVGJkSUw3QWVxSEZwSnZQZ1pQV0h6c0Z6WTlSMFkyUDMiLCJtYWMiOiJmODFmNDVmNjZlMTk1Njc2NGFiOTY0M2U5ZjFlNDUyNjI5NGUzMDAzZWI1NGU2NDUxMTg0ZmZhMzM4ZGVhOGRkIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImJRN1MzL2pCb0U4K3h5aEZrNFZ1RkE9PSIsInZhbHVlIjoiYituUUxOeEdaalo5bENOT3ZHSHpORFpZV3hIcHhBM2NVaGpsbHh3UGlwYlRQZWFaUmhBakVWZ0JDNXlRd2dPdzJId1lxc00vaE5iRlVnbEg3SWJ0NDJPdDFXR3ZRQUVpZ1ROdk01eDNMTElzdW1oN3U0d1J3WWFJeTVHWlB0TWkiLCJtYWMiOiI2N2IyZWVkODUxOGQyNTA0YzFmNDNmMDBlNzBkZmMyZmFkMzFmNGMzNDVhMGEwNDZiNDhjNDIxMjcxNzFmY2VhIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    auth: []
     controller: null
     method: null
     route: null
@@ -235,14 +231,14 @@ endpoints:
         name: id
         description: 'The ID of the payment method.'
         required: true
-        example: architecto
-        type: string
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -356,14 +352,14 @@ endpoints:
         name: id
         description: 'The ID of the payment method.'
         required: true
-        example: architecto
-        type: string
+        example: 16
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

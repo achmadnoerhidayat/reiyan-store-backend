@@ -9,7 +9,7 @@ class ProdukRepository
 {
     public function getAll($data)
     {
-        $produk = Product::with(['kategori', 'layanan' => function ($query) {
+        $produk = Product::with(['kategori', 'provider', 'layanan' => function ($query) {
             $query->orderBy('price_provider', 'asc');
         }, 'faq']);
 

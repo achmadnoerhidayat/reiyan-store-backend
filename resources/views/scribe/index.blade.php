@@ -125,30 +125,27 @@ Endpoint ini digunakan untuk mengambil semua data config yang aktif.</a>
                             </li>
                                                                         </ul>
                             </ul>
-                    <ul id="tocify-header-deposit-admin" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="deposit-admin">
-                    <a href="#deposit-admin">Deposit Admin</a>
+                    <ul id="tocify-header-deposit" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="deposit">
+                    <a href="#deposit">Deposit</a>
                 </li>
-                                    <ul id="tocify-subheader-deposit-admin" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="deposit-admin-GETdeposit-admin">
-                                <a href="#deposit-admin-GETdeposit-admin">List Deposit (Admin)
-Mengambil semua data Deposit secara keseluruhan (Global) untuk dashboard admin.</a>
+                                    <ul id="tocify-subheader-deposit" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="deposit-POSTdeposit-callback-payment">
+                                <a href="#deposit-POSTdeposit-callback-payment">Callback Payment Gateway
+Endpoint untuk menerima notifikasi status pembayaran dari Midtrans/Duitku.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="deposit-admin-DELETEdeposit--id-">
-                                <a href="#deposit-admin-DELETEdeposit--id-">Hapus Deposit
-Menghapus data Deposit berdasarkan ID.</a>
-                            </li>
-                                                                        </ul>
-                            </ul>
-                    <ul id="tocify-header-deposit-user" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="deposit-user">
-                    <a href="#deposit-user">Deposit User</a>
-                </li>
-                                    <ul id="tocify-subheader-deposit-user" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="deposit-user-GETdeposit">
-                                <a href="#deposit-user-GETdeposit">List Deposit User
+                                                                                <li class="tocify-item level-2" data-unique="deposit-GETdeposit">
+                                <a href="#deposit-GETdeposit">List Deposit User
 Mengambil semua data Deposit milik user yang sedang login.
 Bisa difilter berdasarkan ID Deposit untuk detail, atau search order_id.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="deposit-GETdeposit-admin">
+                                <a href="#deposit-GETdeposit-admin">List Deposit (Admin)
+Mengambil semua data Deposit secara keseluruhan (Global) untuk dashboard admin.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="deposit-DELETEdeposit--id-">
+                                <a href="#deposit-DELETEdeposit--id-">Hapus Deposit
+Menghapus data Deposit berdasarkan ID.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -255,6 +252,31 @@ Endpoint ini digunakan untuk mengambil semua data provider yang aktif.</a>
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-review" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="review">
+                    <a href="#review">Review</a>
+                </li>
+                                    <ul id="tocify-subheader-review" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="review-GETreview">
+                                <a href="#review-GETreview">List Review User
+Mengambil semua data Review milik user yang sedang login.
+Bisa difilter berdasarkan ID Review untuk detail, atau produk_id.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="review-POSTreview">
+                                <a href="#review-POSTreview">Endpoint ini digunakan untuk membuat pesanan Topup Saldo.
+dan mengembalikan URL pembayaran Snap Invoice Duitku.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="review-PUTreview--id-">
+                                <a href="#review-PUTreview--id-">Update Rating & Balasan
+Endpoint ini digunakan oleh User untuk merevisi ulasan (maks 1x)
+atau oleh Admin untuk membalas ulasan dan mengatur status publikasi.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="review-GETreview-admin">
+                                <a href="#review-GETreview-admin">List Review (Admin)
+Mengambil semua data Review secara keseluruhan (Global) untuk dashboard admin.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-seo-meta-tags" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="seo-meta-tags">
                     <a href="#seo-meta-tags">Seo Meta Tags</a>
@@ -275,30 +297,32 @@ Endpoint ini digunakan untuk mengambil semua data Seo Meta Tags.</a>
                             </li>
                                                                         </ul>
                             </ul>
-                    <ul id="tocify-header-transaksi-admin" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="transaksi-admin">
-                    <a href="#transaksi-admin">Transaksi Admin</a>
+                    <ul id="tocify-header-transaksi" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="transaksi">
+                    <a href="#transaksi">Transaksi</a>
                 </li>
-                                    <ul id="tocify-subheader-transaksi-admin" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="transaksi-admin-GETtransaksi-admin">
-                                <a href="#transaksi-admin-GETtransaksi-admin">List Transaksi (Admin)
-Mengambil semua data transaksi secara keseluruhan (Global) untuk dashboard admin.</a>
+                                    <ul id="tocify-subheader-transaksi" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="transaksi-POSTtransaksi-callback-payment">
+                                <a href="#transaksi-POSTtransaksi-callback-payment">Callback Payment Gateway
+Endpoint untuk menerima notifikasi status pembayaran dari Midtrans/Duitku.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="transaksi-admin-DELETEtransaksi--id-">
-                                <a href="#transaksi-admin-DELETEtransaksi--id-">Hapus Transaksi
-Menghapus data transaksi berdasarkan ID.</a>
+                                                                                <li class="tocify-item level-2" data-unique="transaksi-POSTtransaksi-callback-ppob">
+                                <a href="#transaksi-POSTtransaksi-callback-ppob">Callback Provider PPOB
+Endpoint untuk menerima status pesanan dari Provider (VIP/IAK/Digiflazz).
+Pastikan header X-Client-Signature dikirim untuk validasi.</a>
                             </li>
-                                                                        </ul>
-                            </ul>
-                    <ul id="tocify-header-transaksi-user" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="transaksi-user">
-                    <a href="#transaksi-user">Transaksi User</a>
-                </li>
-                                    <ul id="tocify-subheader-transaksi-user" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="transaksi-user-GETtransaksi">
-                                <a href="#transaksi-user-GETtransaksi">List Transaksi User
+                                                                                <li class="tocify-item level-2" data-unique="transaksi-GETtransaksi">
+                                <a href="#transaksi-GETtransaksi">List Transaksi User
 Mengambil semua data transaksi milik user yang sedang login.
 Bisa difilter berdasarkan ID transaksi untuk detail, atau search order_id.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="transaksi-GETtransaksi-admin">
+                                <a href="#transaksi-GETtransaksi-admin">List Transaksi (Admin)
+Mengambil semua data transaksi secara keseluruhan (Global) untuk dashboard admin.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="transaksi-DELETEtransaksi--id-">
+                                <a href="#transaksi-DELETEtransaksi--id-">Hapus Transaksi
+Menghapus data transaksi berdasarkan ID.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -342,26 +366,6 @@ Endpoint ini digunakan untuk mengambil semua data Voucher.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="voucher-DELETEvoucher--id-">
                                 <a href="#voucher-DELETEvoucher--id-">Hapus Voucher</a>
-                            </li>
-                                                                        </ul>
-                            </ul>
-                    <ul id="tocify-header-webhook-callback" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="webhook-callback">
-                    <a href="#webhook-callback">Webhook / Callback</a>
-                </li>
-                                    <ul id="tocify-subheader-webhook-callback" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="webhook-callback-POSTtransaksi-callback-payment">
-                                <a href="#webhook-callback-POSTtransaksi-callback-payment">Callback Payment Gateway
-Endpoint untuk menerima notifikasi status pembayaran dari Midtrans/Duitku.</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="webhook-callback-POSTtransaksi-callback-ppob">
-                                <a href="#webhook-callback-POSTtransaksi-callback-ppob">Callback Provider PPOB
-Endpoint untuk menerima status pesanan dari Provider (VIP/IAK/Digiflazz).
-Pastikan header X-Client-Signature dikirim untuk validasi.</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="webhook-callback-POSTdeposit-callback-payment">
-                                <a href="#webhook-callback-POSTdeposit-callback-payment">Callback Payment Gateway
-Endpoint untuk menerima notifikasi status pembayaran dari Midtrans/Duitku.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -918,7 +922,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IkEweGsrUWZSSEdLMTNuTk5tN2JrZkE9PSIsInZhbHVlIjoicEhYQWFNVlF1akpScldxMk9lQWNUVVljSEdMVU9RM0dUd0d0bDFTTGx1c1ZMQnV3bDVQV3gwVnJWWk9jeWhEeGJzemZvQVBpUWo5dVpNazJUQ1NhU1R2M1FNRzFiZENUeUd3VkViYWR0L3gzN3MrMWJxVFVRcGUyS051UUE0WGEiLCJtYWMiOiJiZjA1NTNlNmY3ZDc1MWRjMTgxMjEyNDBhMDk1ZmI4ZTM4ZjRlNTlkYmMzY2EzN2Y3ZWQ0OGMyMzhjMmRmMWI4IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:22 GMT; Max-Age=7199; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Im0wZmRTVkljSlFUVDR2anlEL2tEb1E9PSIsInZhbHVlIjoiU3l2VGFvNlAzdGpXUyttZzhLWTh1dWRlbk5mWjZEeUZzSE1FNWFWc09BVG14YXVVOEVHTEdSbTdEdUxISWI1UVRIOTNTZDR3NGFFN2JqcDk4NW8rKzZ3bFp4eU8rTE9PTjZkYmJmazI5RHg5SU94M014N0VnWGh1bURUUTZsWUwiLCJtYWMiOiIyNDIyMmM1MmU0MWVlNDZmMjNhNWE0NTU5NDY3ZWZlYTJlZTU1NDBmMDVjYjI1ZmY4M2NjMzZiYjE1M2RkZGYwIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:22 GMT; Max-Age=7199; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6Im02bmdMNm05TUNDejFDY1J1dG9teWc9PSIsInZhbHVlIjoibUtpazJEeGpKMXFEZGNjSDhrajVTaEFxdzZwbjM3NU01VTA0Vnh5UW1PdmpEMXBBalFsclk2WklJU2Mxai9raVlrWlNRTzdCM2xzbHFXbHhQWlhQYm9qQTg4Q0Zqb0h2eFY4ZlV3UUFFK01FdDV2OWpFT1B4dFh0dFkrZjhrY2QiLCJtYWMiOiJiZGFkMDIzZDI0ODAyOTNkODc4OTk0OGEzYWNmMDkyYTMyM2ZhZmQ3NDYzZDliZjUwZmMwNzllNDU4MmNlMDdlIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:49 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Inc0bTRMaUFWU3dxVXNhaXlkU3lLSnc9PSIsInZhbHVlIjoidC83U1o2OUw3VXFLNENmV0JLSGJmd3V6R1M3SGxWeUJTWksxaXJtQjBjdkw3R3F2UVdONE5XTk9GLzFYZUxOWWN5UFYvdDBhbkQvODZmVTlKeTNaTUJ5VkJqci9rYmFSY2YzNjd6Ryt5Mjl4OHlWWm4xTHFCVjg2MGVrMHNPdUsiLCJtYWMiOiIxNmMyNWU0ZWY4ZTBhYTQxNGU2NDFhNGYwZTU5YjEwNzY3ZTRjN2I3MjJjODQyZTJmMTQxZjYzMzY0MGJjNmFkIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:49 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -1059,7 +1063,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IlR2THpsU29kU3lDMHJmZ05JRU1JclE9PSIsInZhbHVlIjoiWmNsUU1MWnhueEhGUnU0Y2NiSlVCcEVLZEpNRm0vaWJvT0JqaWVWSnNxSktBb2l6Y3RyNTluQzdoOHZkWktMWVJ5dkF2cTVxMmxSWlF3cWduOW1BTlE5cUkxYTRxakdPbGRvMVVEUzlOd2F4TU5YeE00VzFhcUJNSXk1YjBXTUkiLCJtYWMiOiJmOGE3NDJkOGY1ODY1NGJiMjkwMDA0ZmI0N2Q1YTBjODJmY2JjYTJjNWQyMzkwNzUyZGNjN2IxNDI2YWQ0OWVhIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjFUQVJsNGN2QUMwRHBQeVFwM00zenc9PSIsInZhbHVlIjoiWDJBcjlPcVhjc3p5K0hDc2hJSGJwS09uR2NXU2s5YUR4dyszRTd4TWtiM01PTXNsdWZOMm16WWZRb1p1WkxWdkswZzVMWDNYNVdlYzIySXBzNXAxOHRwSU40UVBiTkFhRHV0amU0ZTVNOTdkZWE4Lzg5c3Z5STMrUTNUMnJCdFAiLCJtYWMiOiJjY2M1OTBhZGY0ZDBhMjYxMmIwMDEwZTAzNzVlODNlZjExY2NjMzk4ZmJhMmU1MzhlNjdjMDhlY2NiMjc2ZjE4IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IktOSWIwOFhlcVVOcUdiT0tuMzU0ZXc9PSIsInZhbHVlIjoiNU1saEVveC91YlZPRk5PYVVmM29Uclk2YUxqaCsvUHZiVGZQVnN3eUFEcUVMY1dKdjF6WTFIWXMwWktUeTJuaWRZcWRsWUdjeFFRMVJLRDZUOHRaeEJFcjVmL3pzS1ZuY3IwWVI1V0tjVDFCaWZEeDhOR1Z1Q0dydXQ1U28wS0MiLCJtYWMiOiI5NmJiMjE1ZGQ1ZTZlZjI2ZTI4NzM3MWEwNTkxMWM0ZjE4OGU5MzEwZTg4YzI2ODJjODE0YWJjMzkxNjAyYjE0IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjZIUjROY3AwR0gvTEJ5dDd5VjZ6TWc9PSIsInZhbHVlIjoiaDBMY2NyVkR3T05kV2dKMXJHRkxnNEZUTzRwa2tkRjZpdkg4U2hLOTM0aUJWdzBTYnpKeDZoMzRFOG9mT25GL0RLamhuaFUycTduR1NtdHVwd2RuV0xnWmhQNlljcmQ0dmN3M3VZd2pxRCt3dGJqUUNaOUk0V1ZWK0hhZkhCVGgiLCJtYWMiOiJmODQ5YTY3YTZlZGU5OTVhZTQwNTliYjMxNDNlZjA1ZDFkMjIxZGU0OTY5NmE3MTRlNWI3Y2RiOGYwOWJlZDNhIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -1239,7 +1243,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "starts_at=2026-03-01"\
     --form "end_at=2026-03-31"\
     --form "is_active=1"\
-    --form "image=@/tmp/phpmWvr3M" </code></pre></div>
+    --form "image=@/tmp/phpVmCWsR" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1377,7 +1381,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB. Example: <code>/tmp/phpmWvr3M</code></p>
+<p>Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB. Example: <code>/tmp/phpVmCWsR</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>link_url</code></b>&nbsp;&nbsp;
@@ -1462,7 +1466,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "starts_at=2026-03-01"\
     --form "end_at=2026-03-31"\
     --form "is_active=1"\
-    --form "image=@/tmp/phpY1iWh8" </code></pre></div>
+    --form "image=@/tmp/phpOwnBjD" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1613,7 +1617,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB. Example: <code>/tmp/phpY1iWh8</code></p>
+<p>Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB. Example: <code>/tmp/phpOwnBjD</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>link_url</code></b>&nbsp;&nbsp;
@@ -1869,7 +1873,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IlpLWUpleFVuQVowWGNGWlgxTHBCdnc9PSIsInZhbHVlIjoiY1pDYUtBVVM5Vk5iTGZQSElUUjJqK3pUektER2R0V1poWTdicTdNQnJvRDdHWlBxaUp3WUFVMERHa0oycU5YVDNueHlGdlBydU1xRG9qb2tyeUtxVUJERm9GOGdQZ3dDMVlaWmZuZWQxTTZ3ZXNtWVhXZHN1QXhYY1hQN3JJb1UiLCJtYWMiOiI4OWU2OGUyYTczZDhlYTc5NjhmMWNmMGNiZTc5NzA1OTk1Nzg4NjJmMDI4MjM1MzA2ZjhkODlkZGU2ZDAwZjM0IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlNRam9kLzQxNmVZQ1RpRWdSOHNBQVE9PSIsInZhbHVlIjoiVzU2dGJyTysvL2lkYUNUSWVUMTJkcnNxcDhseXdyZ2ZCbXh5U0Z2RkgvY2QvMVQyNWMzVzJ6NkQwVzd0aTM0WHlrNkxtRWtuVnlYRkR0QnZleUFqcWZQTzU0WWordW14b1FvejZaWkdkdkx6UVFlWFBtRlFYelYxODBmcE9HNWYiLCJtYWMiOiIwMDg1YTY3NmZlOWFmNzVmNDNlNWZmNGViNjY2NmIxNjZjYTM2MmRjYmI2YzMyNjlmNGJjZTY4ZjBlMTA3ZGJmIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IjhpVmdjUmRoSWJtanE4NG8yTTNNcFE9PSIsInZhbHVlIjoidUdlWVpTWk4vY3Z2eEhoVXVFZHZ1ekljVzVZQzFza1pWSlZMZkluZy9GSHhRaFA2dHA3S3R6bnNvNmJZSXQ5Wk1lL3lwQldTeVplMk00OHZmR0tSRHYrK0V4QTRGRzdhYkwzS3R1YmE1amFuZ1I4OWdNTDlGaWlMWTRDbk9GYnMiLCJtYWMiOiJjNjkxM2ZhNDFkMThiZGU0N2RiYjIwZDU4ZGY1Y2RiYjc2NzYxMWY3ZWE3ZDAyMzMyYjdiYmEzNzljYWRhYTUxIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjR0a0k5SjZsZjRLNnpSckxwT2pROXc9PSIsInZhbHVlIjoicHVjTXI5OWpwenZreTIxS2hVUGhPVmlRelBhaGkzWUdrWVo1ZG9vZnJWUW1SYWdWZUhjYUlZVG1PTVFnajBCZmp1UURsSXZYTHJYak5kTHVNaTdsaTEzUXZyd0xEUnpkWnJYL1ZicGc0TGlNR0hlYStYdFUyM3o3dVllVnByWUEiLCJtYWMiOiI3MGRlNGQ0OTk3NWYyODJmNWNmZTU3YzcwYmYzNjBlNzEwOWRmNzQzNDNhNGVjMGE5ZGQwZDFiYWIwZTA3NGZmIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -1989,8 +1993,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "title=Reiyan Store"\
     --form "short_title=Termurah &amp; Terpercaya"\
     --form "deskripsi=Website Topup Game Termurah &amp; Terpercaya"\
-    --form "favicon=@/tmp/phplsrDSv" \
-    --form "logo=@/tmp/phpcnK9E0" </code></pre></div>
+    --form "favicon=@/tmp/phpU46AIP" \
+    --form "logo=@/tmp/phpdIS7r1" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -2139,7 +2143,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto favicon config (PNG/JPG, max 2MB). Example: <code>/tmp/phplsrDSv</code></p>
+<p>Foto favicon config (PNG/JPG, max 2MB). Example: <code>/tmp/phpU46AIP</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>logo</code></b>&nbsp;&nbsp;
@@ -2151,7 +2155,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto logo config (PNG/JPG, max 2MB). Example: <code>/tmp/phpcnK9E0</code></p>
+<p>Foto logo config (PNG/JPG, max 2MB). Example: <code>/tmp/phpdIS7r1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>deskripsi</code></b>&nbsp;&nbsp;
@@ -2188,8 +2192,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "title=Reiyan Store"\
     --form "short_title=Termurah &amp; Terpercaya"\
     --form "deskripsi=Website Topup Game Termurah &amp; Terpercaya"\
-    --form "favicon=@/tmp/phpi21Oyh" \
-    --form "logo=@/tmp/phpIWKJv7" </code></pre></div>
+    --form "favicon=@/tmp/phppBViz8" \
+    --form "logo=@/tmp/phpke5b8D" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -2351,7 +2355,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>nullable Foto favicon config (PNG/JPG, max 2MB). Example: <code>/tmp/phpi21Oyh</code></p>
+<p>nullable Foto favicon config (PNG/JPG, max 2MB). Example: <code>/tmp/phppBViz8</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>logo</code></b>&nbsp;&nbsp;
@@ -2363,7 +2367,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>nullable Foto logo config (PNG/JPG, max 2MB). Example: <code>/tmp/phpIWKJv7</code></p>
+<p>nullable Foto logo config (PNG/JPG, max 2MB). Example: <code>/tmp/phpke5b8D</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>deskripsi</code></b>&nbsp;&nbsp;
@@ -2517,141 +2521,102 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                <h1 id="deposit-admin">Deposit Admin</h1>
+                <h1 id="deposit">Deposit</h1>
 
     
 
-                                <h2 id="deposit-admin-GETdeposit-admin">List Deposit (Admin)
-Mengambil semua data Deposit secara keseluruhan (Global) untuk dashboard admin.</h2>
+                                <h2 id="deposit-POSTdeposit-callback-payment">Callback Payment Gateway
+Endpoint untuk menerima notifikasi status pembayaran dari Midtrans/Duitku.</h2>
 
 <p>
-<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
 
-<span id="example-requests-GETdeposit-admin">
+<span id="example-requests-POSTdeposit-callback-payment">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/deposit/admin?id=16&amp;search=architecto&amp;limit=16" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/deposit/callback-payment" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/deposit/admin"
+    "http://localhost:8000/deposit/callback-payment"
 );
 
-const params = {
-    "id": "16",
-    "search": "architecto",
-    "limit": "16",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
 fetch(url, {
-    method: "GET",
+    method: "POST",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
-<span id="example-responses-GETdeposit-admin">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6InRHRDkvaDVIWTdDWlpobWRQYUV2YXc9PSIsInZhbHVlIjoialJQSTU0K2RIbW9FWFdCZlRXWEg3Z285bkRqYldsWGdMN3U3bEhHVXlvcFZ4NHdDZnA3NnFlVDVnRFR2M1dFd0lpRlgxSU1YS3RVajMyNUtVZ2pOaDdlSGtNNXNqZDZWOFVDUk40c1VqQmZuWWtMSVZqeHNWUDBBSzFlK0NsVGMiLCJtYWMiOiIzMmM0OTJmZmI2M2RjZTE0YmYyMjZmOWRkYjhhODdjMGI2MDQyYzI0MWU2NTU2NTBiYzVkODk2NjRmNWRmMmE3IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImJIeE9yMTVZT1MzK1VSc0hxK0xzM1E9PSIsInZhbHVlIjoibVNnY0VzN1UwTGJVQ1lubHNuNWh1RWNod2trOVJRS2RqTS8zdERpZmpLbWc1UndXM1pUM1RaY1phMzJIRlB1eFk0NEhnVVRmT1g0Uk1yWkhaVDkrSEc0cVJ5TkFHNjJGYTkzM1J1aTdGRmc1bWdteEM4ZGRFUklhNUU1eEtLTXciLCJtYWMiOiI2NjlkMmE5MDkyODI1NTFlZjc2N2ZhNGUyYzIxOGFiZTY4YmI0NWU1YTgwN2U0YjhmYjM2OGNkOThkNGRhZTYzIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; httponly; samesite=lax
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETdeposit-admin" hidden>
+<span id="example-responses-POSTdeposit-callback-payment">
+</span>
+<span id="execution-results-POSTdeposit-callback-payment" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETdeposit-admin"></span>:
+                id="execution-response-status-POSTdeposit-callback-payment"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETdeposit-admin"
+    <pre class="json"><code id="execution-response-content-POSTdeposit-callback-payment"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETdeposit-admin" hidden>
+<span id="execution-error-POSTdeposit-callback-payment" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETdeposit-admin">
+    <pre><code id="execution-error-message-POSTdeposit-callback-payment">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETdeposit-admin" data-method="GET"
-      data-path="deposit/admin"
-      data-authed="1"
+<form id="form-POSTdeposit-callback-payment" data-method="POST"
+      data-path="deposit/callback-payment"
+      data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETdeposit-admin', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POSTdeposit-callback-payment', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETdeposit-admin"
-                    onclick="tryItOut('GETdeposit-admin');">Try it out ⚡
+                    id="btn-tryout-POSTdeposit-callback-payment"
+                    onclick="tryItOut('POSTdeposit-callback-payment');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETdeposit-admin"
-                    onclick="cancelTryOut('GETdeposit-admin');" hidden>Cancel 🛑
+                    id="btn-canceltryout-POSTdeposit-callback-payment"
+                    onclick="cancelTryOut('POSTdeposit-callback-payment');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETdeposit-admin"
+                    id="btn-executetryout-POSTdeposit-callback-payment"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
             </button>
             </h3>
             <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>deposit/admin</code></b>
+            <small class="badge badge-black">POST</small>
+            <b><code>deposit/callback-payment</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETdeposit-admin"
-               value="Bearer {YOUR_AUTH_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
-            </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETdeposit-admin"
+                              name="Content-Type"                data-endpoint="POSTdeposit-callback-payment"
                value="application/json"
                data-component="header">
     <br>
@@ -2663,195 +2628,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETdeposit-admin"
+                              name="Accept"                data-endpoint="POSTdeposit-callback-payment"
                value="application/json"
                data-component="header">
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="GETdeposit-admin"
-               value="16"
-               data-component="query">
-    <br>
-<p>ID Deposit untuk detail admin. Example: <code>16</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>search</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="search"                data-endpoint="GETdeposit-admin"
-               value="architecto"
-               data-component="query">
-    <br>
-<p>Cari berdasarkan Order ID. Example: <code>architecto</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="limit"                data-endpoint="GETdeposit-admin"
-               value="16"
-               data-component="query">
-    <br>
-<p>Jumlah data per halaman. Example: <code>16</code></p>
-            </div>
-                </form>
+                        </form>
 
-                    <h2 id="deposit-admin-DELETEdeposit--id-">Hapus Deposit
-Menghapus data Deposit berdasarkan ID.</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-DELETEdeposit--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/deposit/architecto" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/deposit/architecto"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-DELETEdeposit--id-">
-</span>
-<span id="execution-results-DELETEdeposit--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-DELETEdeposit--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEdeposit--id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-DELETEdeposit--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEdeposit--id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-DELETEdeposit--id-" data-method="DELETE"
-      data-path="deposit/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEdeposit--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEdeposit--id-"
-                    onclick="tryItOut('DELETEdeposit--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEdeposit--id-"
-                    onclick="cancelTryOut('DELETEdeposit--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEdeposit--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-red">DELETE</small>
-            <b><code>deposit/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="DELETEdeposit--id-"
-               value="Bearer {YOUR_AUTH_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="DELETEdeposit--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="DELETEdeposit--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="id"                data-endpoint="DELETEdeposit--id-"
-               value="architecto"
-               data-component="url">
-    <br>
-<p>ID Deposit yang akan dihapus. Example: <code>architecto</code></p>
-            </div>
-                    </form>
-
-                <h1 id="deposit-user">Deposit User</h1>
-
-    
-
-                                <h2 id="deposit-user-GETdeposit">List Deposit User
+                    <h2 id="deposit-GETdeposit">List Deposit User
 Mengambil semua data Deposit milik user yang sedang login.
 Bisa difilter berdasarkan ID Deposit untuk detail, atau search order_id.</h2>
 
@@ -2910,7 +2695,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IngvTzgxb29tbGlvWjI3TmNoWnd4WEE9PSIsInZhbHVlIjoiTVJPQWtidnNLeGFWcVBOY3l5SnptYjNYZHY1enhQbjlsSHJud2hpWktRRi9qVWZqVXFSd1V1M2VkRVBINTVPMDViejUrM09ReUJZcHo5ZXlLbis2alRITGpsN1NNWFRNTnlXUWpTRjRnSS9oWjV6emZMQ0ExZ3d1dDBQMmNid3IiLCJtYWMiOiJiMWRjMjNiZTM5OWVjNGY1NzU3YmQ3ODUxNTQzN2E2NGUxNDI2MDAwYzFlOWYwMmMzOGY1YTYzZjMwODZiMmVkIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImxwV3Z2aktFekQ2d2dSeksxWGhZeVE9PSIsInZhbHVlIjoicGVJK0hacmo5U3E3NXRMNVU2NHUvc0YzQTR6Nm9OeStCTklOTzVGYm94MVNoaGIwREJXM0JqaE5uYXBEMEZYYWhoZ0l2YnFJTXltOE9iUm5OSUFCYXRuNE5mRFZOcHRsbGtONDAzL21OWTFOZHJoaldsc1dtbVJPamxIUUNwZVciLCJtYWMiOiIzNDJhNDJlN2RhYjBhNWVmYjRlY2YwMGE4ZjIxNDJlMTM5NjM0YzRlNzVmZDEzNjg2NjU3YjQ4ZDkxODI1MjAxIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6Im5nSUpnMlBKRTF6VW9BY3FBUm1scXc9PSIsInZhbHVlIjoiS0lUMzYvK3hEU0UzLzNiejZneEUwQndiK2hoM2VjTDJLWUcyUi9RTTlzZmV4cFNVd2c3cUFtdThBNEJaZHl0dXNLQ3FTYyswVHNaRzBNOTNLYkZCSUhzTk9kSEJscVJtYkpqSU9URmxqVmNtQWc1ZlUzQXk1dXNoMTZPMitGMkoiLCJtYWMiOiJhZDE3YmE3N2I4ZGUwMDM1ZWM0ZTJmZDNlZGJiOTFkOWY1ZmJmNDAxNzgwMzRkNjMxOTg4ZWE0Mzk5YmExZGRlIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Ik50eWJuOWZMek1IeURRamtzRVRrcUE9PSIsInZhbHVlIjoiTS96UWFNektraGV2VzEySjN0c2lLL25Mai85VFRlemxiLzJ4Z1BuTmQ3MDFxV2hQOWYwVm9TQjZzWnJhOElJSzFteXBoeTNtYjNSYjRndHhCOXpZVTJNSUhCVFQvd0VtSnBwMENXMkFHUXRxckJjb2dDY3ZsRlliWWJET2E0bTkiLCJtYWMiOiI2ZTYxMmNmY2U2NjY3MDNlZTczYTk2MTMyOWI2MWEyZmQ5YzA2YTkwMDQ4Y2I0ODVmYWYyZmRkNjQwY2RlODNlIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3052,6 +2837,332 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
+                    <h2 id="deposit-GETdeposit-admin">List Deposit (Admin)
+Mengambil semua data Deposit secara keseluruhan (Global) untuk dashboard admin.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETdeposit-admin">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/deposit/admin?id=16&amp;search=architecto&amp;limit=16" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/deposit/admin"
+);
+
+const params = {
+    "id": "16",
+    "search": "architecto",
+    "limit": "16",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETdeposit-admin">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+set-cookie: XSRF-TOKEN=eyJpdiI6Imp0WlVMN012amFGeExGRTZrSkRQSnc9PSIsInZhbHVlIjoiV0dTZUZmZjRzc1JZUnRZWWg5eUNUeHl1V3NDdWt2R3FvMGF0bG9oUGtoNGxBS0UyK3MvNTFnT1hPYWhYS3hRQkdHdVBVVHNGTFRhc3ZxSW5heC93MDhBbG9qaEU5bUp1SDdlRE1xTWRaZjZHU2ZYSU54dk95T3JQK3oyWTdhMkwiLCJtYWMiOiJlNmNkZTFmNWEzYjQzNTgxNmUxZDM1MDk2MTNhYzA3ZGI2MmVjNjVlNWJjODY1ZjRjOTIyZTk1YzNiZjJiMGUxIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Im9lbkNCdWFlUUE4NE9wVTVWVlNvemc9PSIsInZhbHVlIjoiTVRkMk5uNzMzYkZvd0NkTC9pNGIzTXV0dGxlN1ZmT1NIb0MraG4yRXp2anhHWUpnUDllaW9XcWJLZSsyNjVDNWJuUHhaRUgzcFVQdy9IeStSaWFBelljc29Ic1pRZXZFRGc1NDBkWjlpek9NREZhTy9CRWNGNS8za3l6NGlxaWciLCJtYWMiOiIwNzhmMzVkOTc1MWUwNTJkMzg1N2U3YjliYmM4ZDc2ZWQ5ODliZDNkMTE1MGZmYTY0YmJjYTE2OWFhZDU5ZThmIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETdeposit-admin" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETdeposit-admin"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETdeposit-admin"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETdeposit-admin" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETdeposit-admin">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETdeposit-admin" data-method="GET"
+      data-path="deposit/admin"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETdeposit-admin', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETdeposit-admin"
+                    onclick="tryItOut('GETdeposit-admin');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETdeposit-admin"
+                    onclick="cancelTryOut('GETdeposit-admin');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETdeposit-admin"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>deposit/admin</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETdeposit-admin"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETdeposit-admin"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETdeposit-admin"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETdeposit-admin"
+               value="16"
+               data-component="query">
+    <br>
+<p>ID Deposit untuk detail admin. Example: <code>16</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>search</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="search"                data-endpoint="GETdeposit-admin"
+               value="architecto"
+               data-component="query">
+    <br>
+<p>Cari berdasarkan Order ID. Example: <code>architecto</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETdeposit-admin"
+               value="16"
+               data-component="query">
+    <br>
+<p>Jumlah data per halaman. Example: <code>16</code></p>
+            </div>
+                </form>
+
+                    <h2 id="deposit-DELETEdeposit--id-">Hapus Deposit
+Menghapus data Deposit berdasarkan ID.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEdeposit--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/deposit/architecto" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/deposit/architecto"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEdeposit--id-">
+</span>
+<span id="execution-results-DELETEdeposit--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEdeposit--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEdeposit--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEdeposit--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEdeposit--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEdeposit--id-" data-method="DELETE"
+      data-path="deposit/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEdeposit--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEdeposit--id-"
+                    onclick="tryItOut('DELETEdeposit--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEdeposit--id-"
+                    onclick="cancelTryOut('DELETEdeposit--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEdeposit--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>deposit/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEdeposit--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEdeposit--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEdeposit--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="DELETEdeposit--id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>ID Deposit yang akan dihapus. Example: <code>architecto</code></p>
+            </div>
+                    </form>
+
                 <h1 id="kategori">Kategori</h1>
 
     <p>API untuk mengelola Kategori</p>
@@ -3109,7 +3220,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6ImV2T0t1YUpEVVNFNzdyV0JuRUg1Z0E9PSIsInZhbHVlIjoibFZmQ1hPQ3ZERUg1eG5ndS82OFNiUjRMSFRWckY2aFFxSWI3eUUxbThKQzZLVHJWbkdwOXgwQW9rQmtwWHVrLzZMcFUvMkl0RjUxVjJZekF4NUROMkJmZi9HSno5TzZ4U2tnSFc0SWxpZEV3RFdxTkNObkpkSUtDMXZ4YlRDM1QiLCJtYWMiOiJhMDdmMDcwNzljNTE2NDZmNzNjODQwZTZlYzJhMmEyZTVlMjhlOThiZTVjMmUwZWFiNDU5NDFhMDE0ZTA2YWJiIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:24 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkkxNW51U29BYi8wZHhuRUorM29OVmc9PSIsInZhbHVlIjoiVUt1WDV1dHViU1FEU1FVQzhVZVdjbTk3YkIwSkliTDFOR3RUTlF1a29JYUN6eXltcnFwbmNLUElWTTlQUjFMQXFTdGxBQjNLbGluUTV4bmkvNlBMalFZZGxIV3ZRYTFxbmVvNmF3UUZJZHhhSk9BL1Z0WEl6a1RmVERhbzNvTVoiLCJtYWMiOiIyOTFhZGU1NDFjZTljMGMwMDE3OTQ2ZGQwOTQ3ZDlmYTkxNDNiYjJkMzZkNDc5ZWJmNzBhYTk2YjdmYzZjNTczIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:24 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IjdMZ2lDWFluUlAvVDlPNGMwaWUrM0E9PSIsInZhbHVlIjoiejJxUWkrOHg2RjQ4RjRCeVBFSnF4Wk51MWdoNHI3QlRYaFBjVTFhRDE3ZlFpckpWYWdiVHpaZS94b3RDVXJ1TjhlbFhFQzdWMDVQN2ZzMDNDaG1obURBUThNckJyOUtKclM3amF0ZUxYU1o2RW9wQzBHeVpwaTQ2Ykl0Sll4MU4iLCJtYWMiOiJlNGIxZmE4M2NkOTQzMjJmNTE1Y2RiYzYxMzA0NzM0ZmQ4ODdmNThiODA2N2ZkZGRkMTQ3MTdlYWM2Y2VjZDc3IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:50 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImovTHE2YlY0ZzJBbEMwaTJneVRhMWc9PSIsInZhbHVlIjoiMFpVYnZxWEIwNm5QQWwxM0xvQnJKa0lIMWVaQ2xOaXNScnd1WmNUS2kwYjFka3Z4TjM1cmpFcjZaekhRWlBZQ3hRVytFLzFoaEdSbVJwLzRlNVV0Qkk5b0dieHl6WHk3RXMwejVtZllCSGs0cUFFbTZ6QjZ3bS9qc0R3NnhBYkciLCJtYWMiOiIwOTdiNGFiMDgwNzJhMzQzMDc5MmNkNDlkYWY2NTMzZTIxOWQ0NWNkMGZmYzQyNmFlOTM4NzYzYWI0NDhhYjQ0IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:50 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3272,7 +3383,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "name=Game Top Up"\
-    --form "image=@/tmp/phpgJJ81h" </code></pre></div>
+    --form "image=@/tmp/phpoTfRGt" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -3406,7 +3517,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>nullable Foto logo kategori (PNG/JPG, max 2MB). Example: <code>/tmp/phpgJJ81h</code></p>
+<p>nullable Foto logo kategori (PNG/JPG, max 2MB). Example: <code>/tmp/phpoTfRGt</code></p>
         </div>
         </form>
 
@@ -3429,7 +3540,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "name=Game Top Up"\
-    --form "image=@/tmp/phpbPHVm4" </code></pre></div>
+    --form "image=@/tmp/phpdUCd62" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -3576,7 +3687,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>nullable Foto logo kategori (PNG/JPG, max 2MB). Example: <code>/tmp/phpbPHVm4</code></p>
+<p>nullable Foto logo kategori (PNG/JPG, max 2MB). Example: <code>/tmp/phpdUCd62</code></p>
         </div>
         </form>
 
@@ -3777,7 +3888,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6Ik54OCtKbXd1aWtVTG1OMVFUTU9NOVE9PSIsInZhbHVlIjoiMCtIaGJTSDBSRXlzZ2NVNkx0L3RXWmlUN2VPK2hCL0w5Z0RxY1FuaGtLV2xBS09sTnhqZ2JieWVLUkROeHVDam56NlJGK1ZtSzZXdVRPNFZDWThDNUpPc2kyMGdSbTVRZWg2VjlOaTN4Mm13UGxvRStueGlLaHFaS0JOYXVtSkIiLCJtYWMiOiI1YTVmYzVlOWFiYThlNzNiYTQ1NWVhZjA3YzFlOTNiNjUzNjVhM2E5YzMzNjU2Y2JlZjM3OTEyN2U1M2E5ZDBhIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:24 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlpHb00vLzgyR3hZT25UU1hpcld4OUE9PSIsInZhbHVlIjoiaEx1ZFkzL1k1aWVobFd3Z2t5RkJ5cHBLZDFWWHBRTnkxakt1MG1RdHp1NmdzZ0Z0dzhPN0QycHZqUEhXWHU4bExQZE82ZnBOZEZ0TVI3c1gxL2JCWjVzOXV6WUdabTRFNlhWVm5rR3FOQlNmbWhDK3dKdjNSbnd6bENIVENnQWciLCJtYWMiOiJhN2EzMjA2MzNjNjFjMTI3MGM1NGU0NjA1Y2MxNDY5OGYzNDk2YTg3MTNhZmJhMzQ2NDczYjRhOTM2NGRjYmY5IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:24 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6ImdNMy9FQ21LTGR2bE9pYmt4S0NXWXc9PSIsInZhbHVlIjoiOVZnaG5RaFJpMUI0MUpxZCt2dDAyMklPUm1RSkNTV2xtV2tubU92VWM4TGx0R3VYM0dGZ0c5ZE1RcGtsUDU3eEpHR2JycUhqRjgxQWEzbEdja3MyVUZ4Ynh1TUpQT2FqL0RLTk1kdS8zSEtoZ3dMb1JLUDl6V3BKd29kaDZoNk8iLCJtYWMiOiIyMmY3ZmEyNTg5OWJmMWVkY2IzM2EyN2M4NWQ1OTVhYjU4YTgzZjNkODE2MjdiMzU5NjI5YzhmMTJiNzJjMDcxIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:50 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkJkVnQwNUNCRzZlYk1pSGR5THBIdmc9PSIsInZhbHVlIjoidEEvbVI5ejY5UzJwcmcwaUMxZFB0WjRUY0F3TXE5SzU0UmFGRHBUZktud2ZGTkFHRksrbFhMOUdPMjk4N25jNlFpVGh6RXNQWHpDV2JhaXpQNWdBZ0trMXowVGRsWWpRMGJPSWJGd2R6VkdRZlFuZWpxaEpOWmlFV0JrWk02NGoiLCJtYWMiOiI2YTAwNjEwNTA2ODg4OTRhYTQ2NmU0Yjg5ODViMTJjMDg0Y2E5NTExMjIwNjllYmQ1MWZlZTYwYjJiMzhmZjRlIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:50 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -4093,7 +4204,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
 Endpoint ini digunakan untuk mengambil semua data Payment Method.</h2>
 
 <p>
-<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 <p>Cocok digunakan di halaman pembelian produk.</p>
@@ -4105,7 +4215,6 @@ Endpoint ini digunakan untuk mengambil semua data Payment Method.</h2>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:8000/payment-method?id=16&amp;search=Mobile&amp;is_active=1" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -4124,7 +4233,6 @@ Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -4138,7 +4246,7 @@ fetch(url, {
 
 <span id="example-responses-GETpayment-method">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -4146,11 +4254,16 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6ImdzNEx5UUZac1FSZEpVY3RoR3pLUVE9PSIsInZhbHVlIjoiSFNnTVp5TnhGak54T1dGamtXaGVhWEgyUVg2cGk0ZW82empnYVF6NVpCQ2FZOEoxQXBvUkR0Nkhjdi9ISFVua0JmZXpEUTljOEZYajM0STZhUUhWMHB1Tjl3V2dabnJ1eXZ2MU9GaWJESEswU2xYQTZXM3U5NDEvcW1vSjkxMFUiLCJtYWMiOiJlOWVlNDA1YTU2MTAxMDBjMDBkNzM0MDU0Y2U0YmFjMjBkNDI3MThlZDAxMjMzYWZiMDI0MjFjOGY1ZDYxNmIxIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjIxZmpidS9SdUhXa1hZTUJjbzFJVEE9PSIsInZhbHVlIjoiVUU4M2luZGtyTDc1aVhMOUxkY05nbFlKOEpSSDVJV1BKMndReEpENVYxRUs0NTlFZzBDeE9nWmhqdGR6Yk9HWXZVNm1aSGJuWEM0YW9ERS9OYldxY0huSkIzbkszR3ZnM2daYXFzd0tsQ0JyUjZ5NmM3V1YzTHZ6eDFnREZtbVIiLCJtYWMiOiI5YmQxODZlYTI1ODUzZjZlY2I2NDc4ZjUyODViNzg0N2NhZWRmNDQ4ZTZhZjM4NjBlM2MxZTNmYTVjMGRmMWU2IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IjJaUXBncjNadHkyRFFwcU9QQnZJUkE9PSIsInZhbHVlIjoiMWlURHFaYmpacEVFYyt4alhEekkvMUZnV211YjlDS3lqOU9wcURCSTVjaEZPTjh3dFk1Tld1OHlpTnk4eHF0eXM3TlpJVjdqZFRIUWV5Y0hDYlFZNVRCdVBydGRHbFVYVGJkSUw3QWVxSEZwSnZQZ1pQV0h6c0Z6WTlSMFkyUDMiLCJtYWMiOiJmODFmNDVmNjZlMTk1Njc2NGFiOTY0M2U5ZjFlNDUyNjI5NGUzMDAzZWI1NGU2NDUxMTg0ZmZhMzM4ZGVhOGRkIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImJRN1MzL2pCb0U4K3h5aEZrNFZ1RkE9PSIsInZhbHVlIjoiYituUUxOeEdaalo5bENOT3ZHSHpORFpZV3hIcHhBM2NVaGpsbHh3UGlwYlRQZWFaUmhBakVWZ0JDNXlRd2dPdzJId1lxc00vaE5iRlVnbEg3SWJ0NDJPdDFXR3ZRQUVpZ1ROdk01eDNMTElzdW1oN3U0d1J3WWFJeTVHWlB0TWkiLCJtYWMiOiI2N2IyZWVkODUxOGQyNTA0YzFmNDNmMDBlNzBkZmMyZmFkMzFmNGMzNDVhMGEwNDZiNDhjNDIxMjcxNzFmY2VhIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;meta&quot;: {
+        &quot;code&quot;: 200,
+        &quot;status&quot;: &quot;success&quot;,
+        &quot;message&quot;: &quot;data Payment Method berhasil ditampilkan&quot;
+    },
+    &quot;data&quot;: null
 }</code>
  </pre>
     </span>
@@ -4171,7 +4284,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 </span>
 <form id="form-GETpayment-method" data-method="GET"
       data-path="payment-method"
-      data-authed="1"
+      data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
@@ -4201,18 +4314,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <b><code>payment-method</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETpayment-method"
-               value="Bearer {YOUR_AUTH_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
-            </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
@@ -4310,7 +4411,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "gateway=duitku"\
     --form "fee=1500"\
     --form "is_active=1"\
-    --form "image=@/tmp/phpYgnuJM" </code></pre></div>
+    --form "image=@/tmp/phpUQbKIF" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -4519,7 +4620,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phpYgnuJM</code></p>
+<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phpUQbKIF</code></p>
         </div>
         </form>
 
@@ -4537,7 +4638,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/payment-method/architecto" \
+    "http://localhost:8000/payment-method/16" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
@@ -4546,12 +4647,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "gateway=duitku"\
     --form "fee=1500"\
     --form "is_active=1"\
-    --form "image=@/tmp/php72WqgR" </code></pre></div>
+    --form "image=@/tmp/phpTHM9my" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/payment-method/architecto"
+    "http://localhost:8000/payment-method/16"
 );
 
 const headers = {
@@ -4664,15 +4765,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id"                data-endpoint="PUTpayment-method--id-"
-               value="architecto"
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTpayment-method--id-"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the payment method. Example: <code>architecto</code></p>
+<p>The ID of the payment method. Example: <code>16</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -4755,7 +4856,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/php72WqgR</code></p>
+<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phpTHM9my</code></p>
         </div>
         </form>
 
@@ -4773,7 +4874,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/payment-method/architecto" \
+    "http://localhost:8000/payment-method/16" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4781,7 +4882,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/payment-method/architecto"
+    "http://localhost:8000/payment-method/16"
 );
 
 const headers = {
@@ -4885,15 +4986,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id"                data-endpoint="DELETEpayment-method--id-"
-               value="architecto"
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="DELETEpayment-method--id-"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the payment method. Example: <code>architecto</code></p>
+<p>The ID of the payment method. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -4955,7 +5056,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IlQwWTRsaUFwY0hoRGpieWE1VFZ4dVE9PSIsInZhbHVlIjoib2tEZ2MyVFpmMnF1ZVB5aDN4dHJxTGJOejZVQXprdG9RTkNTdzQrMWhPamJnUG9EQ2FEMjRYNGQ2QzRzNXNhc3BKTm1FcldTOUlUaGN1NGM0ZHYxZEl2cFVkSmIxcUpRRUVKSWZXbzZsWGVCaW1VakZKYURZN2EwT2V2ZmxhbEgiLCJtYWMiOiI1YTUwM2MxYWMwNTVhNjc4MDE3MTIyMTIzMDJlNDg1MzEyZDk3NGVkOWUyMjM0ODY4MGFkNDRjYTVkMzQxM2NjIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:24 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IklrYmxRb1JvTFpoM0dqTVI2U3VJSnc9PSIsInZhbHVlIjoiS3pUS0RiQXEySXBDT1g4elVmMWtkRURPdlNpM0ZWR04veFZJL1VqZm5nZjlxWnEwZXNmUDdTNkZsa29rUTRqMXNwek9pVXNDeU1tL2grZnJtTklySm1xbVFOVmE2dEc5Zk1qU2cySktlczVsck5BZDNjeE51WVQzbUtvVFBOZDgiLCJtYWMiOiJjOGMwYTEwY2MzNDdjM2RhNGY1M2RiYTgzNmFlMDUxZDU3MWEyMjllMzhiMmExNmEyYjgxY2Q5OWI4MzVmYjZhIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:24 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6Imc2VHVzQms5Ryt3RGxkazFOeDdKdUE9PSIsInZhbHVlIjoiK3ZwajFvTS9kYkFHeVhNUGpWOHZXVUFiRnpYZXdyZWdkRk5iRDFqWVduY3hDWXVmR3pwdjlnRlRyOWJuQzFpMU16c0V4UFdEVExrSjhrWGVFalE5OUc5c3hUbDRubkJyS3FWYVFGYXNwTWs4ek0xTGR6cnZ2ZG1UdzRQZi90WUoiLCJtYWMiOiI5ZDNmNGQzMWZmYWFkZjQyNjI5ZTM0YzlmMWQxNWQ3MTZmMWFiODlhMmEzMGEyYTc2NTg4N2YzN2RiOGVhMzBjIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlZ0WjZhdzZIODlES2RQQUhPa2RaL2c9PSIsInZhbHVlIjoiSlp3aFEvSXc1c2Jkcm55Z3JLdVNjUE1NZldKbkpUV3MrWktRaDkzYmtWd09FeHBDMTA2VGRjcTlkMkN6QVVFWVRtYVFwaDM1Vzg0aWpDejF4Nk0zc0NROGNXNk04d1JtVG1wUzE1VlBzOTNJSy9ham5id0kvN0krRjhoR2RsT2giLCJtYWMiOiJlMGUwM2IxNzBhYzRiZGY5OTgwOTgxOGMwMzcyYzJiYmYzZTUwMWE0NTNjOWU2OTJjYjU4M2ZiYmI2MmJhYzZhIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -5124,7 +5225,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IndONTdNVzRQMVhuVVQ3VlVkazIrd1E9PSIsInZhbHVlIjoiakk4SGk4QVFsY3dQVFNrMm43N0VyeFRCM1grU3lPNE9FYlZhZTBCU2R4a2I3NUdTYUQ5MkdER0U5NmczVy9IUFpnbkVLWUx2dS9Cb1drWk9GbzRYd0JmR3doZzI0ZFZTR1J4b3VkVUgzS05UWDJSaTliSFZtdkJYR1BFY1h6WGEiLCJtYWMiOiJjYWZiYzBlMmEzYWE3MDUxMWVhYjRlMTdhN2NkZTEzNDNkNmQ1MjFkYTgxYjY1NjA0ODZjMzE2ZDFlMWU3ZTFiIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:24 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Im0yMFVpMkFkUHFKcUdNSEI2QlI0MWc9PSIsInZhbHVlIjoiTEtDSkg0eHcvdmhEZlpmM0t2NjlwTitRMEFqTEVCb01jV0NVYjAwemM3ZFFmK2hqUFVOUjVKNzVjZ2QrVkp3L0tJTnNGMWtHdEpDYnVFS29YcVFTVndlRlBweFFsUEtNVEFNVGttTGZuTEJHajhnV0FUTVBJbjY0UGlkUjJNR1AiLCJtYWMiOiJhNWEwN2MwNjI2NDQyNTM3MDdjNjZhYmY1NDQ5NWZmNmRkMjliMzk0ZTk5ZWE5YWE0YWZhZTIxZDQ5ZTY0NWQxIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:24 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IlprckhNdEV3SEdMRXVPZ3BOT2NBMXc9PSIsInZhbHVlIjoiS1ZIY0xqTlU4ZEVPL25Ld1RNUENWTzNQV1NabjdOWDFsTGZYTDlEWkk5N2R0NFVpRWRsdnNzN0N2Vytrcm1Qd3NYOFR4U2MvQ0FZalBiK1p5YXRKc050cGg0UzdMSU1LbVhtTCs0OHgxMW90TUJTSjUvNlAxT0JTZDZ1NTI5QWoiLCJtYWMiOiIwNjFmNDg1MTVmOTA2NzdhNDFhNTFlNmIwNzVkOWE4ZjJlYTQ5YTg5YTU5MGYzOWNmODcxOWI4NThhZDQwMWYwIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkpxbS95ejRUeStvR0tmaG5wWXg3SkE9PSIsInZhbHVlIjoicnB5c1hMY1pxUFJrME5HVjZ4QTIyUm4wVFpEL0dwSjZvTFdoMXlLTjE4V3NtbzBWSjh1WnUyTkxxN0U2QlhkaENMcHBJODgxdmJNM0xNWmFHa1NZcEFlQ3VROFRKYVRRSjJYUCtlcSthTVBQOEhSbVB4dWxTamU5NlNzcUVZaUQiLCJtYWMiOiI2MmMwNDgxNjFlYTUwZDk4ZWYzOTdkNjJjNGRkMzM4MjRjOTg1ZDk2MWRlMGFhMGEzMGZlYjU3NmI5MWVjNzc5IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -5505,7 +5606,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6Img0ZFV0aUpBdEZ4Ulc0bHMycTZhQ1E9PSIsInZhbHVlIjoidm9CeitlMCtSQmpCd1ViQ2xXTHpiV2N0SlZtMVpzWTdGVFgwUzhKd3lDbXBQRHJUWDRHT2hXdXRjY3hDanQrOERVRkEwMlJ1c1FlYWR2MWdrQ1NyT0x3UVM3VXdONDZpVmtvQzIwM0dKbjVNMTNTWVIyZEVXa3ZKUjVneCtPZUYiLCJtYWMiOiIyYzEzZTNkYjNhMzI4MTBiNmQwNTc2YmRhNDE4Mzg3Y2M2MzExMTY0OTNhODRjZDdjNmEzNjBiZjlkM2UzNmM4IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:24 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImdXRzd6aEIrU3JQSlBTOS9pWVFKYmc9PSIsInZhbHVlIjoiSEEvVVNod2M5TkdCL05uVjVnQnhZbFl4aE01ZUlCQXJCRmlwVHZuMmhzNkMwWHNlRDJ5c3c4endrLzF3clBoWVJFVFl5NHhPM1ZRWUphaXIwcXRIUEhHWFpBVkpaczFqaVFyN3RKYzVWTDhpZnFjSytUaStKTHd6cGJsWTBXY2MiLCJtYWMiOiIwODllMzgwOWRkMzE1ZmQ1OWM0ZjFmYmUxOWRmOTIwNzU1NWY1MjUzNzBkZjYyNTEyMDA0NDNlMjE2ZTgxYWE5IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:24 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IjhNY1BRRHUwdFp3L0RpWThDVHA2NlE9PSIsInZhbHVlIjoiTFZVTkw4Qm5kalBIRDRZaHVsYUxOdm9QV1p3THBiT2FzWm5hUzFlTHRnc05hQVNkOGczaVZIV3JzNndHdDVUYlVncTRaenoyLyt6ZkdzdnlEa2hCRENnVUNEdGtRNmI4Zy9FZGRodjByM2lIc3VpR1NSdCtQYk9zaEFYS21IV1UiLCJtYWMiOiI4YWVkYjhkNTAxZjYyZjQ5Njc0YzRlYWRjYjExNzBmOGU4YmYzZWM2OGJhZDkxMTU2ZTJkMmQwNmY0OTFhOTk3IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkJEcENac29veW5wS0hnWnNJbFprM0E9PSIsInZhbHVlIjoiZ0tQbDNxWDNJbS9SVmNKVzNuRko1V1RuSEt4N3B0SmQySUNUMjJBNlNROEtZN3loaUszUHplSFowd2wxODRLYTgzRVdKUUg2OGlJN0o2OU56QlgvL0J1b2tQbjJkMHk5ZmxhdmI5Sm5sYTRQbWZTaUpyZlRUQ3RRN2hjRW5TMS8iLCJtYWMiOiI5MTljYjQ1YjU0MWI2NmI2NWExZjZlZWY0MDZkNDc1NzViOGNhY2NlYmY1MTk3ZTg0NTcxNWM1NmVlZmNhMTI2IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -5640,8 +5741,8 @@ Pastikan upload menggunakan format multipart/form-data karena menyertakan file i
     --form "is_check_name="\
     --form "faq[][question]=Bagaimana cara topup?"\
     --form "faq[][answer]=Masukkan ID dan pilih nominal."\
-    --form "logo=@/tmp/phpK0hxSy" \
-    --form "banner=@/tmp/php6y01vp" </code></pre></div>
+    --form "logo=@/tmp/phpPTmSBZ" \
+    --form "banner=@/tmp/phpdgtNHp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -5844,7 +5945,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto logo produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpK0hxSy</code></p>
+<p>Foto logo produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpPTmSBZ</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>banner</code></b>&nbsp;&nbsp;
@@ -5856,7 +5957,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto banner produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/php6y01vp</code></p>
+<p>Foto banner produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpdgtNHp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_check_id</code></b>&nbsp;&nbsp;
@@ -5992,8 +6093,8 @@ Pastikan upload menggunakan format multipart/form-data karena menyertakan file i
     --form "faq[][id]=architecto"\
     --form "faq[][question]=architecto"\
     --form "faq[][answer]=architecto"\
-    --form "logo=@/tmp/phpsVpDkH" \
-    --form "banner=@/tmp/phpCG1EQ2" </code></pre></div>
+    --form "logo=@/tmp/php4IAKdw" \
+    --form "banner=@/tmp/phpMllC7q" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6199,7 +6300,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto logo produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpsVpDkH</code></p>
+<p>Foto logo produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/php4IAKdw</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>banner</code></b>&nbsp;&nbsp;
@@ -6211,7 +6312,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto banner produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpCG1EQ2</code></p>
+<p>Foto banner produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpMllC7q</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_check_id</code></b>&nbsp;&nbsp;
@@ -6534,7 +6635,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IlRQdnYwNC9CWTJHb3RTY05aa3VoQXc9PSIsInZhbHVlIjoiMEpvMitPWEt5ZWlHV1ZEeTk1dEt0ellnS3dDRkhKRm1WbmVqNUJWMGJiMFhNbmRaV09TcWZqM01WUU9nS0IvV2l6V2R2d210L2RMOC80YW1vYVRaNHRBeW4rVlVvY2h6ZmxsMkhvNEl0ZjVONUNoKzMramc4SWJWWnNlWlBEODIiLCJtYWMiOiJmNzBjYTNjMTViNWYxNjRhYTM3MDliNzA0YTM1YzkzYjMwYmEyODUwMmUzMjEwYjY4M2NiYzE1MTZlMjA3YzQ2IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Ikl6RlRBOVF1TVJvRzJKUUdXT0JuL2c9PSIsInZhbHVlIjoiOHFCSUdzN2tDbndBNU5qUHdKZ29ZOFRVVnV4ODV1NmZNRENQL2ZnN09obUF0aVFKWUxIWlEyQ0tnZHdsWFJFRjZCUHpyUWYwWW5nVmxqUjA3QzdOaG9ncnlvZjRFVEFsZExqSS9PSDA5Vnc1eGNsWmd5YkhxcmI5R0ZKTUpFZ08iLCJtYWMiOiIxNjQ1MTZjNDc1ZTMyMGQ0ZmEwNjNmNTU3NGEyMzZmMjE2MGI2YjBhM2ZlZDQ2MTk2YTgyOWRjYTYzODVjMmJjIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IkZ1TWpjb2RXK0psS3N5UUtMZ0xSanc9PSIsInZhbHVlIjoiQ3M4RmhIbGlLTHRXRXgvcmpLVEp2UlRINlR3RVVkb2pjNWt4MjRLWCs1NmgxRzk3UWRHbU9CdUlUalRkeFBTa3FkZDJ5Vm82WHJJMDIvNXZRY2dPakJHUmlpNGtGWEF4MGxWdjBpMEx2TlNQYlJqNnd6YkU1aDlSbkdFVngxWFEiLCJtYWMiOiI5OGRiMGEwMjY1OTY2MmMzMmUyMjQyYzhlNmE0MDU0ODBjNDI3MzE1MzU0NDZhMmIxNDQ1ZTNjNDM2OTgxMTU5IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Im1pQXRQKzh2MmxqY0ZzRG5lOEVwaUE9PSIsInZhbHVlIjoiTjNLSWZZY1VsTHVNWVNWSVpIYmNlVHVwNWw5VHZKTDcrMEFna0JqR2piU3JNMEZvTlN2ZWVSRVh2dHlTRVFMVGpBWDlkUmZsVXFSWXgxdHdIZXo5cFQySi9taWJBSXFHSHZWakV0R2NieUQ5dWdjeWtQaTg5QnhGeDFVRGF2Q2QiLCJtYWMiOiIwOWQwZDNjMGQwYmFmNDVhZTBlOTE4ZjZjNDcxOGEyZGFlYjZlOTYxNzFhN2NkZjMxY2M1ZDM4NDRmYzk3ZDNmIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -6992,6 +7093,802 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                <h1 id="review">Review</h1>
+
+    
+
+                                <h2 id="review-GETreview">List Review User
+Mengambil semua data Review milik user yang sedang login.
+Bisa difilter berdasarkan ID Review untuk detail, atau produk_id.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETreview">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/review?id=16&amp;produk_id=architecto&amp;status=architecto&amp;limit=16" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/review"
+);
+
+const params = {
+    "id": "16",
+    "produk_id": "architecto",
+    "status": "architecto",
+    "limit": "16",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETreview">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+set-cookie: XSRF-TOKEN=eyJpdiI6InhuNnFiREZDbEp1R3dZZVUyNW1hVHc9PSIsInZhbHVlIjoiK0ZMc295QXoxdTJDUi9HS1NpZWhJQ1Fzb0dSMkY1Y0RXWWI1YzRwTzdST1Z0S05qL1dncHVwZFo3YWk5ZTd4L2czd09VUlFqM05PQ0t2SXl6cTM4eFk2TFpOeHpYanlhMTIrMW5CZkpiZVNoSEtYaVYvdk1wVW5zbWlTWFY5YWoiLCJtYWMiOiI4OTY3MDY3MDU0ZWY5ZTY0ODIwMDNhN2U3ZjRmZGRlM2EyZmQ5ZDcwYzc3ZjlkM2U2ZDgzMmUyNWI3MjI3M2ZjIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImM4ZWQyNDNyL056ajRkY0tsTUR0aHc9PSIsInZhbHVlIjoiaGQ0djUxVHlvUXdyV1k2OWVYU0tCLzJMVzUyZ3VEemVwK3Z2ckJ6anhJWlF2UThsSGZFTUM1UUl2UkRHdkhnOXIyVy9PcytvdmowNVRKTFg4TVgrUGptcWFIOUw2MlRZdmdrK1VpZElwV05sTUJadExuT0ZRNDFWOUN5c3cydnAiLCJtYWMiOiI2YTQ1NDE2MjJkYmRiYTc4ZjA2NDAyMTNlNGNkNmJlY2M5ZDRkODI1NmJjNjI5ZWIyODliMGNkZjI1ZTBhZGQ2IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETreview" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETreview"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETreview"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETreview" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETreview">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETreview" data-method="GET"
+      data-path="review"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETreview', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETreview"
+                    onclick="tryItOut('GETreview');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETreview"
+                    onclick="cancelTryOut('GETreview');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETreview"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>review</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETreview"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETreview"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETreview"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETreview"
+               value="16"
+               data-component="query">
+    <br>
+<p>ID Review jika ingin mengambil detail satu data. Example: <code>16</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>produk_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="produk_id"                data-endpoint="GETreview"
+               value="architecto"
+               data-component="query">
+    <br>
+<p>Cari berdasarkan ID Produk. Example: <code>architecto</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="status"                data-endpoint="GETreview"
+               value="architecto"
+               data-component="query">
+    <br>
+<p>Cari berdasarkan Status. Example: <code>architecto</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETreview"
+               value="16"
+               data-component="query">
+    <br>
+<p>Jumlah data per halaman. Example: <code>16</code></p>
+            </div>
+                </form>
+
+                    <h2 id="review-POSTreview">Endpoint ini digunakan untuk membuat pesanan Topup Saldo.
+dan mengembalikan URL pembayaran Snap Invoice Duitku.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTreview">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/review" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"transaksi_id\": 16,
+    \"produk_id\": 16,
+    \"comment\": \"architecto\",
+    \"rating\": 16
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/review"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "transaksi_id": 16,
+    "produk_id": 16,
+    "comment": "architecto",
+    "rating": 16
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTreview">
+</span>
+<span id="execution-results-POSTreview" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTreview"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTreview"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTreview" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTreview">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTreview" data-method="POST"
+      data-path="review"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTreview', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTreview"
+                    onclick="tryItOut('POSTreview');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTreview"
+                    onclick="cancelTryOut('POSTreview');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTreview"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>review</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTreview"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTreview"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTreview"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>transaksi_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="transaksi_id"                data-endpoint="POSTreview"
+               value="16"
+               data-component="body">
+    <br>
+<p>ID Transaksi. Example: <code>16</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>produk_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="produk_id"                data-endpoint="POSTreview"
+               value="16"
+               data-component="body">
+    <br>
+<p>ID Produk. Example: <code>16</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>comment</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="comment"                data-endpoint="POSTreview"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>comentar. Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>rating</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="rating"                data-endpoint="POSTreview"
+               value="16"
+               data-component="body">
+    <br>
+<p>rating. Example: <code>16</code></p>
+        </div>
+        </form>
+
+                    <h2 id="review-PUTreview--id-">Update Rating &amp; Balasan
+Endpoint ini digunakan oleh User untuk merevisi ulasan (maks 1x)
+atau oleh Admin untuk membalas ulasan dan mengatur status publikasi.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTreview--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8000/review/architecto" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"rating\": 16,
+    \"comment\": \"architecto\",
+    \"reply_message\": \"architecto\",
+    \"is_publish\": false
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/review/architecto"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "rating": 16,
+    "comment": "architecto",
+    "reply_message": "architecto",
+    "is_publish": false
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTreview--id-">
+</span>
+<span id="execution-results-PUTreview--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTreview--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTreview--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTreview--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTreview--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTreview--id-" data-method="PUT"
+      data-path="review/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTreview--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTreview--id-"
+                    onclick="tryItOut('PUTreview--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTreview--id-"
+                    onclick="cancelTryOut('PUTreview--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTreview--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>review/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTreview--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTreview--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTreview--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTreview--id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the review. Example: <code>architecto</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>rating</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="rating"                data-endpoint="PUTreview--id-"
+               value="16"
+               data-component="body">
+    <br>
+<p>Skala 1-5 (Hanya untuk User). Example: <code>16</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>comment</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="comment"                data-endpoint="PUTreview--id-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Isi ulasan (Hanya untuk User). Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>reply_message</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="reply_message"                data-endpoint="PUTreview--id-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Balasan admin (Hanya untuk Admin). Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>is_publish</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="PUTreview--id-" style="display: none">
+            <input type="radio" name="is_publish"
+                   value="true"
+                   data-endpoint="PUTreview--id-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTreview--id-" style="display: none">
+            <input type="radio" name="is_publish"
+                   value="false"
+                   data-endpoint="PUTreview--id-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Status tampil di frontend (Hanya untuk Admin). Example: <code>false</code></p>
+        </div>
+        </form>
+
+                    <h2 id="review-GETreview-admin">List Review (Admin)
+Mengambil semua data Review secara keseluruhan (Global) untuk dashboard admin.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETreview-admin">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/review/admin?id=16&amp;search=architecto&amp;limit=16" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/review/admin"
+);
+
+const params = {
+    "id": "16",
+    "search": "architecto",
+    "limit": "16",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETreview-admin">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+set-cookie: XSRF-TOKEN=eyJpdiI6IllVYXE5cjZJVnVOM3hnV3VmbWRZWVE9PSIsInZhbHVlIjoiMG9ERWVzVk9VZzdZeVRmaEFlZWtxRkhTTWllM0NzOXltbWI1TkdJakxneEpncGJhbVFrdHh0MUpKTzVmVFJySHd6YTRyV3JtVU5Ya1VaaE9QV1lIeE04WWF2V0RwUnVOeEcyNzdVb085V1pla0JRdkZ2Qmgyb042OVpTRUhXTDIiLCJtYWMiOiI0NzgwMTQzNTdiNjJlNjg5YmEwYTdlNGRhNWY0MGU2YmYwNTc1YmYxMDFiMTczNzQ3N2ZhODJhZmY4MTA5MjFjIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Imp6UWx6dUxJYjh6RkU4RDJjeHh6enc9PSIsInZhbHVlIjoibXFpK2Z2R2pIMHNHTXZYVmxxUEJTSUZIWmFuQUFyMk94SklPWFN3OWF6dzNEd0dERGpuL21iQXJ2N2Fsa2lIMWhFemYvUHRqUnZuTWtXbjY1OTMyc25XSDNRczZocHlQa09aL0ViMDc0STFlZGNTQithaUNualpOWnhucWxaVVEiLCJtYWMiOiI2YTk2NDM2ZGZlOWI2NzUxN2YyNTliOTNhNTZlZWVhNDkzMmE5NjVhMGM5MzhjZDc0YzM2Y2RhZmE2MTAxYzIyIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETreview-admin" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETreview-admin"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETreview-admin"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETreview-admin" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETreview-admin">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETreview-admin" data-method="GET"
+      data-path="review/admin"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETreview-admin', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETreview-admin"
+                    onclick="tryItOut('GETreview-admin');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETreview-admin"
+                    onclick="cancelTryOut('GETreview-admin');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETreview-admin"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>review/admin</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETreview-admin"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETreview-admin"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETreview-admin"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETreview-admin"
+               value="16"
+               data-component="query">
+    <br>
+<p>ID Review untuk detail admin. Example: <code>16</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>search</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="search"                data-endpoint="GETreview-admin"
+               value="architecto"
+               data-component="query">
+    <br>
+<p>Cari berdasarkan Order ID. Example: <code>architecto</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETreview-admin"
+               value="16"
+               data-component="query">
+    <br>
+<p>Jumlah data per halaman. Example: <code>16</code></p>
+            </div>
+                </form>
+
                 <h1 id="seo-meta-tags">Seo Meta Tags</h1>
 
     <p>API untuk mengelola Seo Meta Tags</p>
@@ -7053,7 +7950,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IjkzdndQZG1Nb0hnTjJqQjVEVDV5a3c9PSIsInZhbHVlIjoiVmVBVkRUaHpoelBEdFZ2U2t0QzU2ODVpQlA1blNGbXBmMFZGcEpDcjdEaHhBQWxUQ3FIdjJkUDVUWkozQW1LWjhOUFVnVlNMcVR6NG1adFZLYmZmMWhtWSt0cVdQWTdOeW11NWpZN1RNNE1nVVBBMCtmRnRXU3JjZFo3VkE2T1giLCJtYWMiOiIyMmU3NTQyNjI3NjYyYmU0YTQ4ZGM2NzNiMjg1MjBjZmM4YzA3Nzc2ZjUwMDJmOWRjOTJjN2FlMTU0YmMxZWI3IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkttMzJIcm1VazBIVE1MeXgySVpyMlE9PSIsInZhbHVlIjoib256blFzaFdOQ0swbW5Vd0FKcnZWRG93Y0dWbXVyWWpUS1NScnpPNnFBN21aOS9hM0RMUHFRaVVxOGNrT3ZEZVZzdjhGK3lZaGVYaU0wSDJvOXBVQlRoc1RGMWw1S3BNR3laZ3FwK0hIMitsNkM5TExLMTlwQkZOVXFLWW90eXUiLCJtYWMiOiI0MzZlZDYxYzBjZTczMzA1NDY2NDg2ZmY2MjI5MWM2NDNkMDFkOGYzNDNiM2Y2YmNjMjAzMTM3MDExYTQ5ZTczIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IkJzajV2K21DYXhCWHFkS1lCbGwrREE9PSIsInZhbHVlIjoicktEcWRNSk9mWmZtOUZaOHUreTExTkhIVmI5OFJvb1hCQVQ5OHBwdE5LRll2YkRoNkdFTlRUeXM3YUgzM3EvZ1hyTzB4LzNiVFJTL0hzR3BkQi8xdGdHVExsZisxSTNsUUFNZGFWODFoMWlia1JtTm5wMXc0c3BWNXl6OXFLZS8iLCJtYWMiOiJlOGNlYzNmNDU0ZmY1YmRkMzM3NjUzNmZmZWQ0ZjQxNjI1YjNlNjlkODJmZGNmMWRlN2I1ZmExNTVjM2Y4OTliIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkxURWxIREdRWTUrcmJydzFLQ2FueGc9PSIsInZhbHVlIjoidFJXRFZDVUFhRTVHeU1xM1R6dUw0WVp4SGhJbFBzUG1xemd0MklSeTFYbnh4cVp6N2V3VUNjSzhjcmVnWndyYms5YVZ6dysrdmErcWxFa252YUlpOGZ4SWhEYTU1UDVVUlZSSTB3SGNQLzdLZW5weTZxQzA0Qno2cUVqMmJrL3QiLCJtYWMiOiJhYTc3NWE2OWQxZDVmNzQ5MGU0MDcyZWFiYTUzNWQ1NDRkMzQyZTNiNzBlZWVjNGU2NmI5YTBiZmY0N2MzZWU5IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -7671,11 +8568,422 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                <h1 id="transaksi-admin">Transaksi Admin</h1>
+                <h1 id="transaksi">Transaksi</h1>
 
     
 
-                                <h2 id="transaksi-admin-GETtransaksi-admin">List Transaksi (Admin)
+                                <h2 id="transaksi-POSTtransaksi-callback-payment">Callback Payment Gateway
+Endpoint untuk menerima notifikasi status pembayaran dari Midtrans/Duitku.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTtransaksi-callback-payment">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/transaksi/callback-payment" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/transaksi/callback-payment"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTtransaksi-callback-payment">
+</span>
+<span id="execution-results-POSTtransaksi-callback-payment" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTtransaksi-callback-payment"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTtransaksi-callback-payment"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTtransaksi-callback-payment" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTtransaksi-callback-payment">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTtransaksi-callback-payment" data-method="POST"
+      data-path="transaksi/callback-payment"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTtransaksi-callback-payment', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTtransaksi-callback-payment"
+                    onclick="tryItOut('POSTtransaksi-callback-payment');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTtransaksi-callback-payment"
+                    onclick="cancelTryOut('POSTtransaksi-callback-payment');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTtransaksi-callback-payment"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>transaksi/callback-payment</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTtransaksi-callback-payment"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTtransaksi-callback-payment"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="transaksi-POSTtransaksi-callback-ppob">Callback Provider PPOB
+Endpoint untuk menerima status pesanan dari Provider (VIP/IAK/Digiflazz).
+Pastikan header X-Client-Signature dikirim untuk validasi.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTtransaksi-callback-ppob">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/transaksi/callback-ppob" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/transaksi/callback-ppob"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTtransaksi-callback-ppob">
+</span>
+<span id="execution-results-POSTtransaksi-callback-ppob" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTtransaksi-callback-ppob"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTtransaksi-callback-ppob"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTtransaksi-callback-ppob" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTtransaksi-callback-ppob">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTtransaksi-callback-ppob" data-method="POST"
+      data-path="transaksi/callback-ppob"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTtransaksi-callback-ppob', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTtransaksi-callback-ppob"
+                    onclick="tryItOut('POSTtransaksi-callback-ppob');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTtransaksi-callback-ppob"
+                    onclick="cancelTryOut('POSTtransaksi-callback-ppob');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTtransaksi-callback-ppob"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>transaksi/callback-ppob</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTtransaksi-callback-ppob"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTtransaksi-callback-ppob"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="transaksi-GETtransaksi">List Transaksi User
+Mengambil semua data transaksi milik user yang sedang login.
+Bisa difilter berdasarkan ID transaksi untuk detail, atau search order_id.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETtransaksi">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/transaksi?id=1&amp;search=ORD-2024&amp;limit=15" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/transaksi"
+);
+
+const params = {
+    "id": "1",
+    "search": "ORD-2024",
+    "limit": "15",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETtransaksi">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+set-cookie: XSRF-TOKEN=eyJpdiI6IkJXeHFiT0h3L2ltQXFJNU9sWExiQnc9PSIsInZhbHVlIjoiVjhMZU9OQTBHMDZYNzJyRzBWWDltYUV0aXpSV3AvMkxDdGhRaFhqbGc5Sy9nUEV0UHc2MWxueUxiaFNUTmRraHFPT0U3dWhqSVdHMzBFbGpvYUJxV3Q5UHlJemloMkN3Z0o4TUo4dlhHWnJXUkdQMnhYcUZ2TW9OQXFIc2MvV3UiLCJtYWMiOiI3MjA1MzYwMGQwMTc0N2QyY2ViOGQ2YzcxM2FhODdmOTZiODY1YjcxZTE1YjdmOTlkYWI2ZjMwMmUyOTUyMmIzIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Ik1SRzB6Q3NFbW5iWXNCWnl1VTJYaVE9PSIsInZhbHVlIjoiSmdvNmpyQjVzNnlEYlFxaWVKWVB4YU9lMnZHVzV2TWI0TGhHM3FGbUFEMTR3ODVOMm13aFQ1Rjk5SExYTUdTMXVtdThWbUI5Wm5ML1pnQjUwVzRJVmRBSUJRaCtsT3IwejJtVm1JWXBndUpIUG9pN0pNaG5lWmdnVEJ3YUQxZEQiLCJtYWMiOiJjOWRlNGMxOWUwNmU3ZjAwOTA0ODcwYWY5MTlmMzljMjhjMTA3ZGRiYzFhMWZkYjY3Njc2YjY3ZWVhNzVjMWE2IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETtransaksi" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETtransaksi"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETtransaksi"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETtransaksi" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETtransaksi">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETtransaksi" data-method="GET"
+      data-path="transaksi"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETtransaksi', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETtransaksi"
+                    onclick="tryItOut('GETtransaksi');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETtransaksi"
+                    onclick="cancelTryOut('GETtransaksi');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETtransaksi"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>transaksi</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETtransaksi"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETtransaksi"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETtransaksi"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETtransaksi"
+               value="1"
+               data-component="query">
+    <br>
+<p>ID transaksi jika ingin mengambil detail satu data. Example: <code>1</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>search</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="search"                data-endpoint="GETtransaksi"
+               value="ORD-2024"
+               data-component="query">
+    <br>
+<p>Cari berdasarkan Order ID. Example: <code>ORD-2024</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETtransaksi"
+               value="15"
+               data-component="query">
+    <br>
+<p>Jumlah data per halaman. Default: 10. Example: <code>15</code></p>
+            </div>
+                </form>
+
+                    <h2 id="transaksi-GETtransaksi-admin">List Transaksi (Admin)
 Mengambil semua data transaksi secara keseluruhan (Global) untuk dashboard admin.</h2>
 
 <p>
@@ -7732,7 +9040,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6InNQTDN6dW5LdmMwRmFGMEh0azZHU3c9PSIsInZhbHVlIjoiaStNWThZQnZqTm03Zi93VFFDTE4zalFlQWlBMVYzcTlCMzA3YW5EbGpGeDhHK3RFY3BNS0EwRFBOM0RKWE9ySUhRL2lGcGZBaTluRXY3QUZjNHRWVGliMDhHWFd1cXNseHNzRWRvUHFGZzBYMitidXJaNHRSTlpIazhwVmVPcEciLCJtYWMiOiJlMmU1ODJiNTQyZTAyOWFiOTAyOGU3NGFjY2FlZDUzZmVlM2RlZDVhMjk1MTQxOGQxOWFmZjZiY2M3YTBlZjhlIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImQ4c05Ta0RRL3ZSOWhQWVNRZVlUVEE9PSIsInZhbHVlIjoiN3lEMFQyNWF2ZFJBcktDV2xrTXVqQ1pYM1RZQlFoTllPS1VDdTdBdDBwTDBqeEVTeFJjeVE4aTgwdFU5UHN0VFZIK0hUS045M0d1dzAxRFFZdnV5c0ZPbWUvOWZKOExIeE1RN2VIY2RZSkZVWDg1cXVVMWQ4MmZTcWVzSFVMd0MiLCJtYWMiOiI3OGZlMzVjOGQ4ZWFlYmQwZDRhMDBhZDg1Njc5NjRlNzNjMjIxOGM5MjQ4YTQ4MDc0ZGRhNGUzMDM1NWJmNDE2IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IlZTTGExSFY4eFJTVGJGQzNldndhQkE9PSIsInZhbHVlIjoib203MXBPNXVIV0RvNVk4VlJMLzNSQmsydzlWYVFHRDkwRENkblVOYXptaGt1RmJ1dWZUcE80ckhoQlNqNHk2K3NReGtxUzgxdVhvb1lsQitJUGV2bk9YRkhGczJrT3RTaE9NRjE1OXordEhob0dBSStRMXRCVk9UUXZSQ1VpNXMiLCJtYWMiOiI1YmZiNmU1NTU1NjU1ZjVlOWYyMjYzOWZiZDU4ZWEyMWZiNDZiZjEzMzc2YTZmNGI1YjQwZjY4N2E4NDcyYzVlIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkZyQTZTUys2d1p6MlM1TFVRcC9UWkE9PSIsInZhbHVlIjoieHNRWUtyTjBKZUlicWE1VUx2akxjN2ptUHhuNFdJQlpBbVlkQjh1ejE2blVaQ2Qza0lDcmxMOXcvUnhRRjFsc21PYTJOZkFSdXlrbXhXaVRrUTkwemtnMW1HWURUSTB0ckJ5ZVpqQjg4akNDZzRsY0dueW52c3lIMjJLMHRJZDciLCJtYWMiOiJkNzM1YTAxNDNkZTkzMDM0OTczYjIzOGE5MGYwZTMwM2YyZWVlNTAxMGQ0ZjJmYzk5MGZmNjY4ODk1YTc4NzdiIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -7862,7 +9170,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="transaksi-admin-DELETEtransaksi--id-">Hapus Transaksi
+                    <h2 id="transaksi-DELETEtransaksi--id-">Hapus Transaksi
 Menghapus data transaksi berdasarkan ID.</h2>
 
 <p>
@@ -8001,198 +9309,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                <h1 id="transaksi-user">Transaksi User</h1>
-
-    
-
-                                <h2 id="transaksi-user-GETtransaksi">List Transaksi User
-Mengambil semua data transaksi milik user yang sedang login.
-Bisa difilter berdasarkan ID transaksi untuk detail, atau search order_id.</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETtransaksi">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/transaksi?id=1&amp;search=ORD-2024&amp;limit=15" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/transaksi"
-);
-
-const params = {
-    "id": "1",
-    "search": "ORD-2024",
-    "limit": "15",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETtransaksi">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6InlWem92YTk3c2YrakFudy9LTk9NSGc9PSIsInZhbHVlIjoiVmNGWWJFUHA2cEVtYWtyTEcxNkkrZDVOSmF4KzR3QXRkZlY3YXpPQnhFYTRaaVQraGtJNTJLREs1TUZBamt0TkpuSDJkMVBrdU9kTlVQdmc1OEpDVkUybHNKdFBiaGw0VXoybDVtbHVSSHd1V2Zjd1cwdmF6RjdqbnZNSUh4RFoiLCJtYWMiOiJlNmQ0MzYwOGJjNjFlMTI3ODcwZWFkYWUyZjhjMjUyODFkMzVmMTU1NDAxMzAxOTM0MjU3MjRiYWIzNTQ1ZDE5IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImF3NmREK1BLRWFTWUtEbnIxWThSeEE9PSIsInZhbHVlIjoiQTh3N0VUcEk3aGdhR25UVGt3QkNKaGFVdEh2RFpLNXJzbnVqaUZCRVZxcU1UUWNQa1dxVEFTNmg2aHQvY0hETDdLcVVVbUE0QmZudi9HOThETXJ5VXFhYmJoL1N3c0p0bDFoTFFRM2dUOWI2Y2t0ckR3UGFJMmd6Wnl1aUVvUHEiLCJtYWMiOiJmZmQ5OWM3MDQ5ZWY3NWRmOGU0MzhmNjFjMDFhOTkyY2M4MDliZGUxOGU5YTkyMzI1ODYzYjE4ZjhmZDNkNTBhIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; httponly; samesite=lax
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETtransaksi" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETtransaksi"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETtransaksi"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETtransaksi" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETtransaksi">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETtransaksi" data-method="GET"
-      data-path="transaksi"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETtransaksi', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETtransaksi"
-                    onclick="tryItOut('GETtransaksi');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETtransaksi"
-                    onclick="cancelTryOut('GETtransaksi');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETtransaksi"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>transaksi</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETtransaksi"
-               value="Bearer {YOUR_AUTH_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETtransaksi"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETtransaksi"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="GETtransaksi"
-               value="1"
-               data-component="query">
-    <br>
-<p>ID transaksi jika ingin mengambil detail satu data. Example: <code>1</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>search</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="search"                data-endpoint="GETtransaksi"
-               value="ORD-2024"
-               data-component="query">
-    <br>
-<p>Cari berdasarkan Order ID. Example: <code>ORD-2024</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="limit"                data-endpoint="GETtransaksi"
-               value="15"
-               data-component="query">
-    <br>
-<p>Jumlah data per halaman. Default: 10. Example: <code>15</code></p>
-            </div>
-                </form>
-
                 <h1 id="user">User</h1>
 
     <p>API untuk mengelola User / Pengguna</p>
@@ -8254,7 +9370,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IldwSjN1M1BoOXJEb2ZvaXJ2S0RXdmc9PSIsInZhbHVlIjoickVOM3plaEVudVgzYm1YTHN4aDczc3ZsazFObzR3dnAzd0tiQm1CUEpQRFZUelFHbW5nY3E0Z3UwM2YxTzhyWjFxSTMwKy9uNFpTZXlxVFJEY3QwUHVSZkZGL21MYUkxczE2UUdhYTgxWGtETlpxNWgvOHhDY05wK3JWSzkxVkwiLCJtYWMiOiI2Y2M2NjE1YzU3MDA2MjQ4YWQzMjI4MDA5Mzc5OGM2NzI5ZTVhZmI4ZDIxNWFmMWJlZjM3ZTAxYmU4ZjIxZTU3IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:23 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkVhUXlZd2svT2lBczNtcUEySlpScnc9PSIsInZhbHVlIjoiZHVVZFlqV3ZXZElIVklBbmo4VDU1bnhsak5tQVo0d0wzdVVWeHFWNWcvQTNqSGRaaFVUakhsWW1Pdmp3Zk9PQUZsb2ZYVFdhYnk4WTc2YkpBanJvREs5NTdjWlN5NlJRNnJpbGJCWUNWMzVaNUJxeFNjeFZ5dXdwSG1YdXFselAiLCJtYWMiOiI3NjllMWFmNGYzZTg5ZmM3MjRlMzRjZGQyNTA0Y2Q0MGQ2NjQwOGFiOWNiMWIxZDRiNDk4MGEwZmNmMzRiZDBlIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:23 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IjlXVk0vWGxsbVhpQmR0RWg0V1ZyYUE9PSIsInZhbHVlIjoicGhzUitFRm83ck4rNFZhVUlyL1cwODhXeVlBTzBPU2FyN2hPQTBGTVdFOHBuVGN5K09HeUV4c1hyaVhLb1F3OHRwS216d2ZOdHRCUUdlS1l2UTZSdUhZbC9ZZWhBaUlmRzB0L1RvYVV0TXVVdGRjYjNaYXJ6Y0xQcm5XQzRxcmYiLCJtYWMiOiI2ZTU3NTUzZDNkYTFkZDNlZTIzNjU2MzhkMDNjN2U0OTFiYmE2MGZhZmM4M2QzNGEyODE2YTRiZDM1ZGZlNzYyIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:50 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IllLSGVhRlpYVmRER2dsZWNJUUJFY0E9PSIsInZhbHVlIjoiNHo5dEsrMGUweUxES2piSWIxQ3o0N214ZlFKN2t4anNhMGEzazBWZmN4ZUxkR0l3Y3pvbkRjWloxcFQweUVOeHd1ZThKUWVQY01HMGROb25jdmVob2dhcy9GOVdWemw5a2F6ajkwZzRQbE1JQTg3NlNhWkRXamRpVTdyZk1BV2ciLCJtYWMiOiI5YTBlZmFlZmE5NTM5NDgyNGZkZDQ2NzJhODM4NDI5YjdhYWY1ZjhkM2VkYjlkODFmOTVkODMzNjNlNGQ0OTEyIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:50 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -9032,7 +10148,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6ImNzQlZmY005c3VmMUdhK2p4ZVZIckE9PSIsInZhbHVlIjoiYnlRYjhQRzFVVmk2d2ZpWURCZUJ2UExSaDVhMFdPNGl0NnovZE1NTyt3aGlIUkFaWGU3Lzg5ZnBocDdlOC9oWkFyR3k4Q3RQRWNRNlBvVE5obUEvaG1yQWExZFZWbmhQVTJjZzlCN3VjQnZLbVgxeDZ2MGtLR1hlTXpFUzBycE4iLCJtYWMiOiIzM2M1OWJiMWE2ZDQ3M2E3Mjk0NTFkZTU3NmFhYzNjNWNhMTA4MTAxYzJhYzg1MTM1ZTg3Y2IzMDViZGUzZDA5IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Ijd0b05VSGNpUUFaL29UNXhXaWc5THc9PSIsInZhbHVlIjoidE5CdHdaZ0xMSnAydzV0Tm9tbWoxSldOTkZxYVQraXRBM1NsWENzLzlzaVpacFNsM21lQXEvUjBBNVh4engxdjRqdFhkTEhOdWdaREV2bWJnRW5FbFVSSTNKYmRjNGF1OSswbEw5SzFudGxLcW0zcVhTWEdCMVBvS3QrYWVGK0siLCJtYWMiOiI4ZTdiNGQ0N2FlMmJmMjk4ZGFjYTdhNTU3Mjc1MmUwMDljMzQ4MjNkNjU1MTM1NWQ4MDZmYzZjZjAyYTIyYjkwIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 16:20:25 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6Im1hU2ZoM1FFL0kvOC8xSGVBbGlWV1E9PSIsInZhbHVlIjoicTlwc2E0Vld3MllvUTN3ZmdXME4wMkl3RjhaT1I3M0hKcTRXYVNKVy9pTWZ2aFN0MTFuV1E1Mm1ldUdxUmxvTit0a3RmNzVlTm9qc0gyWkhVRjNiQU95WGJEbXZJZXFiN1NYWmprU2RRdW12RkR3SFNkNk0vTWkvamlueUhrMWYiLCJtYWMiOiJkZTYwZGQyOGU2ODBmYmZiYzM3ZGY4OWFhYzE5YWE2MTZhYTdhMjc1YWM1ZDU4YzUxYjlkN2M5Y2E3ZWY5Nzg2IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlRFc0t3U3lCUThXWlUwbFdjZG91c2c9PSIsInZhbHVlIjoiYmtjdFJVR2Q3SXgvbzlxYUdpMmN6SEEwZytyY0gvcjJZUDhrNzdYWTY4bmJEZUx2NlYxZWFHTDIwM3BqLzdMcTZ4SnphdjVqQkY0b1NBaXI2OG1DYVBFN0xpVU5CY0tmc0ZWZnh6RWtlSlpYS3RiMTdPOEpyNk1yd3lZYmtXSEIiLCJtYWMiOiJhYzMzZDg4MjdiNDdjNjZjODNjZDcyMDQ4NzNhNWYwYWExZDJkMzRjZjE4YWRhM2JmMTU1OTNhZjkxNDAwMmE4IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -10034,344 +11150,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>The ID of the voucher. Example: <code>architecto</code></p>
             </div>
                     </form>
-
-                <h1 id="webhook-callback">Webhook / Callback</h1>
-
-    
-
-                                <h2 id="webhook-callback-POSTtransaksi-callback-payment">Callback Payment Gateway
-Endpoint untuk menerima notifikasi status pembayaran dari Midtrans/Duitku.</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTtransaksi-callback-payment">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/transaksi/callback-payment" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/transaksi/callback-payment"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTtransaksi-callback-payment">
-</span>
-<span id="execution-results-POSTtransaksi-callback-payment" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTtransaksi-callback-payment"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTtransaksi-callback-payment"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTtransaksi-callback-payment" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTtransaksi-callback-payment">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTtransaksi-callback-payment" data-method="POST"
-      data-path="transaksi/callback-payment"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTtransaksi-callback-payment', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTtransaksi-callback-payment"
-                    onclick="tryItOut('POSTtransaksi-callback-payment');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTtransaksi-callback-payment"
-                    onclick="cancelTryOut('POSTtransaksi-callback-payment');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTtransaksi-callback-payment"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>transaksi/callback-payment</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTtransaksi-callback-payment"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTtransaksi-callback-payment"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="webhook-callback-POSTtransaksi-callback-ppob">Callback Provider PPOB
-Endpoint untuk menerima status pesanan dari Provider (VIP/IAK/Digiflazz).
-Pastikan header X-Client-Signature dikirim untuk validasi.</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTtransaksi-callback-ppob">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/transaksi/callback-ppob" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/transaksi/callback-ppob"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTtransaksi-callback-ppob">
-</span>
-<span id="execution-results-POSTtransaksi-callback-ppob" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTtransaksi-callback-ppob"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTtransaksi-callback-ppob"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTtransaksi-callback-ppob" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTtransaksi-callback-ppob">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTtransaksi-callback-ppob" data-method="POST"
-      data-path="transaksi/callback-ppob"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTtransaksi-callback-ppob', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTtransaksi-callback-ppob"
-                    onclick="tryItOut('POSTtransaksi-callback-ppob');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTtransaksi-callback-ppob"
-                    onclick="cancelTryOut('POSTtransaksi-callback-ppob');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTtransaksi-callback-ppob"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>transaksi/callback-ppob</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTtransaksi-callback-ppob"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTtransaksi-callback-ppob"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="webhook-callback-POSTdeposit-callback-payment">Callback Payment Gateway
-Endpoint untuk menerima notifikasi status pembayaran dari Midtrans/Duitku.</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTdeposit-callback-payment">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/deposit/callback-payment" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/deposit/callback-payment"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTdeposit-callback-payment">
-</span>
-<span id="execution-results-POSTdeposit-callback-payment" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTdeposit-callback-payment"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTdeposit-callback-payment"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTdeposit-callback-payment" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTdeposit-callback-payment">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTdeposit-callback-payment" data-method="POST"
-      data-path="deposit/callback-payment"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTdeposit-callback-payment', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTdeposit-callback-payment"
-                    onclick="tryItOut('POSTdeposit-callback-payment');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTdeposit-callback-payment"
-                    onclick="cancelTryOut('POSTdeposit-callback-payment');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTdeposit-callback-payment"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>deposit/callback-payment</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTdeposit-callback-payment"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTdeposit-callback-payment"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
 
             
 

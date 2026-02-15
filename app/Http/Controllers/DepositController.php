@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class DepositController extends Controller
 {
     /**
-     * @group Deposit User
+     * @group Deposit
      * List Deposit User
      * Mengambil semua data Deposit milik user yang sedang login.
      * Bisa difilter berdasarkan ID Deposit untuk detail, atau search order_id.
@@ -38,7 +38,7 @@ class DepositController extends Controller
     }
 
     /**
-     * @group Deposit Admin
+     * @group Deposit
      * List Deposit (Admin)
      * Mengambil semua data Deposit secara keseluruhan (Global) untuk dashboard admin.
      * @queryParam id int ID Deposit untuk detail admin.
@@ -67,7 +67,32 @@ class DepositController extends Controller
     }
 
     /**
-     * @group Deposit Admin
+     * @group Deposit
+     * Endpoint ini digunakan untuk membuat pesanan Topup Saldo.
+     * dan mengembalikan URL pembayaran Snap Invoice Duitku.
+     *
+     * @authenticated
+     *
+     * @bodyParam payment_id int required ID metode pembayaran (Midtrans, Duitku, dll). Example: 2
+     * @bodyParam amount int Jumlah Saldo. Example: 200000
+     */
+
+    public function store(Request $request, DepositService $service)
+    {
+        $data = $request->validate([
+            'payment_id' => ['required', 'numeric', 'exists:payment_methods,id'],
+            'amount' => ['required', 'numeric'],
+        ]);
+        try {
+            $service->createDeposit($data);
+            return ResponseFormated::success(null, 'token pembayran berhasil dibuat');
+        } catch (\Exception $e) {
+            return ResponseFormated::error(null, $e->getMessage(), 400);
+        }
+    }
+
+    /**
+     * @group Deposit
      * Hapus Deposit
      * Menghapus data Deposit berdasarkan ID.
      * @urlParam id required ID Deposit yang akan dihapus.
@@ -84,7 +109,7 @@ class DepositController extends Controller
     }
 
     /**
-     * @group Webhook / Callback
+     * @group Deposit
      * Callback Payment Gateway
      * Endpoint untuk menerima notifikasi status pembayaran dari Midtrans/Duitku.
      */

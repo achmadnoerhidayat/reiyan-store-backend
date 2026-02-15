@@ -9,6 +9,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\RatingController;
 use App\Http\Controllers\SeoController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
@@ -94,9 +95,9 @@ Route::group(['prefix' => 'banner'], function () {
     });
 });
 
-Route::group(['middleware' => ['auth:sanctum'], 'prefix' => 'payment-method'], function () {
+Route::group(['prefix' => 'payment-method'], function () {
     Route::get('/', [PaymentMethodController::class, 'index']);
-    Route::group(['middleware' => ['role:administrator,super_admin', 'throttle:10,1']], function () {
+    Route::group(['middleware' => ['auth:sanctum', 'role:administrator,super_admin', 'throttle:10,1']], function () {
         Route::post('/', [PaymentMethodController::class, 'store']);
         Route::put('/{id}', [PaymentMethodController::class, 'update']);
         Route::delete('/{id}', [PaymentMethodController::class, 'delete']);
@@ -147,5 +148,15 @@ Route::group(['prefix' => 'deposit'], function () {
             Route::get('/admin', [DepositController::class, 'indexAmin']);
             Route::delete('/{id}', [DepositController::class, 'delete']);
         });
+    });
+});
+
+Route::group(['middleware' => ['auth:sanctum'], 'prefix' => 'review'], function () {
+    Route::get('/', [RatingController::class, 'index']);
+    Route::post('/', [RatingController::class, 'store']);
+    Route::put('/{id}', [RatingController::class, 'update']);
+
+    Route::group(['middleware' => ['role:administrator,super_admin,finance', 'throttle:10,1']], function () {
+        Route::get('/admin', [RatingController::class, 'indexAmin']);
     });
 });

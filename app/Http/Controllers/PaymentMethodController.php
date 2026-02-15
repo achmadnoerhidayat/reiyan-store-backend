@@ -16,7 +16,6 @@ class PaymentMethodController extends Controller
      * List Payment Method
      * Endpoint ini digunakan untuk mengambil semua data Payment Method.
      * Cocok digunakan di halaman pembelian produk.
-     * @authenticated
      *
      * @queryParam id integer Mencari Payment Method berdasarkan id.
      * @queryParam search string Mencari Payment Method berdasarkan nama. Example: Mobile
