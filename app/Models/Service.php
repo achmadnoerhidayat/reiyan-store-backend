@@ -10,12 +10,13 @@ class Service extends Model
 {
     use LogsActivity;
 
-    protected $fillable = ['produk_id', 'code', 'nominal', 'deskripsi', 'status', 'price_provider', 'member_price'];
+    protected $fillable = ['produk_id', 'code', 'nominal', 'deskripsi', 'status', 'price_provider', 'member_price', 'is_publish'];
 
     protected $hidden = ['produk_id'];
 
     protected $casts = [
         'member_price' => 'array',
+        'is_publish' => 'boolean'
     ];
 
     public function produk()

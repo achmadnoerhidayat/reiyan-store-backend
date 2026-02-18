@@ -34,8 +34,8 @@ class SocialMediaRepository
         if (!$social) {
             return null;
         }
-        return $social;
         $social->update($data);
+        return $social;
     }
 
     public function delete($id)

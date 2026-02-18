@@ -41,6 +41,17 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      kategori_id:
+        custom: []
+        name: kategori_id
+        description: 'Mencari Produk berdasarkan katergori. Example:'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
       slug:
         custom: []
         name: slug
@@ -65,6 +76,7 @@ endpoints:
         deprecated: false
     cleanQueryParameters:
       search: architecto
+      kategori_id: 16
       slug: architecto
       limit: 16
     bodyParameters: []
@@ -78,7 +90,8 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6Imc2VHVzQms5Ryt3RGxkazFOeDdKdUE9PSIsInZhbHVlIjoiK3ZwajFvTS9kYkFHeVhNUGpWOHZXVUFiRnpYZXdyZWdkRk5iRDFqWVduY3hDWXVmR3pwdjlnRlRyOWJuQzFpMU16c0V4UFdEVExrSjhrWGVFalE5OUc5c3hUbDRubkJyS3FWYVFGYXNwTWs4ek0xTGR6cnZ2ZG1UdzRQZi90WUoiLCJtYWMiOiI5ZDNmNGQzMWZmYWFkZjQyNjI5ZTM0YzlmMWQxNWQ3MTZmMWFiODlhMmEzMGEyYTc2NTg4N2YzN2RiOGVhMzBjIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlZ0WjZhdzZIODlES2RQQUhPa2RaL2c9PSIsInZhbHVlIjoiSlp3aFEvSXc1c2Jkcm55Z3JLdVNjUE1NZldKbkpUV3MrWktRaDkzYmtWd09FeHBDMTA2VGRjcTlkMkN6QVVFWVRtYVFwaDM1Vzg0aWpDejF4Nk0zc0NROGNXNk04d1JtVG1wUzE1VlBzOTNJSy9ham5id0kvN0krRjhoR2RsT2giLCJtYWMiOiJlMGUwM2IxNzBhYzRiZGY5OTgwOTgxOGMwMzcyYzJiYmYzZTUwMWE0NTNjOWU2OTJjYjU4M2ZiYmI2MmJhYzZhIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          access-control-allow-origin: '*'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6InFYRTVLdG4wKzNQSXAzWk5XbW1CQmc9PSIsInZhbHVlIjoiVmJHT0JLYmpQanduVkFGTlI1VDUrN25RTVVEUUFEaWdsMXAvRnFPbmFlMVV3OERvbGF5ZndOVllXTXR4M1BtN1RQU1VMWjRBdjlCMkNkMWppUVJ1Ung0dW9QWnRQN2xtRGphT3ZCWE9Gb0dwNkY4WGMrdnhWZjNiK2c1ek54Uk8iLCJtYWMiOiI2OWQ1OTE3OTIzMTVkYzYwM2JjOGRiNTVmZjkzZGFiZmFhZmZlMTViYzJjNzY1Mjc4ZThjMzc0MTVlY2RmOTUxIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlpTRitOYU12TXJ5cE11ODkyU0UzRlE9PSIsInZhbHVlIjoiNHhxVTFkVDNER3BGZGhveXdYMXY2b0orNnVicFBLYjdwNytZZkNaT1RyODF4ZzYrYmZWVlBiU1R4aldCNzRiY1Z1dVI5TjAwekczSkh0WHd1bjg1MFJLUFhmVFdNNlVXczJmejNhaGxxcWFkSkRIQmRiK1hpU1BBYmdDS1JBVTEiLCJtYWMiOiI1YWMxMTQ0OTM2YzBlYmUxMGQ0ZGQwZTJjNGZjNDdiZDBkYmRjNWYxMDllZmRjYTFiZjBlMjQzM2YwZTJhYzhmIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth: []
@@ -134,7 +147,8 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IlprckhNdEV3SEdMRXVPZ3BOT2NBMXc9PSIsInZhbHVlIjoiS1ZIY0xqTlU4ZEVPL25Ld1RNUENWTzNQV1NabjdOWDFsTGZYTDlEWkk5N2R0NFVpRWRsdnNzN0N2Vytrcm1Qd3NYOFR4U2MvQ0FZalBiK1p5YXRKc050cGg0UzdMSU1LbVhtTCs0OHgxMW90TUJTSjUvNlAxT0JTZDZ1NTI5QWoiLCJtYWMiOiIwNjFmNDg1MTVmOTA2NzdhNDFhNTFlNmIwNzVkOWE4ZjJlYTQ5YTg5YTU5MGYzOWNmODcxOWI4NThhZDQwMWYwIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkpxbS95ejRUeStvR0tmaG5wWXg3SkE9PSIsInZhbHVlIjoicnB5c1hMY1pxUFJrME5HVjZ4QTIyUm4wVFpEL0dwSjZvTFdoMXlLTjE4V3NtbzBWSjh1WnUyTkxxN0U2QlhkaENMcHBJODgxdmJNM0xNWmFHa1NZcEFlQ3VROFRKYVRRSjJYUCtlcSthTVBQOEhSbVB4dWxTamU5NlNzcUVZaUQiLCJtYWMiOiI2MmMwNDgxNjFlYTUwZDk4ZWYzOTdkNjJjNGRkMzM4MjRjOTg1ZDk2MWRlMGFhMGEzMGZlYjU3NmI5MWVjNzc5IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          access-control-allow-origin: '*'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IkRxLzdkVzJlaDhQbkF3ZUllMFlUcHc9PSIsInZhbHVlIjoicnB5YTNEYUZCNk1nY0hKQmdtU0xRaWNoTldySkhYVzVEWmtUbWhHaml4Z3lpRlpMci9OWVA2THorNFRtbFNraUZ6ek1iaU9FY3hWdHJzV0dySWZUMW15MzN1eDZnZkxpRk1hcEdUQmFkeERVT0hja3FVL0VCNkJKREZCdi9WTjciLCJtYWMiOiIyNDhkNzlkMzY1OTBmODEzMjViNjliMjdmMzI0ZDY1NjAyNDE3ZDMxNDVjMDkxN2VhZWMxYjgzOWJmYTJhNWYzIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlFNaFYyZWdzM081WjdFaU5YT1ZaYnc9PSIsInZhbHVlIjoiajJ0Si9zbzRZenltQnRxWkMydlU5SGNJTnBkZ3Fkdk1YZnRGNkZ4ZDRweFFQZE1Cc3hGQk1IUG1YQVJwWCs3bW9BU3BJckYwc2NhZUovejZEVnpYOWlDejFCMG1aa29oWHVCSGhVRktMQ0crRjgrY0hpbXdzK2dWeVIxQXN0eXAiLCJtYWMiOiI5N2MwNjQ1MWMxNDAyNDNiNjA5NTg0MjA0ZjM5ZWM4NDQwMzRiN2UzY2M1YjVhZGE5OGJkNjEwOTYwYjM1M2ZiIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth: []
@@ -316,7 +330,8 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IjhNY1BRRHUwdFp3L0RpWThDVHA2NlE9PSIsInZhbHVlIjoiTFZVTkw4Qm5kalBIRDRZaHVsYUxOdm9QV1p3THBiT2FzWm5hUzFlTHRnc05hQVNkOGczaVZIV3JzNndHdDVUYlVncTRaenoyLyt6ZkdzdnlEa2hCRENnVUNEdGtRNmI4Zy9FZGRodjByM2lIc3VpR1NSdCtQYk9zaEFYS21IV1UiLCJtYWMiOiI4YWVkYjhkNTAxZjYyZjQ5Njc0YzRlYWRjYjExNzBmOGU4YmYzZWM2OGJhZDkxMTU2ZTJkMmQwNmY0OTFhOTk3IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkJEcENac29veW5wS0hnWnNJbFprM0E9PSIsInZhbHVlIjoiZ0tQbDNxWDNJbS9SVmNKVzNuRko1V1RuSEt4N3B0SmQySUNUMjJBNlNROEtZN3loaUszUHplSFowd2wxODRLYTgzRVdKUUg2OGlJN0o2OU56QlgvL0J1b2tQbjJkMHk5ZmxhdmI5Sm5sYTRQbWZTaUpyZlRUQ3RRN2hjRW5TMS8iLCJtYWMiOiI5MTljYjQ1YjU0MWI2NmI2NWExZjZlZWY0MDZkNDc1NzViOGNhY2NlYmY1MTk3ZTg0NTcxNWM1NmVlZmNhMTI2IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          access-control-allow-origin: '*'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6InAyVTRMQXJ5K25sdXBOSmU3TWhEZ1E9PSIsInZhbHVlIjoiRlFDU0pqSno0WGhIY1hTSmIvVUxINXFSMGkvdDBFUFN1dm00Z05IaG9PUlloaG10bEtvamp5SUd6VW11T2xhOTdrQVhFQy9vTnJDcDZaeWxRZllhSlB5bkVwNjNoSGx5MTRRLy9XV3o1Q2NOSnhScjR0RGZZSnJlSzhBS3pxMk4iLCJtYWMiOiJjOTQ5NWU1ODRhMTZjOTJkOTJkNmIzODI5NGUwMTc4Zjg1YjY3ODVkMGRhZjdkMjUzZDI2M2FlNjY0MDhhMTU1IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlMzQUhGTFVhNkRCWTVNb1pjV0J1K1E9PSIsInZhbHVlIjoiazdKdUJabzNtSW9YOGdkVUhsN2o3akt3dW9sVW9jbUFIa0JPRkJmbHZlVU00elZMeFBvOUNnMkpoUCtwZ0xtM2FnZG4vLzlvcWg1Rkt3OGlvWVptMms5U1NEOEdQMHBjQTViYkJER3hMVVpuMk1ZRVJlUDRwbWk4ckpPeTNpRnIiLCJtYWMiOiIwYTczYWEzYTU4NjY4M2YyYjQ1YTJkOTI5ODNlNTVkY2NhYjIwY2ZhNzNkNTc2Yzc2OTA2ZjA5YmIxNTE4MzRmIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth:
@@ -526,6 +541,139 @@ endpoints:
           }
         headers: []
         description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'produk/layanan/{id}'
+    metadata:
+      custom: []
+      groupName: Produk
+      groupDescription: |-
+
+        API untuk mengelola Produk
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Harga Produk'
+      description: 'Endpoint ini digunakan untuk mengupdate harga provider dan harga member (Gold, Silver, Bronze).'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the layanan.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      code:
+        custom: []
+        name: code
+        description: 'Required. code produk.'
+        required: false
+        example: FFMAX80-S888
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      price_provider:
+        custom: []
+        name: price_provider
+        description: 'Required. Harga beli dari provider.'
+        required: false
+        example: '15000'
+        type: numeric
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      is_publish:
+        custom: []
+        name: is_publish
+        description: 'Required. Status publikasi produk (true/false).'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      member_price:
+        custom: []
+        name: member_price
+        description: 'Required. Data harga untuk tiap level member.'
+        required: false
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      member_price.gold:
+        custom: []
+        name: member_price.gold
+        description: 'Required. Harga untuk member level Gold.'
+        required: false
+        example: '16500'
+        type: numeric
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      member_price.bronze:
+        custom: []
+        name: member_price.bronze
+        description: 'Required. Harga untuk member level Bronze.'
+        required: false
+        example: '17500'
+        type: numeric
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      member_price.silver:
+        custom: []
+        name: member_price.silver
+        description: 'Required. Harga untuk member level Silver.'
+        required: false
+        example: '17000'
+        type: numeric
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      code: FFMAX80-S888
+      price_provider: '15000'
+      is_publish: true
+      member_price:
+        gold: '16500'
+        bronze: '17500'
+        silver: '17000'
+    fileParameters: []
+    responses: []
     responseFields: []
     auth:
       - headers

@@ -40,8 +40,8 @@ class BannerRepository
         if (!$banner) {
             return null;
         }
+	$banner->update($data);
         return $banner;
-        $banner->update($data);
     }
 
     public function delete($id)

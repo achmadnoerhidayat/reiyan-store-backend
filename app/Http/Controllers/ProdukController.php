@@ -21,6 +21,7 @@ class ProdukController extends Controller
      * Endpoint ini digunakan untuk mengambil semua data Produk yang aktif.
      * Cocok digunakan untuk menampilkan menu utama di homepage atau halaman produk.
      * @queryParam search string Mencari Produk berdasarkan nama. Example:
+     * @queryParam kategori_id integer Mencari Produk berdasarkan katergori. Example:
      * @queryParam slug string Mencari Produk berdasarkan slug. Example:
      * @queryParam limit int Batasi jumlah data yang tampil. Example:
      *
@@ -30,6 +31,7 @@ class ProdukController extends Controller
     {
         $id = $request->input('id');
         $search = $request->input('search');
+        $kategori_id = $request->input('kategori_id');
         $slug = $request->input('slug');
         $limit = $request->input('limit', 15);
 
@@ -42,6 +44,7 @@ class ProdukController extends Controller
             } else {
                 $produk = $service->getAll([
                     'search' => $search,
+                    'kategori_id' => $kategori_id,
                     'limit' => $limit,
                 ]);
             }
@@ -181,6 +184,41 @@ class ProdukController extends Controller
         try {
             $produk = $service->deleteProduk($id);
             return ResponseFormated::success($produk, 'data produk berhasil ditambahkan');
+        } catch (\Exception $e) {
+            return ResponseFormated::error(null, $e->getMessage(), 500);
+        }
+    }
+
+    /**
+     * Update Harga Produk
+     *
+     * Endpoint ini digunakan untuk mengupdate harga provider dan harga member (Gold, Silver, Bronze).
+     * @authenticated
+     *
+     * @bodyParam code string Required. code produk. Example: FFMAX80-S888
+     * @bodyParam price_provider numeric Required. Harga beli dari provider. Example: 15000
+     * @bodyParam is_publish boolean Required. Status publikasi produk (true/false). Example: true
+     * @bodyParam member_price object Required. Data harga untuk tiap level member.
+     * @bodyParam member_price.gold numeric Required. Harga untuk member level Gold. Example: 16500
+     * @bodyParam member_price.silver numeric Required. Harga untuk member level Silver. Example: 17000
+     * @bodyParam member_price.bronze numeric Required. Harga untuk member level Bronze. Example: 17500
+     */
+
+    public function updateLayanan(Request $request, ProdukService $service, $id)
+    {
+        $data = $request->validate([
+            'code' => ['required', 'string'],
+            'price_provider' => ['required', 'numeric'],
+            'is_publish' => ['required', 'boolean'],
+            'member_price' => ['required'],
+            'member_price.gold' => ['required', 'numeric'],
+            'member_price.bronze' => ['required', 'numeric'],
+            'member_price.silver' => ['required', 'numeric'],
+        ]);
+
+        try {
+            $service->updateLayanan($id, $data);
+            return ResponseFormated::success(null, 'data layanan berhasil diupdate');
         } catch (\Exception $e) {
             return ResponseFormated::error(null, $e->getMessage(), 500);
         }

@@ -15,9 +15,21 @@ class PaymentMethodeRepository
             if (!empty($data['is_active'])) {
                 $q->where('is_active', $data['is_active']);
             }
-        })->latest()->limit(4)->get()->groupBy(function ($item) {
+        })->latest()->get()->groupBy(function ($item) {
             return strtolower(str_replace(' ', '_', $item->category));
         });
+    }
+
+    public function getAdmin($data)
+    {
+        return PaymentMethod::where(function ($q) use ($data) {
+            if (!empty($data['search'])) {
+                $q->where('name', 'like', "%{$data['search']}%")->orWhere('code', 'like', "%{$data['search']}%");
+            }
+            if (!empty($data['is_active'])) {
+                $q->where('is_active', $data['is_active']);
+            }
+        })->latest()->get();
     }
 
     public function findId($id)
@@ -36,8 +48,9 @@ class PaymentMethodeRepository
         if (!$payment) {
             return null;
         }
+	$payment->update($data);
         return $payment;
-        $payment->update($data);
+        
     }
 
     public function delete($id)

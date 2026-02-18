@@ -27,8 +27,8 @@ class ConfigurationiRepository
         if (!$config) {
             return null;
         }
+	$config->update($data);
         return $config;
-        $config->update($data);
     }
 
     public function delete($id)

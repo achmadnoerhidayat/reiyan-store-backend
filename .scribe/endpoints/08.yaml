@@ -76,10 +76,96 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IjJaUXBncjNadHkyRFFwcU9QQnZJUkE9PSIsInZhbHVlIjoiMWlURHFaYmpacEVFYyt4alhEekkvMUZnV211YjlDS3lqOU9wcURCSTVjaEZPTjh3dFk1Tld1OHlpTnk4eHF0eXM3TlpJVjdqZFRIUWV5Y0hDYlFZNVRCdVBydGRHbFVYVGJkSUw3QWVxSEZwSnZQZ1pQV0h6c0Z6WTlSMFkyUDMiLCJtYWMiOiJmODFmNDVmNjZlMTk1Njc2NGFiOTY0M2U5ZjFlNDUyNjI5NGUzMDAzZWI1NGU2NDUxMTg0ZmZhMzM4ZGVhOGRkIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImJRN1MzL2pCb0U4K3h5aEZrNFZ1RkE9PSIsInZhbHVlIjoiYituUUxOeEdaalo5bENOT3ZHSHpORFpZV3hIcHhBM2NVaGpsbHh3UGlwYlRQZWFaUmhBakVWZ0JDNXlRd2dPdzJId1lxc00vaE5iRlVnbEg3SWJ0NDJPdDFXR3ZRQUVpZ1ROdk01eDNMTElzdW1oN3U0d1J3WWFJeTVHWlB0TWkiLCJtYWMiOiI2N2IyZWVkODUxOGQyNTA0YzFmNDNmMDBlNzBkZmMyZmFkMzFmNGMzNDVhMGEwNDZiNDhjNDIxMjcxNzFmY2VhIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          access-control-allow-origin: '*'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6InRwSENVZExmVDFjOWh2NDNTZll2bUE9PSIsInZhbHVlIjoibWhUMERzMEY5d2ZhR2o1V2dLNEFldWtXc2IrVm8vZVpTRWFvcXdqMEYwT1dzcnFidGtSM3Nad3hCZFArS1l6TS9wYkRWaXRvakxGbVhGVngvYzlwUENYRGpCQWhaY29uRExLQVZRbFRaQ2E3dDQ1N0hSSHhzWTk3MjJmWEdCdlgiLCJtYWMiOiJmZWNiMmE3ZjAwM2JjZTBlODJiNGI2OWE4NmVlYjUwMmM1NTY4OTVlNGYwMTc5NDg2YzcxNTU0NTA0Y2UyZGZjIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImlCM2R3dnUxZ2ZHSmRDQnVDOGpMenc9PSIsInZhbHVlIjoiQ0F2eHU3Zm4wS1lrNlFpODRPc2x1RzNPVjJoMXNFWTNTRk1JU2lJbGNUaEh1MWgrRXNsTFM2YU51b1ZZV3dQV2xRek4zbkZDeG1PeWxGNWhNejhOUnN6b0lvMnp5c0JzRjh1MkdybUYyYlozdXVkcEdJVUJVdC8yUVlKU1B6ZXEiLCJtYWMiOiJmNTMzNjgzZDJmMjg1MjcyMjEyNDQzMjM3MDYyZWI4NjNiMGE5YTI3ZWZjMTdmOGYxNmI4NWI4YjA3OGQxOWMzIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: payment-method/admin
+    metadata:
+      custom: []
+      groupName: 'Payment Method'
+      groupDescription: |-
+
+        API untuk mengelola Payment Method
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        List Payment Method admin
+        Endpoint ini digunakan untuk mengambil semua data Payment Method.
+      description: 'Cocok digunakan di halaman pembelian produk.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      id:
+        custom: []
+        name: id
+        description: 'Mencari Payment Method berdasarkan id.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      search:
+        custom: []
+        name: search
+        description: 'Mencari Payment Method berdasarkan nama.'
+        required: false
+        example: Mobile
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: 'Mencari Payment Method berdasarkan status aktif.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      id: 16
+      search: Mobile
+      is_active: true
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IitMMEpMbWE1UWRzRVQ2ZndpM0FIaVE9PSIsInZhbHVlIjoiazEwVXZvVnEyL0lXRG0ya3p3V1Fad0xmUnlBd2kwVGFMYXZZNHhjc0hzWko0OFNUQ0JtRld4aytOTFp6VmdRUVMvMmptdXU4QUJ2QTdkQkU3NnZHdjlwRU1FOE9YSzRMSEtmRXFMLzZyL3VXdjdEWlNwTGhWMHVzeUk3SGFwVVQiLCJtYWMiOiJmODVhMjY5ZWZkOWUxZDUxYmQwYjJiMmVmNTE4ZWQ3M2NiNTFlZjkzMjU4MzRlZGRjMGM2M2U3YmQxNGM3ZmQzIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlFtR0VzVEZwaDlZOW9ySXlCWDhBdkE9PSIsInZhbHVlIjoidGtVSzA2SE5zNlI4NVBLNHg4TlMwSUJtWVRqRU9yQjJKOGJ0VzMrMkVFeDNQcTQzU1AzMU10eDJ2QlpLanMwSDdmcG16aDR4cHE4TUZ3dVlEemhRRSt2YStsam94WE40dVdLRzA4QnNUZnlVS0lycFhlakdDbm1PdFJWOVZENG0iLCJtYWMiOiJjMmE4ZmZlMzFiOWNjNWRjMDMzNjlhY2Q3ZjdmMzZmZDFmYzM0ZmNkZDQ0NzU5M2VhNzAzYzNhNmQ2ZGE5NjAxIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
     controller: null
     method: null
     route: null
@@ -231,14 +317,14 @@ endpoints:
         name: id
         description: 'The ID of the payment method.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 16
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -306,7 +392,7 @@ endpoints:
         type: file
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
     cleanBodyParameters:
       name: 'Dana Transfer'
@@ -352,14 +438,14 @@ endpoints:
         name: id
         description: 'The ID of the payment method.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 16
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

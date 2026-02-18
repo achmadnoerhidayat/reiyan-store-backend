@@ -23,6 +23,11 @@ class PaymentMethoderService
         return $this->methodRepo->getAll($data);
     }
 
+    public function getAdmin($data)
+    {
+        return $this->methodRepo->getAdmin($data);
+    }
+
     public function findId($id)
     {
         return $this->methodRepo->findId($id);

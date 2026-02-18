@@ -33,7 +33,7 @@ class UpdateProdukRequest extends FormRequest
             'is_check_server' => ['required', 'boolean'],
             'is_check_name' => ['required', 'boolean'],
             'faq' => ['nullable', 'array'],
-            'faq.*.id' => ['required', 'numeric', 'exists:faqs,id'],
+            'faq.*.id' => ['required', 'numeric'],
             'faq.*.question' => ['required', 'string', 'min:5'],
             'faq.*.answer' => ['required', 'string', 'min:10'],
         ];

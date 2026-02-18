@@ -11,6 +11,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\SeoController;
+use App\Http\Controllers\SocialController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VoucherController;
@@ -61,6 +62,7 @@ Route::group(['prefix' => 'produk'], function () {
             Route::get('/list-harga/{slug}', [ProdukController::class, 'priceList']);
             Route::group(['middleware' => ['throttle:10,1']], function () {
                 Route::post('/', [ProdukController::class, 'store']);
+                Route::post('/layanan/{id}', [ProdukController::class, 'updateLayanan']);
                 Route::put('/{id}', [ProdukController::class, 'update']);
                 Route::delete('/{id}', [ProdukController::class, 'delete']);
             });
@@ -98,9 +100,19 @@ Route::group(['prefix' => 'banner'], function () {
 Route::group(['prefix' => 'payment-method'], function () {
     Route::get('/', [PaymentMethodController::class, 'index']);
     Route::group(['middleware' => ['auth:sanctum', 'role:administrator,super_admin', 'throttle:10,1']], function () {
+        Route::get('/admin', [PaymentMethodController::class, 'indexAdmin']);
         Route::post('/', [PaymentMethodController::class, 'store']);
         Route::put('/{id}', [PaymentMethodController::class, 'update']);
         Route::delete('/{id}', [PaymentMethodController::class, 'delete']);
+    });
+});
+
+Route::group(['prefix' => 'social-media'], function () {
+    Route::get('/', [SocialController::class, 'index']);
+    Route::group(['middleware' => ['auth:sanctum', 'role:administrator,super_admin', 'throttle:10,1']], function () {
+        Route::post('/', [SocialController::class, 'store']);
+        Route::put('/{id}', [SocialController::class, 'update']);
+        Route::delete('/{id}', [SocialController::class, 'delete']);
     });
 });
 

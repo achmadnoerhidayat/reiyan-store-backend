@@ -31,6 +31,8 @@ class ProviderService
     public function store(array $data)
     {
         return DB::transaction(function () use ($data) {
+            $data['payload']['username'] = encrypt($data['payload']['username']);
+            $data['payload']['api_key'] = encrypt($data['payload']['api_key']);
             return $this->provider->store($data);
         });
     }
@@ -41,6 +43,19 @@ class ProviderService
             $provider = $this->provider->findId($id);
             if (!$provider) {
                 throw new \Exception('Provider Tidak Ditemukan');
+            }
+            if (!empty($data['payload'])) {
+                if (empty($data['payload']['username'])) {
+                    $data['payload']['username'] = $provider->payload['username'];
+                } else {
+                    $data['payload']['username'] = encrypt($data['payload']['username']);
+                }
+
+                if (empty($data['payload']['api_key'])) {
+                    $data['payload']['api_key'] = $provider->payload['api_key'];
+                } else {
+                    $data['payload']['api_key'] = encrypt($data['payload']['api_key']);
+                }
             }
             return $this->provider->update($provider->id, $data);
         });

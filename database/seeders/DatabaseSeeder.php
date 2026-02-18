@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\MemberLevel;
+use App\Models\PaymentMethod;
 use App\Models\Provider;
 use App\Models\Role;
 use App\Models\User;
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->provider();
+        $this->paymentMethod();
     }
 
     private function role()
@@ -152,6 +154,67 @@ class DatabaseSeeder extends Seeder
             Provider::updateOrCreate([
                 'name' => $value['name'],
                 'payload' => $value['payload'],
+            ], $value);
+        }
+    }
+
+    private function paymentMethod()
+    {
+        $method = [
+            [
+                "name" => "BCA Virtual Account",
+                "category" => "Virtual Account",
+                "code" => 'BC',
+                "gateway" => "duitku",
+                "fee" => 3500,
+                "is_active" => 1,
+            ],
+            [
+                "name" => "Mandiri Virtual Account",
+                "category" => "Virtual Account",
+                "code" => 'MC',
+                "gateway" => "duitku",
+                "fee" => 3500,
+                "is_active" => 1,
+            ],
+            [
+                "name" => "Indomaret",
+                "category" => "Ritel",
+                "code" => 'IR',
+                "gateway" => "duitku",
+                "fee" => 3500,
+                "is_active" => 1,
+            ],
+            [
+                "name" => "DANA",
+                "category" => "E-Wallet",
+                "code" => 'DA',
+                "gateway" => "duitku",
+                "fee" => 3500,
+                "is_active" => 1,
+            ],
+            [
+                "name" => "Shopee Pay",
+                "category" => "QRIS",
+                "code" => 'SP',
+                "gateway" => "duitku",
+                "fee" => 3500,
+                "is_active" => 1,
+            ],
+            [
+                "name" => "Indodana Paylater",
+                "category" => "Kredit",
+                "code" => 'DN',
+                "gateway" => "duitku",
+                "fee" => 3500,
+                "is_active" => 1,
+            ],
+        ];
+
+        foreach ($method as $value) {
+            PaymentMethod::updateOrCreate([
+                'name' => $value['name'],
+                'code' => $value['code'],
             ], $value);
         }
     }

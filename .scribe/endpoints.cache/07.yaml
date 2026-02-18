@@ -97,12 +97,13 @@ endpoints:
     responses:
       -
         custom: []
-        status: 403
-        content: '{"meta":{"code":403,"status":"error","message":"SQLSTATE[42S22]: Column not found: 1054 Unknown column ''ends_at'' in ''where clause'' (Connection: mysql, Host: db, Port: 3306, Database: reiyan_store, SQL: select * from `banners` where (`title` like %Mobile% and `starts_at` like %2026-02-15% and `ends_at` like %2026-02-30% and `is_active` = 1) order by `created_at` desc limit 4)"},"data":null}'
+        status: 200
+        content: '{"meta":{"code":200,"status":"success","message":"data banner berhasil ditampilkan"},"data":[{"id":2,"title":"Promo PUBG","image_url":"asset\/banner\/0hP7QvvpQCjDNK9IjzCKf8JYMFby30L3z7gzz9pL.webp","link_url":"http:\/\/localhost:5173\/admin\/banner","is_active":true,"starts_at":"2026-02-20T00:00:00.000000Z","end_at":"2026-06-28T00:00:00.000000Z","created_at":"2026-02-17T13:24:43.000000Z","updated_at":"2026-02-17T13:24:43.000000Z"},{"id":1,"title":"Promo Mobile Legend","image_url":"asset\/banner\/PVcYUHRn9M6jFNjyQbieUKH8zmSJLPXtE00Rcz78.webp","link_url":"http:\/\/localhost:5173\/admin\/banner","is_active":true,"starts_at":"2026-02-20T00:00:00.000000Z","end_at":"2026-06-26T00:00:00.000000Z","created_at":"2026-02-17T13:11:36.000000Z","updated_at":"2026-02-17T15:11:46.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IktOSWIwOFhlcVVOcUdiT0tuMzU0ZXc9PSIsInZhbHVlIjoiNU1saEVveC91YlZPRk5PYVVmM29Uclk2YUxqaCsvUHZiVGZQVnN3eUFEcUVMY1dKdjF6WTFIWXMwWktUeTJuaWRZcWRsWUdjeFFRMVJLRDZUOHRaeEJFcjVmL3pzS1ZuY3IwWVI1V0tjVDFCaWZEeDhOR1Z1Q0dydXQ1U28wS0MiLCJtYWMiOiI5NmJiMjE1ZGQ1ZTZlZjI2ZTI4NzM3MWEwNTkxMWM0ZjE4OGU5MzEwZTg4YzI2ODJjODE0YWJjMzkxNjAyYjE0IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjZIUjROY3AwR0gvTEJ5dDd5VjZ6TWc9PSIsInZhbHVlIjoiaDBMY2NyVkR3T05kV2dKMXJHRkxnNEZUTzRwa2tkRjZpdkg4U2hLOTM0aUJWdzBTYnpKeDZoMzRFOG9mT25GL0RLamhuaFUycTduR1NtdHVwd2RuV0xnWmhQNlljcmQ0dmN3M3VZd2pxRCt3dGJqUUNaOUk0V1ZWK0hhZkhCVGgiLCJtYWMiOiJmODQ5YTY3YTZlZGU5OTVhZTQwNTliYjMxNDNlZjA1ZDFkMjIxZGU0OTY5NmE3MTRlNWI3Y2RiOGYwOWJlZDNhIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          access-control-allow-origin: '*'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6ImVZT0t2bEIzbEgwWEpmZTNXNnJqTVE9PSIsInZhbHVlIjoidnZxemI0K014S3l4dGVsNjZmc2NPS2ErZmlUay9rMTUxVG1Gb2hwOXB6NUVaVTlSVktrM0dhQ2RmRnR3N21GY2dHbjZWdHR3NkNuZVduNVFndnFhZWhrSWJkMFJXWFNrQzJETjZ4WlRUV3BDUlFlWFkwRkFlbGJRWDJReFFyNTIiLCJtYWMiOiI2NmYxNmY4YTU1ZmJmMzljMTE1MDUxYjRiY2I0MGJiOTkzYTBjYWE5NWFmYjBjMmMxMWQ1YTIwMDU4YmRiMzMyIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IklNTjZuWVVWMkFTaGJmMnUzREdSdnc9PSIsInZhbHVlIjoiVlJxN3JWcEc2TVFkbEpjR2ZtcXYzZXFzRXBSaVlBeEpLMWw5TXkxSkJYazdWZ1FsUjA0cXdrVEQvcEFQdnltSDlLR3REYzhCcU5LSUNQdXRRbFhhQ2ZmTDAvUjJ5a1VVUEVJU2puNzdxQnl5aXJpS0h4aE9yRGJjczhTK2lQVE4iLCJtYWMiOiIzNjk5MjVmMmJlZmNiYzI5NzQ0NTkzZjczZjQxZWU1OWU4ZmE3ZDNkZmRiMWNkNDdjNzVjMmU4MzZjNWE4NzEwIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth: []
@@ -245,14 +246,14 @@ endpoints:
         name: id
         description: 'The ID of the banner.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 16
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -366,14 +367,14 @@ endpoints:
         name: id
         description: 'The ID of the banner.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 16
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

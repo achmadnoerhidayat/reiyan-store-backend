@@ -65,7 +65,8 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IkZ1TWpjb2RXK0psS3N5UUtMZ0xSanc9PSIsInZhbHVlIjoiQ3M4RmhIbGlLTHRXRXgvcmpLVEp2UlRINlR3RVVkb2pjNWt4MjRLWCs1NmgxRzk3UWRHbU9CdUlUalRkeFBTa3FkZDJ5Vm82WHJJMDIvNXZRY2dPakJHUmlpNGtGWEF4MGxWdjBpMEx2TlNQYlJqNnd6YkU1aDlSbkdFVngxWFEiLCJtYWMiOiI5OGRiMGEwMjY1OTY2MmMzMmUyMjQyYzhlNmE0MDU0ODBjNDI3MzE1MzU0NDZhMmIxNDQ1ZTNjNDM2OTgxMTU5IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Im1pQXRQKzh2MmxqY0ZzRG5lOEVwaUE9PSIsInZhbHVlIjoiTjNLSWZZY1VsTHVNWVNWSVpIYmNlVHVwNWw5VHZKTDcrMEFna0JqR2piU3JNMEZvTlN2ZWVSRVh2dHlTRVFMVGpBWDlkUmZsVXFSWXgxdHdIZXo5cFQySi9taWJBSXFHSHZWakV0R2NieUQ5dWdjeWtQaTg5QnhGeDFVRGF2Q2QiLCJtYWMiOiIwOWQwZDNjMGQwYmFmNDVhZTBlOTE4ZjZjNDcxOGEyZGFlYjZlOTYxNzFhN2NkZjMxY2M1ZDM4NDRmYzk3ZDNmIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          access-control-allow-origin: '*'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6ImZ0MTZrNHI0K016Tlo0ajQ4YkZndkE9PSIsInZhbHVlIjoiRjFPeXlocWE2eGJUSjRzRFg0aHJ1RDVORmVlYmpITGRyUjhKRWw1aW5MUWNiL1ViQjd1aEF3L3FUVWdHVlB3WS8xYURxNGRHeHcrQ0dKUzAxeEgvS25KNWJwaWtzV1VMYTlDTjRjdGs4alRjM0JOdnNmYUxHVHI3WGlsekM3Z0IiLCJtYWMiOiJmZmZjN2VkOWE5ZDI4ZTQ5ZmQ1NzYzZjMyZmJmNDRkZjg1Yzk0OTE4YTlkNWZhZjFkYTkzOTQ3ZTY3Y2M1YWNjIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Iml5SjVYQUVhYTFLMjFkTGp1YThzbXc9PSIsInZhbHVlIjoiT2NjYytWUTBtQzFYNzdyTTAwL1RNWDVUOTBHaU9wOFVXeHorTmN5OXA5N3pjK2p3TTM1MkZ2REY1TmpzcU9MWHNGU1k1T2M2SGc5cVRwcENpaHYvVnI0WU1kR0lDWjJINmltdHpGS0pzWGtRWG5tQVg2cW91NE14RlZIeWdJNEUiLCJtYWMiOiIwZjdhYWU1NWFmNTc2NjEwM2M3MGEwMjhiMTg4ODlmYzYzOGUzZjQzYmRhNmIzMmY0NDM0YWE0NDg5NGU2ZmI5IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth:
@@ -157,11 +158,45 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         deprecated: false
+      payload.username:
+        custom: []
+        name: payload.username
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      payload.api_key:
+        custom: []
+        name: payload.api_key
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      payload.url:
+        custom: []
+        name: payload.url
+        description: 'Must be a valid URL.'
+        required: true
+        example: 'http://bailey.com/'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
     cleanBodyParameters:
       name: Postpaid
       driver: App\Services\MobilepulsaService
       is_active: 'true'
-      payload: []
+      payload:
+        url: 'http://bailey.com/'
     fileParameters: []
     responses: []
     responseFields: []

@@ -61,6 +61,7 @@ class KategoriController extends Controller
         $data = $request->validate([
             'name' => ['required', 'min:2'],
             'image' => ['nullable', 'image', 'mimes:png,jpg,jpeg,webp', 'max:2048'],
+            'position' => ['required', 'numeric'],
         ]);
 
         try {
@@ -90,6 +91,7 @@ class KategoriController extends Controller
         $data = $request->validate([
             'name' => ['required', 'min:2'],
             'image' => ['nullable', 'image', 'mimes:png,jpg,jpeg,webp', 'max:2048'],
+            'position' => ['required', 'numeric'],
         ]);
 
         try {

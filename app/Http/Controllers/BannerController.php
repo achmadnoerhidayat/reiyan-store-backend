@@ -30,7 +30,7 @@ class BannerController extends Controller
         $search = $request->input('search');
         $starts_at = $request->input('starts_at');
         $ends_at = $request->input('ends_at');
-        $is_active = $request->input('is_active', 1);
+        $is_active = $request->input('is_active');
 
         try {
             $banner = null;

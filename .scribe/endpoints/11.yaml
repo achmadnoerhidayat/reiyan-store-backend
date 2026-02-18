@@ -1,89 +1,25 @@
-name: Transaksi
-description: ''
+name: Voucher
+description: |-
+
+  API untuk mengelola Voucher
 endpoints:
   -
     custom: []
     httpMethods:
-      - POST
-    uri: transaksi/callback-payment
-    metadata:
-      custom: []
-      groupName: Transaksi
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: |-
-        Callback Payment Gateway
-        Endpoint untuk menerima notifikasi status pembayaran dari Midtrans/Duitku.
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: transaksi/callback-ppob
-    metadata:
-      custom: []
-      groupName: Transaksi
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: |-
-        Callback Provider PPOB
-        Endpoint untuk menerima status pesanan dari Provider (VIP/IAK/Digiflazz).
-        Pastikan header X-Client-Signature dikirim untuk validasi.
-      description: ''
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
       - GET
-    uri: transaksi
+    uri: voucher
     metadata:
       custom: []
-      groupName: Transaksi
-      groupDescription: ''
+      groupName: Voucher
+      groupDescription: |-
+
+        API untuk mengelola Voucher
       subgroup: ''
       subgroupDescription: ''
       title: |-
-        List Transaksi User
-        Mengambil semua data transaksi milik user yang sedang login.
-        Bisa difilter berdasarkan ID transaksi untuk detail, atau search order_id.
-      description: ''
+        List Voucher
+        Endpoint ini digunakan untuk mengambil semua data Voucher.
+      description: 'Cocok digunakan di halaman pembelian produk.'
       authenticated: true
       deprecated: false
     headers:
@@ -96,40 +32,64 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'ID transaksi jika ingin mengambil detail satu data.'
+        description: 'Mencari Voucher berdasarkan id.'
         required: false
-        example: 1
+        example: 16
         type: integer
         enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         nullable: false
         deprecated: false
       search:
         custom: []
         name: search
-        description: 'Cari berdasarkan Order ID.'
+        description: 'Mencari Voucher berdasarkan nama.'
         required: false
-        example: ORD-2024
+        example: Mobile
         type: string
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
-      limit:
+      start_at:
         custom: []
-        name: limit
-        description: 'Jumlah data per halaman. Default: 10.'
+        name: start_at
+        description: 'date Mencari Voucher berdasarkan Tanggal Dimulai.'
         required: false
-        example: 15
-        type: integer
+        example: '2026-02-25'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      end_at:
+        custom: []
+        name: end_at
+        description: 'date Mencari Voucher berdasarkan Tanggal Berakhir.'
+        required: false
+        example: '2026-03-25'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: "enum Mencari Voucher berdasarkan Type ('percent', 'flat')."
+        required: false
+        example: percent
+        type: string
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanQueryParameters:
-      id: 1
-      search: ORD-2024
-      limit: 15
+      id: 16
+      search: Mobile
+      start_at: '2026-02-25'
+      end_at: '2026-03-25'
+      type: percent
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -141,7 +101,8 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IkJXeHFiT0h3L2ltQXFJNU9sWExiQnc9PSIsInZhbHVlIjoiVjhMZU9OQTBHMDZYNzJyRzBWWDltYUV0aXpSV3AvMkxDdGhRaFhqbGc5Sy9nUEV0UHc2MWxueUxiaFNUTmRraHFPT0U3dWhqSVdHMzBFbGpvYUJxV3Q5UHlJemloMkN3Z0o4TUo4dlhHWnJXUkdQMnhYcUZ2TW9OQXFIc2MvV3UiLCJtYWMiOiI3MjA1MzYwMGQwMTc0N2QyY2ViOGQ2YzcxM2FhODdmOTZiODY1YjcxZTE1YjdmOTlkYWI2ZjMwMmUyOTUyMmIzIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Ik1SRzB6Q3NFbW5iWXNCWnl1VTJYaVE9PSIsInZhbHVlIjoiSmdvNmpyQjVzNnlEYlFxaWVKWVB4YU9lMnZHVzV2TWI0TGhHM3FGbUFEMTR3ODVOMm13aFQ1Rjk5SExYTUdTMXVtdThWbUI5Wm5ML1pnQjUwVzRJVmRBSUJRaCtsT3IwejJtVm1JWXBndUpIUG9pN0pNaG5lWmdnVEJ3YUQxZEQiLCJtYWMiOiJjOWRlNGMxOWUwNmU3ZjAwOTA0ODcwYWY5MTlmMzljMjhjMTA3ZGRiYzFhMWZkYjY3Njc2YjY3ZWVhNzVjMWE2IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          access-control-allow-origin: '*'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IkxOdEVhR3NNTzNXeGVqZi9vT1dYa0E9PSIsInZhbHVlIjoidHZtQkZYSWRlQTJQZUNtY1JKejloTHdLV0ZPckRMUEh0a00zbHdIMkV3R1lTcWptRkJzK3lFTWQxMnFWUG15eEhLbG5nOG1OVHJGT05tNzUzY3JhcndWa2V1TFpBZXQzTkVGcnpLN2didTZIb2MvQUJQemJnZDQ5ZFIzcnZEd1QiLCJtYWMiOiI1YmRhZDIwNDc5OGZlZWEwZjg0NDA4NTY3YmJkYTdjZGRhNGZkMmQ1NTZmMDg1MDUxZGMzM2Y1MTE3NzkzNzk1IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IktMWlh1OGIwUmVscFRuVEpnVzZmV0E9PSIsInZhbHVlIjoicU9SMEtHNm1wSHZrMm9QbExKdTE0d3JJdmZGQWx4T2hGVGxWSGIzWVdvek5qYlllTjBycG1VaWxSengvdmcwOC9tSEdySGJQQVoxa0RsaUdWQndacFdoelBhckJ0SGFvb1ErWlF6cVhDRVNUa0txS1NiZkVNQUEwSndlbERHQ2EiLCJtYWMiOiJlYTBkZGU2MjQ5NTFjNjFkZTVhNWNhNDhmN2UzMGEwYWNhMjM5M2MwMDA2N2IyMzE1MWY5MmVkZTUxODljOWYxIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth:
@@ -154,18 +115,79 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - GET
-    uri: transaksi/admin
+      - POST
+    uri: 'voucher/check/{code}'
     metadata:
       custom: []
-      groupName: Transaksi
-      groupDescription: ''
+      groupName: Voucher
+      groupDescription: |-
+
+        API untuk mengelola Voucher
       subgroup: ''
       subgroupDescription: ''
-      title: |-
-        List Transaksi (Admin)
-        Mengambil semua data transaksi secara keseluruhan (Global) untuk dashboard admin.
-      description: ''
+      title: 'Cek Ketersedian Voucher'
+      description: 'Endpoint ini digunakan untuk Mengecek Ketersedian Voucher.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      code:
+        custom: []
+        name: code
+        description: ''
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      code: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      produk_id:
+        custom: []
+        name: produk_id
+        description: 'ID dari tabel products.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      produk_id: 1
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: voucher
+    metadata:
+      custom: []
+      groupName: Voucher
+      groupDescription: |-
+
+        API untuk mengelola Voucher
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Tambah Voucher'
+      description: 'Endpoint ini digunakan untuk menambahkan Voucher baru ke dalam sistem.'
       authenticated: true
       deprecated: false
     headers:
@@ -174,57 +196,277 @@ endpoints:
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters:
-      id:
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      produk_id:
         custom: []
-        name: id
-        description: 'ID transaksi untuk detail admin.'
-        required: false
+        name: produk_id
+        description: 'ID dari tabel products.'
+        required: true
         example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
-      search:
+      code:
         custom: []
-        name: search
-        description: 'Cari berdasarkan Order ID.'
-        required: false
-        example: ORD-2024
+        name: code
+        description: 'Kode unik voucher (max 255 karakter).'
+        required: true
+        example: DISKONMERDEKA
         type: string
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
-      limit:
+      type:
         custom: []
-        name: limit
-        description: 'Jumlah data per halaman.'
-        required: false
-        example: 20
+        name: type
+        description: 'Tipe potongan harga. Must be one of: percent, flat.'
+        required: true
+        example: percent
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      value:
+        custom: []
+        name: value
+        description: 'Nilai potongan (persentase atau nominal rupiah).'
+        required: true
+        example: 10.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      quota:
+        custom: []
+        name: quota
+        description: 'Jumlah total voucher yang tersedia.'
+        required: true
+        example: 100
         type: integer
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
-    cleanQueryParameters:
-      id: 1
-      search: ORD-2024
-      limit: 20
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
+      min_order:
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IlZTTGExSFY4eFJTVGJGQzNldndhQkE9PSIsInZhbHVlIjoib203MXBPNXVIV0RvNVk4VlJMLzNSQmsydzlWYVFHRDkwRENkblVOYXptaGt1RmJ1dWZUcE80ckhoQlNqNHk2K3NReGtxUzgxdVhvb1lsQitJUGV2bk9YRkhGczJrT3RTaE9NRjE1OXordEhob0dBSStRMXRCVk9UUXZSQ1VpNXMiLCJtYWMiOiI1YmZiNmU1NTU1NjU1ZjVlOWYyMjYzOWZiZDU4ZWEyMWZiNDZiZjEzMzc2YTZmNGI1YjQwZjY4N2E4NDcyYzVlIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkZyQTZTUys2d1p6MlM1TFVRcC9UWkE9PSIsInZhbHVlIjoieHNRWUtyTjBKZUlicWE1VUx2akxjN2ptUHhuNFdJQlpBbVlkQjh1ejE2blVaQ2Qza0lDcmxMOXcvUnhRRjFsc21PYTJOZkFSdXlrbXhXaVRrUTkwemtnMW1HWURUSTB0ckJ5ZVpqQjg4akNDZzRsY0dueW52c3lIMjJLMHRJZDciLCJtYWMiOiJkNzM1YTAxNDNkZTkzMDM0OTczYjIzOGE5MGYwZTMwM2YyZWVlNTAxMGQ0ZjJmYzk5MGZmNjY4ODk1YTc4NzdiIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
-        description: null
+        name: min_order
+        description: 'Minimal belanja untuk bisa menggunakan voucher ini.'
+        required: true
+        example: 50000.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      start_at:
+        custom: []
+        name: start_at
+        description: 'Tanggal mulai berlakunya voucher (YYYY-MM-DD).'
+        required: true
+        example: '2026-08-01'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      end_at:
+        custom: []
+        name: end_at
+        description: 'Tanggal berakhirnya voucher (YYYY-MM-DD).'
+        required: true
+        example: '2026-08-17'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: 'Status keaktifan voucher.'
+        required: true
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      produk_id: 1
+      code: DISKONMERDEKA
+      type: percent
+      value: 10.0
+      quota: 100
+      min_order: 50000.0
+      start_at: '2026-08-01'
+      end_at: '2026-08-17'
+      is_active: true
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'voucher/{id}'
+    metadata:
+      custom: []
+      groupName: Voucher
+      groupDescription: |-
+
+        API untuk mengelola Voucher
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Edit Voucher'
+      description: 'Endpoint ini digunakan untuk mengubah Voucher ke dalam sistem.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the voucher.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      produk_id:
+        custom: []
+        name: produk_id
+        description: 'ID dari tabel products.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      code:
+        custom: []
+        name: code
+        description: 'Kode unik voucher (max 255 karakter).'
+        required: true
+        example: DISKONMERDEKA
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: 'Tipe potongan harga. Must be one of: percent, flat.'
+        required: true
+        example: percent
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      value:
+        custom: []
+        name: value
+        description: 'Nilai potongan (persentase atau nominal rupiah).'
+        required: true
+        example: 10.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      quota:
+        custom: []
+        name: quota
+        description: 'Jumlah total voucher yang tersedia.'
+        required: true
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      min_order:
+        custom: []
+        name: min_order
+        description: 'Minimal belanja untuk bisa menggunakan voucher ini.'
+        required: true
+        example: 50000.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      start_at:
+        custom: []
+        name: start_at
+        description: 'Tanggal mulai berlakunya voucher (YYYY-MM-DD).'
+        required: true
+        example: '2026-08-01'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      end_at:
+        custom: []
+        name: end_at
+        description: 'Tanggal berakhirnya voucher (YYYY-MM-DD).'
+        required: true
+        example: '2026-08-17'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: 'Status keaktifan voucher.'
+        required: true
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      produk_id: 1
+      code: DISKONMERDEKA
+      type: percent
+      value: 10.0
+      quota: 100
+      min_order: 50000.0
+      start_at: '2026-08-01'
+      end_at: '2026-08-17'
+      is_active: true
+    fileParameters: []
+    responses: []
     responseFields: []
     auth:
       - headers
@@ -237,17 +479,17 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'transaksi/{id}'
+    uri: 'voucher/{id}'
     metadata:
       custom: []
-      groupName: Transaksi
-      groupDescription: ''
+      groupName: Voucher
+      groupDescription: |-
+
+        API untuk mengelola Voucher
       subgroup: ''
       subgroupDescription: ''
-      title: |-
-        Hapus Transaksi
-        Menghapus data transaksi berdasarkan ID.
-      description: ''
+      title: 'Hapus Voucher'
+      description: 'Endpoint ini digunakan untuk menghapus Voucher ke dalam sistem.'
       authenticated: true
       deprecated: false
     headers:
@@ -258,16 +500,16 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'ID transaksi yang akan dihapus.'
+        description: 'The ID of the voucher.'
         required: true
-        example: '1'
+        example: architecto
         type: string
         enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: '1'
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

@@ -8,11 +8,11 @@ class KategoriRepository
 {
     public function getAll($data)
     {
-        $kategori = category::with('produk');
+        $kategori = category::query();
         if (!empty($data['search'])) {
             $kategori = $kategori->where('name', 'like', '%' . $data['search'] . '%');
         }
-        $kategori = $kategori->orderBy('created_at', 'desc')->paginate($data['limit']);
+        $kategori = $kategori->orderBy('position', 'asc')->paginate($data['limit']);
         return $kategori;
     }
 

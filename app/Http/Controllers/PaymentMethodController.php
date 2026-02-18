@@ -46,6 +46,39 @@ class PaymentMethodController extends Controller
     }
 
     /**
+     * List Payment Method admin
+     * Endpoint ini digunakan untuk mengambil semua data Payment Method.
+     * Cocok digunakan di halaman pembelian produk.
+     * @authenticated
+     * @queryParam id integer Mencari Payment Method berdasarkan id.
+     * @queryParam search string Mencari Payment Method berdasarkan nama. Example: Mobile
+     * @queryParam is_active boolean Mencari Payment Method berdasarkan status aktif. Example: 1
+     *
+     */
+
+    public function indexAdmin(Request $request, PaymentMethoderService $service)
+    {
+        $id = $request->input('id');
+        $search = $request->input('search');
+        $is_active = $request->input('is_active');
+
+        try {
+            $payment = null;
+            if ($id) {
+                $payment = $service->findId($id);
+            } else {
+                $payment = $service->getAdmin([
+                    'search' => $search,
+                    'is_active' => $is_active,
+                ]);
+            }
+            return ResponseFormated::success($payment, 'data Payment Method berhasil ditampilkan');
+        } catch (\Exception $e) {
+            return ResponseFormated::error(null, $e->getMessage(), 403);
+        }
+    }
+
+    /**
      * Tambah Payment Method
      *
      * Endpoint ini digunakan untuk menambahkan Payment Method baru ke dalam sistem.
@@ -107,7 +140,7 @@ class PaymentMethodController extends Controller
             'gateway' => ['required', 'string'],
             'fee' => ['required', 'numeric'],
             'is_active' => ['required', 'boolean'],
-            'image' => ['required', 'image', 'mimes:png,jpg,jpeg,webp', 'max:2048'],
+            'image' => ['nullable', 'image', 'mimes:png,jpg,jpeg,webp', 'max:2048'],
         ]);
 
         try {

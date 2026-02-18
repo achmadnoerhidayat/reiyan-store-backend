@@ -16,6 +16,9 @@ class ProviderRepository
                     ->orWhere('code', 'like', '%' . $data['search'] . '%');
             });
         }
+        if (!empty($data['is_active'])) {
+            $provider->where('is_active', $data['is_active']);
+        }
 
         return $provider->paginate($data['limit']);
     }

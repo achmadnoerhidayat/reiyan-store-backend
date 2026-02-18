@@ -35,9 +35,8 @@ class ProdukService
             if (in_array($user->role->name, ['super_admin', 'administrator'])) {
                 $produk = $this->produkRepo->getAll($data);
                 foreach ($produk as $value) {
+                    $value->provider = new ProviderResource($value->provider);
                     $value->unsetRelation('provider');
-                    $formatted = ProviderResource::collection($value->provider);
-                    $value->setRelation('provider', $formatted);
                 }
                 return $produk;
             }
@@ -220,6 +219,17 @@ class ProdukService
             foreach ($batchLayanan as $value) {
                 $this->produkRepo->storeLayanan($produk->id, $value);
             }
+        });
+    }
+
+    public function updateLayanan($id, $data)
+    {
+        return DB::transaction(function () use ($id, $data) {
+            $produk = $this->produkRepo->findId($id);
+            if (!$produk) {
+                throw new \Exception('data produk tidak ditemukan');
+            }
+            return $this->produkRepo->storeLayanan($id, $data);
         });
     }
 

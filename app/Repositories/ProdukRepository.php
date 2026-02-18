@@ -13,6 +13,12 @@ class ProdukRepository
             $query->orderBy('price_provider', 'asc');
         }, 'faq']);
 
+        if (!empty($data['kategori_id'])) {
+            $produk = $produk->whereHas('kategori', function ($q) use ($data) {
+                $q->where('id', $data['kategori_id']);
+            });
+        }
+
         if (!empty($data['search'])) {
             $produk = $produk->where('name', 'like', '%' . $data['search'] . '%');
         }
@@ -50,7 +56,19 @@ class ProdukRepository
             'code' => $data['code'],
         ], $data);
         if (isset($data['faq'])) {
-            $produk->faq()->createMany($data['faq']);
+            $faqIds = [];
+
+            foreach ($data['faq'] as $item) {
+                $faq = $produk->faq()->updateOrCreate(
+                    [
+                        'question' => $item['question']
+                    ],
+                    $item
+                );
+                $faqIds[] = $faq->id;
+            }
+
+            $produk->faq()->whereNotIn('id', $faqIds)->delete();
         }
         return $produk;
     }
@@ -60,16 +78,22 @@ class ProdukRepository
         $produk = Product::find($id);
         if ($produk) {
             $produk->update($data);
+
             if (isset($data['faq'])) {
+                $faqIds = [];
+
                 foreach ($data['faq'] as $item) {
-                    $produk->faq()->updateOrCreate(
-                        ['id' => $item['id'] ?? null],
+                    $faq = $produk->faq()->updateOrCreate(
                         [
+                            'id' => $item['id'],
                             'question' => $item['question'],
-                            'answer' => $item['answer']
-                        ]
+                        ],
+                        $item
                     );
+                    $faqIds[] = $faq->id;
                 }
+
+                $produk->faq()->whereNotIn('id', $faqIds)->delete();
             }
         }
         return $produk;

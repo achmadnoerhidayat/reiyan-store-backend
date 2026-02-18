@@ -192,6 +192,10 @@ Endpoint ini digunakan untuk mengambil semua data User.</a>
                                 <a href="#payment-method-GETpayment-method">List Payment Method
 Endpoint ini digunakan untuk mengambil semua data Payment Method.</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="payment-method-GETpayment-method-admin">
+                                <a href="#payment-method-GETpayment-method-admin">List Payment Method admin
+Endpoint ini digunakan untuk mengambil semua data Payment Method.</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="payment-method-POSTpayment-method">
                                 <a href="#payment-method-POSTpayment-method">Tambah Payment Method</a>
                             </li>
@@ -226,6 +230,9 @@ Endpoint ini digunakan untuk mengambil semua data Harga Dari Provider yang aktif
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="produk-POSTproduk">
                                 <a href="#produk-POSTproduk">Tambah Produk</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="produk-POSTproduk-layanan--id-">
+                                <a href="#produk-POSTproduk-layanan--id-">Update Harga Produk</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="produk-PUTproduk--id-">
                                 <a href="#produk-PUTproduk--id-">Update Produk</a>
@@ -294,6 +301,26 @@ Endpoint ini digunakan untuk mengambil semua data Seo Meta Tags.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="seo-meta-tags-DELETEseo--id-">
                                 <a href="#seo-meta-tags-DELETEseo--id-">Hapus Seo Meta Tags</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-social-media" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="social-media">
+                    <a href="#social-media">Social Media</a>
+                </li>
+                                    <ul id="tocify-subheader-social-media" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="social-media-GETsocial-media">
+                                <a href="#social-media-GETsocial-media">List Social Media
+Endpoint ini digunakan untuk mengambil semua data Social Media.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="social-media-POSTsocial-media">
+                                <a href="#social-media-POSTsocial-media">Tambah Social Media</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="social-media-PUTsocial-media--id-">
+                                <a href="#social-media-PUTsocial-media--id-">Edit Social Media</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="social-media-DELETEsocial-media--id-">
+                                <a href="#social-media-DELETEsocial-media--id-">Hapus Social Media</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -378,7 +405,7 @@ Endpoint ini digunakan untuk mengambil semua data Voucher.</a>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: February 13, 2026</li>
+        <li>Last updated: February 18, 2026</li>
     </ul>
 </div>
 
@@ -922,7 +949,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6Im02bmdMNm05TUNDejFDY1J1dG9teWc9PSIsInZhbHVlIjoibUtpazJEeGpKMXFEZGNjSDhrajVTaEFxdzZwbjM3NU01VTA0Vnh5UW1PdmpEMXBBalFsclk2WklJU2Mxai9raVlrWlNRTzdCM2xzbHFXbHhQWlhQYm9qQTg4Q0Zqb0h2eFY4ZlV3UUFFK01FdDV2OWpFT1B4dFh0dFkrZjhrY2QiLCJtYWMiOiJiZGFkMDIzZDI0ODAyOTNkODc4OTk0OGEzYWNmMDkyYTMyM2ZhZmQ3NDYzZDliZjUwZmMwNzllNDU4MmNlMDdlIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:49 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Inc0bTRMaUFWU3dxVXNhaXlkU3lLSnc9PSIsInZhbHVlIjoidC83U1o2OUw3VXFLNENmV0JLSGJmd3V6R1M3SGxWeUJTWksxaXJtQjBjdkw3R3F2UVdONE5XTk9GLzFYZUxOWWN5UFYvdDBhbkQvODZmVTlKeTNaTUJ5VkJqci9rYmFSY2YzNjd6Ryt5Mjl4OHlWWm4xTHFCVjg2MGVrMHNPdUsiLCJtYWMiOiIxNmMyNWU0ZWY4ZTBhYTQxNGU2NDFhNGYwZTU5YjEwNzY3ZTRjN2I3MjJjODQyZTJmMTQxZjYzMzY0MGJjNmFkIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:49 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6ImEwTlpNRE1MalA2Zjl5bCsvYUZ6Y3c9PSIsInZhbHVlIjoieXdmd3BLRlZ6VFFlbmhGNW91ZGNFdjE0OGVBWVNvaXMra0dJU2htUGg5M3llejhqZkRYR1IxVndGdm9IRGJVOHJOMmZLL0s3RzUwbFhjditIWERtOENzWUxGZzg0K013eXJXSk10ZDAraDE1ZlkxekJrYXliZi9KRWxPbTVYN1oiLCJtYWMiOiJhZjA1M2M1OGIxODcyMDJjN2M2ZWZjOTdlZTJjYWQzNmU0YWI4OWY2NGRjMzBiMGY2OGI4NTI4ZDljYWRlNGU2IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:55 GMT; Max-Age=7199; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlJ0Rk0vRnEvUG4zbzJ5QkN1ZmhGNmc9PSIsInZhbHVlIjoiRm9PdTk0UDl6b3VzNmMwaGNqQ1A4SmpTUjFWUVlQMHlmTHk1U05JRzZRNWc3NDQrazBCc05MTEpGNHBQbDJ2VlpQdFNwb3RjTUlobzdBNXZreGxxYWV3cjdmWFpSQjdMRjdQcUxkR3JGVVVYYzQ1aVBTcFQxMGdmSG50aVVIMysiLCJtYWMiOiI3ZTNjZmM1Y2Y1NmI4YjAzYmRhMDM4YTA1YzE5YTI1Yzc4ZDc1ZDNkNjIzOTc1MjcwZjRkM2UxZWJlODI4YmZjIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:55 GMT; Max-Age=7199; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -1055,7 +1083,7 @@ fetch(url, {
 
 <span id="example-responses-GETbanner">
             <blockquote>
-            <p>Example response (403):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1063,16 +1091,40 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IktOSWIwOFhlcVVOcUdiT0tuMzU0ZXc9PSIsInZhbHVlIjoiNU1saEVveC91YlZPRk5PYVVmM29Uclk2YUxqaCsvUHZiVGZQVnN3eUFEcUVMY1dKdjF6WTFIWXMwWktUeTJuaWRZcWRsWUdjeFFRMVJLRDZUOHRaeEJFcjVmL3pzS1ZuY3IwWVI1V0tjVDFCaWZEeDhOR1Z1Q0dydXQ1U28wS0MiLCJtYWMiOiI5NmJiMjE1ZGQ1ZTZlZjI2ZTI4NzM3MWEwNTkxMWM0ZjE4OGU5MzEwZTg4YzI2ODJjODE0YWJjMzkxNjAyYjE0IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjZIUjROY3AwR0gvTEJ5dDd5VjZ6TWc9PSIsInZhbHVlIjoiaDBMY2NyVkR3T05kV2dKMXJHRkxnNEZUTzRwa2tkRjZpdkg4U2hLOTM0aUJWdzBTYnpKeDZoMzRFOG9mT25GL0RLamhuaFUycTduR1NtdHVwd2RuV0xnWmhQNlljcmQ0dmN3M3VZd2pxRCt3dGJqUUNaOUk0V1ZWK0hhZkhCVGgiLCJtYWMiOiJmODQ5YTY3YTZlZGU5OTVhZTQwNTliYjMxNDNlZjA1ZDFkMjIxZGU0OTY5NmE3MTRlNWI3Y2RiOGYwOWJlZDNhIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6ImVZT0t2bEIzbEgwWEpmZTNXNnJqTVE9PSIsInZhbHVlIjoidnZxemI0K014S3l4dGVsNjZmc2NPS2ErZmlUay9rMTUxVG1Gb2hwOXB6NUVaVTlSVktrM0dhQ2RmRnR3N21GY2dHbjZWdHR3NkNuZVduNVFndnFhZWhrSWJkMFJXWFNrQzJETjZ4WlRUV3BDUlFlWFkwRkFlbGJRWDJReFFyNTIiLCJtYWMiOiI2NmYxNmY4YTU1ZmJmMzljMTE1MDUxYjRiY2I0MGJiOTkzYTBjYWE5NWFmYjBjMmMxMWQ1YTIwMDU4YmRiMzMyIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IklNTjZuWVVWMkFTaGJmMnUzREdSdnc9PSIsInZhbHVlIjoiVlJxN3JWcEc2TVFkbEpjR2ZtcXYzZXFzRXBSaVlBeEpLMWw5TXkxSkJYazdWZ1FsUjA0cXdrVEQvcEFQdnltSDlLR3REYzhCcU5LSUNQdXRRbFhhQ2ZmTDAvUjJ5a1VVUEVJU2puNzdxQnl5aXJpS0h4aE9yRGJjczhTK2lQVE4iLCJtYWMiOiIzNjk5MjVmMmJlZmNiYzI5NzQ0NTkzZjczZjQxZWU1OWU4ZmE3ZDNkZmRiMWNkNDdjNzVjMmU4MzZjNWE4NzEwIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;meta&quot;: {
-        &quot;code&quot;: 403,
-        &quot;status&quot;: &quot;error&quot;,
-        &quot;message&quot;: &quot;SQLSTATE[42S22]: Column not found: 1054 Unknown column &#039;ends_at&#039; in &#039;where clause&#039; (Connection: mysql, Host: db, Port: 3306, Database: reiyan_store, SQL: select * from `banners` where (`title` like %Mobile% and `starts_at` like %2026-02-15% and `ends_at` like %2026-02-30% and `is_active` = 1) order by `created_at` desc limit 4)&quot;
+        &quot;code&quot;: 200,
+        &quot;status&quot;: &quot;success&quot;,
+        &quot;message&quot;: &quot;data banner berhasil ditampilkan&quot;
     },
-    &quot;data&quot;: null
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 2,
+            &quot;title&quot;: &quot;Promo PUBG&quot;,
+            &quot;image_url&quot;: &quot;asset/banner/0hP7QvvpQCjDNK9IjzCKf8JYMFby30L3z7gzz9pL.webp&quot;,
+            &quot;link_url&quot;: &quot;http://localhost:5173/admin/banner&quot;,
+            &quot;is_active&quot;: true,
+            &quot;starts_at&quot;: &quot;2026-02-20T00:00:00.000000Z&quot;,
+            &quot;end_at&quot;: &quot;2026-06-28T00:00:00.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-02-17T13:24:43.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-02-17T13:24:43.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;Promo Mobile Legend&quot;,
+            &quot;image_url&quot;: &quot;asset/banner/PVcYUHRn9M6jFNjyQbieUKH8zmSJLPXtE00Rcz78.webp&quot;,
+            &quot;link_url&quot;: &quot;http://localhost:5173/admin/banner&quot;,
+            &quot;is_active&quot;: true,
+            &quot;starts_at&quot;: &quot;2026-02-20T00:00:00.000000Z&quot;,
+            &quot;end_at&quot;: &quot;2026-06-26T00:00:00.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-02-17T13:11:36.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-02-17T15:11:46.000000Z&quot;
+        }
+    ]
 }</code>
  </pre>
     </span>
@@ -1243,7 +1295,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "starts_at=2026-03-01"\
     --form "end_at=2026-03-31"\
     --form "is_active=1"\
-    --form "image=@/tmp/phpVmCWsR" </code></pre></div>
+    --form "image=@/tmp/phpNtedT7" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1381,7 +1433,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB. Example: <code>/tmp/phpVmCWsR</code></p>
+<p>Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB. Example: <code>/tmp/phpNtedT7</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>link_url</code></b>&nbsp;&nbsp;
@@ -1457,7 +1509,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/banner/16" \
+    "http://localhost:8000/banner/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
@@ -1466,12 +1518,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "starts_at=2026-03-01"\
     --form "end_at=2026-03-31"\
     --form "is_active=1"\
-    --form "image=@/tmp/phpOwnBjD" </code></pre></div>
+    --form "image=@/tmp/phpZ6Nuhd" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/banner/16"
+    "http://localhost:8000/banner/1"
 );
 
 const headers = {
@@ -1589,10 +1641,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTbanner--id-"
-               value="16"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the banner. Example: <code>16</code></p>
+<p>The ID of the banner. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1617,7 +1669,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB. Example: <code>/tmp/phpOwnBjD</code></p>
+<p>Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB. Example: <code>/tmp/phpZ6Nuhd</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>link_url</code></b>&nbsp;&nbsp;
@@ -1693,7 +1745,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/banner/16" \
+    "http://localhost:8000/banner/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1701,7 +1753,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/banner/16"
+    "http://localhost:8000/banner/1"
 );
 
 const headers = {
@@ -1810,10 +1862,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEbanner--id-"
-               value="16"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the banner. Example: <code>16</code></p>
+<p>The ID of the banner. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -1873,7 +1925,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IjhpVmdjUmRoSWJtanE4NG8yTTNNcFE9PSIsInZhbHVlIjoidUdlWVpTWk4vY3Z2eEhoVXVFZHZ1ekljVzVZQzFza1pWSlZMZkluZy9GSHhRaFA2dHA3S3R6bnNvNmJZSXQ5Wk1lL3lwQldTeVplMk00OHZmR0tSRHYrK0V4QTRGRzdhYkwzS3R1YmE1amFuZ1I4OWdNTDlGaWlMWTRDbk9GYnMiLCJtYWMiOiJjNjkxM2ZhNDFkMThiZGU0N2RiYjIwZDU4ZGY1Y2RiYjc2NzYxMWY3ZWE3ZDAyMzMyYjdiYmEzNzljYWRhYTUxIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjR0a0k5SjZsZjRLNnpSckxwT2pROXc9PSIsInZhbHVlIjoicHVjTXI5OWpwenZreTIxS2hVUGhPVmlRelBhaGkzWUdrWVo1ZG9vZnJWUW1SYWdWZUhjYUlZVG1PTVFnajBCZmp1UURsSXZYTHJYak5kTHVNaTdsaTEzUXZyd0xEUnpkWnJYL1ZicGc0TGlNR0hlYStYdFUyM3o3dVllVnByWUEiLCJtYWMiOiI3MGRlNGQ0OTk3NWYyODJmNWNmZTU3YzcwYmYzNjBlNzEwOWRmNzQzNDNhNGVjMGE5ZGQwZDFiYWIwZTA3NGZmIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6ImlGZjBMUVRzcElVaC82N3FoVllCd1E9PSIsInZhbHVlIjoibXJBZzRwcDNvZWVxdnYvM1VBZXIyT2gxQTRrOW9NU3VmKzNjOURnZXppMXpZVjcrY3VMVlFrZG9abWRJclFMeWszTjRLSDdENXhPKzJ1NXdDc0dRV3ZsQVowd0x6R3lwYTMwUnhsRVowcjdjZnRMbmNXM2swNmFXNUcrMzkrT1UiLCJtYWMiOiI4NGMyZGVhYjAxOTU2YzBiZmJkNGFkMDkxNGY4NDBkMWNjYzVkNGNkMWFjNzA4NTJlMTQ3ZDRhYTEzYmY2ZDZmIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6InI1ZkI3VWJxTmVjNER6a3R3cUd2clE9PSIsInZhbHVlIjoiOU1YLzYyR1BPM3NsY2p5TnhTeUZZaU9RUTZXQmE0djV1VThKQnlrNnJFaExmV3UzR0xFcHd4bmI3MkZYOWxienVpMlJaREcwK2cwWGgwSXRZTFpNRkR0dW1SL3d1K1FyZlFDZzJJaHcrcjMwdWNIQUJPRjM4WTB3YW4rRDJrVEkiLCJtYWMiOiI1MjE2YzNkMDU2YTY4MmJiMDE4NzdlMzQ2YzM5NjJjMWU3YWI2ZTkyNjU1YzVkOThkMTVkMThiNTRiZjRiZTJjIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -1993,8 +2046,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "title=Reiyan Store"\
     --form "short_title=Termurah &amp; Terpercaya"\
     --form "deskripsi=Website Topup Game Termurah &amp; Terpercaya"\
-    --form "favicon=@/tmp/phpU46AIP" \
-    --form "logo=@/tmp/phpdIS7r1" </code></pre></div>
+    --form "favicon=@/tmp/phpfiYY6w" \
+    --form "logo=@/tmp/phpP76UC4" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -2143,7 +2196,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto favicon config (PNG/JPG, max 2MB). Example: <code>/tmp/phpU46AIP</code></p>
+<p>Foto favicon config (PNG/JPG, max 2MB). Example: <code>/tmp/phpfiYY6w</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>logo</code></b>&nbsp;&nbsp;
@@ -2155,7 +2208,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto logo config (PNG/JPG, max 2MB). Example: <code>/tmp/phpdIS7r1</code></p>
+<p>Foto logo config (PNG/JPG, max 2MB). Example: <code>/tmp/phpP76UC4</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>deskripsi</code></b>&nbsp;&nbsp;
@@ -2192,8 +2245,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "title=Reiyan Store"\
     --form "short_title=Termurah &amp; Terpercaya"\
     --form "deskripsi=Website Topup Game Termurah &amp; Terpercaya"\
-    --form "favicon=@/tmp/phppBViz8" \
-    --form "logo=@/tmp/phpke5b8D" </code></pre></div>
+    --form "favicon=@/tmp/phpwQm4sX" \
+    --form "logo=@/tmp/phpyAgYAv" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -2355,7 +2408,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>nullable Foto favicon config (PNG/JPG, max 2MB). Example: <code>/tmp/phppBViz8</code></p>
+<p>nullable Foto favicon config (PNG/JPG, max 2MB). Example: <code>/tmp/phpwQm4sX</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>logo</code></b>&nbsp;&nbsp;
@@ -2367,7 +2420,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>nullable Foto logo config (PNG/JPG, max 2MB). Example: <code>/tmp/phpke5b8D</code></p>
+<p>nullable Foto logo config (PNG/JPG, max 2MB). Example: <code>/tmp/phpyAgYAv</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>deskripsi</code></b>&nbsp;&nbsp;
@@ -2695,7 +2748,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6Im5nSUpnMlBKRTF6VW9BY3FBUm1scXc9PSIsInZhbHVlIjoiS0lUMzYvK3hEU0UzLzNiejZneEUwQndiK2hoM2VjTDJLWUcyUi9RTTlzZmV4cFNVd2c3cUFtdThBNEJaZHl0dXNLQ3FTYyswVHNaRzBNOTNLYkZCSUhzTk9kSEJscVJtYkpqSU9URmxqVmNtQWc1ZlUzQXk1dXNoMTZPMitGMkoiLCJtYWMiOiJhZDE3YmE3N2I4ZGUwMDM1ZWM0ZTJmZDNlZGJiOTFkOWY1ZmJmNDAxNzgwMzRkNjMxOTg4ZWE0Mzk5YmExZGRlIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Ik50eWJuOWZMek1IeURRamtzRVRrcUE9PSIsInZhbHVlIjoiTS96UWFNektraGV2VzEySjN0c2lLL25Mai85VFRlemxiLzJ4Z1BuTmQ3MDFxV2hQOWYwVm9TQjZzWnJhOElJSzFteXBoeTNtYjNSYjRndHhCOXpZVTJNSUhCVFQvd0VtSnBwMENXMkFHUXRxckJjb2dDY3ZsRlliWWJET2E0bTkiLCJtYWMiOiI2ZTYxMmNmY2U2NjY3MDNlZTczYTk2MTMyOWI2MWEyZmQ5YzA2YTkwMDQ4Y2I0ODVmYWYyZmRkNjQwY2RlODNlIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6Inh4S0hnRlpPV0VjQ2ZqekxxeENTclE9PSIsInZhbHVlIjoiU0Q2Wmk5cTFFOTIxWmJwYmNqRllCZG1xem1KRnV2aVlYeFdsQVo5MEFPYjFrWUphZTduZVByaDZuV1ZwT0Irc3lRdzV3UXFFbVhkSTZwQ1RjQzd4WU9mNWZ4MlJVY3ZPSW1lcCtxeXZTcjR1SzBPWjFuUW03YWVDd1ppVmVXb1oiLCJtYWMiOiJlYjJmNmJmZThiOTk1NWU1N2NhYWI1NzQ4NTRlZmNkZTg1YzhlOGI4YTViZmVlNTc5MzIwMWU4ZjVkYmUzNzg5IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkV6Mk5XWGZJNHU1TFJxVnVRVDFlV2c9PSIsInZhbHVlIjoiMU9GeEh4eTdqa0VIckxsbnhGUDlYUTVaTjBHQ0p6aDBGZXpROGdwdW9vZEFRUXVrWHNad0RFZC9mNnFObjkydEsweS9jYmo2MlFNcTZ2ZS9pQXpuTm9wdFQ5TERTcmRWQ0dvcWxvNFFBblVXV2lKOGp0K0d4NU9yaEpNZmN1NmIiLCJtYWMiOiJiOWRhMzRjZTZiYzllMGYyNTUzNzAzNzdlYzRlYmI0OGYwNTNiZmIzNjJhODZmMmE2NmM0Yzc0YTdiOWY2OWM5IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2894,7 +2948,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6Imp0WlVMN012amFGeExGRTZrSkRQSnc9PSIsInZhbHVlIjoiV0dTZUZmZjRzc1JZUnRZWWg5eUNUeHl1V3NDdWt2R3FvMGF0bG9oUGtoNGxBS0UyK3MvNTFnT1hPYWhYS3hRQkdHdVBVVHNGTFRhc3ZxSW5heC93MDhBbG9qaEU5bUp1SDdlRE1xTWRaZjZHU2ZYSU54dk95T3JQK3oyWTdhMkwiLCJtYWMiOiJlNmNkZTFmNWEzYjQzNTgxNmUxZDM1MDk2MTNhYzA3ZGI2MmVjNjVlNWJjODY1ZjRjOTIyZTk1YzNiZjJiMGUxIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Im9lbkNCdWFlUUE4NE9wVTVWVlNvemc9PSIsInZhbHVlIjoiTVRkMk5uNzMzYkZvd0NkTC9pNGIzTXV0dGxlN1ZmT1NIb0MraG4yRXp2anhHWUpnUDllaW9XcWJLZSsyNjVDNWJuUHhaRUgzcFVQdy9IeStSaWFBelljc29Ic1pRZXZFRGc1NDBkWjlpek9NREZhTy9CRWNGNS8za3l6NGlxaWciLCJtYWMiOiIwNzhmMzVkOTc1MWUwNTJkMzg1N2U3YjliYmM4ZDc2ZWQ5ODliZDNkMTE1MGZmYTY0YmJjYTE2OWFhZDU5ZThmIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6IkJOcjFINEVGSFlVVWFvQ2NkMENIOVE9PSIsInZhbHVlIjoianlFOE9xVUMzcjBsejFkV2lSR2ZQdVN5TG1mdk0wZnI3QUM5c1dJa21BRklTSTQ4TlBiN3ZXQlFkZ0M1NHpKSjRBWjRGOHVDN0dGWjhHdUE1ODcxQ1J5ck1Ebk5nNk03OUNiWjBFY1llN0hlUnFDOWd5ZGpDUVNCOXh3cnJSa0QiLCJtYWMiOiJhMGZkZGJkMDk1YjkxNGM1ODVmZTlhMmVhOTM4ZjQ5N2E2YmJlOWY1YzQ3NGU2ZDAyM2NhZGUzNzg4MTZhNzRjIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImNRbTN2S29GRmtuWnY5eXJ4OHZ5aGc9PSIsInZhbHVlIjoiRW40SWlONlJrN1dtb09MM0prMElTUnJmT05Od1liYldBQ3o3U3BGcnJFbzlUVDlsOVVtaEUzd1dDQ0hqYnp5QlpYWnhTT0svM3UyTmJkSjhYc2krMnliQXRrc0g0NDdHMDNzSFJhTUpSM3A4bHcyb0pRc0hBbjJaNE9IQjlyTFIiLCJtYWMiOiIxZGZjZGQxNmYyMTc5YjNiZTYyNjliMTZhYzA2YWI3NjI1YjZlODVhZGIyNzBhNGUxZDZlMzg0MTYzYjljMGQ2IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3220,7 +3275,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IjdMZ2lDWFluUlAvVDlPNGMwaWUrM0E9PSIsInZhbHVlIjoiejJxUWkrOHg2RjQ4RjRCeVBFSnF4Wk51MWdoNHI3QlRYaFBjVTFhRDE3ZlFpckpWYWdiVHpaZS94b3RDVXJ1TjhlbFhFQzdWMDVQN2ZzMDNDaG1obURBUThNckJyOUtKclM3amF0ZUxYU1o2RW9wQzBHeVpwaTQ2Ykl0Sll4MU4iLCJtYWMiOiJlNGIxZmE4M2NkOTQzMjJmNTE1Y2RiYzYxMzA0NzM0ZmQ4ODdmNThiODA2N2ZkZGRkMTQ3MTdlYWM2Y2VjZDc3IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:50 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImovTHE2YlY0ZzJBbEMwaTJneVRhMWc9PSIsInZhbHVlIjoiMFpVYnZxWEIwNm5QQWwxM0xvQnJKa0lIMWVaQ2xOaXNScnd1WmNUS2kwYjFka3Z4TjM1cmpFcjZaekhRWlBZQ3hRVytFLzFoaEdSbVJwLzRlNVV0Qkk5b0dieHl6WHk3RXMwejVtZllCSGs0cUFFbTZ6QjZ3bS9qc0R3NnhBYkciLCJtYWMiOiIwOTdiNGFiMDgwNzJhMzQzMDc5MmNkNDlkYWY2NTMzZTIxOWQ0NWNkMGZmYzQyNmFlOTM4NzYzYWI0NDhhYjQ0IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:50 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6IkxGeU9JSE5pNEd1SFM5Tm81ejU4enc9PSIsInZhbHVlIjoiaGMvMUVPa0tBTXJMTG1PQVJTek9seHh5WnIyZSt6K2lzZTJ1VmdvcjlEZHByZDFJdmFvQyt4ZHhpUktnaTV6ejlabjdRSnRleDQ0azJ2Tm44c3NzREZtNm1aUEpSazhsNXpxaTNpemEwT1BDZHNFR3BlY0pncGNKYm02VXRlMDYiLCJtYWMiOiI5YzNlOWFiZDhjYzdmMGE5MjMxYmNkNGUzODM5NWQzMTdhMDE1NDk5YjYyZDlmYzNlOThlY2Y3OGY1NDFhMmUxIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlFWUVl1YzlLNmFhTlFTSGwxTDc1ZFE9PSIsInZhbHVlIjoid3c3bUFleHVEVWtGSnp3RVBFSWRxSXhTTWZVWEhCWmNVQVJkRk5BaWpqeXhNa0h4L2ZYNVRScTJvdGt1VVpwNCsxbEoxanMrM1Z6N21ZN2VCQVZZNDdKNGRydGJBVmxvNFBVeWQ5b3RNTkgyUVlKdzB3U0luQWt2aE5QK0ZNRHIiLCJtYWMiOiIyMGUzM2ZiNTM5NDg1ODRjYTkxNDhiMDQ0YzRiZWQ2ODMyNzdhMzkxOTBkZmIyNDUwNWYyNmQ4MzY3ZGU0MDA2IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3383,7 +3439,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "name=Game Top Up"\
-    --form "image=@/tmp/phpoTfRGt" </code></pre></div>
+    --form "position=4326.41688"\
+    --form "image=@/tmp/php0emQwi" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -3399,6 +3456,7 @@ const headers = {
 
 const body = new FormData();
 body.append('name', 'Game Top Up');
+body.append('position', '4326.41688');
 body.append('image', document.querySelector('input[name="image"]').files[0]);
 
 fetch(url, {
@@ -3517,7 +3575,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>nullable Foto logo kategori (PNG/JPG, max 2MB). Example: <code>/tmp/phpoTfRGt</code></p>
+<p>nullable Foto logo kategori (PNG/JPG, max 2MB). Example: <code>/tmp/php0emQwi</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>position</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="position"                data-endpoint="POSTkategori"
+               value="4326.41688"
+               data-component="body">
+    <br>
+<p>Example: <code>4326.41688</code></p>
         </div>
         </form>
 
@@ -3540,7 +3610,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "name=Game Top Up"\
-    --form "image=@/tmp/phpdUCd62" </code></pre></div>
+    --form "position=4326.41688"\
+    --form "image=@/tmp/phpfykfAZ" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -3556,6 +3627,7 @@ const headers = {
 
 const body = new FormData();
 body.append('name', 'Game Top Up');
+body.append('position', '4326.41688');
 body.append('image', document.querySelector('input[name="image"]').files[0]);
 
 fetch(url, {
@@ -3687,7 +3759,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>nullable Foto logo kategori (PNG/JPG, max 2MB). Example: <code>/tmp/phpdUCd62</code></p>
+<p>nullable Foto logo kategori (PNG/JPG, max 2MB). Example: <code>/tmp/phpfykfAZ</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>position</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="position"                data-endpoint="PUTkategori--id-"
+               value="4326.41688"
+               data-component="body">
+    <br>
+<p>Example: <code>4326.41688</code></p>
         </div>
         </form>
 
@@ -3888,7 +3972,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6ImdNMy9FQ21LTGR2bE9pYmt4S0NXWXc9PSIsInZhbHVlIjoiOVZnaG5RaFJpMUI0MUpxZCt2dDAyMklPUm1RSkNTV2xtV2tubU92VWM4TGx0R3VYM0dGZ0c5ZE1RcGtsUDU3eEpHR2JycUhqRjgxQWEzbEdja3MyVUZ4Ynh1TUpQT2FqL0RLTk1kdS8zSEtoZ3dMb1JLUDl6V3BKd29kaDZoNk8iLCJtYWMiOiIyMmY3ZmEyNTg5OWJmMWVkY2IzM2EyN2M4NWQ1OTVhYjU4YTgzZjNkODE2MjdiMzU5NjI5YzhmMTJiNzJjMDcxIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:50 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkJkVnQwNUNCRzZlYk1pSGR5THBIdmc9PSIsInZhbHVlIjoidEEvbVI5ejY5UzJwcmcwaUMxZFB0WjRUY0F3TXE5SzU0UmFGRHBUZktud2ZGTkFHRksrbFhMOUdPMjk4N25jNlFpVGh6RXNQWHpDV2JhaXpQNWdBZ0trMXowVGRsWWpRMGJPSWJGd2R6VkdRZlFuZWpxaEpOWmlFV0JrWk02NGoiLCJtYWMiOiI2YTAwNjEwNTA2ODg4OTRhYTQ2NmU0Yjg5ODViMTJjMDg0Y2E5NTExMjIwNjllYmQ1MWZlZTYwYjJiMzhmZjRlIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:50 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6ImlTOXJUeHQ0SnNSdVkyYXJwc1k5RlE9PSIsInZhbHVlIjoiS0lhc1RkbFZHZXcrQ1NpN3ZKcUZ5VytZN1Nja3dkSDI2Q0huVkRQZm5zUlBYNXl6bnFnNVRFRy9xeTZiTlNXekxSTWJFYytvMzZTS21Yb0FPYnFOQ1dOaTYrQWhJQ1M4ZVFUTFpHbExpOEtFNkM4VnlTQW0xenRsYlU4U2cxT2MiLCJtYWMiOiIxOTFiNDdkZTcwM2RmODVjYmJjOWI2YzM4NjMyYWJhMTNlZDgxOGM0NGY4MmQ5Mjc2MmI2Nzc2MmJiMTM1ZjRkIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:58 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjFtYTZwVTdtT3pSMkoydW5pNzBHdnc9PSIsInZhbHVlIjoiVjZBY01vTzJCOEVVUUk1UjM2Ym5ZOXVJS3ZzN2pwZll0UnRyYnJZOHhGSFY2NzhtenhKeTZwRmFYYld2L0g0eW1YMXE0NnlHVWkvQVpUYUMyZGpZb2V1dU9mQmlHSVgyNmZyWHhkOWtCQ3FETmdJZEJvc0MrcDBka05FZk1ZNHQiLCJtYWMiOiJkMDI0NmZjNzA4MGU2ZTEwNjU0ZTM3NGQyOTcyNjU3NDk3ZmVlNDU5YmZiOTc3NGE1OTNiNzgxOGQ4NGJlZGI4IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:58 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -4254,7 +4339,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IjJaUXBncjNadHkyRFFwcU9QQnZJUkE9PSIsInZhbHVlIjoiMWlURHFaYmpacEVFYyt4alhEekkvMUZnV211YjlDS3lqOU9wcURCSTVjaEZPTjh3dFk1Tld1OHlpTnk4eHF0eXM3TlpJVjdqZFRIUWV5Y0hDYlFZNVRCdVBydGRHbFVYVGJkSUw3QWVxSEZwSnZQZ1pQV0h6c0Z6WTlSMFkyUDMiLCJtYWMiOiJmODFmNDVmNjZlMTk1Njc2NGFiOTY0M2U5ZjFlNDUyNjI5NGUzMDAzZWI1NGU2NDUxMTg0ZmZhMzM4ZGVhOGRkIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImJRN1MzL2pCb0U4K3h5aEZrNFZ1RkE9PSIsInZhbHVlIjoiYituUUxOeEdaalo5bENOT3ZHSHpORFpZV3hIcHhBM2NVaGpsbHh3UGlwYlRQZWFaUmhBakVWZ0JDNXlRd2dPdzJId1lxc00vaE5iRlVnbEg3SWJ0NDJPdDFXR3ZRQUVpZ1ROdk01eDNMTElzdW1oN3U0d1J3WWFJeTVHWlB0TWkiLCJtYWMiOiI2N2IyZWVkODUxOGQyNTA0YzFmNDNmMDBlNzBkZmMyZmFkMzFmNGMzNDVhMGEwNDZiNDhjNDIxMjcxNzFmY2VhIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6InRwSENVZExmVDFjOWh2NDNTZll2bUE9PSIsInZhbHVlIjoibWhUMERzMEY5d2ZhR2o1V2dLNEFldWtXc2IrVm8vZVpTRWFvcXdqMEYwT1dzcnFidGtSM3Nad3hCZFArS1l6TS9wYkRWaXRvakxGbVhGVngvYzlwUENYRGpCQWhaY29uRExLQVZRbFRaQ2E3dDQ1N0hSSHhzWTk3MjJmWEdCdlgiLCJtYWMiOiJmZWNiMmE3ZjAwM2JjZTBlODJiNGI2OWE4NmVlYjUwMmM1NTY4OTVlNGYwMTc5NDg2YzcxNTU0NTA0Y2UyZGZjIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImlCM2R3dnUxZ2ZHSmRDQnVDOGpMenc9PSIsInZhbHVlIjoiQ0F2eHU3Zm4wS1lrNlFpODRPc2x1RzNPVjJoMXNFWTNTRk1JU2lJbGNUaEh1MWgrRXNsTFM2YU51b1ZZV3dQV2xRek4zbkZDeG1PeWxGNWhNejhOUnN6b0lvMnp5c0JzRjh1MkdybUYyYlozdXVkcEdJVUJVdC8yUVlKU1B6ZXEiLCJtYWMiOiJmNTMzNjgzZDJmMjg1MjcyMjEyNDQzMjM3MDYyZWI4NjNiMGE5YTI3ZWZjMTdmOGYxNmI4NWI4YjA3OGQxOWMzIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -4387,6 +4473,204 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
+                    <h2 id="payment-method-GETpayment-method-admin">List Payment Method admin
+Endpoint ini digunakan untuk mengambil semua data Payment Method.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Cocok digunakan di halaman pembelian produk.</p>
+
+<span id="example-requests-GETpayment-method-admin">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/payment-method/admin?id=16&amp;search=Mobile&amp;is_active=1" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/payment-method/admin"
+);
+
+const params = {
+    "id": "16",
+    "search": "Mobile",
+    "is_active": "1",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETpayment-method-admin">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6IitMMEpMbWE1UWRzRVQ2ZndpM0FIaVE9PSIsInZhbHVlIjoiazEwVXZvVnEyL0lXRG0ya3p3V1Fad0xmUnlBd2kwVGFMYXZZNHhjc0hzWko0OFNUQ0JtRld4aytOTFp6VmdRUVMvMmptdXU4QUJ2QTdkQkU3NnZHdjlwRU1FOE9YSzRMSEtmRXFMLzZyL3VXdjdEWlNwTGhWMHVzeUk3SGFwVVQiLCJtYWMiOiJmODVhMjY5ZWZkOWUxZDUxYmQwYjJiMmVmNTE4ZWQ3M2NiNTFlZjkzMjU4MzRlZGRjMGM2M2U3YmQxNGM3ZmQzIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlFtR0VzVEZwaDlZOW9ySXlCWDhBdkE9PSIsInZhbHVlIjoidGtVSzA2SE5zNlI4NVBLNHg4TlMwSUJtWVRqRU9yQjJKOGJ0VzMrMkVFeDNQcTQzU1AzMU10eDJ2QlpLanMwSDdmcG16aDR4cHE4TUZ3dVlEemhRRSt2YStsam94WE40dVdLRzA4QnNUZnlVS0lycFhlakdDbm1PdFJWOVZENG0iLCJtYWMiOiJjMmE4ZmZlMzFiOWNjNWRjMDMzNjlhY2Q3ZjdmMzZmZDFmYzM0ZmNkZDQ0NzU5M2VhNzAzYzNhNmQ2ZGE5NjAxIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETpayment-method-admin" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETpayment-method-admin"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETpayment-method-admin"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETpayment-method-admin" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETpayment-method-admin">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETpayment-method-admin" data-method="GET"
+      data-path="payment-method/admin"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETpayment-method-admin', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETpayment-method-admin"
+                    onclick="tryItOut('GETpayment-method-admin');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETpayment-method-admin"
+                    onclick="cancelTryOut('GETpayment-method-admin');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETpayment-method-admin"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>payment-method/admin</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETpayment-method-admin"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETpayment-method-admin"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETpayment-method-admin"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETpayment-method-admin"
+               value="16"
+               data-component="query">
+    <br>
+<p>Mencari Payment Method berdasarkan id. Example: <code>16</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>search</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="search"                data-endpoint="GETpayment-method-admin"
+               value="Mobile"
+               data-component="query">
+    <br>
+<p>Mencari Payment Method berdasarkan nama. Example: <code>Mobile</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="GETpayment-method-admin" style="display: none">
+            <input type="radio" name="is_active"
+                   value="1"
+                   data-endpoint="GETpayment-method-admin"
+                   data-component="query"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="GETpayment-method-admin" style="display: none">
+            <input type="radio" name="is_active"
+                   value="0"
+                   data-endpoint="GETpayment-method-admin"
+                   data-component="query"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Mencari Payment Method berdasarkan status aktif. Example: <code>true</code></p>
+            </div>
+                </form>
+
                     <h2 id="payment-method-POSTpayment-method">Tambah Payment Method</h2>
 
 <p>
@@ -4411,7 +4695,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "gateway=duitku"\
     --form "fee=1500"\
     --form "is_active=1"\
-    --form "image=@/tmp/phpUQbKIF" </code></pre></div>
+    --form "image=@/tmp/phpyVdIaE" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -4620,7 +4904,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phpUQbKIF</code></p>
+<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phpyVdIaE</code></p>
         </div>
         </form>
 
@@ -4638,7 +4922,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/payment-method/16" \
+    "http://localhost:8000/payment-method/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
@@ -4647,12 +4931,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "gateway=duitku"\
     --form "fee=1500"\
     --form "is_active=1"\
-    --form "image=@/tmp/phpTHM9my" </code></pre></div>
+    --form "image=@/tmp/phpjiNSnj" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/payment-method/16"
+    "http://localhost:8000/payment-method/1"
 );
 
 const headers = {
@@ -4770,10 +5054,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTpayment-method--id-"
-               value="16"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the payment method. Example: <code>16</code></p>
+<p>The ID of the payment method. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -4856,7 +5140,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phpTHM9my</code></p>
+<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phpjiNSnj</code></p>
         </div>
         </form>
 
@@ -4874,7 +5158,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/payment-method/16" \
+    "http://localhost:8000/payment-method/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4882,7 +5166,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/payment-method/16"
+    "http://localhost:8000/payment-method/1"
 );
 
 const headers = {
@@ -4991,10 +5275,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEpayment-method--id-"
-               value="16"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the payment method. Example: <code>16</code></p>
+<p>The ID of the payment method. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -5016,7 +5300,7 @@ Endpoint ini digunakan untuk mengambil semua data Produk yang aktif.</h2>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/produk?search=architecto&amp;slug=architecto&amp;limit=16" \
+    --get "http://localhost:8000/produk?search=architecto&amp;kategori_id=16&amp;slug=architecto&amp;limit=16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -5028,6 +5312,7 @@ Endpoint ini digunakan untuk mengambil semua data Produk yang aktif.</h2>
 
 const params = {
     "search": "architecto",
+    "kategori_id": "16",
     "slug": "architecto",
     "limit": "16",
 };
@@ -5056,7 +5341,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6Imc2VHVzQms5Ryt3RGxkazFOeDdKdUE9PSIsInZhbHVlIjoiK3ZwajFvTS9kYkFHeVhNUGpWOHZXVUFiRnpYZXdyZWdkRk5iRDFqWVduY3hDWXVmR3pwdjlnRlRyOWJuQzFpMU16c0V4UFdEVExrSjhrWGVFalE5OUc5c3hUbDRubkJyS3FWYVFGYXNwTWs4ek0xTGR6cnZ2ZG1UdzRQZi90WUoiLCJtYWMiOiI5ZDNmNGQzMWZmYWFkZjQyNjI5ZTM0YzlmMWQxNWQ3MTZmMWFiODlhMmEzMGEyYTc2NTg4N2YzN2RiOGVhMzBjIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlZ0WjZhdzZIODlES2RQQUhPa2RaL2c9PSIsInZhbHVlIjoiSlp3aFEvSXc1c2Jkcm55Z3JLdVNjUE1NZldKbkpUV3MrWktRaDkzYmtWd09FeHBDMTA2VGRjcTlkMkN6QVVFWVRtYVFwaDM1Vzg0aWpDejF4Nk0zc0NROGNXNk04d1JtVG1wUzE1VlBzOTNJSy9ham5id0kvN0krRjhoR2RsT2giLCJtYWMiOiJlMGUwM2IxNzBhYzRiZGY5OTgwOTgxOGMwMzcyYzJiYmYzZTUwMWE0NTNjOWU2OTJjYjU4M2ZiYmI2MmJhYzZhIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6InFYRTVLdG4wKzNQSXAzWk5XbW1CQmc9PSIsInZhbHVlIjoiVmJHT0JLYmpQanduVkFGTlI1VDUrN25RTVVEUUFEaWdsMXAvRnFPbmFlMVV3OERvbGF5ZndOVllXTXR4M1BtN1RQU1VMWjRBdjlCMkNkMWppUVJ1Ung0dW9QWnRQN2xtRGphT3ZCWE9Gb0dwNkY4WGMrdnhWZjNiK2c1ek54Uk8iLCJtYWMiOiI2OWQ1OTE3OTIzMTVkYzYwM2JjOGRiNTVmZjkzZGFiZmFhZmZlMTViYzJjNzY1Mjc4ZThjMzc0MTVlY2RmOTUxIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlpTRitOYU12TXJ5cE11ODkyU0UzRlE9PSIsInZhbHVlIjoiNHhxVTFkVDNER3BGZGhveXdYMXY2b0orNnVicFBLYjdwNytZZkNaT1RyODF4ZzYrYmZWVlBiU1R4aldCNzRiY1Z1dVI5TjAwekczSkh0WHd1bjg1MFJLUFhmVFdNNlVXczJmejNhaGxxcWFkSkRIQmRiK1hpU1BBYmdDS1JBVTEiLCJtYWMiOiI1YWMxMTQ0OTM2YzBlYmUxMGQ0ZGQwZTJjNGZjNDdiZDBkYmRjNWYxMDllZmRjYTFiZjBlMjQzM2YwZTJhYzhmIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -5154,6 +5440,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Mencari Produk berdasarkan nama. Example: Example: <code>architecto</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>kategori_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="kategori_id"                data-endpoint="GETproduk"
+               value="16"
+               data-component="query">
+    <br>
+<p>Mencari Produk berdasarkan katergori. Example: Example: <code>16</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -5225,7 +5523,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IlprckhNdEV3SEdMRXVPZ3BOT2NBMXc9PSIsInZhbHVlIjoiS1ZIY0xqTlU4ZEVPL25Ld1RNUENWTzNQV1NabjdOWDFsTGZYTDlEWkk5N2R0NFVpRWRsdnNzN0N2Vytrcm1Qd3NYOFR4U2MvQ0FZalBiK1p5YXRKc050cGg0UzdMSU1LbVhtTCs0OHgxMW90TUJTSjUvNlAxT0JTZDZ1NTI5QWoiLCJtYWMiOiIwNjFmNDg1MTVmOTA2NzdhNDFhNTFlNmIwNzVkOWE4ZjJlYTQ5YTg5YTU5MGYzOWNmODcxOWI4NThhZDQwMWYwIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkpxbS95ejRUeStvR0tmaG5wWXg3SkE9PSIsInZhbHVlIjoicnB5c1hMY1pxUFJrME5HVjZ4QTIyUm4wVFpEL0dwSjZvTFdoMXlLTjE4V3NtbzBWSjh1WnUyTkxxN0U2QlhkaENMcHBJODgxdmJNM0xNWmFHa1NZcEFlQ3VROFRKYVRRSjJYUCtlcSthTVBQOEhSbVB4dWxTamU5NlNzcUVZaUQiLCJtYWMiOiI2MmMwNDgxNjFlYTUwZDk4ZWYzOTdkNjJjNGRkMzM4MjRjOTg1ZDk2MWRlMGFhMGEzMGZlYjU3NmI5MWVjNzc5IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6IkRxLzdkVzJlaDhQbkF3ZUllMFlUcHc9PSIsInZhbHVlIjoicnB5YTNEYUZCNk1nY0hKQmdtU0xRaWNoTldySkhYVzVEWmtUbWhHaml4Z3lpRlpMci9OWVA2THorNFRtbFNraUZ6ek1iaU9FY3hWdHJzV0dySWZUMW15MzN1eDZnZkxpRk1hcEdUQmFkeERVT0hja3FVL0VCNkJKREZCdi9WTjciLCJtYWMiOiIyNDhkNzlkMzY1OTBmODEzMjViNjliMjdmMzI0ZDY1NjAyNDE3ZDMxNDVjMDkxN2VhZWMxYjgzOWJmYTJhNWYzIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlFNaFYyZWdzM081WjdFaU5YT1ZaYnc9PSIsInZhbHVlIjoiajJ0Si9zbzRZenltQnRxWkMydlU5SGNJTnBkZ3Fkdk1YZnRGNkZ4ZDRweFFQZE1Cc3hGQk1IUG1YQVJwWCs3bW9BU3BJckYwc2NhZUovejZEVnpYOWlDejFCMG1aa29oWHVCSGhVRktMQ0crRjgrY0hpbXdzK2dWeVIxQXN0eXAiLCJtYWMiOiI5N2MwNjQ1MWMxNDAyNDNiNjA5NTg0MjA0ZjM5ZWM4NDQwMzRiN2UzY2M1YjVhZGE5OGJkNjEwOTYwYjM1M2ZiIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -5606,7 +5905,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IjhNY1BRRHUwdFp3L0RpWThDVHA2NlE9PSIsInZhbHVlIjoiTFZVTkw4Qm5kalBIRDRZaHVsYUxOdm9QV1p3THBiT2FzWm5hUzFlTHRnc05hQVNkOGczaVZIV3JzNndHdDVUYlVncTRaenoyLyt6ZkdzdnlEa2hCRENnVUNEdGtRNmI4Zy9FZGRodjByM2lIc3VpR1NSdCtQYk9zaEFYS21IV1UiLCJtYWMiOiI4YWVkYjhkNTAxZjYyZjQ5Njc0YzRlYWRjYjExNzBmOGU4YmYzZWM2OGJhZDkxMTU2ZTJkMmQwNmY0OTFhOTk3IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkJEcENac29veW5wS0hnWnNJbFprM0E9PSIsInZhbHVlIjoiZ0tQbDNxWDNJbS9SVmNKVzNuRko1V1RuSEt4N3B0SmQySUNUMjJBNlNROEtZN3loaUszUHplSFowd2wxODRLYTgzRVdKUUg2OGlJN0o2OU56QlgvL0J1b2tQbjJkMHk5ZmxhdmI5Sm5sYTRQbWZTaUpyZlRUQ3RRN2hjRW5TMS8iLCJtYWMiOiI5MTljYjQ1YjU0MWI2NmI2NWExZjZlZWY0MDZkNDc1NzViOGNhY2NlYmY1MTk3ZTg0NTcxNWM1NmVlZmNhMTI2IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6InAyVTRMQXJ5K25sdXBOSmU3TWhEZ1E9PSIsInZhbHVlIjoiRlFDU0pqSno0WGhIY1hTSmIvVUxINXFSMGkvdDBFUFN1dm00Z05IaG9PUlloaG10bEtvamp5SUd6VW11T2xhOTdrQVhFQy9vTnJDcDZaeWxRZllhSlB5bkVwNjNoSGx5MTRRLy9XV3o1Q2NOSnhScjR0RGZZSnJlSzhBS3pxMk4iLCJtYWMiOiJjOTQ5NWU1ODRhMTZjOTJkOTJkNmIzODI5NGUwMTc4Zjg1YjY3ODVkMGRhZjdkMjUzZDI2M2FlNjY0MDhhMTU1IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlMzQUhGTFVhNkRCWTVNb1pjV0J1K1E9PSIsInZhbHVlIjoiazdKdUJabzNtSW9YOGdkVUhsN2o3akt3dW9sVW9jbUFIa0JPRkJmbHZlVU00elZMeFBvOUNnMkpoUCtwZ0xtM2FnZG4vLzlvcWg1Rkt3OGlvWVptMms5U1NEOEdQMHBjQTViYkJER3hMVVpuMk1ZRVJlUDRwbWk4ckpPeTNpRnIiLCJtYWMiOiIwYTczYWEzYTU4NjY4M2YyYjQ1YTJkOTI5ODNlNTVkY2NhYjIwY2ZhNzNkNTc2Yzc2OTA2ZjA5YmIxNTE4MzRmIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -5741,8 +6041,8 @@ Pastikan upload menggunakan format multipart/form-data karena menyertakan file i
     --form "is_check_name="\
     --form "faq[][question]=Bagaimana cara topup?"\
     --form "faq[][answer]=Masukkan ID dan pilih nominal."\
-    --form "logo=@/tmp/phpPTmSBZ" \
-    --form "banner=@/tmp/phpdgtNHp" </code></pre></div>
+    --form "logo=@/tmp/phpfu9pZ2" \
+    --form "banner=@/tmp/phpgvujf5" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -5945,7 +6245,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto logo produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpPTmSBZ</code></p>
+<p>Foto logo produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpfu9pZ2</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>banner</code></b>&nbsp;&nbsp;
@@ -5957,7 +6257,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto banner produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpdgtNHp</code></p>
+<p>Foto banner produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpgvujf5</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_check_id</code></b>&nbsp;&nbsp;
@@ -6063,6 +6363,262 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
+                    <h2 id="produk-POSTproduk-layanan--id-">Update Harga Produk</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Endpoint ini digunakan untuk mengupdate harga provider dan harga member (Gold, Silver, Bronze).</p>
+
+<span id="example-requests-POSTproduk-layanan--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/produk/layanan/architecto" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"code\": \"FFMAX80-S888\",
+    \"price_provider\": \"15000\",
+    \"is_publish\": true,
+    \"member_price\": {
+        \"gold\": \"16500\",
+        \"bronze\": \"17500\",
+        \"silver\": \"17000\"
+    }
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/produk/layanan/architecto"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "code": "FFMAX80-S888",
+    "price_provider": "15000",
+    "is_publish": true,
+    "member_price": {
+        "gold": "16500",
+        "bronze": "17500",
+        "silver": "17000"
+    }
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTproduk-layanan--id-">
+</span>
+<span id="execution-results-POSTproduk-layanan--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTproduk-layanan--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTproduk-layanan--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTproduk-layanan--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTproduk-layanan--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTproduk-layanan--id-" data-method="POST"
+      data-path="produk/layanan/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTproduk-layanan--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTproduk-layanan--id-"
+                    onclick="tryItOut('POSTproduk-layanan--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTproduk-layanan--id-"
+                    onclick="cancelTryOut('POSTproduk-layanan--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTproduk-layanan--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>produk/layanan/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTproduk-layanan--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTproduk-layanan--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTproduk-layanan--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="POSTproduk-layanan--id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the layanan. Example: <code>architecto</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="code"                data-endpoint="POSTproduk-layanan--id-"
+               value="FFMAX80-S888"
+               data-component="body">
+    <br>
+<p>Required. code produk. Example: <code>FFMAX80-S888</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>price_provider</code></b>&nbsp;&nbsp;
+<small>numeric</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="price_provider"                data-endpoint="POSTproduk-layanan--id-"
+               value="15000"
+               data-component="body">
+    <br>
+<p>Required. Harga beli dari provider. Example: <code>15000</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>is_publish</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="POSTproduk-layanan--id-" style="display: none">
+            <input type="radio" name="is_publish"
+                   value="true"
+                   data-endpoint="POSTproduk-layanan--id-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTproduk-layanan--id-" style="display: none">
+            <input type="radio" name="is_publish"
+                   value="false"
+                   data-endpoint="POSTproduk-layanan--id-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Required. Status publikasi produk (true/false). Example: <code>true</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>member_price</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+<br>
+<p>Required. Data harga untuk tiap level member.</p>
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>gold</code></b>&nbsp;&nbsp;
+<small>numeric</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="member_price.gold"                data-endpoint="POSTproduk-layanan--id-"
+               value="16500"
+               data-component="body">
+    <br>
+<p>Required. Harga untuk member level Gold. Example: <code>16500</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>bronze</code></b>&nbsp;&nbsp;
+<small>numeric</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="member_price.bronze"                data-endpoint="POSTproduk-layanan--id-"
+               value="17500"
+               data-component="body">
+    <br>
+<p>Required. Harga untuk member level Bronze. Example: <code>17500</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>silver</code></b>&nbsp;&nbsp;
+<small>numeric</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="member_price.silver"                data-endpoint="POSTproduk-layanan--id-"
+               value="17000"
+               data-component="body">
+    <br>
+<p>Required. Harga untuk member level Silver. Example: <code>17000</code></p>
+                    </div>
+                                    </details>
+        </div>
+        </form>
+
                     <h2 id="produk-PUTproduk--id-">Update Produk</h2>
 
 <p>
@@ -6093,8 +6649,8 @@ Pastikan upload menggunakan format multipart/form-data karena menyertakan file i
     --form "faq[][id]=architecto"\
     --form "faq[][question]=architecto"\
     --form "faq[][answer]=architecto"\
-    --form "logo=@/tmp/php4IAKdw" \
-    --form "banner=@/tmp/phpMllC7q" </code></pre></div>
+    --form "logo=@/tmp/phpI0Xv4v" \
+    --form "banner=@/tmp/phpBuw1ga" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6300,7 +6856,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto logo produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/php4IAKdw</code></p>
+<p>Foto logo produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpI0Xv4v</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>banner</code></b>&nbsp;&nbsp;
@@ -6312,7 +6868,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto banner produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpMllC7q</code></p>
+<p>Foto banner produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpBuw1ga</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_check_id</code></b>&nbsp;&nbsp;
@@ -6635,7 +7191,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IkZ1TWpjb2RXK0psS3N5UUtMZ0xSanc9PSIsInZhbHVlIjoiQ3M4RmhIbGlLTHRXRXgvcmpLVEp2UlRINlR3RVVkb2pjNWt4MjRLWCs1NmgxRzk3UWRHbU9CdUlUalRkeFBTa3FkZDJ5Vm82WHJJMDIvNXZRY2dPakJHUmlpNGtGWEF4MGxWdjBpMEx2TlNQYlJqNnd6YkU1aDlSbkdFVngxWFEiLCJtYWMiOiI5OGRiMGEwMjY1OTY2MmMzMmUyMjQyYzhlNmE0MDU0ODBjNDI3MzE1MzU0NDZhMmIxNDQ1ZTNjNDM2OTgxMTU5IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Im1pQXRQKzh2MmxqY0ZzRG5lOEVwaUE9PSIsInZhbHVlIjoiTjNLSWZZY1VsTHVNWVNWSVpIYmNlVHVwNWw5VHZKTDcrMEFna0JqR2piU3JNMEZvTlN2ZWVSRVh2dHlTRVFMVGpBWDlkUmZsVXFSWXgxdHdIZXo5cFQySi9taWJBSXFHSHZWakV0R2NieUQ5dWdjeWtQaTg5QnhGeDFVRGF2Q2QiLCJtYWMiOiIwOWQwZDNjMGQwYmFmNDVhZTBlOTE4ZjZjNDcxOGEyZGFlYjZlOTYxNzFhN2NkZjMxY2M1ZDM4NDRmYzk3ZDNmIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:51 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6ImZ0MTZrNHI0K016Tlo0ajQ4YkZndkE9PSIsInZhbHVlIjoiRjFPeXlocWE2eGJUSjRzRFg0aHJ1RDVORmVlYmpITGRyUjhKRWw1aW5MUWNiL1ViQjd1aEF3L3FUVWdHVlB3WS8xYURxNGRHeHcrQ0dKUzAxeEgvS25KNWJwaWtzV1VMYTlDTjRjdGs4alRjM0JOdnNmYUxHVHI3WGlsekM3Z0IiLCJtYWMiOiJmZmZjN2VkOWE5ZDI4ZTQ5ZmQ1NzYzZjMyZmJmNDRkZjg1Yzk0OTE4YTlkNWZhZjFkYTkzOTQ3ZTY3Y2M1YWNjIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Iml5SjVYQUVhYTFLMjFkTGp1YThzbXc9PSIsInZhbHVlIjoiT2NjYytWUTBtQzFYNzdyTTAwL1RNWDVUOTBHaU9wOFVXeHorTmN5OXA5N3pjK2p3TTM1MkZ2REY1TmpzcU9MWHNGU1k1T2M2SGc5cVRwcENpaHYvVnI0WU1kR0lDWjJINmltdHpGS0pzWGtRWG5tQVg2cW91NE14RlZIeWdJNEUiLCJtYWMiOiIwZjdhYWU1NWFmNTc2NjEwM2M3MGEwMjhiMTg4ODlmYzYzOGUzZjQzYmRhNmIzMmY0NDM0YWE0NDg5NGU2ZmI5IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -6775,7 +7332,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"name\": \"Postpaid\",
     \"driver\": \"App\\\\Services\\\\MobilepulsaService\",
     \"is_active\": \"true\",
-    \"payload\": []
+    \"payload\": {
+        \"url\": \"http:\\/\\/bailey.com\\/\"
+    }
 }"
 </code></pre></div>
 
@@ -6795,7 +7354,9 @@ let body = {
     "name": "Postpaid",
     "driver": "App\\Services\\MobilepulsaService",
     "is_active": "true",
-    "payload": []
+    "payload": {
+        "url": "http:\/\/bailey.com\/"
+    }
 };
 
 fetch(url, {
@@ -6942,16 +7503,52 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Code Provider. Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>payload</code></b>&nbsp;&nbsp;
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>payload</code></b>&nbsp;&nbsp;
 <small>object</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
+<br>
+<p>nullable Data tambahan konfigurasi (API Key, Secret, dll)</p>
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>username</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
                 <input type="text" style="display: none"
-                              name="payload"                data-endpoint="PUTprovider--id-"
+                              name="payload.username"                data-endpoint="PUTprovider--id-"
                value=""
                data-component="body">
     <br>
-<p>nullable Data tambahan konfigurasi (API Key, Secret, dll)</p>
+
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>api_key</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="payload.api_key"                data-endpoint="PUTprovider--id-"
+               value=""
+               data-component="body">
+    <br>
+
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="payload.url"                data-endpoint="PUTprovider--id-"
+               value="http://bailey.com/"
+               data-component="body">
+    <br>
+<p>Must be a valid URL. Example: <code>http://bailey.com/</code></p>
+                    </div>
+                                    </details>
         </div>
         </form>
 
@@ -7156,7 +7753,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6InhuNnFiREZDbEp1R3dZZVUyNW1hVHc9PSIsInZhbHVlIjoiK0ZMc295QXoxdTJDUi9HS1NpZWhJQ1Fzb0dSMkY1Y0RXWWI1YzRwTzdST1Z0S05qL1dncHVwZFo3YWk5ZTd4L2czd09VUlFqM05PQ0t2SXl6cTM4eFk2TFpOeHpYanlhMTIrMW5CZkpiZVNoSEtYaVYvdk1wVW5zbWlTWFY5YWoiLCJtYWMiOiI4OTY3MDY3MDU0ZWY5ZTY0ODIwMDNhN2U3ZjRmZGRlM2EyZmQ5ZDcwYzc3ZjlkM2U2ZDgzMmUyNWI3MjI3M2ZjIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImM4ZWQyNDNyL056ajRkY0tsTUR0aHc9PSIsInZhbHVlIjoiaGQ0djUxVHlvUXdyV1k2OWVYU0tCLzJMVzUyZ3VEemVwK3Z2ckJ6anhJWlF2UThsSGZFTUM1UUl2UkRHdkhnOXIyVy9PcytvdmowNVRKTFg4TVgrUGptcWFIOUw2MlRZdmdrK1VpZElwV05sTUJadExuT0ZRNDFWOUN5c3cydnAiLCJtYWMiOiI2YTQ1NDE2MjJkYmRiYTc4ZjA2NDAyMTNlNGNkNmJlY2M5ZDRkODI1NmJjNjI5ZWIyODliMGNkZjI1ZTBhZGQ2IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6IitYVk04YXc2c3lUbW9yRHJOeVl0RUE9PSIsInZhbHVlIjoiV2FrL0pTakxPS0t5WlVEN1Q1eWE2UHpIQStLYWlDaVZvcTNQZm9uY2NFU0pVWXBvazAxM3FpUlFzNHVnTSsyNklrZkxrUU5KaUMwQytFalhkZHEreHZ0cjM2Rkl3bmJNSXdkTE1BbkNoelBsV0JBa3YyeHhVTW5VN0c0QjZ1ZngiLCJtYWMiOiJmMTM0MDU4ODg0NDcyYTNkZDUyYWU1OTRiODUzOTcyM2Q5MmYyNWI3ODdkM2NiMmYzYWJlOTUxNWU4MWIxOGZhIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkJKUERTanlRa0YrbW1Sc29LMk05Y2c9PSIsInZhbHVlIjoic3lROERYWlJlaGdVdXBTbTgybGdzZDVrd0Q1bzNha0NNYWJlbVludExoaTVNMGVDQ0tHNW5EbW5acTczZGpRWFR0dnJ6dlMzb2R5UjdMVjZaU292WVpPR1FQNExIbGpuUkEwakRRS0Y1ZlowOGFUOWY2cnRFYjJHeTl3bFpaeUEiLCJtYWMiOiI2YzhlZjM0ZDY0YmE5Y2QzNTY1YzM5ODQ1NGQ4N2FmNjlkZGRjMzBmNDdlYWQ2MDQ3NTM1YTc3ZTdkYmZhYThhIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -7759,7 +8357,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IllVYXE5cjZJVnVOM3hnV3VmbWRZWVE9PSIsInZhbHVlIjoiMG9ERWVzVk9VZzdZeVRmaEFlZWtxRkhTTWllM0NzOXltbWI1TkdJakxneEpncGJhbVFrdHh0MUpKTzVmVFJySHd6YTRyV3JtVU5Ya1VaaE9QV1lIeE04WWF2V0RwUnVOeEcyNzdVb085V1pla0JRdkZ2Qmgyb042OVpTRUhXTDIiLCJtYWMiOiI0NzgwMTQzNTdiNjJlNjg5YmEwYTdlNGRhNWY0MGU2YmYwNTc1YmYxMDFiMTczNzQ3N2ZhODJhZmY4MTA5MjFjIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Imp6UWx6dUxJYjh6RkU4RDJjeHh6enc9PSIsInZhbHVlIjoibXFpK2Z2R2pIMHNHTXZYVmxxUEJTSUZIWmFuQUFyMk94SklPWFN3OWF6dzNEd0dERGpuL21iQXJ2N2Fsa2lIMWhFemYvUHRqUnZuTWtXbjY1OTMyc25XSDNRczZocHlQa09aL0ViMDc0STFlZGNTQithaUNualpOWnhucWxaVVEiLCJtYWMiOiI2YTk2NDM2ZGZlOWI2NzUxN2YyNTliOTNhNTZlZWVhNDkzMmE5NjVhMGM5MzhjZDc0YzM2Y2RhZmE2MTAxYzIyIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6InRzU3FCaVlxV0w0Z3QzZDRIbzhPSHc9PSIsInZhbHVlIjoiU3crdHFxU1FKVGNTRTdqTWMvbndvY0l1Rk95ZEFIS09ndjM3VWdISUNDRVgrTUw5V21zUjd2WUF0UlBHSDQxanBnUnF2d01ZL2dWU2I1S3AxRFJrZUZ5RlJhaVIrbTA3Z2c5V1JJRUR4dUpEYy9KYVY0UTEydWVESHNjcnROamgiLCJtYWMiOiI3MDMyOWQzMTI0M2E5ZTlmN2NjYzlkYThlM2ExZDNjZTNmY2QyNmQ4NTc5YjIwOGI2ZTcwZjBhMjliM2NlYTgyIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjBvUzltNVVUUWJHV1hJVGRjQWpmQ1E9PSIsInZhbHVlIjoiRzVOZjZZOE1GWFdYdGZTZVA0YmNXSFVyY0FKOEdGdm1ybHJxVWNabEVsT0xDc1NIcUwydkVRMmljRjJYVlBvZXZWYUxvU3FHdUVHbzlhS1NTcTBuM2VXSzR6NlREUmRHc3NxREwwb2ZoQmdZcVlWK29mU2pUTlhuT2FCZTRtYTciLCJtYWMiOiIxNDg4NzdhNTIwZWY4NGNjZDBkNzYxZDIwODYxMDZhN2ZhZjg4Nzk3NGNkYjMwNGU0Mjc4Mzk2YmQ5OGE5ZGRhIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -7950,7 +8549,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IkJzajV2K21DYXhCWHFkS1lCbGwrREE9PSIsInZhbHVlIjoicktEcWRNSk9mWmZtOUZaOHUreTExTkhIVmI5OFJvb1hCQVQ5OHBwdE5LRll2YkRoNkdFTlRUeXM3YUgzM3EvZ1hyTzB4LzNiVFJTL0hzR3BkQi8xdGdHVExsZisxSTNsUUFNZGFWODFoMWlia1JtTm5wMXc0c3BWNXl6OXFLZS8iLCJtYWMiOiJlOGNlYzNmNDU0ZmY1YmRkMzM3NjUzNmZmZWQ0ZjQxNjI1YjNlNjlkODJmZGNmMWRlN2I1ZmExNTVjM2Y4OTliIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkxURWxIREdRWTUrcmJydzFLQ2FueGc9PSIsInZhbHVlIjoidFJXRFZDVUFhRTVHeU1xM1R6dUw0WVp4SGhJbFBzUG1xemd0MklSeTFYbnh4cVp6N2V3VUNjSzhjcmVnWndyYms5YVZ6dysrdmErcWxFa252YUlpOGZ4SWhEYTU1UDVVUlZSSTB3SGNQLzdLZW5weTZxQzA0Qno2cUVqMmJrL3QiLCJtYWMiOiJhYTc3NWE2OWQxZDVmNzQ5MGU0MDcyZWFiYTUzNWQ1NDRkMzQyZTNiNzBlZWVjNGU2NmI5YTBiZmY0N2MzZWU5IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6InlhZVV0UktBaUNKb3hyaVp4cXlDVkE9PSIsInZhbHVlIjoiVUVkSUtFc3JKcEt4ZE8rTDBIQy9yK3ZZWjYrYmY4aG9EZXNkV0tSK2NwK2lQdGxFdGZDQm04SUJUTFJ3TGx4cmdKcDA4bVNnMStnTVZlM3ZFUnBLb3VROGlhUVFNNjRNMzJDU1diMTFpQ0hwYXM3VDJ5eFl4UXBQUENGbXB1QnciLCJtYWMiOiJjNzhiZjA5ZDJkYjA2ODNjMjk5NGFiNmI0ZTFmOTViMjBkODAwOWZhZmI5ZTk3YTY3N2ZhMDAwZDQ3MGIyMzdlIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Illha2RUUHpIcFQ4T05GRENlOGtoR2c9PSIsInZhbHVlIjoiMmI2blh1WDVPdTJpaWt1YkZaVlpBMGFIUTIvbXlQSlM3dVo3cERzZjlDcjIwZ0JEaGgxc3RhanBNcXlJdnREZTJ2U1lDUVg0NGE4VnV2K2ZmaTNRQnhTc0tLcjRyUXpMa1NxZ3BKbXdheFhYY1BVbCtpZytaUVRodjJMbjNnRkIiLCJtYWMiOiI5ZDExYTM2MDRkNmVjYWE5M2RlOTM1NTM5NjlkODQyOGQ2NTRhMThjOTFjM2Q1MmUxNGRmOGM1ZjI4YjA5MDgwIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -8568,6 +9168,739 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                <h1 id="social-media">Social Media</h1>
+
+    <p>API untuk mengelola Social Media</p>
+
+                                <h2 id="social-media-GETsocial-media">List Social Media
+Endpoint ini digunakan untuk mengambil semua data Social Media.</h2>
+
+<p>
+</p>
+
+<p>Cocok digunakan di halaman pembelian produk.</p>
+
+<span id="example-requests-GETsocial-media">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/social-media?id=16&amp;search=Mobile&amp;is_active=1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/social-media"
+);
+
+const params = {
+    "id": "16",
+    "search": "Mobile",
+    "is_active": "1",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETsocial-media">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6Iml0cFdJak9teVlHSFJBcjZYRzdtZHc9PSIsInZhbHVlIjoiVkw2aFNkVGRYaXhyS2YrT0pWZ2dwL0YrTDM5M1JhNUJkK1E5WUdjMGI4UTc3bWRTRWFEZkc5SVhmQXJTazY0aU5ZdHdtU1F4QjMraHVxRjlJelZhUE5XN3o1ZGhmTzd2dFZqRFNwb2ZmMWJvdk9QWHZPaElEUXRIMU1vcHd4cksiLCJtYWMiOiIzZTUwMGNlMDQwY2Q2N2NiNjQ5ZTIwOGQyOTk1YTM5YzI1NmQwZDRkZjczM2NjMThhM2FjMGQwMTgwMTQyOGIwIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImNRRzFYUkt3eUlJeXNWbHdNcCt5bGc9PSIsInZhbHVlIjoiZmdXS1ZEV3BQV21kZEFTK1RRcGZNV0hlc1RhWFdrQ1dxWjdkWWhqdGc3UlVNakNnWWpGcTB4bkRaVkhSQXhPSXliWW5mQXZmb2VsNUQ1UXN4bmM4WDJ2MS96Y0RqWm1qdndlU3JWU0xGOG52TWUxUmNiL3dORk51OTN0VXBwOTAiLCJtYWMiOiI5NTVlMmMzYjZlOWZkMzU5YzA0MTE1MTkwMzhlZWY4YmVjZmM5NWNhNTZlZjU1NGJjYjM0NDI4MDI0YzM0YzZiIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;meta&quot;: {
+        &quot;code&quot;: 200,
+        &quot;status&quot;: &quot;success&quot;,
+        &quot;message&quot;: &quot;data Social Media berhasil ditampilkan&quot;
+    },
+    &quot;data&quot;: null
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETsocial-media" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETsocial-media"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETsocial-media"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETsocial-media" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETsocial-media">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETsocial-media" data-method="GET"
+      data-path="social-media"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETsocial-media', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETsocial-media"
+                    onclick="tryItOut('GETsocial-media');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETsocial-media"
+                    onclick="cancelTryOut('GETsocial-media');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETsocial-media"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>social-media</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETsocial-media"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETsocial-media"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETsocial-media"
+               value="16"
+               data-component="query">
+    <br>
+<p>Mencari Social Media berdasarkan id. Example: <code>16</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>search</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="search"                data-endpoint="GETsocial-media"
+               value="Mobile"
+               data-component="query">
+    <br>
+<p>Mencari Social Media berdasarkan nama. Example: <code>Mobile</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="GETsocial-media" style="display: none">
+            <input type="radio" name="is_active"
+                   value="1"
+                   data-endpoint="GETsocial-media"
+                   data-component="query"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="GETsocial-media" style="display: none">
+            <input type="radio" name="is_active"
+                   value="0"
+                   data-endpoint="GETsocial-media"
+                   data-component="query"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Mencari Social Media berdasarkan status aktif. Example: <code>true</code></p>
+            </div>
+                </form>
+
+                    <h2 id="social-media-POSTsocial-media">Tambah Social Media</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Endpoint ini digunakan untuk menambahkan Social Media baru ke dalam sistem.</p>
+
+<span id="example-requests-POSTsocial-media">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/social-media" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "platform=Instagram"\
+    --form "url=https://ig.com/profil"\
+    --form "is_active=1"\
+    --form "icon=@/tmp/phplaKBup" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/social-media"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('platform', 'Instagram');
+body.append('url', 'https://ig.com/profil');
+body.append('is_active', '1');
+body.append('icon', document.querySelector('input[name="icon"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTsocial-media">
+</span>
+<span id="execution-results-POSTsocial-media" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTsocial-media"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTsocial-media"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTsocial-media" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTsocial-media">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTsocial-media" data-method="POST"
+      data-path="social-media"
+      data-authed="1"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTsocial-media', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTsocial-media"
+                    onclick="tryItOut('POSTsocial-media');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTsocial-media"
+                    onclick="cancelTryOut('POSTsocial-media');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTsocial-media"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>social-media</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTsocial-media"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTsocial-media"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTsocial-media"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>platform</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="platform"                data-endpoint="POSTsocial-media"
+               value="Instagram"
+               data-component="body">
+    <br>
+<p>Platform (ex: Instagram). Example: <code>Instagram</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="url"                data-endpoint="POSTsocial-media"
+               value="https://ig.com/profil"
+               data-component="body">
+    <br>
+<p>Url Profil. Example: <code>https://ig.com/profil</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>icon</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="icon"                data-endpoint="POSTsocial-media"
+               value=""
+               data-component="body">
+    <br>
+<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phplaKBup</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <label data-endpoint="POSTsocial-media" style="display: none">
+            <input type="radio" name="is_active"
+                   value="true"
+                   data-endpoint="POSTsocial-media"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTsocial-media" style="display: none">
+            <input type="radio" name="is_active"
+                   value="false"
+                   data-endpoint="POSTsocial-media"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Status aktif (1 atau 0). Example: <code>true</code></p>
+        </div>
+        </form>
+
+                    <h2 id="social-media-PUTsocial-media--id-">Edit Social Media</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Endpoint ini digunakan untuk mengubah Social Media web ke dalam sistem.</p>
+
+<span id="example-requests-PUTsocial-media--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8000/social-media/architecto" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "platform=Instagram"\
+    --form "url=https://ig.com/profil"\
+    --form "is_active=1"\
+    --form "icon=@/tmp/phpZMdppM" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/social-media/architecto"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('platform', 'Instagram');
+body.append('url', 'https://ig.com/profil');
+body.append('is_active', '1');
+body.append('icon', document.querySelector('input[name="icon"]').files[0]);
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTsocial-media--id-">
+</span>
+<span id="execution-results-PUTsocial-media--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTsocial-media--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTsocial-media--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTsocial-media--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTsocial-media--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTsocial-media--id-" data-method="PUT"
+      data-path="social-media/{id}"
+      data-authed="1"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTsocial-media--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTsocial-media--id-"
+                    onclick="tryItOut('PUTsocial-media--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTsocial-media--id-"
+                    onclick="cancelTryOut('PUTsocial-media--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTsocial-media--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>social-media/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTsocial-media--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTsocial-media--id-"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTsocial-media--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTsocial-media--id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the social medium. Example: <code>architecto</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>platform</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="platform"                data-endpoint="PUTsocial-media--id-"
+               value="Instagram"
+               data-component="body">
+    <br>
+<p>Platform (ex: Instagram). Example: <code>Instagram</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="url"                data-endpoint="PUTsocial-media--id-"
+               value="https://ig.com/profil"
+               data-component="body">
+    <br>
+<p>Url Profil. Example: <code>https://ig.com/profil</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>icon</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="icon"                data-endpoint="PUTsocial-media--id-"
+               value=""
+               data-component="body">
+    <br>
+<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phpZMdppM</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <label data-endpoint="PUTsocial-media--id-" style="display: none">
+            <input type="radio" name="is_active"
+                   value="true"
+                   data-endpoint="PUTsocial-media--id-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTsocial-media--id-" style="display: none">
+            <input type="radio" name="is_active"
+                   value="false"
+                   data-endpoint="PUTsocial-media--id-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Status aktif (1 atau 0). Example: <code>true</code></p>
+        </div>
+        </form>
+
+                    <h2 id="social-media-DELETEsocial-media--id-">Hapus Social Media</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Endpoint ini digunakan untuk menghapus Social Media produk ke dalam sistem.</p>
+
+<span id="example-requests-DELETEsocial-media--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/social-media/architecto" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/social-media/architecto"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEsocial-media--id-">
+</span>
+<span id="execution-results-DELETEsocial-media--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEsocial-media--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEsocial-media--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEsocial-media--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEsocial-media--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEsocial-media--id-" data-method="DELETE"
+      data-path="social-media/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEsocial-media--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEsocial-media--id-"
+                    onclick="tryItOut('DELETEsocial-media--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEsocial-media--id-"
+                    onclick="cancelTryOut('DELETEsocial-media--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEsocial-media--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>social-media/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEsocial-media--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEsocial-media--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEsocial-media--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="DELETEsocial-media--id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the social medium. Example: <code>architecto</code></p>
+            </div>
+                    </form>
+
                 <h1 id="transaksi">Transaksi</h1>
 
     
@@ -8853,7 +10186,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IkJXeHFiT0h3L2ltQXFJNU9sWExiQnc9PSIsInZhbHVlIjoiVjhMZU9OQTBHMDZYNzJyRzBWWDltYUV0aXpSV3AvMkxDdGhRaFhqbGc5Sy9nUEV0UHc2MWxueUxiaFNUTmRraHFPT0U3dWhqSVdHMzBFbGpvYUJxV3Q5UHlJemloMkN3Z0o4TUo4dlhHWnJXUkdQMnhYcUZ2TW9OQXFIc2MvV3UiLCJtYWMiOiI3MjA1MzYwMGQwMTc0N2QyY2ViOGQ2YzcxM2FhODdmOTZiODY1YjcxZTE1YjdmOTlkYWI2ZjMwMmUyOTUyMmIzIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Ik1SRzB6Q3NFbW5iWXNCWnl1VTJYaVE9PSIsInZhbHVlIjoiSmdvNmpyQjVzNnlEYlFxaWVKWVB4YU9lMnZHVzV2TWI0TGhHM3FGbUFEMTR3ODVOMm13aFQ1Rjk5SExYTUdTMXVtdThWbUI5Wm5ML1pnQjUwVzRJVmRBSUJRaCtsT3IwejJtVm1JWXBndUpIUG9pN0pNaG5lWmdnVEJ3YUQxZEQiLCJtYWMiOiJjOWRlNGMxOWUwNmU3ZjAwOTA0ODcwYWY5MTlmMzljMjhjMTA3ZGRiYzFhMWZkYjY3Njc2YjY3ZWVhNzVjMWE2IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6IlNaMlgxTG0yWm1Qa3YwMTVwejNHaFE9PSIsInZhbHVlIjoiS1p6QzkvODk4a2IvZlBvVnlsMGE1M29oOVJxUXhEaS9zVGxGK2ErZjJTcm9rSTBzeGZtWG9JVlZxZTN1cVphSStpcC9DSXZQZStwWWJMd3NCK1RkQlVQamdTZWJmNjhXWi9JSHJBT1BZek5HVHlBTVR2MkdPVXVJVytTRWRxUXgiLCJtYWMiOiI2NTJhN2VmYzdhNmNkZjdiMTA5MzkxYTQyODcwODQyNGY5MWFjMjRlYmZmZWEwMmRlNzI4ZDgwNTRkOTI1ZTZmIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkYyRUVUb0RQV3M1VkcvZGNtMVluN1E9PSIsInZhbHVlIjoiZ2lpaHdRb2Y3TUIxRlJOdEJKRDR1Ym85ZEpSY25tYnR5NGVScklyVkVDTkh2dWpRYnZsRUhMaW5UZEZXTWRzWUF5c094VXowTHRkdjVOeDRFMmNUMGNoRmVBSkM5MldtRXpuUDNUS3ZUenhaNkJrdDM1U2RkU3ZVUzlYclZzamEiLCJtYWMiOiI0MTM1MzJjYjg2M2RmNjBkZmM3OGU5YzU5YTY3ZTUwNTRjYTEyM2FlM2QwN2JlOTg0NjU1ZDNiYmMxZGQ3YThhIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -9040,7 +10374,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IlZTTGExSFY4eFJTVGJGQzNldndhQkE9PSIsInZhbHVlIjoib203MXBPNXVIV0RvNVk4VlJMLzNSQmsydzlWYVFHRDkwRENkblVOYXptaGt1RmJ1dWZUcE80ckhoQlNqNHk2K3NReGtxUzgxdVhvb1lsQitJUGV2bk9YRkhGczJrT3RTaE9NRjE1OXordEhob0dBSStRMXRCVk9UUXZSQ1VpNXMiLCJtYWMiOiI1YmZiNmU1NTU1NjU1ZjVlOWYyMjYzOWZiZDU4ZWEyMWZiNDZiZjEzMzc2YTZmNGI1YjQwZjY4N2E4NDcyYzVlIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkZyQTZTUys2d1p6MlM1TFVRcC9UWkE9PSIsInZhbHVlIjoieHNRWUtyTjBKZUlicWE1VUx2akxjN2ptUHhuNFdJQlpBbVlkQjh1ejE2blVaQ2Qza0lDcmxMOXcvUnhRRjFsc21PYTJOZkFSdXlrbXhXaVRrUTkwemtnMW1HWURUSTB0ckJ5ZVpqQjg4akNDZzRsY0dueW52c3lIMjJLMHRJZDciLCJtYWMiOiJkNzM1YTAxNDNkZTkzMDM0OTczYjIzOGE5MGYwZTMwM2YyZWVlNTAxMGQ0ZjJmYzk5MGZmNjY4ODk1YTc4NzdiIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6ImplSnRtbTVSQk04VFEvZW55ekN2MWc9PSIsInZhbHVlIjoiMWhEem5nWFFzT1F5WGQ4N2ZFOUhEcnR5YWNUUWRLTHZJbkhPTkNHYjBCZEF2NStCTEFBM0pIT3p6SG5MSGQza1pMRGhFZi84NHdmY3NtSnZYUjdMeDQ5dGhsU2lCMm5HVFFjekN2aDF5aEpuVWY1OGRCaWo0bVlhMVpXZU8xVXUiLCJtYWMiOiJhMjgyZTNjYTJhMzc2OTc2NDllN2ZiNDQ1MTNiNzAwOWFjMDc4NTc4MGZkNDY1M2Y2ZDU1NDYxNGUyMzZiN2QyIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkJSTUx2Q0R0MG5hdmsxWGRCb1RBc3c9PSIsInZhbHVlIjoiYUV0RmMySzdsbTY1dlZwMVlnMm5XbDV0YVZSbFRCTTVnWUswbjF3OHBzWks5NUw5ZVJMa0tqN0pqb1poWElMQzdwVWgrUFA4SW5iMjBVaTAzMVNYOWpSem1MbGVaeVlmelpBMnZvOUxTalRHU1U3M05hejBGeDVaSCt2d2M4OWUiLCJtYWMiOiIzOWM5OWZhZmFhMTU1YTAxOTE0MzM3MjFjZTdlODRjOGUxNDZlZDA1MzFjYTM4MDAzY2U0ZDdjZGZhODhmNzYyIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -9370,7 +10705,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6IjlXVk0vWGxsbVhpQmR0RWg0V1ZyYUE9PSIsInZhbHVlIjoicGhzUitFRm83ck4rNFZhVUlyL1cwODhXeVlBTzBPU2FyN2hPQTBGTVdFOHBuVGN5K09HeUV4c1hyaVhLb1F3OHRwS216d2ZOdHRCUUdlS1l2UTZSdUhZbC9ZZWhBaUlmRzB0L1RvYVV0TXVVdGRjYjNaYXJ6Y0xQcm5XQzRxcmYiLCJtYWMiOiI2ZTU3NTUzZDNkYTFkZDNlZTIzNjU2MzhkMDNjN2U0OTFiYmE2MGZhZmM4M2QzNGEyODE2YTRiZDM1ZGZlNzYyIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:50 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IllLSGVhRlpYVmRER2dsZWNJUUJFY0E9PSIsInZhbHVlIjoiNHo5dEsrMGUweUxES2piSWIxQ3o0N214ZlFKN2t4anNhMGEzazBWZmN4ZUxkR0l3Y3pvbkRjWloxcFQweUVOeHd1ZThKUWVQY01HMGROb25jdmVob2dhcy9GOVdWemw5a2F6ajkwZzRQbE1JQTg3NlNhWkRXamRpVTdyZk1BV2ciLCJtYWMiOiI5YTBlZmFlZmE5NTM5NDgyNGZkZDQ2NzJhODM4NDI5YjdhYWY1ZjhkM2VkYjlkODFmOTVkODMzNjNlNGQ0OTEyIiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:50 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6InpmSXRDb1hPR2kyK3REanppZ09hS1E9PSIsInZhbHVlIjoibndZTlZuWlJFblN5bCtQRVZTTGNJeFNpNUw5dEZvRURVUWh6cFR5K0orQndRR0U0NER6VmRXSGJuak1SRFgySmxsTjJleUJkY2tuaVBIUmVJdjJ3ZzE3MHJkTHZlN0ROMUxoWHBmNHlzNEZSQWFLSktEa29jbSszUDZPWmtqeHYiLCJtYWMiOiI4YmVhYWIyYmRkMmNlNTdlMmU1MjgzMzQ5YjA1YWFlMWYxMzRiODhmN2M5MDRiODIzYjY5MGEyY2UyODJlYjBkIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:58 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjBDcmdtN2ZkRjZSdVl0UnYvQ3FRd1E9PSIsInZhbHVlIjoiVlFCUVBGZmFwUTdQS1ppNjdEYzBlNXZPaU93TzBxeGk2WlU2M1gwUFFUU0h5bm1VQ2pBcGhjNHJxeEdLdVZrNjZldWJEUFdwMmZubmtMaktkcnVaanJ6dk0rTWxlR3RwV2ZXSUhoRjB5cTlFSGdhM1RLQmNheVVUQzZvbmp4RTAiLCJtYWMiOiJiZDFhNDZmZjg4MTc3YmI1Y2IxMzY4ZTVkYzhhZDcyYjE3YjMwMzdmMDgzYmQ4ZTg4MTc0MmMyNzUyOTU0Y2M3IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:58 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -10148,7 +11484,8 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-set-cookie: XSRF-TOKEN=eyJpdiI6Im1hU2ZoM1FFL0kvOC8xSGVBbGlWV1E9PSIsInZhbHVlIjoicTlwc2E0Vld3MllvUTN3ZmdXME4wMkl3RjhaT1I3M0hKcTRXYVNKVy9pTWZ2aFN0MTFuV1E1Mm1ldUdxUmxvTit0a3RmNzVlTm9qc0gyWkhVRjNiQU95WGJEbXZJZXFiN1NYWmprU2RRdW12RkR3SFNkNk0vTWkvamlueUhrMWYiLCJtYWMiOiJkZTYwZGQyOGU2ODBmYmZiYzM3ZGY4OWFhYzE5YWE2MTZhYTdhMjc1YWM1ZDU4YzUxYjlkN2M5Y2E3ZWY5Nzg2IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlRFc0t3U3lCUThXWlUwbFdjZG91c2c9PSIsInZhbHVlIjoiYmtjdFJVR2Q3SXgvbzlxYUdpMmN6SEEwZytyY0gvcjJZUDhrNzdYWTY4bmJEZUx2NlYxZWFHTDIwM3BqLzdMcTZ4SnphdjVqQkY0b1NBaXI2OG1DYVBFN0xpVU5CY0tmc0ZWZnh6RWtlSlpYS3RiMTdPOEpyNk1yd3lZYmtXSEIiLCJtYWMiOiJhYzMzZDg4MjdiNDdjNjZjODNjZDcyMDQ4NzNhNWYwYWExZDJkMzRjZjE4YWRhM2JmMTU1OTNhZjkxNDAwMmE4IiwidGFnIjoiIn0%3D; expires=Fri, 13 Feb 2026 19:55:52 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+access-control-allow-origin: *
+set-cookie: XSRF-TOKEN=eyJpdiI6IkxOdEVhR3NNTzNXeGVqZi9vT1dYa0E9PSIsInZhbHVlIjoidHZtQkZYSWRlQTJQZUNtY1JKejloTHdLV0ZPckRMUEh0a00zbHdIMkV3R1lTcWptRkJzK3lFTWQxMnFWUG15eEhLbG5nOG1OVHJGT05tNzUzY3JhcndWa2V1TFpBZXQzTkVGcnpLN2didTZIb2MvQUJQemJnZDQ5ZFIzcnZEd1QiLCJtYWMiOiI1YmRhZDIwNDc5OGZlZWEwZjg0NDA4NTY3YmJkYTdjZGRhNGZkMmQ1NTZmMDg1MDUxZGMzM2Y1MTE3NzkzNzk1IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IktMWlh1OGIwUmVscFRuVEpnVzZmV0E9PSIsInZhbHVlIjoicU9SMEtHNm1wSHZrMm9QbExKdTE0d3JJdmZGQWx4T2hGVGxWSGIzWVdvek5qYlllTjBycG1VaWxSengvdmcwOC9tSEdySGJQQVoxa0RsaUdWQndacFdoelBhckJ0SGFvb1ErWlF6cVhDRVNUa0txS1NiZkVNQUEwSndlbERHQ2EiLCJtYWMiOiJlYTBkZGU2MjQ5NTFjNjFkZTVhNWNhNDhmN2UzMGEwYWNhMjM5M2MwMDA2N2IyMzE1MWY5MmVkZTUxODljOWYxIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{

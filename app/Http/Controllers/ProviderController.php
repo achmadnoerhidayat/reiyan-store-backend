@@ -25,6 +25,7 @@ class ProviderController extends Controller
     public function index(Request $request, ProviderService $service)
     {
         $search = $request->input('search');
+        $is_active = $request->input('is_active');
         $id = $request->input('id');
         $limit = $request->input('limit', 25);
 
@@ -34,6 +35,7 @@ class ProviderController extends Controller
                 $provider = $service->findId($id);
             } else {
                 $provider = $service->getAll([
+                    'is_active' => $is_active,
                     'search' => $search,
                     'limit' => $limit,
                 ]);
@@ -98,6 +100,9 @@ class ProviderController extends Controller
             'driver' => ['required'],
             'is_active' => ['required', 'boolean'],
             'payload' => ['nullable'],
+            'payload.username' => ['nullable'],
+            'payload.api_key' => ['nullable'],
+            'payload.url' => ['required', 'url'],
         ]);
 
         try {
