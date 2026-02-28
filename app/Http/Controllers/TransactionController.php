@@ -21,6 +21,9 @@ class TransactionController extends Controller
     {
         $id = $request->input('id');
         $search = $request->input('search');
+        $status = $request->input('status');
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
         $limit = $request->input('limit', 15);
         $transaksi = null;
         if ($id) {
@@ -28,6 +31,9 @@ class TransactionController extends Controller
         } else {
             $transaksi = $service->getAll([
                 'search' => $search,
+                'status' => $status,
+                'start_date' => $start_date,
+                'end_date' => $end_date,
                 'limit' => $limit,
             ]);
         }

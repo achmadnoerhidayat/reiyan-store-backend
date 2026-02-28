@@ -190,8 +190,20 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      refresh_token:
+        custom: []
+        name: refresh_token
+        description: ''
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      refresh_token: architecto
     fileParameters: []
     responses: []
     responseFields: []
@@ -238,7 +250,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6ImEwTlpNRE1MalA2Zjl5bCsvYUZ6Y3c9PSIsInZhbHVlIjoieXdmd3BLRlZ6VFFlbmhGNW91ZGNFdjE0OGVBWVNvaXMra0dJU2htUGg5M3llejhqZkRYR1IxVndGdm9IRGJVOHJOMmZLL0s3RzUwbFhjditIWERtOENzWUxGZzg0K013eXJXSk10ZDAraDE1ZlkxekJrYXliZi9KRWxPbTVYN1oiLCJtYWMiOiJhZjA1M2M1OGIxODcyMDJjN2M2ZWZjOTdlZTJjYWQzNmU0YWI4OWY2NGRjMzBiMGY2OGI4NTI4ZDljYWRlNGU2IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:55 GMT; Max-Age=7199; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlJ0Rk0vRnEvUG4zbzJ5QkN1ZmhGNmc9PSIsInZhbHVlIjoiRm9PdTk0UDl6b3VzNmMwaGNqQ1A4SmpTUjFWUVlQMHlmTHk1U05JRzZRNWc3NDQrazBCc05MTEpGNHBQbDJ2VlpQdFNwb3RjTUlobzdBNXZreGxxYWV3cjdmWFpSQjdMRjdQcUxkR3JGVVVYYzQ1aVBTcFQxMGdmSG50aVVIMysiLCJtYWMiOiI3ZTNjZmM1Y2Y1NmI4YjAzYmRhMDM4YTA1YzE5YTI1Yzc4ZDc1ZDNkNjIzOTc1MjcwZjRkM2UxZWJlODI4YmZjIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:55 GMT; Max-Age=7199; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IlVIZnlzYmwxdG9hdTA0cmh3eHQ0REE9PSIsInZhbHVlIjoiRDFzYXFEcmRFaityd0hnQ3VXSDRLMUdES0ZCVURBZkF4Zm1PTGtHbTVDb0ZsMWNpUXZ1TUJTU3N4dEtKMG5kb0ZseFE1VkRvUVcwOHNaZTBUd1dGV0tmamdqQ0s5UWRvMlo0U2tycXJWcTJzYkZVU2MxTGFTTjVrR2FQajVqK2MiLCJtYWMiOiI5OTZlYTNkMjY0NWE3ZTY0MjRhNzEzMTM1NmQxOGQ4NTdiMWQzNDcyNjhhZTU0MzQzODRjZGJlYmRiYWRhZjhmIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:40 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImZtUmdLdVNSSERaaVlyYlNHcFhBNWc9PSIsInZhbHVlIjoiL1R2WDZLWEdCK09RTVV3WGZnY1FhOFlCTnJ0SWVqRk10ZGMxNHFVT3lYM0Vic3IzK0E3OS9GR0lvMWI5M25waDAraTFLTTZFOHhLRWVGamtiYmJZcFRuOHMxWitjbFlhMXhTUjN5TjQySEFGQU5uUlNGOGNBSmttaFBVbGhxT3giLCJtYWMiOiIwZGQyNTRmYjYyNDBiMDFkNDVhN2E2MGQwNmQ0ZWFkYzczZjczOTJjMTNjN2ZjMGU3MjUwZTFjYTcyYzgyNjM3IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:40 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth: []

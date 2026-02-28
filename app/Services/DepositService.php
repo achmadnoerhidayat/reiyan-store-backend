@@ -63,6 +63,7 @@ class DepositService
                 throw new \Exception('Min Deposit 10.000');
             }
             $data['user_id'] = $user->id;
+            $data['date_exp'] = Carbon::now()->addMinutes(60);
             $deposit = $this->depositRepo->store($data);
             DB::afterCommit(function () use ($deposit, $user) {
                 $total = number_format($deposit->amount, 0, ',', '.');
@@ -163,11 +164,10 @@ class DepositService
     private function generateOrderId()
     {
         $namaBrand = $this->confRepo->get();
-        $brand = collect(explode(' ', $namaBrand))
+        $brand = collect(explode(' ', $namaBrand->title))
             ->map(fn($word) => strtoupper($word[0]))
             ->join('');
-        $date = date('ymd'); // Format: 260210
-
+        $date = date('ymd');
         do {
             $id = $brand . '-' . $date . '-' . strtoupper(Str::random(6));
         } while ($this->depositRepo->findExstDepo($id));
@@ -188,7 +188,7 @@ class DepositService
         }
         $service = app($driverClass);
 
-        $name = "Deposit {number_format($order->amount, 0, ',', '.')}";
+        $name = sprintf("Deposit %s", number_format($order->amount, 0, ',', '.'));
         $items = [];
 
         $items[] = [
@@ -205,9 +205,10 @@ class DepositService
             ];
         }
 
-        // Susun Params (Lebih ringkas agar tidak double-code)
+        $subtotal = $order->amount + $order->payment->fee;
+
         $params = [
-            'paymentAmount'   => $order->total,
+            'paymentAmount'   => $subtotal,
             'paymentMethod'   => $order->payment->code,
             'merchantOrderId' => $order->order_id,
             'productDetails'  => $name,
@@ -234,9 +235,8 @@ class DepositService
             $params['itemDetails'] = $items;
         }
 
-        $snap = $service->inquiryPayment($params);
+        $snap = $service->inquiryPayment($provider, $params);
 
-        //  Update Data Transaksi
         $this->depositRepo->update([
             "reference" => $snap->reference,
             "va_number" => isset($snap->vaNumber) ? $snap->vaNumber : null,
@@ -245,7 +245,7 @@ class DepositService
         ], $order->id);
 
         $snap->order_id = $order->order_id;
-
+        $snap->url_js = $provider->payload['url_js'];
         return $snap;
     }
 }

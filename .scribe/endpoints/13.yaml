@@ -120,8 +120,70 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6Inh4S0hnRlpPV0VjQ2ZqekxxeENTclE9PSIsInZhbHVlIjoiU0Q2Wmk5cTFFOTIxWmJwYmNqRllCZG1xem1KRnV2aVlYeFdsQVo5MEFPYjFrWUphZTduZVByaDZuV1ZwT0Irc3lRdzV3UXFFbVhkSTZwQ1RjQzd4WU9mNWZ4MlJVY3ZPSW1lcCtxeXZTcjR1SzBPWjFuUW03YWVDd1ppVmVXb1oiLCJtYWMiOiJlYjJmNmJmZThiOTk1NWU1N2NhYWI1NzQ4NTRlZmNkZTg1YzhlOGI4YTViZmVlNTc5MzIwMWU4ZjVkYmUzNzg5IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkV6Mk5XWGZJNHU1TFJxVnVRVDFlV2c9PSIsInZhbHVlIjoiMU9GeEh4eTdqa0VIckxsbnhGUDlYUTVaTjBHQ0p6aDBGZXpROGdwdW9vZEFRUXVrWHNad0RFZC9mNnFObjkydEsweS9jYmo2MlFNcTZ2ZS9pQXpuTm9wdFQ5TERTcmRWQ0dvcWxvNFFBblVXV2lKOGp0K0d4NU9yaEpNZmN1NmIiLCJtYWMiOiJiOWRhMzRjZTZiYzllMGYyNTUzNzAzNzdlYzRlYmI0OGYwNTNiZmIzNjJhODZmMmE2NmM0Yzc0YTdiOWY2OWM5IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IlJrenM0T3pYSGVsV0d1aUoxR0ZhVWc9PSIsInZhbHVlIjoiSHlpVnExTnJ3L2VKc3gxS216Vm1wZWQ5UkVqNlhjVlh3QTEzOCt2azlYakpEcmtOcmcxNHNYMkdFSzJXNHlPSDRWREw4ZU82UGpneHBGbmhsRVpLZHdOTFg5WnBidFVuRWdQaXVYYzgzUWFLb3JZaTF0d0l4LzBkZXBac2N0RTMiLCJtYWMiOiI1Zjg3YjY0ZGY3MDAyMzZlM2Q5MmFlYTVkYjkzMzQ0ZGMwNzMwZmI2NzZhMWM5Mzc5OTA5MGNmOTc4ZDBjNWRmIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlQydmVLNVVnTXgzMW5udXpuZ0FUV1E9PSIsInZhbHVlIjoiUnRNRGRSWjJXTWFYUDhyVlNUYVBCRDNpdVBudG9kL1FZWU83dEluZ1BJaHFxaXdibGxjN25WdEcwS24zUlRZUThqRjh4ZVMvekpwVDFSY1EzOGRaMXZxUThPbHlRN0UrRmthK251VmFQVEUwcjdYam5SdGh0a3Y0TUVRbnlXNVAiLCJtYWMiOiIwNGNkZjYyZDQwZDg1MGZiNGUzOGYzZTc4NzRiNGM5NWZhYjA3NmIxOTI5MTNlNDU2MGY4N2JlODJmZjM1YzVjIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: deposit
+    metadata:
+      custom: []
+      groupName: Deposit
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        tambah deposit
+        Endpoint ini digunakan untuk membuat pesanan Topup Saldo.
+        dan mengembalikan URL pembayaran Snap Invoice Duitku.
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      payment_id:
+        custom: []
+        name: payment_id
+        description: 'ID metode pembayaran (Midtrans, Duitku, dll).'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      amount:
+        custom: []
+        name: amount
+        description: 'Jumlah Saldo.'
+        required: false
+        example: 200000
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      payment_id: 2
+      amount: 200000
+    fileParameters: []
+    responses: []
     responseFields: []
     auth:
       - headers
@@ -203,7 +265,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IkJOcjFINEVGSFlVVWFvQ2NkMENIOVE9PSIsInZhbHVlIjoianlFOE9xVUMzcjBsejFkV2lSR2ZQdVN5TG1mdk0wZnI3QUM5c1dJa21BRklTSTQ4TlBiN3ZXQlFkZ0M1NHpKSjRBWjRGOHVDN0dGWjhHdUE1ODcxQ1J5ck1Ebk5nNk03OUNiWjBFY1llN0hlUnFDOWd5ZGpDUVNCOXh3cnJSa0QiLCJtYWMiOiJhMGZkZGJkMDk1YjkxNGM1ODVmZTlhMmVhOTM4ZjQ5N2E2YmJlOWY1YzQ3NGU2ZDAyM2NhZGUzNzg4MTZhNzRjIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImNRbTN2S29GRmtuWnY5eXJ4OHZ5aGc9PSIsInZhbHVlIjoiRW40SWlONlJrN1dtb09MM0prMElTUnJmT05Od1liYldBQ3o3U3BGcnJFbzlUVDlsOVVtaEUzd1dDQ0hqYnp5QlpYWnhTT0svM3UyTmJkSjhYc2krMnliQXRrc0g0NDdHMDNzSFJhTUpSM3A4bHcyb0pRc0hBbjJaNE9IQjlyTFIiLCJtYWMiOiIxZGZjZGQxNmYyMTc5YjNiZTYyNjliMTZhYzA2YWI3NjI1YjZlODVhZGIyNzBhNGUxZDZlMzg0MTYzYjljMGQ2IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IktjbTdhTG4vWTMwMi8wSWtMUU8xS3c9PSIsInZhbHVlIjoiMVB3cG1LMDA1YzN0SXFQVW9XZ3d5R0pvL2ExYW0yRHJsZW5UWUU4bm5GWWY5WmozSFd6YnNwdXhUOEEzUGRENFpDVkpWMEF3QmRwSzV1VG90dWx3RDU2ZlJUUWlFMytIT2FGcXg3UklKUmVlM0c0LzIvSGM4U3JVOUZ5UUdlOGsiLCJtYWMiOiIyOTc0OTJiZjY0M2VmNjI5YmI2OTIyYTcyNWQ3NzdiZjVkOWI5YzU3OGIxZDQwYmMxNzk1MjhhODY5YTk1Nzk5IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:44 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImZHK0NlTWp4aDdFNjRLeFIzOGxGMHc9PSIsInZhbHVlIjoiMEgxYmsxQlIrVndpblZ0NEc5RXJjNU11Y0t5M0tkSHRyWjFxVXovZ29reEhKMENEbnh6Ukt2M00wZU1ZeEY3U2g4WEg1cVVhSFVMTVNKSE0zMzVzOXpmQzFUV2hDQ2RUVmU1WC9XSVdDWlN3d1ZheHB5OWFwVDJGVDNoZ0tlcWEiLCJtYWMiOiIwZDA5ODExNzExY2ViYjU2ZmE1NDY4YjhjYTBiOWY4ZDIxNjE1NDUwMmM3NTI4Y2RmZWY1OTE3Yzc1NmRjOWI5IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:44 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth:

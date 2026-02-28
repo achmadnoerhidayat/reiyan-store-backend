@@ -45,7 +45,7 @@ class ProdukRepository
     public function findSlug($slug)
     {
         return Product::with(['kategori', 'layanan' => function ($query) {
-            $query->orderBy('price_provider', 'asc');
+            $query->where('status', 'available')->orderBy('price_provider', 'asc');
         }, 'faq'])->where('slug', $slug)->first();
     }
 

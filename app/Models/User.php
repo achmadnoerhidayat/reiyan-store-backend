@@ -23,6 +23,7 @@ class User extends Authenticatable
         'member_id',
         'full_name',
         'user_name',
+        'phone',
         'email',
         'password',
     ];

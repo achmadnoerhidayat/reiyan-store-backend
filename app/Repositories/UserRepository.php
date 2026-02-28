@@ -39,7 +39,7 @@ class UserRepository
      */
     public function findId($id)
     {
-        return User::with('role')->find($id);
+        return User::with('role', 'level')->find($id);
     }
 
     /**
@@ -47,7 +47,7 @@ class UserRepository
      */
     public function getUserByEmail($email)
     {
-        return User::with('role')->where('email', $email)->first();
+        return User::with('role', 'level')->where('email', $email)->first();
     }
 
     /**

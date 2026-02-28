@@ -86,9 +86,13 @@ class AuthController extends Controller
      */
     public function refreshToken(Request $request, AuthService $service)
     {
+        $data = $request->validate([
+            'refresh_token' => ['required']
+        ]);
         try {
             $data['ip'] = $request->ip();
             $data['agent'] = $request->header('User-Agent');
+
             $refresh = $service->refresh($data, $request->user());
 
             return ResponseFormated::success($refresh, 'Refresh Successfully');

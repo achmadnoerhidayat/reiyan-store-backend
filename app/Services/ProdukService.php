@@ -233,6 +233,38 @@ class ProdukService
         });
     }
 
+    public function checkNikname($id, $data)
+    {
+        $produk = $this->produkRepo->findId($id);
+        if (!$produk) throw new \Exception('produk tidak ditemukan');
+
+        $provider = $produk->provider;
+        $driverClass = $provider->driver;
+
+        if (!class_exists($driverClass)) {
+            throw new \Exception("Driver {$driverClass} tidak ditemukan.");
+        }
+
+        if (!$provider->is_active) {
+            throw new \Exception("Provider Tidak Aktif");
+        }
+
+        $service = app($driverClass);
+        if (Str::contains($produk->code, ['ML'], true)) {
+            $data['code'] = "mobile-legends";
+        } elseif (Str::contains($produk->code, ['FFMAX'], true)) {
+            $data['code'] = "free-fire-max";
+        } elseif (Str::contains($produk->code, ['FF'], true)) {
+            $data['code'] = "free-fire";
+        } elseif (Str::contains($produk->code, ['PUBG'], true)) {
+            $data['code'] = "pubgm";
+        } else {
+            throw new \Exception('Code game tidak ditemukan: ' . $produk->code);
+        }
+        $rawData = $service->getNickName($provider, $data);
+        return $rawData;
+    }
+
     public function findId($id)
     {
         return $this->produkRepo->findId($id);

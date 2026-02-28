@@ -139,6 +139,11 @@ Endpoint untuk menerima notifikasi status pembayaran dari Midtrans/Duitku.</a>
 Mengambil semua data Deposit milik user yang sedang login.
 Bisa difilter berdasarkan ID Deposit untuk detail, atau search order_id.</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="deposit-POSTdeposit">
+                                <a href="#deposit-POSTdeposit">tambah deposit
+Endpoint ini digunakan untuk membuat pesanan Topup Saldo.
+dan mengembalikan URL pembayaran Snap Invoice Duitku.</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="deposit-GETdeposit-admin">
                                 <a href="#deposit-GETdeposit-admin">List Deposit (Admin)
 Mengambil semua data Deposit secara keseluruhan (Global) untuk dashboard admin.</a>
@@ -219,6 +224,10 @@ Endpoint ini digunakan untuk mengambil semua data Produk yang aktif.</a>
                                                                                 <li class="tocify-item level-2" data-unique="produk-GETproduk--slug-">
                                 <a href="#produk-GETproduk--slug-">Show Daftar Harga
 Endpoint ini digunakan untuk mengambil data Produk yang aktif berdasarkan slug.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="produk-POSTproduk-check-username--id-">
+                                <a href="#produk-POSTproduk-check-username--id-">Cek Validasi ID Game
+Endpoint ini digunakan untuk memvalidasi user ID dan server ID sebelum melakukan transaksi.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="produk-POSTproduk-payment">
                                 <a href="#produk-POSTproduk-payment">Checkout Top Up
@@ -405,7 +414,7 @@ Endpoint ini digunakan untuk mengambil semua data Voucher.</a>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: February 18, 2026</li>
+        <li>Last updated: February 26, 2026</li>
     </ul>
 </div>
 
@@ -796,7 +805,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "http://localhost:8000/auth/refresh" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"refresh_token\": \"architecto\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -810,9 +823,14 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "refresh_token": "architecto"
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -902,7 +920,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                        </form>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>refresh_token</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="refresh_token"                data-endpoint="POSTauth-refresh"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+        </form>
 
                     <h2 id="autentikasi-GETlog">Log Sistem</h2>
 
@@ -950,7 +981,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6ImEwTlpNRE1MalA2Zjl5bCsvYUZ6Y3c9PSIsInZhbHVlIjoieXdmd3BLRlZ6VFFlbmhGNW91ZGNFdjE0OGVBWVNvaXMra0dJU2htUGg5M3llejhqZkRYR1IxVndGdm9IRGJVOHJOMmZLL0s3RzUwbFhjditIWERtOENzWUxGZzg0K013eXJXSk10ZDAraDE1ZlkxekJrYXliZi9KRWxPbTVYN1oiLCJtYWMiOiJhZjA1M2M1OGIxODcyMDJjN2M2ZWZjOTdlZTJjYWQzNmU0YWI4OWY2NGRjMzBiMGY2OGI4NTI4ZDljYWRlNGU2IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:55 GMT; Max-Age=7199; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlJ0Rk0vRnEvUG4zbzJ5QkN1ZmhGNmc9PSIsInZhbHVlIjoiRm9PdTk0UDl6b3VzNmMwaGNqQ1A4SmpTUjFWUVlQMHlmTHk1U05JRzZRNWc3NDQrazBCc05MTEpGNHBQbDJ2VlpQdFNwb3RjTUlobzdBNXZreGxxYWV3cjdmWFpSQjdMRjdQcUxkR3JGVVVYYzQ1aVBTcFQxMGdmSG50aVVIMysiLCJtYWMiOiI3ZTNjZmM1Y2Y1NmI4YjAzYmRhMDM4YTA1YzE5YTI1Yzc4ZDc1ZDNkNjIzOTc1MjcwZjRkM2UxZWJlODI4YmZjIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:55 GMT; Max-Age=7199; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IlVIZnlzYmwxdG9hdTA0cmh3eHQ0REE9PSIsInZhbHVlIjoiRDFzYXFEcmRFaityd0hnQ3VXSDRLMUdES0ZCVURBZkF4Zm1PTGtHbTVDb0ZsMWNpUXZ1TUJTU3N4dEtKMG5kb0ZseFE1VkRvUVcwOHNaZTBUd1dGV0tmamdqQ0s5UWRvMlo0U2tycXJWcTJzYkZVU2MxTGFTTjVrR2FQajVqK2MiLCJtYWMiOiI5OTZlYTNkMjY0NWE3ZTY0MjRhNzEzMTM1NmQxOGQ4NTdiMWQzNDcyNjhhZTU0MzQzODRjZGJlYmRiYWRhZjhmIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:40 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImZtUmdLdVNSSERaaVlyYlNHcFhBNWc9PSIsInZhbHVlIjoiL1R2WDZLWEdCK09RTVV3WGZnY1FhOFlCTnJ0SWVqRk10ZGMxNHFVT3lYM0Vic3IzK0E3OS9GR0lvMWI5M25waDAraTFLTTZFOHhLRWVGamtiYmJZcFRuOHMxWitjbFlhMXhTUjN5TjQySEFGQU5uUlNGOGNBSmttaFBVbGhxT3giLCJtYWMiOiIwZGQyNTRmYjYyNDBiMDFkNDVhN2E2MGQwNmQ0ZWFkYzczZjczOTJjMTNjN2ZjMGU3MjUwZTFjYTcyYzgyNjM3IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:40 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -1092,7 +1123,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6ImVZT0t2bEIzbEgwWEpmZTNXNnJqTVE9PSIsInZhbHVlIjoidnZxemI0K014S3l4dGVsNjZmc2NPS2ErZmlUay9rMTUxVG1Gb2hwOXB6NUVaVTlSVktrM0dhQ2RmRnR3N21GY2dHbjZWdHR3NkNuZVduNVFndnFhZWhrSWJkMFJXWFNrQzJETjZ4WlRUV3BDUlFlWFkwRkFlbGJRWDJReFFyNTIiLCJtYWMiOiI2NmYxNmY4YTU1ZmJmMzljMTE1MDUxYjRiY2I0MGJiOTkzYTBjYWE5NWFmYjBjMmMxMWQ1YTIwMDU4YmRiMzMyIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IklNTjZuWVVWMkFTaGJmMnUzREdSdnc9PSIsInZhbHVlIjoiVlJxN3JWcEc2TVFkbEpjR2ZtcXYzZXFzRXBSaVlBeEpLMWw5TXkxSkJYazdWZ1FsUjA0cXdrVEQvcEFQdnltSDlLR3REYzhCcU5LSUNQdXRRbFhhQ2ZmTDAvUjJ5a1VVUEVJU2puNzdxQnl5aXJpS0h4aE9yRGJjczhTK2lQVE4iLCJtYWMiOiIzNjk5MjVmMmJlZmNiYzI5NzQ0NTkzZjczZjQxZWU1OWU4ZmE3ZDNkZmRiMWNkNDdjNzVjMmU4MzZjNWE4NzEwIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6ImJBbjVDUFUzbnoxS3BMRmhqUEd2cGc9PSIsInZhbHVlIjoiTDNvNTVYcXdqV1didXl1MEE4a0xib0VkMGFSU0FEekVZVGVEMS82dGpLSUFCUTdRTFRDWndZc1dmLzFFOWcxa21Oc2IxUnkrQUs0ZDNtdTFsYitDVkpHWEV2MFNxMzFVS0JDd0s2OHh2V3Yyc24vZWtsY1N4WmFPU2VjVGdpR2YiLCJtYWMiOiJkMjczMjU5NmYzYmZkZTI5ZjJiNDg1NmM3NDBiMDg5YzljNzBjNzMzY2Y1Nzk3MDY5ZDJhOWU5MjUyNTkxYjc0IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkRJVSsweDFPaU9hV24xK3VUNzhJZmc9PSIsInZhbHVlIjoiVFBnUzRjemVBc0lJRWExRWZTbkFHZWpiY3hXTnFOSS9rUXM0LzdpaldyVkVIU0liNWx6VHNGUEUva1I5TWVhdUFMOEJOZVNQby84YitsQUNhWFVJaURXeGVQZjErcGJhQ3JKZzJLYjVTNEdlZkZYNFpWTUxUUUl0d0huU1pndjkiLCJtYWMiOiI1NGNhZTQxZTE0Njc4ZTFmOWY2NzQzM2M0YmMwNTI1ZDM4MmY3YTlkMmQwNGQyOGMyOTM1NzZlN2MwMWUyYWEzIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -1105,24 +1136,24 @@ set-cookie: XSRF-TOKEN=eyJpdiI6ImVZT0t2bEIzbEgwWEpmZTNXNnJqTVE9PSIsInZhbHVlIjoid
         {
             &quot;id&quot;: 2,
             &quot;title&quot;: &quot;Promo PUBG&quot;,
-            &quot;image_url&quot;: &quot;asset/banner/0hP7QvvpQCjDNK9IjzCKf8JYMFby30L3z7gzz9pL.webp&quot;,
+            &quot;image_url&quot;: &quot;asset/banner/wjKqra9VbNHQ8xGEiWwC2HBoNV44jgzSpRXBSOz7.webp&quot;,
             &quot;link_url&quot;: &quot;http://localhost:5173/admin/banner&quot;,
             &quot;is_active&quot;: true,
             &quot;starts_at&quot;: &quot;2026-02-20T00:00:00.000000Z&quot;,
             &quot;end_at&quot;: &quot;2026-06-28T00:00:00.000000Z&quot;,
             &quot;created_at&quot;: &quot;2026-02-17T13:24:43.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-02-17T13:24:43.000000Z&quot;
+            &quot;updated_at&quot;: &quot;2026-02-24T14:03:41.000000Z&quot;
         },
         {
             &quot;id&quot;: 1,
             &quot;title&quot;: &quot;Promo Mobile Legend&quot;,
-            &quot;image_url&quot;: &quot;asset/banner/PVcYUHRn9M6jFNjyQbieUKH8zmSJLPXtE00Rcz78.webp&quot;,
+            &quot;image_url&quot;: &quot;asset/banner/1W1oTxNqfXfRZVnT4WrwKYiBl7kgTzoLztu5ubOU.webp&quot;,
             &quot;link_url&quot;: &quot;http://localhost:5173/admin/banner&quot;,
             &quot;is_active&quot;: true,
             &quot;starts_at&quot;: &quot;2026-02-20T00:00:00.000000Z&quot;,
             &quot;end_at&quot;: &quot;2026-06-26T00:00:00.000000Z&quot;,
             &quot;created_at&quot;: &quot;2026-02-17T13:11:36.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-02-17T15:11:46.000000Z&quot;
+            &quot;updated_at&quot;: &quot;2026-02-24T14:04:35.000000Z&quot;
         }
     ]
 }</code>
@@ -1295,7 +1326,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "starts_at=2026-03-01"\
     --form "end_at=2026-03-31"\
     --form "is_active=1"\
-    --form "image=@/tmp/phpNtedT7" </code></pre></div>
+    --form "image=@/tmp/phpwxG7Ji" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1433,7 +1464,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB. Example: <code>/tmp/phpNtedT7</code></p>
+<p>Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB. Example: <code>/tmp/phpwxG7Ji</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>link_url</code></b>&nbsp;&nbsp;
@@ -1518,7 +1549,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "starts_at=2026-03-01"\
     --form "end_at=2026-03-31"\
     --form "is_active=1"\
-    --form "image=@/tmp/phpZ6Nuhd" </code></pre></div>
+    --form "image=@/tmp/phpIbk5Wg" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1669,7 +1700,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB. Example: <code>/tmp/phpZ6Nuhd</code></p>
+<p>Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB. Example: <code>/tmp/phpIbk5Wg</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>link_url</code></b>&nbsp;&nbsp;
@@ -1926,7 +1957,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6ImlGZjBMUVRzcElVaC82N3FoVllCd1E9PSIsInZhbHVlIjoibXJBZzRwcDNvZWVxdnYvM1VBZXIyT2gxQTRrOW9NU3VmKzNjOURnZXppMXpZVjcrY3VMVlFrZG9abWRJclFMeWszTjRLSDdENXhPKzJ1NXdDc0dRV3ZsQVowd0x6R3lwYTMwUnhsRVowcjdjZnRMbmNXM2swNmFXNUcrMzkrT1UiLCJtYWMiOiI4NGMyZGVhYjAxOTU2YzBiZmJkNGFkMDkxNGY4NDBkMWNjYzVkNGNkMWFjNzA4NTJlMTQ3ZDRhYTEzYmY2ZDZmIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6InI1ZkI3VWJxTmVjNER6a3R3cUd2clE9PSIsInZhbHVlIjoiOU1YLzYyR1BPM3NsY2p5TnhTeUZZaU9RUTZXQmE0djV1VThKQnlrNnJFaExmV3UzR0xFcHd4bmI3MkZYOWxienVpMlJaREcwK2cwWGgwSXRZTFpNRkR0dW1SL3d1K1FyZlFDZzJJaHcrcjMwdWNIQUJPRjM4WTB3YW4rRDJrVEkiLCJtYWMiOiI1MjE2YzNkMDU2YTY4MmJiMDE4NzdlMzQ2YzM5NjJjMWU3YWI2ZTkyNjU1YzVkOThkMTVkMThiNTRiZjRiZTJjIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6Ik44Vmg1cjhGYmUyL2RUcEFFU2ZZcGc9PSIsInZhbHVlIjoiVWNSZFRtZ1FnWVBSbGJvcGYwemVTV0RkUGtVWFBLOVcrMWRWc2g0VU9hMndNbmMvYjIrZkNXeUs5OFFRQ0xRZTZady9kTDVrQzduMnhmQU1qVENhcExOUHJKWDFIdUt3V20vdjFYdkh6Ky92Tm94UUNtQzJhYzZyR1pSYk9tNmkiLCJtYWMiOiIyZDMxMmY5NGRkYzJlMGYyM2NlZjFmYWQ1M2MyM2ZiNTM3MGJjNzBhNzg4NDVmMjk2MWRjZDNlYzMxMTQ5YzgyIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImtEbTNPTzIwZVd4S2xlMWlhSWJQNGc9PSIsInZhbHVlIjoiMXgzL2hTNmhjaTEzV1dMZHpSbVU3bTB0M2tsSEpjWGd6SS9qWlc1Wld2WG1MNUNSanIydklKUGQzK2IrSjJvK0RyYVRxY0wrZzFxYWZDbytibjl0dER4VWMyc1ZsNUxJdStyV2hxYVduYmtHc0s4dW5DRmkyS2lEaGdNS3hhZWsiLCJtYWMiOiIzM2QwMTQ5NDYyODgwZWYxMjM2YmJlMDYyZTc2ZGQyMjI0NTFiOTQyMDljOTRmYWQ0YjBiY2RiNTkyNTgxZjIyIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2046,8 +2077,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "title=Reiyan Store"\
     --form "short_title=Termurah &amp; Terpercaya"\
     --form "deskripsi=Website Topup Game Termurah &amp; Terpercaya"\
-    --form "favicon=@/tmp/phpfiYY6w" \
-    --form "logo=@/tmp/phpP76UC4" </code></pre></div>
+    --form "favicon=@/tmp/phpbOuTn6" \
+    --form "logo=@/tmp/phpDIt6dz" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -2196,7 +2227,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto favicon config (PNG/JPG, max 2MB). Example: <code>/tmp/phpfiYY6w</code></p>
+<p>Foto favicon config (PNG/JPG, max 2MB). Example: <code>/tmp/phpbOuTn6</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>logo</code></b>&nbsp;&nbsp;
@@ -2208,7 +2239,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto logo config (PNG/JPG, max 2MB). Example: <code>/tmp/phpP76UC4</code></p>
+<p>Foto logo config (PNG/JPG, max 2MB). Example: <code>/tmp/phpDIt6dz</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>deskripsi</code></b>&nbsp;&nbsp;
@@ -2245,8 +2276,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "title=Reiyan Store"\
     --form "short_title=Termurah &amp; Terpercaya"\
     --form "deskripsi=Website Topup Game Termurah &amp; Terpercaya"\
-    --form "favicon=@/tmp/phpwQm4sX" \
-    --form "logo=@/tmp/phpyAgYAv" </code></pre></div>
+    --form "favicon=@/tmp/phpQbWTD8" \
+    --form "logo=@/tmp/phpkuzepA" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -2408,7 +2439,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>nullable Foto favicon config (PNG/JPG, max 2MB). Example: <code>/tmp/phpwQm4sX</code></p>
+<p>nullable Foto favicon config (PNG/JPG, max 2MB). Example: <code>/tmp/phpQbWTD8</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>logo</code></b>&nbsp;&nbsp;
@@ -2420,7 +2451,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>nullable Foto logo config (PNG/JPG, max 2MB). Example: <code>/tmp/phpyAgYAv</code></p>
+<p>nullable Foto logo config (PNG/JPG, max 2MB). Example: <code>/tmp/phpkuzepA</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>deskripsi</code></b>&nbsp;&nbsp;
@@ -2749,7 +2780,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6Inh4S0hnRlpPV0VjQ2ZqekxxeENTclE9PSIsInZhbHVlIjoiU0Q2Wmk5cTFFOTIxWmJwYmNqRllCZG1xem1KRnV2aVlYeFdsQVo5MEFPYjFrWUphZTduZVByaDZuV1ZwT0Irc3lRdzV3UXFFbVhkSTZwQ1RjQzd4WU9mNWZ4MlJVY3ZPSW1lcCtxeXZTcjR1SzBPWjFuUW03YWVDd1ppVmVXb1oiLCJtYWMiOiJlYjJmNmJmZThiOTk1NWU1N2NhYWI1NzQ4NTRlZmNkZTg1YzhlOGI4YTViZmVlNTc5MzIwMWU4ZjVkYmUzNzg5IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkV6Mk5XWGZJNHU1TFJxVnVRVDFlV2c9PSIsInZhbHVlIjoiMU9GeEh4eTdqa0VIckxsbnhGUDlYUTVaTjBHQ0p6aDBGZXpROGdwdW9vZEFRUXVrWHNad0RFZC9mNnFObjkydEsweS9jYmo2MlFNcTZ2ZS9pQXpuTm9wdFQ5TERTcmRWQ0dvcWxvNFFBblVXV2lKOGp0K0d4NU9yaEpNZmN1NmIiLCJtYWMiOiJiOWRhMzRjZTZiYzllMGYyNTUzNzAzNzdlYzRlYmI0OGYwNTNiZmIzNjJhODZmMmE2NmM0Yzc0YTdiOWY2OWM5IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IlJrenM0T3pYSGVsV0d1aUoxR0ZhVWc9PSIsInZhbHVlIjoiSHlpVnExTnJ3L2VKc3gxS216Vm1wZWQ5UkVqNlhjVlh3QTEzOCt2azlYakpEcmtOcmcxNHNYMkdFSzJXNHlPSDRWREw4ZU82UGpneHBGbmhsRVpLZHdOTFg5WnBidFVuRWdQaXVYYzgzUWFLb3JZaTF0d0l4LzBkZXBac2N0RTMiLCJtYWMiOiI1Zjg3YjY0ZGY3MDAyMzZlM2Q5MmFlYTVkYjkzMzQ0ZGMwNzMwZmI2NzZhMWM5Mzc5OTA5MGNmOTc4ZDBjNWRmIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlQydmVLNVVnTXgzMW5udXpuZ0FUV1E9PSIsInZhbHVlIjoiUnRNRGRSWjJXTWFYUDhyVlNUYVBCRDNpdVBudG9kL1FZWU83dEluZ1BJaHFxaXdibGxjN25WdEcwS24zUlRZUThqRjh4ZVMvekpwVDFSY1EzOGRaMXZxUThPbHlRN0UrRmthK251VmFQVEUwcjdYam5SdGh0a3Y0TUVRbnlXNVAiLCJtYWMiOiIwNGNkZjYyZDQwZDg1MGZiNGUzOGYzZTc4NzRiNGM5NWZhYjA3NmIxOTI5MTNlNDU2MGY4N2JlODJmZjM1YzVjIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -2891,6 +2922,169 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
+                    <h2 id="deposit-POSTdeposit">tambah deposit
+Endpoint ini digunakan untuk membuat pesanan Topup Saldo.
+dan mengembalikan URL pembayaran Snap Invoice Duitku.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTdeposit">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/deposit" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"payment_id\": 2,
+    \"amount\": 200000
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/deposit"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "payment_id": 2,
+    "amount": 200000
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTdeposit">
+</span>
+<span id="execution-results-POSTdeposit" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTdeposit"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTdeposit"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTdeposit" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTdeposit">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTdeposit" data-method="POST"
+      data-path="deposit"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTdeposit', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTdeposit"
+                    onclick="tryItOut('POSTdeposit');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTdeposit"
+                    onclick="cancelTryOut('POSTdeposit');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTdeposit"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>deposit</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTdeposit"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTdeposit"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTdeposit"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>payment_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="payment_id"                data-endpoint="POSTdeposit"
+               value="2"
+               data-component="body">
+    <br>
+<p>ID metode pembayaran (Midtrans, Duitku, dll). Example: <code>2</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>amount</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="amount"                data-endpoint="POSTdeposit"
+               value="200000"
+               data-component="body">
+    <br>
+<p>Jumlah Saldo. Example: <code>200000</code></p>
+        </div>
+        </form>
+
                     <h2 id="deposit-GETdeposit-admin">List Deposit (Admin)
 Mengambil semua data Deposit secara keseluruhan (Global) untuk dashboard admin.</h2>
 
@@ -2949,7 +3143,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6IkJOcjFINEVGSFlVVWFvQ2NkMENIOVE9PSIsInZhbHVlIjoianlFOE9xVUMzcjBsejFkV2lSR2ZQdVN5TG1mdk0wZnI3QUM5c1dJa21BRklTSTQ4TlBiN3ZXQlFkZ0M1NHpKSjRBWjRGOHVDN0dGWjhHdUE1ODcxQ1J5ck1Ebk5nNk03OUNiWjBFY1llN0hlUnFDOWd5ZGpDUVNCOXh3cnJSa0QiLCJtYWMiOiJhMGZkZGJkMDk1YjkxNGM1ODVmZTlhMmVhOTM4ZjQ5N2E2YmJlOWY1YzQ3NGU2ZDAyM2NhZGUzNzg4MTZhNzRjIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImNRbTN2S29GRmtuWnY5eXJ4OHZ5aGc9PSIsInZhbHVlIjoiRW40SWlONlJrN1dtb09MM0prMElTUnJmT05Od1liYldBQ3o3U3BGcnJFbzlUVDlsOVVtaEUzd1dDQ0hqYnp5QlpYWnhTT0svM3UyTmJkSjhYc2krMnliQXRrc0g0NDdHMDNzSFJhTUpSM3A4bHcyb0pRc0hBbjJaNE9IQjlyTFIiLCJtYWMiOiIxZGZjZGQxNmYyMTc5YjNiZTYyNjliMTZhYzA2YWI3NjI1YjZlODVhZGIyNzBhNGUxZDZlMzg0MTYzYjljMGQ2IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IktjbTdhTG4vWTMwMi8wSWtMUU8xS3c9PSIsInZhbHVlIjoiMVB3cG1LMDA1YzN0SXFQVW9XZ3d5R0pvL2ExYW0yRHJsZW5UWUU4bm5GWWY5WmozSFd6YnNwdXhUOEEzUGRENFpDVkpWMEF3QmRwSzV1VG90dWx3RDU2ZlJUUWlFMytIT2FGcXg3UklKUmVlM0c0LzIvSGM4U3JVOUZ5UUdlOGsiLCJtYWMiOiIyOTc0OTJiZjY0M2VmNjI5YmI2OTIyYTcyNWQ3NzdiZjVkOWI5YzU3OGIxZDQwYmMxNzk1MjhhODY5YTk1Nzk5IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:44 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImZHK0NlTWp4aDdFNjRLeFIzOGxGMHc9PSIsInZhbHVlIjoiMEgxYmsxQlIrVndpblZ0NEc5RXJjNU11Y0t5M0tkSHRyWjFxVXovZ29reEhKMENEbnh6Ukt2M00wZU1ZeEY3U2g4WEg1cVVhSFVMTVNKSE0zMzVzOXpmQzFUV2hDQ2RUVmU1WC9XSVdDWlN3d1ZheHB5OWFwVDJGVDNoZ0tlcWEiLCJtYWMiOiIwZDA5ODExNzExY2ViYjU2ZmE1NDY4YjhjYTBiOWY4ZDIxNjE1NDUwMmM3NTI4Y2RmZWY1OTE3Yzc1NmRjOWI5IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:44 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3276,7 +3470,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6IkxGeU9JSE5pNEd1SFM5Tm81ejU4enc9PSIsInZhbHVlIjoiaGMvMUVPa0tBTXJMTG1PQVJTek9seHh5WnIyZSt6K2lzZTJ1VmdvcjlEZHByZDFJdmFvQyt4ZHhpUktnaTV6ejlabjdRSnRleDQ0azJ2Tm44c3NzREZtNm1aUEpSazhsNXpxaTNpemEwT1BDZHNFR3BlY0pncGNKYm02VXRlMDYiLCJtYWMiOiI5YzNlOWFiZDhjYzdmMGE5MjMxYmNkNGUzODM5NWQzMTdhMDE1NDk5YjYyZDlmYzNlOThlY2Y3OGY1NDFhMmUxIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlFWUVl1YzlLNmFhTlFTSGwxTDc1ZFE9PSIsInZhbHVlIjoid3c3bUFleHVEVWtGSnp3RVBFSWRxSXhTTWZVWEhCWmNVQVJkRk5BaWpqeXhNa0h4L2ZYNVRScTJvdGt1VVpwNCsxbEoxanMrM1Z6N21ZN2VCQVZZNDdKNGRydGJBVmxvNFBVeWQ5b3RNTkgyUVlKdzB3U0luQWt2aE5QK0ZNRHIiLCJtYWMiOiIyMGUzM2ZiNTM5NDg1ODRjYTkxNDhiMDQ0YzRiZWQ2ODMyNzdhMzkxOTBkZmIyNDUwNWYyNmQ4MzY3ZGU0MDA2IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6ImtQaUM1R0F0NU1FRVo2a0UrUFhrTkE9PSIsInZhbHVlIjoibSs4M3NVWjZJVG9ydTlWK3R2TGpwV1ViSlFzNXJ1Y3RhbG9RVkNwSCtNSFZPdU1SVG1tcEdxelU1WEJ4ZDAzcVBKajVFTkJnZDd1dnB6M3Q1Y0lQTlhIM1VnZ24wRUovR3cwVW9pNEZTUGtqTzUyVlc4ZEN1SUkrNFFmdEtLMCsiLCJtYWMiOiJjMTRmMjFlY2Y2YThjYWZhZTBjYjMwYjlkMWVlNWJiZjczZjMzMzUxNmVmN2VhY2I5ZmUxMTRiZGNjZWVjYzE1IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:41 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkxiTks2UUZUNXRkYURVcXdNcmJVcnc9PSIsInZhbHVlIjoiTkUyQUt2YlhzQ3FGZTFxQjVwUmV4cWVWb2g1cXdKeXRVaUpBaEVXRVdtWDc2c0I0bXNYQ0V0dDdZZlZUa0dhNFdzRmcySjJwaC9sY1R2bzZVOWRJM3pYd0NlWFlaeS9rWi8zOXpTeHFkRVpjcjlZV0k5R2JXZWgxL2FERkUvRlAiLCJtYWMiOiI0ZmQ0MDY5M2YzODU4MWIyMWViN2ZiYTdhZmI4OGUyNzc5NDllYTMzYjE1M2FkNmZkMTUxNGVjNzA0YmU1YzAxIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:41 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3440,7 +3634,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "name=Game Top Up"\
     --form "position=4326.41688"\
-    --form "image=@/tmp/php0emQwi" </code></pre></div>
+    --form "image=@/tmp/phpgKs9oZ" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -3575,7 +3769,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>nullable Foto logo kategori (PNG/JPG, max 2MB). Example: <code>/tmp/php0emQwi</code></p>
+<p>nullable Foto logo kategori (PNG/JPG, max 2MB). Example: <code>/tmp/phpgKs9oZ</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>position</code></b>&nbsp;&nbsp;
@@ -3611,7 +3805,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "name=Game Top Up"\
     --form "position=4326.41688"\
-    --form "image=@/tmp/phpfykfAZ" </code></pre></div>
+    --form "image=@/tmp/phpx4pnas" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -3759,7 +3953,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>nullable Foto logo kategori (PNG/JPG, max 2MB). Example: <code>/tmp/phpfykfAZ</code></p>
+<p>nullable Foto logo kategori (PNG/JPG, max 2MB). Example: <code>/tmp/phpx4pnas</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>position</code></b>&nbsp;&nbsp;
@@ -3973,7 +4167,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6ImlTOXJUeHQ0SnNSdVkyYXJwc1k5RlE9PSIsInZhbHVlIjoiS0lhc1RkbFZHZXcrQ1NpN3ZKcUZ5VytZN1Nja3dkSDI2Q0huVkRQZm5zUlBYNXl6bnFnNVRFRy9xeTZiTlNXekxSTWJFYytvMzZTS21Yb0FPYnFOQ1dOaTYrQWhJQ1M4ZVFUTFpHbExpOEtFNkM4VnlTQW0xenRsYlU4U2cxT2MiLCJtYWMiOiIxOTFiNDdkZTcwM2RmODVjYmJjOWI2YzM4NjMyYWJhMTNlZDgxOGM0NGY4MmQ5Mjc2MmI2Nzc2MmJiMTM1ZjRkIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:58 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjFtYTZwVTdtT3pSMkoydW5pNzBHdnc9PSIsInZhbHVlIjoiVjZBY01vTzJCOEVVUUk1UjM2Ym5ZOXVJS3ZzN2pwZll0UnRyYnJZOHhGSFY2NzhtenhKeTZwRmFYYld2L0g0eW1YMXE0NnlHVWkvQVpUYUMyZGpZb2V1dU9mQmlHSVgyNmZyWHhkOWtCQ3FETmdJZEJvc0MrcDBka05FZk1ZNHQiLCJtYWMiOiJkMDI0NmZjNzA4MGU2ZTEwNjU0ZTM3NGQyOTcyNjU3NDk3ZmVlNDU5YmZiOTc3NGE1OTNiNzgxOGQ4NGJlZGI4IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:58 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IjhGUi92WFZMN1p6dlJwTE5FQnpBWUE9PSIsInZhbHVlIjoiL2ExcGdaemlxYTZhTkpSa0RhR0hUSXZNeitKRVhSM3FGYi8wZW5VVVVVRDJvZmNTWVUrMElVdm1Ya3FhVitJUTJQUThMT1ByK1dXWkVUdDRWbmpicXNHNXE1K3p0L3Mvd3dMTXRnNEFIZ3NGUlRqbFY1QmNkSkx0cVhWM0VTQUwiLCJtYWMiOiJlNzkzMGJhY2NhNzU4M2MzMzk5ZjYyYmI2MGE3MTEwNTQyZGE5M2ZhNzY1ZjU2ZmYzOGYxNDIwYTgzN2UxOTkzIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:41 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlM3YjJsL1Fad21GTUZoMnFFQ25SV3c9PSIsInZhbHVlIjoic05iaUFuV2loNUN4VWx0TDhzaGRFWlhYS0o0MGZOc2hDTlcvSXRHMGZsc2ZMTHJYNVc3NnlDd0tIbVlwNTRXcHFkSVhSUUJuS0htRWU5Z2h2WC9tR3Jvam9IQUVURExvN2t6QkZRL3F3ZWtyNVB0QVE4Qzd5QjdDT3J0WEd1MHciLCJtYWMiOiI5NDMxYTFlNTcwMGYxMGQxMDkzZmVlZTY3MjE1YWU5YmY2NjU2ZjI0MDQ1MmQ0YjI1ZTBlNmI0MTc2NzUzMDZiIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:41 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -4340,7 +4534,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6InRwSENVZExmVDFjOWh2NDNTZll2bUE9PSIsInZhbHVlIjoibWhUMERzMEY5d2ZhR2o1V2dLNEFldWtXc2IrVm8vZVpTRWFvcXdqMEYwT1dzcnFidGtSM3Nad3hCZFArS1l6TS9wYkRWaXRvakxGbVhGVngvYzlwUENYRGpCQWhaY29uRExLQVZRbFRaQ2E3dDQ1N0hSSHhzWTk3MjJmWEdCdlgiLCJtYWMiOiJmZWNiMmE3ZjAwM2JjZTBlODJiNGI2OWE4NmVlYjUwMmM1NTY4OTVlNGYwMTc5NDg2YzcxNTU0NTA0Y2UyZGZjIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImlCM2R3dnUxZ2ZHSmRDQnVDOGpMenc9PSIsInZhbHVlIjoiQ0F2eHU3Zm4wS1lrNlFpODRPc2x1RzNPVjJoMXNFWTNTRk1JU2lJbGNUaEh1MWgrRXNsTFM2YU51b1ZZV3dQV2xRek4zbkZDeG1PeWxGNWhNejhOUnN6b0lvMnp5c0JzRjh1MkdybUYyYlozdXVkcEdJVUJVdC8yUVlKU1B6ZXEiLCJtYWMiOiJmNTMzNjgzZDJmMjg1MjcyMjEyNDQzMjM3MDYyZWI4NjNiMGE5YTI3ZWZjMTdmOGYxNmI4NWI4YjA3OGQxOWMzIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IlVZSEorazY2RkxMeW9nSyt4ZzJ5Wnc9PSIsInZhbHVlIjoidnAvRXhubmF2bmt2Q2tpZWdsZk8vL21JNkRhWXFoR05iOEZXeTNuckE2ZnFFQ2xIckJwQ2ROL1BuLzJKWlV1NVQwMHpDTnNIMnN4ZFdxK1EwQ05CVWQ5Zys1dnd1VUhXVDNtcW9CeGxlNklFaDF5R1pGVVZWc0Q0Z0VxUTJmc3UiLCJtYWMiOiIxMjA1YTUyNTlmMGUxYTFmYjIzMGYzYzk4YzYxNmUyNDAxNDc4MzMwYzdmZWUwODUyNGZmYThhNjFiNTI0MGM3IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjRLVVVlOWdmbzN5QkdBeDBGbk91Wmc9PSIsInZhbHVlIjoiOFRMSE9TbzFNeEJGZ3p6bTlycDd6dlZwSVdwUjY4OUJNVlVFbmdEd2pXTUdpV1l5NEc2bWNvYmhWOVJGeVRmRXVpMTcwbjA3TCtmT3I1U1ZLSlJsVlFoWHAvUVhoN3RIRFVkVkU1eDBRNU82Z0NENHRqUW10amdsbWpjNm11bHkiLCJtYWMiOiI5N2ExZDkwZjU1ODMyMDJlZDU4YmRlNjA1YmExZGVkYjc3YzE0MzUxM2NkZWQ4ZmE5Y2VlODY5MDFkZDQwNGFjIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -4531,7 +4725,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6IitMMEpMbWE1UWRzRVQ2ZndpM0FIaVE9PSIsInZhbHVlIjoiazEwVXZvVnEyL0lXRG0ya3p3V1Fad0xmUnlBd2kwVGFMYXZZNHhjc0hzWko0OFNUQ0JtRld4aytOTFp6VmdRUVMvMmptdXU4QUJ2QTdkQkU3NnZHdjlwRU1FOE9YSzRMSEtmRXFMLzZyL3VXdjdEWlNwTGhWMHVzeUk3SGFwVVQiLCJtYWMiOiJmODVhMjY5ZWZkOWUxZDUxYmQwYjJiMmVmNTE4ZWQ3M2NiNTFlZjkzMjU4MzRlZGRjMGM2M2U3YmQxNGM3ZmQzIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlFtR0VzVEZwaDlZOW9ySXlCWDhBdkE9PSIsInZhbHVlIjoidGtVSzA2SE5zNlI4NVBLNHg4TlMwSUJtWVRqRU9yQjJKOGJ0VzMrMkVFeDNQcTQzU1AzMU10eDJ2QlpLanMwSDdmcG16aDR4cHE4TUZ3dVlEemhRRSt2YStsam94WE40dVdLRzA4QnNUZnlVS0lycFhlakdDbm1PdFJWOVZENG0iLCJtYWMiOiJjMmE4ZmZlMzFiOWNjNWRjMDMzNjlhY2Q3ZjdmMzZmZDFmYzM0ZmNkZDQ0NzU5M2VhNzAzYzNhNmQ2ZGE5NjAxIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6Ikw4NkVIYW1WbDN5amlyR0h5alFTNlE9PSIsInZhbHVlIjoiNjBMUlhncHBiK2FpN2JPMW1sSzhmQVllYmVITDU4eit4YzZMYmEyQ3A1QmFDRDNRQ2VjYU9RVzdzNjFESGw2dGEwODgzbFhzazZPS01BM2M2S1hHU3F1MjFYeGUzdThLTldRWTN2UjJoY0QrRnJVQ25UUGhNbklsNTZZZ2FDS3kiLCJtYWMiOiJhYTYzY2UzNGFjNzg5ZDM5ZTllNTJkMmU5NTU0MGNhMDI5YTRiOThlNjUxYjcwNzg4YjgyZDJmNzEwODAwOWExIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImFPN0dOcTVPcjdjcy95MVF1Qm5uWnc9PSIsInZhbHVlIjoid1E0a2tMbjI3RFVnQXc2TzRHZlRGNDBXY1l6R3l1c0l5ZkJEZ0oxUmowd1JSckJEU01USFFmUFpDc2xKT2JRWXcrVUNVeE1pNHlIUS9pUk1HUlNaM1hUdFRmM29TNGc5aUVmbmczazl3MklBc00xZEo0R3VhY3VmV1dEY0NmQlQiLCJtYWMiOiJkOThiMWNkMmUyZTY4ODIwYmU3ZDY1NzQ2NzRmOTkzYTlkNmU3NWYzNzc4YmY5NjM3YmUyOWE0NzYyMGRjNDZjIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -4695,7 +4889,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "gateway=duitku"\
     --form "fee=1500"\
     --form "is_active=1"\
-    --form "image=@/tmp/phpyVdIaE" </code></pre></div>
+    --form "image=@/tmp/phpWBkCMW" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -4904,7 +5098,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phpyVdIaE</code></p>
+<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phpWBkCMW</code></p>
         </div>
         </form>
 
@@ -4931,7 +5125,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "gateway=duitku"\
     --form "fee=1500"\
     --form "is_active=1"\
-    --form "image=@/tmp/phpjiNSnj" </code></pre></div>
+    --form "image=@/tmp/phpKWFBWU" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -5140,7 +5334,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phpjiNSnj</code></p>
+<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phpKWFBWU</code></p>
         </div>
         </form>
 
@@ -5342,7 +5536,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6InFYRTVLdG4wKzNQSXAzWk5XbW1CQmc9PSIsInZhbHVlIjoiVmJHT0JLYmpQanduVkFGTlI1VDUrN25RTVVEUUFEaWdsMXAvRnFPbmFlMVV3OERvbGF5ZndOVllXTXR4M1BtN1RQU1VMWjRBdjlCMkNkMWppUVJ1Ung0dW9QWnRQN2xtRGphT3ZCWE9Gb0dwNkY4WGMrdnhWZjNiK2c1ek54Uk8iLCJtYWMiOiI2OWQ1OTE3OTIzMTVkYzYwM2JjOGRiNTVmZjkzZGFiZmFhZmZlMTViYzJjNzY1Mjc4ZThjMzc0MTVlY2RmOTUxIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlpTRitOYU12TXJ5cE11ODkyU0UzRlE9PSIsInZhbHVlIjoiNHhxVTFkVDNER3BGZGhveXdYMXY2b0orNnVicFBLYjdwNytZZkNaT1RyODF4ZzYrYmZWVlBiU1R4aldCNzRiY1Z1dVI5TjAwekczSkh0WHd1bjg1MFJLUFhmVFdNNlVXczJmejNhaGxxcWFkSkRIQmRiK1hpU1BBYmdDS1JBVTEiLCJtYWMiOiI1YWMxMTQ0OTM2YzBlYmUxMGQ0ZGQwZTJjNGZjNDdiZDBkYmRjNWYxMDllZmRjYTFiZjBlMjQzM2YwZTJhYzhmIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IitrcTdCd3VmeWI4YUd3QTc4anJPcEE9PSIsInZhbHVlIjoiZXNuVVgxZUxnd3E0TEpBVW5oTmZTUFNjcVFIYXhSc0dIWlNGVzAwTUgwNGF2RXl5NHlBdjI3L2w0N1pmNmZRdzlYQzFSekt4U2crN2dGbm1qMWNUMGZTNlhPWVdFZkt4RW15S3dmWTRlM0E4KzV3QnlCaWF3emE4ejRyYWFYSHoiLCJtYWMiOiI3YzU2ZDcwZWU0OTFiMWEzMTlkZWNmZTVlM2UzMjU2ZDFiZWY3MTQxZTE4NTdhZDBkZDBhMGU0YzUyNTliZWUwIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Ilo5Q2swbWxoVWk3TXdPUkxia2VtZUE9PSIsInZhbHVlIjoiaGtMRFNYTDlYODNxY2V5TmJsWGRhN2JQOFgzTmtJSFo3eTdyazBGREZPclBZa1dPNHpkYW1GN0VtUnorbWNZYVErM1BaRDNVU1ZFTmpNUzg0d0h5ZUlidzVJdmV2MitmS0ZJU3pqRFgyUEh3SlJzNW80QUswTXdVYjNXTEFkYVIiLCJtYWMiOiI4YWVhNGEwZGU1MzIyN2JmMjQ5ZTdjZGE4ZjY4ZDg5MzE1YTE5MzJlZDc2ZjgyNzViOTgzMGZhZmE5MjYyMjUyIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -5524,7 +5718,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6IkRxLzdkVzJlaDhQbkF3ZUllMFlUcHc9PSIsInZhbHVlIjoicnB5YTNEYUZCNk1nY0hKQmdtU0xRaWNoTldySkhYVzVEWmtUbWhHaml4Z3lpRlpMci9OWVA2THorNFRtbFNraUZ6ek1iaU9FY3hWdHJzV0dySWZUMW15MzN1eDZnZkxpRk1hcEdUQmFkeERVT0hja3FVL0VCNkJKREZCdi9WTjciLCJtYWMiOiIyNDhkNzlkMzY1OTBmODEzMjViNjliMjdmMzI0ZDY1NjAyNDE3ZDMxNDVjMDkxN2VhZWMxYjgzOWJmYTJhNWYzIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlFNaFYyZWdzM081WjdFaU5YT1ZaYnc9PSIsInZhbHVlIjoiajJ0Si9zbzRZenltQnRxWkMydlU5SGNJTnBkZ3Fkdk1YZnRGNkZ4ZDRweFFQZE1Cc3hGQk1IUG1YQVJwWCs3bW9BU3BJckYwc2NhZUovejZEVnpYOWlDejFCMG1aa29oWHVCSGhVRktMQ0crRjgrY0hpbXdzK2dWeVIxQXN0eXAiLCJtYWMiOiI5N2MwNjQ1MWMxNDAyNDNiNjA5NTg0MjA0ZjM5ZWM4NDQwMzRiN2UzY2M1YjVhZGE5OGJkNjEwOTYwYjM1M2ZiIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IkNuSTZtZVZodTgwR3FnQVllUEh6Z3c9PSIsInZhbHVlIjoidnVvSnY1RjhnS2RkN0ZqSmt6WEJwcXNQMmhRNDJmRVZYMkUyUFovR0IxK1RKdjFmVURRR1pkYjgrbC85RnU4c2RFWnJ2SWxaUW5mcy92TnpyUFBTcVZpMVNQUGZOOHlmUnF1NnQxR1U0OEozbFd4K3JNbjduVmVVdUdTeHRmckIiLCJtYWMiOiI0ZWNiYzRhMmMzNWJlODBmZGMzODM2ZDUwMjYzYWZkNzA0ZDIzYzBiMmRkM2MzMDkxZmRjNzRiZDc0MjViMGYxIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImtqS0hxQzRGREMzV1NZRkJCQUpVQUE9PSIsInZhbHVlIjoiUmxDZDY0QldZQnJqZ3FDN0pBTG1KLytQNXZzbU9zUXBBK2MzSFhQMW5zcTVKTmRsY3A4NXV5VFhwR3VySnhqdHg3dGpiQ0c4dllTMytSZWlZam1vYVNSRVcxSm14clI2YVJDdUZjTWJJTkRpcUFQWHh1YWRmcUNFaXFkZXpwUzUiLCJtYWMiOiI1NTU5ZmZiOGJjZjIyOGUxODlkNWI1NTRjNzRkODUxOWE5YjcyZWFkNjNlZjUyM2M5ZThjMjRlM2U5ZjBkNDZjIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -5622,6 +5816,170 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>The slug of the produk. Example: <code>architecto</code></p>
             </div>
                     </form>
+
+                    <h2 id="produk-POSTproduk-check-username--id-">Cek Validasi ID Game
+Endpoint ini digunakan untuk memvalidasi user ID dan server ID sebelum melakukan transaksi.</h2>
+
+<p>
+</p>
+
+<p>Aturan validasi (required/nullable) akan berubah secara dinamis tergantung pada pengaturan produk:</p>
+<ul>
+<li>Jika <code>is_check_id</code> aktif, maka <code>user_id</code> wajib diisi.</li>
+<li>Jika <code>is_check_server</code> aktif, maka <code>server_id</code> wajib diisi.</li>
+</ul>
+
+<span id="example-requests-POSTproduk-check-username--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/produk/check-username/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"user_id\": \"12345678\",
+    \"server_id\": \"8821\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/produk/check-username/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "user_id": "12345678",
+    "server_id": "8821"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTproduk-check-username--id-">
+</span>
+<span id="execution-results-POSTproduk-check-username--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTproduk-check-username--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTproduk-check-username--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTproduk-check-username--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTproduk-check-username--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTproduk-check-username--id-" data-method="POST"
+      data-path="produk/check-username/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTproduk-check-username--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTproduk-check-username--id-"
+                    onclick="tryItOut('POSTproduk-check-username--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTproduk-check-username--id-"
+                    onclick="cancelTryOut('POSTproduk-check-username--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTproduk-check-username--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>produk/check-username/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTproduk-check-username--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTproduk-check-username--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="POSTproduk-check-username--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>Required ID Produk yang ingin dicek. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>numeric</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user_id"                data-endpoint="POSTproduk-check-username--id-"
+               value="12345678"
+               data-component="body">
+    <br>
+<p>ID User dari game. Required jika produk membutuhkan validasi ID. Example: <code>12345678</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>server_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="server_id"                data-endpoint="POSTproduk-check-username--id-"
+               value="8821"
+               data-component="body">
+    <br>
+<p>ID Server dari game. Required jika produk membutuhkan validasi Server. Example: <code>8821</code></p>
+        </div>
+        </form>
 
                     <h2 id="produk-POSTproduk-payment">Checkout Top Up
 Endpoint ini digunakan untuk membuat pesanan top up (Game, Pulsa, E-Wallet).</h2>
@@ -5906,7 +6264,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6InAyVTRMQXJ5K25sdXBOSmU3TWhEZ1E9PSIsInZhbHVlIjoiRlFDU0pqSno0WGhIY1hTSmIvVUxINXFSMGkvdDBFUFN1dm00Z05IaG9PUlloaG10bEtvamp5SUd6VW11T2xhOTdrQVhFQy9vTnJDcDZaeWxRZllhSlB5bkVwNjNoSGx5MTRRLy9XV3o1Q2NOSnhScjR0RGZZSnJlSzhBS3pxMk4iLCJtYWMiOiJjOTQ5NWU1ODRhMTZjOTJkOTJkNmIzODI5NGUwMTc4Zjg1YjY3ODVkMGRhZjdkMjUzZDI2M2FlNjY0MDhhMTU1IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlMzQUhGTFVhNkRCWTVNb1pjV0J1K1E9PSIsInZhbHVlIjoiazdKdUJabzNtSW9YOGdkVUhsN2o3akt3dW9sVW9jbUFIa0JPRkJmbHZlVU00elZMeFBvOUNnMkpoUCtwZ0xtM2FnZG4vLzlvcWg1Rkt3OGlvWVptMms5U1NEOEdQMHBjQTViYkJER3hMVVpuMk1ZRVJlUDRwbWk4ckpPeTNpRnIiLCJtYWMiOiIwYTczYWEzYTU4NjY4M2YyYjQ1YTJkOTI5ODNlNTVkY2NhYjIwY2ZhNzNkNTc2Yzc2OTA2ZjA5YmIxNTE4MzRmIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6ImxGd1docW1wL2lJTjh4eEtDMnc0L1E9PSIsInZhbHVlIjoicVhscUJaRUJyQjFZbGV2Q2RCTGFuM0NsN01VSm5sQ3ZOZHhIT2NvTmFtazFXWDhIdmRrOWFmOXNUdnpQS2JlMjV1WVp2enEweU84eDROang2a1Q0T0o4NXh1TE9Fb2RsTFowOC9nL1I3QThkdUp3RUNWbkg3L3hRZjl1TzZ5YnciLCJtYWMiOiJjMjc0ZTMyYjk5N2Y2ODY5YjBlM2NhZTc5YThkNjVjOGI3ZTRlZjhhZjVkM2ZkNmJjY2RkYjlkZDJiNmZiZTRkIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IllaWWJLaFFXTk9OUVdhaGRNWW1nQVE9PSIsInZhbHVlIjoiZi83SmZqZm42QW9HSENnVkVaTTQwRXhXby9MRUQ1elBVL1FtL3BBdmVFOE0zQUFuSDQ3emVoQnhjOTFmSjFZS2Y3UzhxZURoTEcrc1o1bzIwdjdJRFE2UHpXOXBndTJ1bko3b2R5N0dMMjRxRzBzZDBHWEUxTUVyYTk4dUM2U0UiLCJtYWMiOiJhOTU4MjlkOWQ5Mzg1YTg3MWIzODAzMjgwMmQ5ZjdjYjJkOGE1OWY4MzQ3ODI1YmZjM2M5MmRkMWEwM2YxZDI2IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -6041,8 +6399,8 @@ Pastikan upload menggunakan format multipart/form-data karena menyertakan file i
     --form "is_check_name="\
     --form "faq[][question]=Bagaimana cara topup?"\
     --form "faq[][answer]=Masukkan ID dan pilih nominal."\
-    --form "logo=@/tmp/phpfu9pZ2" \
-    --form "banner=@/tmp/phpgvujf5" </code></pre></div>
+    --form "logo=@/tmp/phpjeIcyI" \
+    --form "banner=@/tmp/phpfmVUdj" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6245,7 +6603,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto logo produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpfu9pZ2</code></p>
+<p>Foto logo produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpjeIcyI</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>banner</code></b>&nbsp;&nbsp;
@@ -6257,7 +6615,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto banner produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpgvujf5</code></p>
+<p>Foto banner produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpfmVUdj</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_check_id</code></b>&nbsp;&nbsp;
@@ -6649,8 +7007,8 @@ Pastikan upload menggunakan format multipart/form-data karena menyertakan file i
     --form "faq[][id]=architecto"\
     --form "faq[][question]=architecto"\
     --form "faq[][answer]=architecto"\
-    --form "logo=@/tmp/phpI0Xv4v" \
-    --form "banner=@/tmp/phpBuw1ga" </code></pre></div>
+    --form "logo=@/tmp/phpraXaUo" \
+    --form "banner=@/tmp/phpuwsqjm" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6856,7 +7214,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto logo produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpI0Xv4v</code></p>
+<p>Foto logo produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpraXaUo</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>banner</code></b>&nbsp;&nbsp;
@@ -6868,7 +7226,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Foto banner produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpBuw1ga</code></p>
+<p>Foto banner produk (PNG/JPG/WEBP, max 2MB). Example: <code>/tmp/phpuwsqjm</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_check_id</code></b>&nbsp;&nbsp;
@@ -7192,7 +7550,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6ImZ0MTZrNHI0K016Tlo0ajQ4YkZndkE9PSIsInZhbHVlIjoiRjFPeXlocWE2eGJUSjRzRFg0aHJ1RDVORmVlYmpITGRyUjhKRWw1aW5MUWNiL1ViQjd1aEF3L3FUVWdHVlB3WS8xYURxNGRHeHcrQ0dKUzAxeEgvS25KNWJwaWtzV1VMYTlDTjRjdGs4alRjM0JOdnNmYUxHVHI3WGlsekM3Z0IiLCJtYWMiOiJmZmZjN2VkOWE5ZDI4ZTQ5ZmQ1NzYzZjMyZmJmNDRkZjg1Yzk0OTE4YTlkNWZhZjFkYTkzOTQ3ZTY3Y2M1YWNjIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Iml5SjVYQUVhYTFLMjFkTGp1YThzbXc9PSIsInZhbHVlIjoiT2NjYytWUTBtQzFYNzdyTTAwL1RNWDVUOTBHaU9wOFVXeHorTmN5OXA5N3pjK2p3TTM1MkZ2REY1TmpzcU9MWHNGU1k1T2M2SGc5cVRwcENpaHYvVnI0WU1kR0lDWjJINmltdHpGS0pzWGtRWG5tQVg2cW91NE14RlZIeWdJNEUiLCJtYWMiOiIwZjdhYWU1NWFmNTc2NjEwM2M3MGEwMjhiMTg4ODlmYzYzOGUzZjQzYmRhNmIzMmY0NDM0YWE0NDg5NGU2ZmI5IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IlFCUnJvTW5HZ3JPVTdEZWVNWGRZSUE9PSIsInZhbHVlIjoia1BveUZ5TERGekQrOXR0M2QyaUd5MkxvL0RrNTJoa0Nvb1NGQWRWa0hOQWFkbks0TFdCZkZEcFpieDNvdzRlZ2FtMktSOWs3V2xycXBGOHJ4Q2E1ekFVWmZQZGNEczRWQjhWZnhTOFRNRDgvd29SYW9FS3RtQi9RdjZESW13bHYiLCJtYWMiOiJmMGQzMjU3YTQ3YTFhNmY3MTNmOTBlMTY1OTQyODM5ZTY3ZmM2ODgxMWM1MjcwZGVlMjUyNWU0ZDQwZjA1M2EzIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkNwTnF6UGs4Q2JQZlhtNE1WK0xaT1E9PSIsInZhbHVlIjoieGY4NjZDZ1JmRlQyclZMRy9LOFBMVTFGYnlNUHpLZDhER0V1OUtmOEN6em9tNjJYZnJJM1dkaGZuTzlCWnFjSWF2cHREM2h6SkFCVUc0WDErV0xERE5HWkw5WkUxZVJRaXRLS2hvYTNpYkt4RkVJd0FCd21xOERJYktaRE9QenciLCJtYWMiOiI3M2Q1ZmQ3ZDRiOWJmMjIyYmE1MmFmZTA0MTliM2E4YzU5YjE5YzRhNjdjZjM0YTMwYjZiZTNiMmVkMWFkMmYxIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -7754,7 +8112,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6IitYVk04YXc2c3lUbW9yRHJOeVl0RUE9PSIsInZhbHVlIjoiV2FrL0pTakxPS0t5WlVEN1Q1eWE2UHpIQStLYWlDaVZvcTNQZm9uY2NFU0pVWXBvazAxM3FpUlFzNHVnTSsyNklrZkxrUU5KaUMwQytFalhkZHEreHZ0cjM2Rkl3bmJNSXdkTE1BbkNoelBsV0JBa3YyeHhVTW5VN0c0QjZ1ZngiLCJtYWMiOiJmMTM0MDU4ODg0NDcyYTNkZDUyYWU1OTRiODUzOTcyM2Q5MmYyNWI3ODdkM2NiMmYzYWJlOTUxNWU4MWIxOGZhIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkJKUERTanlRa0YrbW1Sc29LMk05Y2c9PSIsInZhbHVlIjoic3lROERYWlJlaGdVdXBTbTgybGdzZDVrd0Q1bzNha0NNYWJlbVludExoaTVNMGVDQ0tHNW5EbW5acTczZGpRWFR0dnJ6dlMzb2R5UjdMVjZaU292WVpPR1FQNExIbGpuUkEwakRRS0Y1ZlowOGFUOWY2cnRFYjJHeTl3bFpaeUEiLCJtYWMiOiI2YzhlZjM0ZDY0YmE5Y2QzNTY1YzM5ODQ1NGQ4N2FmNjlkZGRjMzBmNDdlYWQ2MDQ3NTM1YTc3ZTdkYmZhYThhIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IjVHRUtoK1RkNnFTZjlBZ1ZBVzYxRmc9PSIsInZhbHVlIjoiMkpFcmVEU2lEVlBpRzV3MGkwbHhOOGk4UHJtWEQydDRqaEM5RGZmV3g0TkxjV21nSDJNaEJXMzA2anRHZ2Y1bU1mbFNMQ3dKTWtGcHk5aXZqY2g5blFtOGIvOXhMWXFBOGdvMVdRUmV3dW9wZjFCQzRIdXZtYXVCWHp5NUhpclMiLCJtYWMiOiJiOTdmNDc5MGRhZTk0MjMzMDc0YzVlOTA0NGNmMDI2MzRjNGJhYjlkYTQyZDEzM2E3ZDcxYjEwMDAxZDhmNWNlIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:44 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6InFLVjdIbUZmaHdWQTN4QXFqQUNEYlE9PSIsInZhbHVlIjoidjB1OEx5dTI1TElQL3doaXZmaXo0RGFzVWF0ZFpFS3lnVEV3cXNDQlZhVmVWOHA2ZXJsM2I1Wk8yakhBZVE0dTVUTHE3SjRqRkZUWDMyZHBSeWxpRFo2SWVISzgzSnZ0QXBmV0tlQjFvYVJTeXRpSjIzN3BtZHRBR0FpajhvWWwiLCJtYWMiOiIzODZjYmE4ZGFkNTQzY2I3MTMwYzZiOWVjNmZlZWUwYzE5NWM5MmUzZDNiOGUyOGQzNmQ5OTVkZWY0ZGQ4YzM0IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:44 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -8358,7 +8716,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6InRzU3FCaVlxV0w0Z3QzZDRIbzhPSHc9PSIsInZhbHVlIjoiU3crdHFxU1FKVGNTRTdqTWMvbndvY0l1Rk95ZEFIS09ndjM3VWdISUNDRVgrTUw5V21zUjd2WUF0UlBHSDQxanBnUnF2d01ZL2dWU2I1S3AxRFJrZUZ5RlJhaVIrbTA3Z2c5V1JJRUR4dUpEYy9KYVY0UTEydWVESHNjcnROamgiLCJtYWMiOiI3MDMyOWQzMTI0M2E5ZTlmN2NjYzlkYThlM2ExZDNjZTNmY2QyNmQ4NTc5YjIwOGI2ZTcwZjBhMjliM2NlYTgyIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjBvUzltNVVUUWJHV1hJVGRjQWpmQ1E9PSIsInZhbHVlIjoiRzVOZjZZOE1GWFdYdGZTZVA0YmNXSFVyY0FKOEdGdm1ybHJxVWNabEVsT0xDc1NIcUwydkVRMmljRjJYVlBvZXZWYUxvU3FHdUVHbzlhS1NTcTBuM2VXSzR6NlREUmRHc3NxREwwb2ZoQmdZcVlWK29mU2pUTlhuT2FCZTRtYTciLCJtYWMiOiIxNDg4NzdhNTIwZWY4NGNjZDBkNzYxZDIwODYxMDZhN2ZhZjg4Nzk3NGNkYjMwNGU0Mjc4Mzk2YmQ5OGE5ZGRhIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IkZOYmU4eGdHRTV3UEFFQ2Zaa0hqOHc9PSIsInZhbHVlIjoiam40R0gyTTBHVlJFeG5LUlpNMDBEMSsrUURzQ3ltNmxmNWd5ZE5ScWZCcXlyb2Y3V25BSk5hczAwZnhOYWJ6eXE0YjR1TVY2M2IxZ2FLU3dvWGNjclducWdleHgxQW1DRnBseHZOZlBIcFlxbUV5QWVzYzAzUGo4akQ2Z0pFWUIiLCJtYWMiOiI2NjhmNzg0MzZmNmQ4NjU4YTllZDI1Y2ZmZGE1ZThjNzVhYmFkOWVkY2VmZTViM2YxMDUxMDE2MjBiNTYxMmU3IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:44 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjVMUStlWDRKc3NvOGRySi80dmdjZEE9PSIsInZhbHVlIjoiaW81R3Y3aDRoNDFwaUMySis0ZUw4M1gzbU0ySS9XU0d5c1FnN3BRbForTHJSSU9qNU1GNW80R01yejE3WTBxaSs2TnA3ZWJYSnY3WUEwNjdhSHhyNDI2RFl6Rnl0UUFQc240THIwZmJaZ0s1VjJwL2lPV1BkMkltQUpRZXR0by8iLCJtYWMiOiI3ZmU3ZjA2ODQ4ZTE5ZWJlNjNlMTJmYzUzMGFhNWU0M2E1NGYyNTA1NWFlZDE5ZDYzZDI3OTUzMTM1N2QwODk2IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:44 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -8550,7 +8908,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6InlhZVV0UktBaUNKb3hyaVp4cXlDVkE9PSIsInZhbHVlIjoiVUVkSUtFc3JKcEt4ZE8rTDBIQy9yK3ZZWjYrYmY4aG9EZXNkV0tSK2NwK2lQdGxFdGZDQm04SUJUTFJ3TGx4cmdKcDA4bVNnMStnTVZlM3ZFUnBLb3VROGlhUVFNNjRNMzJDU1diMTFpQ0hwYXM3VDJ5eFl4UXBQUENGbXB1QnciLCJtYWMiOiJjNzhiZjA5ZDJkYjA2ODNjMjk5NGFiNmI0ZTFmOTViMjBkODAwOWZhZmI5ZTk3YTY3N2ZhMDAwZDQ3MGIyMzdlIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Illha2RUUHpIcFQ4T05GRENlOGtoR2c9PSIsInZhbHVlIjoiMmI2blh1WDVPdTJpaWt1YkZaVlpBMGFIUTIvbXlQSlM3dVo3cERzZjlDcjIwZ0JEaGgxc3RhanBNcXlJdnREZTJ2U1lDUVg0NGE4VnV2K2ZmaTNRQnhTc0tLcjRyUXpMa1NxZ3BKbXdheFhYY1BVbCtpZytaUVRodjJMbjNnRkIiLCJtYWMiOiI5ZDExYTM2MDRkNmVjYWE5M2RlOTM1NTM5NjlkODQyOGQ2NTRhMThjOTFjM2Q1MmUxNGRmOGM1ZjI4YjA5MDgwIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6InBlZHBiM21xMkUvNWhyVmxLbFpraUE9PSIsInZhbHVlIjoiMVQ1NjJwTDhoSmFUbng1WEc0TUNQQTlYVEhMUGZEQjFhcHVHTUYyb0Z3M3Q3MkdwTTV2ek5GdCsxcGVNN3VWTWMrQm1KRXVuSUp1VnRacGtOZ2w1TExXdlFpQmcxVm9rSW1PTVpUVWg1YllaeVZRSFY5U2ZqaS9pOGpvdnpRRXIiLCJtYWMiOiJmMTRiMWNkOWRiZGNmYmUyNWE1ODBlOWI1OTA3ODYwMGNiMmY3NDQ4NDgxNzM3Y2FlZGNhNzkzMjM1YjYwMzNlIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Imp5eGJoSmtpcGV2UGdrNThsaFE1cVE9PSIsInZhbHVlIjoiK0pYYmplVVkxVlRyUi9LWFdtMkp3MWx3SFZFREJ4UFc1UzlzamkrSWJTMmNNeUpTM0pwZTdQYWV0alQwVVlLZ1hGNHpkbHNmTmpjK041NmJYakdsbjJEdWFvMjl5Q01hOEpmNER5a1FEalllVXZ0ak0xK1FsOVZDU2VaclBHa1UiLCJtYWMiOiIyYjNiYzllNGY0N2JmYWY4NGJjM2UzZTY3ODVjMjE3NTM5OTVhMDgzNmY2N2Q4ZjQyMmExZTUwYzYxM2I5ZjRlIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -9227,7 +9585,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6Iml0cFdJak9teVlHSFJBcjZYRzdtZHc9PSIsInZhbHVlIjoiVkw2aFNkVGRYaXhyS2YrT0pWZ2dwL0YrTDM5M1JhNUJkK1E5WUdjMGI4UTc3bWRTRWFEZkc5SVhmQXJTazY0aU5ZdHdtU1F4QjMraHVxRjlJelZhUE5XN3o1ZGhmTzd2dFZqRFNwb2ZmMWJvdk9QWHZPaElEUXRIMU1vcHd4cksiLCJtYWMiOiIzZTUwMGNlMDQwY2Q2N2NiNjQ5ZTIwOGQyOTk1YTM5YzI1NmQwZDRkZjczM2NjMThhM2FjMGQwMTgwMTQyOGIwIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImNRRzFYUkt3eUlJeXNWbHdNcCt5bGc9PSIsInZhbHVlIjoiZmdXS1ZEV3BQV21kZEFTK1RRcGZNV0hlc1RhWFdrQ1dxWjdkWWhqdGc3UlVNakNnWWpGcTB4bkRaVkhSQXhPSXliWW5mQXZmb2VsNUQ1UXN4bmM4WDJ2MS96Y0RqWm1qdndlU3JWU0xGOG52TWUxUmNiL3dORk51OTN0VXBwOTAiLCJtYWMiOiI5NTVlMmMzYjZlOWZkMzU5YzA0MTE1MTkwMzhlZWY4YmVjZmM5NWNhNTZlZjU1NGJjYjM0NDI4MDI0YzM0YzZiIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6ImZlRVhSTzFJZW1VRlpNdVJTSXk1REE9PSIsInZhbHVlIjoiOGFJc295M0UvNG1vL082RXlQYnZnWDFLUXJuVUwyS0tKa2tpUiswbzlKd3NzTThNTWYxVUdxbTYva3JPTE9zeVAvdEE2REpTdlBlSExNdG11Y3dTdDh3SmVvRzFYcnJCT0laMzdod0c4bUpwbnY2STZOaGNUSy9CWXBIdVMzUXkiLCJtYWMiOiJiMDEyYjVhMTczNzQwMjdhYTg1OTY2MzM0NGIyMjI0NWM5MDU0Njk4YWU2NjJkZGM0OGZhYmQ2OTVlZDI3NTg4IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkJDYUhucjA3ci9zWXB6WEl2YlVRdnc9PSIsInZhbHVlIjoicXFpeGVaa0JSQVF0NWZ3V3FwL0tsWGNzaW9tSEkwVTBvVWFmR2thaWs5bWhMV2dBcXlvM2MwOFBQdER2ODRyWGVJWHd4VFJXZ1ZIVWNNVW54alhDWWlNNnVQRnFROFI0RGdzbGxHazJ1TkNZQW0zS292VnlZNUZ2Z0VUVVNqQ3giLCJtYWMiOiJhYTJlODY2MGJhNTVmYzY3YjljN2MwNGNkNTc4N2RmYWFkZGU4MGY0Y2JhMGI3NTdhNTBhOWY2NzNjYTBlNWM4IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -9381,7 +9739,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "platform=Instagram"\
     --form "url=https://ig.com/profil"\
     --form "is_active=1"\
-    --form "icon=@/tmp/phplaKBup" </code></pre></div>
+    --form "icon=@/tmp/phpDlNNkD" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -9529,7 +9887,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phplaKBup</code></p>
+<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phpDlNNkD</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
@@ -9576,7 +9934,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "platform=Instagram"\
     --form "url=https://ig.com/profil"\
     --form "is_active=1"\
-    --form "icon=@/tmp/phpZMdppM" </code></pre></div>
+    --form "icon=@/tmp/phpoQFqaG" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -9737,7 +10095,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phpZMdppM</code></p>
+<p>Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp). Example: <code>/tmp/phpoQFqaG</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
@@ -10187,7 +10545,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6IlNaMlgxTG0yWm1Qa3YwMTVwejNHaFE9PSIsInZhbHVlIjoiS1p6QzkvODk4a2IvZlBvVnlsMGE1M29oOVJxUXhEaS9zVGxGK2ErZjJTcm9rSTBzeGZtWG9JVlZxZTN1cVphSStpcC9DSXZQZStwWWJMd3NCK1RkQlVQamdTZWJmNjhXWi9JSHJBT1BZek5HVHlBTVR2MkdPVXVJVytTRWRxUXgiLCJtYWMiOiI2NTJhN2VmYzdhNmNkZjdiMTA5MzkxYTQyODcwODQyNGY5MWFjMjRlYmZmZWEwMmRlNzI4ZDgwNTRkOTI1ZTZmIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkYyRUVUb0RQV3M1VkcvZGNtMVluN1E9PSIsInZhbHVlIjoiZ2lpaHdRb2Y3TUIxRlJOdEJKRDR1Ym85ZEpSY25tYnR5NGVScklyVkVDTkh2dWpRYnZsRUhMaW5UZEZXTWRzWUF5c094VXowTHRkdjVOeDRFMmNUMGNoRmVBSkM5MldtRXpuUDNUS3ZUenhaNkJrdDM1U2RkU3ZVUzlYclZzamEiLCJtYWMiOiI0MTM1MzJjYjg2M2RmNjBkZmM3OGU5YzU5YTY3ZTUwNTRjYTEyM2FlM2QwN2JlOTg0NjU1ZDNiYmMxZGQ3YThhIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6ImhHUndCQ3JqZTc3VFpwTmNYVDkxTXc9PSIsInZhbHVlIjoiZzRGMmpndktOb0EreDhMSWg1S0ZiWUVianZ1R3FNUWtMeElDVTVqd2x4MlZHV0lBM3NIRFZqZ2Exb09xWXlVSzhDMU5xWFZnRWxKRGVIYmdRb25hY3BmR3VnUDJXRThtdmVkQk9KT2h2SHNUQ0taRTNadVhTbk9iczBBWDh2NDAiLCJtYWMiOiI4MjFiMmUxYjAxZDY1OTkzZDIzNTNiOTFmMTA4ZDI3NjYxYTJiZTdkNDc2Y2Y2OTIxN2E1NGEwOWQ2Y2NlN2VkIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkkvV0hPbThWUXI2d3ZLNkdrMHIrTWc9PSIsInZhbHVlIjoieUpLVHNXK2RCYWRFRGtaaTJUelNYV3FtS3ZnK1J0M0tldUptelUveTN2VmJ3N25yK3QraVoyYmZObXNnRnhCN05DRmI1ZW9CNmtQWElzL1NqbUJoS1BkMzZQNDBGbGJIL0Z1S1ZEWjRmSG01aGt2N3hiZ0JENWRXV1cvZjVnbUkiLCJtYWMiOiI3NDM3NTFiNDEwYmRhNGEyMTMyYzAzOWFiMzU2Y2IxYzRhNjI3MmYxMmM2NjMxOTAyZTJkNzYxMmQ1Y2Q5NDk3IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -10375,7 +10733,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6ImplSnRtbTVSQk04VFEvZW55ekN2MWc9PSIsInZhbHVlIjoiMWhEem5nWFFzT1F5WGQ4N2ZFOUhEcnR5YWNUUWRLTHZJbkhPTkNHYjBCZEF2NStCTEFBM0pIT3p6SG5MSGQza1pMRGhFZi84NHdmY3NtSnZYUjdMeDQ5dGhsU2lCMm5HVFFjekN2aDF5aEpuVWY1OGRCaWo0bVlhMVpXZU8xVXUiLCJtYWMiOiJhMjgyZTNjYTJhMzc2OTc2NDllN2ZiNDQ1MTNiNzAwOWFjMDc4NTc4MGZkNDY1M2Y2ZDU1NDYxNGUyMzZiN2QyIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkJSTUx2Q0R0MG5hdmsxWGRCb1RBc3c9PSIsInZhbHVlIjoiYUV0RmMySzdsbTY1dlZwMVlnMm5XbDV0YVZSbFRCTTVnWUswbjF3OHBzWks5NUw5ZVJMa0tqN0pqb1poWElMQzdwVWgrUFA4SW5iMjBVaTAzMVNYOWpSem1MbGVaeVlmelpBMnZvOUxTalRHU1U3M05hejBGeDVaSCt2d2M4OWUiLCJtYWMiOiIzOWM5OWZhZmFhMTU1YTAxOTE0MzM3MjFjZTdlODRjOGUxNDZlZDA1MzFjYTM4MDAzY2U0ZDdjZGZhODhmNzYyIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6IkhIWDF1bDI4eGJkZVNtNDdPZmFTMEE9PSIsInZhbHVlIjoiaEVoc0pPN2RLbkVqSWx6S1JvSzJkZklNckpqaDZMN1NsOHNjZkdwVGNXbFVuYm9sVUN6S2dpYm1NZ2tleEhhWEFQUDNFR0pMUjNCcnhqaUZnSStkU1c2Y0pXRVc3Umpvc2I5eGluL1RnaFMvK014ZlBGMmlyOW5CN2hVcVRNYnciLCJtYWMiOiI5NTQwYzViZTc5NTliOTA0NDdjMjg2MTY2NjVkZjQzYjY0MWYwNmFkYmE1MzhkMTBkNWE2ZDAyNDc5NzMxZjFiIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjhRbFphZW1CdkZ4TitxSTRxVW4xL3c9PSIsInZhbHVlIjoieW5nc01WcHozT1BGS2FJcjFtbG0rTlViWnU2aGZpby9XR1RvVDVuRFBVTkJuRFVIbTZRMkNhT3BaeFNiaEJYRy9Qa21xL0VCYTM1V2xPUUFjOXZlSFQzQTY5T1c5K0p2VFFlK3RLRE9sZ0E2WXplMDRZSUwzT2VPeXpyNFowSXUiLCJtYWMiOiIyODRlOWFhNzUwMmUxMTU1MTI4NTNlZGQ5Zjg0MjkyMDM1YjFhYWVkNjRjZGQ4OTA2YmNiMzBlNjkwMTE0ODNjIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -10706,7 +11064,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6InpmSXRDb1hPR2kyK3REanppZ09hS1E9PSIsInZhbHVlIjoibndZTlZuWlJFblN5bCtQRVZTTGNJeFNpNUw5dEZvRURVUWh6cFR5K0orQndRR0U0NER6VmRXSGJuak1SRFgySmxsTjJleUJkY2tuaVBIUmVJdjJ3ZzE3MHJkTHZlN0ROMUxoWHBmNHlzNEZSQWFLSktEa29jbSszUDZPWmtqeHYiLCJtYWMiOiI4YmVhYWIyYmRkMmNlNTdlMmU1MjgzMzQ5YjA1YWFlMWYxMzRiODhmN2M5MDRiODIzYjY5MGEyY2UyODJlYjBkIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:58 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjBDcmdtN2ZkRjZSdVl0UnYvQ3FRd1E9PSIsInZhbHVlIjoiVlFCUVBGZmFwUTdQS1ppNjdEYzBlNXZPaU93TzBxeGk2WlU2M1gwUFFUU0h5bm1VQ2pBcGhjNHJxeEdLdVZrNjZldWJEUFdwMmZubmtMaktkcnVaanJ6dk0rTWxlR3RwV2ZXSUhoRjB5cTlFSGdhM1RLQmNheVVUQzZvbmp4RTAiLCJtYWMiOiJiZDFhNDZmZjg4MTc3YmI1Y2IxMzY4ZTVkYzhhZDcyYjE3YjMwMzdmMDgzYmQ4ZTg4MTc0MmMyNzUyOTU0Y2M3IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:58 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6ImJnaTRsM1J2SUlIbHBpeGpUVWlpekE9PSIsInZhbHVlIjoiZ2dOd2tpUWxCR3FrUndoTWUzUGhmd0xIc1ppTUNwSXZGaUlFQWZJM1FVQnlBYTJLSEFwVDNZOVp5dzJDM2dtZDI3S2I1UytQN3VWV25wUlcwRSt0TDZXb0MvK1d1SC83QkRaeGVwd05GdURyekt2MW9vK1ZGaUo2T09TZ1ZIQVkiLCJtYWMiOiJiZGM3YTU1NDYyMzM1MmViMTYzYTJkNTQ4YjU2ODY4YjI4OTdiMTU2ZGFmM2VmYzUwMjdjNjE4NWY2MTZiMzU3IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:41 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IktNaGJDZFpIV1l5UHA3eWg0QUVmc2c9PSIsInZhbHVlIjoiM0lJbm52cVRmMFdlZU5oazVUeXQ3Ynl6cHk4RWlhM1Y0Yk1CcTZyVytRd1o1eklmZDNyWk9xYWtDci9ibHhXOGJ5V2h0Mi9BeXRZeEhjay91aTQ1MzRTZGc5azNRY3VjdDJFQ0NmdE9lS3hRZnVQZEd0USt6ODZEZVpZekVjODciLCJtYWMiOiJmNWMyZTI1MDI2YzFkZGIyM2Y5Y2ZhMTQ0ODRiYTFhNjNmZmVkM2E0N2M4MzY5Yzc3ZTU4MmRlMzgyZmNlNDM1IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:41 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -11485,7 +11843,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: XSRF-TOKEN=eyJpdiI6IkxOdEVhR3NNTzNXeGVqZi9vT1dYa0E9PSIsInZhbHVlIjoidHZtQkZYSWRlQTJQZUNtY1JKejloTHdLV0ZPckRMUEh0a00zbHdIMkV3R1lTcWptRkJzK3lFTWQxMnFWUG15eEhLbG5nOG1OVHJGT05tNzUzY3JhcndWa2V1TFpBZXQzTkVGcnpLN2didTZIb2MvQUJQemJnZDQ5ZFIzcnZEd1QiLCJtYWMiOiI1YmRhZDIwNDc5OGZlZWEwZjg0NDA4NTY3YmJkYTdjZGRhNGZkMmQ1NTZmMDg1MDUxZGMzM2Y1MTE3NzkzNzk1IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IktMWlh1OGIwUmVscFRuVEpnVzZmV0E9PSIsInZhbHVlIjoicU9SMEtHNm1wSHZrMm9QbExKdTE0d3JJdmZGQWx4T2hGVGxWSGIzWVdvek5qYlllTjBycG1VaWxSengvdmcwOC9tSEdySGJQQVoxa0RsaUdWQndacFdoelBhckJ0SGFvb1ErWlF6cVhDRVNUa0txS1NiZkVNQUEwSndlbERHQ2EiLCJtYWMiOiJlYTBkZGU2MjQ5NTFjNjFkZTVhNWNhNDhmN2UzMGEwYWNhMjM5M2MwMDA2N2IyMzE1MWY5MmVkZTUxODljOWYxIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: XSRF-TOKEN=eyJpdiI6InJXZzNEbEhKcHZYY2hISDRJZ3pTMHc9PSIsInZhbHVlIjoiZGd1dy9oc2JXUnlaVUxiY0p6cFpjUU5Ea1BrMCtIRkloQ214UGNlQUp5eUlSSG8rMzM4NDUxbFp6QmNWR0N6YnpWdTk0WHZtLzltVlU1eUFPRGsvOFlkaXpjWkMwZElzRVA3eUpZRnhISEY0UkhsR1NzVUlQeWtlQUlGWFZMeSsiLCJtYWMiOiI5YWFlNDY5NjBjYTljODFkOWM0MzI4YzUwMjhjYjQxMjUyYjBjYTE1YzI2ODgyZjM5N2U1NjMwZjcxY2MyMzNlIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlM3YzdWUW9EaE9iTE1Ja1MrQlZIT1E9PSIsInZhbHVlIjoiQ29WOGRobUlnbGxoM0xpNVFTbkNUNkJEcmNYNGErY0xyOExxdHBlcXh1YVZSZlNneU82U2ZXWDN5OXFId0hUNGFaT0ovUWxxZjM4L3ZtSEZtSllKWEovd3RlZk9mM3I1RlI1c2RpcE55blE0bVUvUVlqQkJrWW1DWVpNTTc3SmYiLCJtYWMiOiI0MmUzMDQ0ZDNhNTRjMjZiYjkxNWRiNmVlZWM4ZjU3NDYwNWQ0MDI4NzkzYjZjNDIxMGQ3OTdhMDIxNTA0OTA4IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -11658,7 +12016,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"produk_id\": 1
+    \"produk_id\": 1,
+    \"service_id\": 4326.41688
 }"
 </code></pre></div>
 
@@ -11675,7 +12034,8 @@ const headers = {
 };
 
 let body = {
-    "produk_id": 1
+    "produk_id": 1,
+    "service_id": 4326.41688
 };
 
 fetch(url, {
@@ -11796,6 +12156,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
                data-component="body">
     <br>
 <p>ID dari tabel products. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>service_id</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="service_id"                data-endpoint="POSTvoucher-check--code-"
+               value="4326.41688"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the services table. Example: <code>4326.41688</code></p>
         </div>
         </form>
 

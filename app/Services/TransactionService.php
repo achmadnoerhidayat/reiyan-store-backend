@@ -57,7 +57,7 @@ class TransactionService
 
     public function storeTrans($data)
     {
-        $transaksi = DB::transaction(function () use ($data) {
+        return DB::transaction(function () use ($data) {
             $user = request()->user();
             $data['order_id'] = $this->generateOrderId();
             $nominalDiskon = 0;
@@ -104,10 +104,10 @@ class TransactionService
 
             $services = app($driverClass);
             if ($isIAK) {
-                $rawData = $services->getPrice($provider);
+                $rawData = $services->getPrice($provider, $service->code);
             }
             if ($isVIP && Str::contains($service->produk->kategori->name, ['game'], true)) {
-                $rawData = $services->getStokGame($provider);
+                $rawData = $services->getStokGame($provider, $service->code);
                 if (!$rawData) {
                     throw new \Exception("Layanan Yang Anda Pilih Belum Tersedia");
                 }
@@ -119,17 +119,19 @@ class TransactionService
 
             if (!empty($data['voucher_id'])) {
 
-                $this->voucherRepo->findIdLock($data['voucher_id']);
-
                 $voucher = $this->voucherRepo->findValidVoucher([
                     'id' => $data['voucher_id'],
                     'produk_id' => $data['produk_id'],
                     'user_id' => $user->id,
+                    'service_id' => $service->id,
                 ]);
 
                 if (!$voucher) {
                     throw new \Exception('data voucher tidak valid');
                 }
+
+                $this->voucherRepo->findIdLock($data['voucher_id']);
+
 
                 if ($price < $voucher->min_order) {
                     throw new \Exception("Minimal order untuk voucher ini adalah Rp " . number_format($voucher->min_order, 0, ',', '.'));
@@ -140,6 +142,7 @@ class TransactionService
                 } else {
                     $nominalDiskon = $voucher->value;
                 }
+                $this->voucherRepo->usedVoucher($voucher->id, $user->id);
             }
 
             $totalPrice = $price - $nominalDiskon;
@@ -147,17 +150,18 @@ class TransactionService
             $data['discount_amount'] = $nominalDiskon;
             $data['price'] = $price;
             $data['profit'] = $totalPrice - $modal;
-            $data['total'] = $totalPrice;
+            $data['total'] = $totalPrice + $payment->fee;
             $data['user_id'] = $user->id;
             $data['target_details'] = [
                 'target' => $data['target'] ?? "",
                 'server_id' => $data['server_id'] ?? "",
                 'nick_name' => $data['nick_name'] ?? "",
             ];
+            $data['date_exp'] = Carbon::now()->addMinutes(60);
 
             $order = $this->transRepo->store($data);
             $order->payment_type = $payment->gateway;
-            if ($payment->gateway === 'saldo') {
+            if ($payment->category === 'Saldo') {
                 $wallet = $this->walletRepo->findWalletUser($user->id);
 
                 if (!$wallet) {
@@ -187,28 +191,20 @@ class TransactionService
                 return $order;
             } else {
                 $snap = $this->generateToken($order);
-                DB::afterCommit(function () use ($order) {
+                DB::afterCommit(function () use ($order, $user) {
+                    $total = number_format($order->total, 0, ',', '.');
+                    $this->notifRepo->store([
+                        'transaksi_id' => $order->id,
+                        'user_id' => $user->id,
+                        'type' => 'ORDER_PENDING',
+                        'title' => 'Menunggu Pembayaran',
+                        'message' => "Pesanan {$order->service->nominal} berhasil dibuat! Segera selesaikan pembayaran Rp {$total} via {$order->payment->name} agar pesanan bisa langsung kami proses.",
+                    ]);
                     CheckExpTransJob::dispatch($order->id)->delay(Carbon::now()->addMinutes(60));
                 });
                 return $snap;
             }
         });
-
-        if ($transaksi) {
-            $user = request()->user();
-            $orders = $this->transRepo->findId($transaksi->id);
-            if ($orders->payment->gateway !== 'saldo') {
-                $total = number_format($orders->total, 0, ',', '.');
-                $this->notifRepo->store([
-                    'transaksi_id' => $orders->id,
-                    'user_id' => $user->id,
-                    'type' => 'ORDER_PENDING',
-                    'title' => 'Menunggu Pembayaran',
-                    'message' => "Pesanan {$orders->service->nominal} berhasil dibuat! Segera selesaikan pembayaran Rp {$total} via {$orders->payment->name} agar pesanan bisa langsung kami proses.",
-                ]);
-            }
-        }
-        return $transaksi;
     }
 
     public function deleteTrans($id)
@@ -348,11 +344,10 @@ class TransactionService
     private function generateOrderId()
     {
         $namaBrand = $this->confRepo->get();
-        $brand = collect(explode(' ', $namaBrand))
+        $brand = collect(explode(' ', $namaBrand->title))
             ->map(fn($word) => strtoupper($word[0]))
             ->join('');
-        $date = date('ymd'); // Format: 260210
-
+        $date = date('ymd');
         do {
             $id = $brand . '-' . $date . '-' . strtoupper(Str::random(6));
         } while ($this->transRepo->findExstTrans($id));
@@ -427,8 +422,7 @@ class TransactionService
             $params['itemDetails'] = $items;
         }
 
-        $snap = $service->inquiryPayment($params);
-
+        $snap = $service->inquiryPayment($provider, $params);
         //  Update Data Transaksi
         $this->transRepo->update([
             "reference" => $snap->reference,
@@ -439,6 +433,7 @@ class TransactionService
 
         $snap->order_id = $order->order_id;
         $snap->payment_type = $order->payment_type;
+        $snap->url_js = $provider->payload['url_js'];
 
         return $snap;
     }

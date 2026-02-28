@@ -15,12 +15,13 @@ use App\Http\Controllers\SocialController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VoucherController;
+use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['throttle:10,1'], 'prefix' => 'auth'], function () {
     Route::post('register', [AuthController::class, 'register']);
     Route::post('login', [AuthController::class, 'login']);
-    Route::post('refresh', [AuthController::class, 'refreshToken'])->middleware('auth:sanctum');
+    Route::post('refresh', [AuthController::class, 'refreshToken']);
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'role:administrator,super_admin', 'throttle:10,1'], 'prefix' => 'log'], function () {
@@ -55,9 +56,9 @@ Route::group(['prefix' => 'kategori'], function () {
 Route::group(['prefix' => 'produk'], function () {
     Route::get('/', [ProdukController::class, 'index']);
     Route::get('/{slug}', [ProdukController::class, 'show']);
+    Route::post('/check-username/{id}', [ProdukController::class, 'getNickname']);
     Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('/payment', [ProdukController::class, 'payment']);
-
         Route::group(['middleware' => ['role:administrator,super_admin,product_manager']], function () {
             Route::get('/list-harga/{slug}', [ProdukController::class, 'priceList']);
             Route::group(['middleware' => ['throttle:10,1']], function () {
@@ -155,7 +156,7 @@ Route::group(['prefix' => 'deposit'], function () {
     Route::post('/callback-payment', [DepositController::class, 'callbackPayment']);
     Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/', [DepositController::class, 'index']);
-
+        Route::post('/', [DepositController::class, 'store']);
         Route::group(['middleware' => ['role:administrator,super_admin,finance', 'throttle:10,1']], function () {
             Route::get('/admin', [DepositController::class, 'indexAmin']);
             Route::delete('/{id}', [DepositController::class, 'delete']);
@@ -170,5 +171,14 @@ Route::group(['middleware' => ['auth:sanctum'], 'prefix' => 'review'], function 
 
     Route::group(['middleware' => ['role:administrator,super_admin,finance', 'throttle:10,1']], function () {
         Route::get('/admin', [RatingController::class, 'indexAmin']);
+    });
+});
+
+Route::group(['middleware' => ['auth:sanctum'], 'prefix' => 'wallet'], function () {
+    Route::get('/', [WalletController::class, 'index']);
+    Route::post('/', [WalletController::class, 'store']);
+    Route::group(['middleware' => ['role:administrator,super_admin', 'throttle:10,1']], function () {
+        Route::put('/{id}', [WalletController::class, 'update']);
+        Route::get('/admin', [WalletController::class, 'indexAmin']);
     });
 });

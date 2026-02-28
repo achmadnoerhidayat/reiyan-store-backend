@@ -33,6 +33,7 @@ class VoucherController extends Controller
         $start_at = $request->input('start_at');
         $end_at = $request->input('end_at');
         $type = $request->input('type');
+        $limit = $request->input('limit', 25);
 
         try {
             $voucher = null;
@@ -44,6 +45,7 @@ class VoucherController extends Controller
                     'start_at' => $start_at,
                     'end_at' => $end_at,
                     'type' => $type,
+                    'limit' => $limit,
                 ]);
             }
             return ResponseFormated::success($voucher, 'data Voucher berhasil ditampilkan');
@@ -105,7 +107,8 @@ class VoucherController extends Controller
     public function findValidVoucher(Request $request, VoucherService $service, $code)
     {
         $data = $request->validate([
-            'produk_id' => ['required', 'numeric', 'exists:products,id']
+            'produk_id' => ['required', 'numeric', 'exists:products,id'],
+            'service_id' => ['required', 'numeric', 'exists:services,id'],
         ]);
         $data['code'] = $code;
         $data['user_id'] = $request->user()->id;
@@ -138,7 +141,7 @@ class VoucherController extends Controller
     {
         $data = $request->validate([
             'produk_id' => ['required', 'exists:products,id'],
-            'code' => ['required', 'unique:vouchers,code'],
+            'code' => ['nullable', 'unique:vouchers,code'],
             'type' => ['required', 'in:percent,flat'],
             'value' => ['required', 'numeric'],
             'quota' => ['required', 'numeric'],

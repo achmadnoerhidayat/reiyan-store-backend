@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Deposit;
+use Carbon\Carbon;
 
 class DepositRepository
 {
@@ -13,9 +14,21 @@ class DepositRepository
             if (!empty($data['search'])) {
                 $q->where('order_id', 'like', "%{$data['search']}%");
             }
+            if (!empty($data['payment_id'])) {
+                $q->where('payment_id', $data['payment_id']);
+            }
 
             if (!empty($data['status'])) {
-                $q->where('status', 'like', "%{$data['status']}%");
+                $q->where('status', $data['status']);
+            }
+
+            if (!empty($data['start_date']) && !empty($data['end_date'])) {
+                $start = Carbon::parse($data['start_date'])->startOfDay();
+                $end = Carbon::parse($data['end_date'])->endOfDay();
+
+                $q->whereBetween('created_at', [$start, $end]);
+            } elseif (!empty($data['start_date'])) {
+                $q->whereDate('created_at', $data['start_date']);
             }
         })->where('user_id', $user->id)->latest()->paginate($data['limit']);
     }
@@ -26,9 +39,21 @@ class DepositRepository
             if (!empty($data['search'])) {
                 $q->where('order_id', 'like', "%{$data['search']}%");
             }
+            if (!empty($data['payment_id'])) {
+                $q->where('payment_id', $data['payment_id']);
+            }
 
             if (!empty($data['status'])) {
-                $q->where('status', 'like', "%{$data['status']}%");
+                $q->where('status', $data['status']);
+            }
+
+            if (!empty($data['start_date']) && !empty($data['end_date'])) {
+                $start = Carbon::parse($data['start_date'])->startOfDay();
+                $end = Carbon::parse($data['end_date'])->endOfDay();
+
+                $q->whereBetween('created_at', [$start, $end]);
+            } elseif (!empty($data['start_date'])) {
+                $q->whereDate('created_at', $data['start_date']);
             }
         })->latest()->paginate($data['limit']);
     }

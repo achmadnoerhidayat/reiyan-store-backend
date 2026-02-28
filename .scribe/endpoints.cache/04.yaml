@@ -91,7 +91,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6InFYRTVLdG4wKzNQSXAzWk5XbW1CQmc9PSIsInZhbHVlIjoiVmJHT0JLYmpQanduVkFGTlI1VDUrN25RTVVEUUFEaWdsMXAvRnFPbmFlMVV3OERvbGF5ZndOVllXTXR4M1BtN1RQU1VMWjRBdjlCMkNkMWppUVJ1Ung0dW9QWnRQN2xtRGphT3ZCWE9Gb0dwNkY4WGMrdnhWZjNiK2c1ek54Uk8iLCJtYWMiOiI2OWQ1OTE3OTIzMTVkYzYwM2JjOGRiNTVmZjkzZGFiZmFhZmZlMTViYzJjNzY1Mjc4ZThjMzc0MTVlY2RmOTUxIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlpTRitOYU12TXJ5cE11ODkyU0UzRlE9PSIsInZhbHVlIjoiNHhxVTFkVDNER3BGZGhveXdYMXY2b0orNnVicFBLYjdwNytZZkNaT1RyODF4ZzYrYmZWVlBiU1R4aldCNzRiY1Z1dVI5TjAwekczSkh0WHd1bjg1MFJLUFhmVFdNNlVXczJmejNhaGxxcWFkSkRIQmRiK1hpU1BBYmdDS1JBVTEiLCJtYWMiOiI1YWMxMTQ0OTM2YzBlYmUxMGQ0ZGQwZTJjNGZjNDdiZDBkYmRjNWYxMDllZmRjYTFiZjBlMjQzM2YwZTJhYzhmIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IitrcTdCd3VmeWI4YUd3QTc4anJPcEE9PSIsInZhbHVlIjoiZXNuVVgxZUxnd3E0TEpBVW5oTmZTUFNjcVFIYXhSc0dIWlNGVzAwTUgwNGF2RXl5NHlBdjI3L2w0N1pmNmZRdzlYQzFSekt4U2crN2dGbm1qMWNUMGZTNlhPWVdFZkt4RW15S3dmWTRlM0E4KzV3QnlCaWF3emE4ejRyYWFYSHoiLCJtYWMiOiI3YzU2ZDcwZWU0OTFiMWEzMTlkZWNmZTVlM2UzMjU2ZDFiZWY3MTQxZTE4NTdhZDBkZDBhMGU0YzUyNTliZWUwIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Ilo5Q2swbWxoVWk3TXdPUkxia2VtZUE9PSIsInZhbHVlIjoiaGtMRFNYTDlYODNxY2V5TmJsWGRhN2JQOFgzTmtJSFo3eTdyazBGREZPclBZa1dPNHpkYW1GN0VtUnorbWNZYVErM1BaRDNVU1ZFTmpNUzg0d0h5ZUlidzVJdmV2MitmS0ZJU3pqRFgyUEh3SlJzNW80QUswTXdVYjNXTEFkYVIiLCJtYWMiOiI4YWVhNGEwZGU1MzIyN2JmMjQ5ZTdjZGE4ZjY4ZDg5MzE1YTE5MzJlZDc2ZjgyNzViOTgzMGZhZmE5MjYyMjUyIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth: []
@@ -148,8 +148,82 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IkRxLzdkVzJlaDhQbkF3ZUllMFlUcHc9PSIsInZhbHVlIjoicnB5YTNEYUZCNk1nY0hKQmdtU0xRaWNoTldySkhYVzVEWmtUbWhHaml4Z3lpRlpMci9OWVA2THorNFRtbFNraUZ6ek1iaU9FY3hWdHJzV0dySWZUMW15MzN1eDZnZkxpRk1hcEdUQmFkeERVT0hja3FVL0VCNkJKREZCdi9WTjciLCJtYWMiOiIyNDhkNzlkMzY1OTBmODEzMjViNjliMjdmMzI0ZDY1NjAyNDE3ZDMxNDVjMDkxN2VhZWMxYjgzOWJmYTJhNWYzIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlFNaFYyZWdzM081WjdFaU5YT1ZaYnc9PSIsInZhbHVlIjoiajJ0Si9zbzRZenltQnRxWkMydlU5SGNJTnBkZ3Fkdk1YZnRGNkZ4ZDRweFFQZE1Cc3hGQk1IUG1YQVJwWCs3bW9BU3BJckYwc2NhZUovejZEVnpYOWlDejFCMG1aa29oWHVCSGhVRktMQ0crRjgrY0hpbXdzK2dWeVIxQXN0eXAiLCJtYWMiOiI5N2MwNjQ1MWMxNDAyNDNiNjA5NTg0MjA0ZjM5ZWM4NDQwMzRiN2UzY2M1YjVhZGE5OGJkNjEwOTYwYjM1M2ZiIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IkNuSTZtZVZodTgwR3FnQVllUEh6Z3c9PSIsInZhbHVlIjoidnVvSnY1RjhnS2RkN0ZqSmt6WEJwcXNQMmhRNDJmRVZYMkUyUFovR0IxK1RKdjFmVURRR1pkYjgrbC85RnU4c2RFWnJ2SWxaUW5mcy92TnpyUFBTcVZpMVNQUGZOOHlmUnF1NnQxR1U0OEozbFd4K3JNbjduVmVVdUdTeHRmckIiLCJtYWMiOiI0ZWNiYzRhMmMzNWJlODBmZGMzODM2ZDUwMjYzYWZkNzA0ZDIzYzBiMmRkM2MzMDkxZmRjNzRiZDc0MjViMGYxIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImtqS0hxQzRGREMzV1NZRkJCQUpVQUE9PSIsInZhbHVlIjoiUmxDZDY0QldZQnJqZ3FDN0pBTG1KLytQNXZzbU9zUXBBK2MzSFhQMW5zcTVKTmRsY3A4NXV5VFhwR3VySnhqdHg3dGpiQ0c4dllTMytSZWlZam1vYVNSRVcxSm14clI2YVJDdUZjTWJJTkRpcUFQWHh1YWRmcUNFaXFkZXpwUzUiLCJtYWMiOiI1NTU5ZmZiOGJjZjIyOGUxODlkNWI1NTRjNzRkODUxOWE5YjcyZWFkNjNlZjUyM2M5ZThjMjRlM2U5ZjBkNDZjIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'produk/check-username/{id}'
+    metadata:
+      custom: []
+      groupName: Produk
+      groupDescription: |-
+
+        API untuk mengelola Produk
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        Cek Validasi ID Game
+        Endpoint ini digunakan untuk memvalidasi user ID dan server ID sebelum melakukan transaksi.
+      description: |-
+        Aturan validasi (required/nullable) akan berubah secara dinamis tergantung pada pengaturan produk:
+        - Jika `is_check_id` aktif, maka `user_id` wajib diisi.
+        - Jika `is_check_server` aktif, maka `server_id` wajib diisi.
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'Required ID Produk yang ingin dicek.'
+        required: false
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        custom: []
+        name: user_id
+        description: 'ID User dari game. Required jika produk membutuhkan validasi ID.'
+        required: false
+        example: '12345678'
+        type: numeric
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      server_id:
+        custom: []
+        name: server_id
+        description: 'ID Server dari game. Required jika produk membutuhkan validasi Server.'
+        required: false
+        example: '8821'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      user_id: '12345678'
+      server_id: '8821'
+    fileParameters: []
+    responses: []
     responseFields: []
     auth: []
     controller: null
@@ -260,7 +334,7 @@ endpoints:
         type: Nickname
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         deprecated: false
     cleanBodyParameters:
       service_id: 1
@@ -331,7 +405,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6InAyVTRMQXJ5K25sdXBOSmU3TWhEZ1E9PSIsInZhbHVlIjoiRlFDU0pqSno0WGhIY1hTSmIvVUxINXFSMGkvdDBFUFN1dm00Z05IaG9PUlloaG10bEtvamp5SUd6VW11T2xhOTdrQVhFQy9vTnJDcDZaeWxRZllhSlB5bkVwNjNoSGx5MTRRLy9XV3o1Q2NOSnhScjR0RGZZSnJlSzhBS3pxMk4iLCJtYWMiOiJjOTQ5NWU1ODRhMTZjOTJkOTJkNmIzODI5NGUwMTc4Zjg1YjY3ODVkMGRhZjdkMjUzZDI2M2FlNjY0MDhhMTU1IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlMzQUhGTFVhNkRCWTVNb1pjV0J1K1E9PSIsInZhbHVlIjoiazdKdUJabzNtSW9YOGdkVUhsN2o3akt3dW9sVW9jbUFIa0JPRkJmbHZlVU00elZMeFBvOUNnMkpoUCtwZ0xtM2FnZG4vLzlvcWg1Rkt3OGlvWVptMms5U1NEOEdQMHBjQTViYkJER3hMVVpuMk1ZRVJlUDRwbWk4ckpPeTNpRnIiLCJtYWMiOiIwYTczYWEzYTU4NjY4M2YyYjQ1YTJkOTI5ODNlNTVkY2NhYjIwY2ZhNzNkNTc2Yzc2OTA2ZjA5YmIxNTE4MzRmIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:15:59 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6ImxGd1docW1wL2lJTjh4eEtDMnc0L1E9PSIsInZhbHVlIjoicVhscUJaRUJyQjFZbGV2Q2RCTGFuM0NsN01VSm5sQ3ZOZHhIT2NvTmFtazFXWDhIdmRrOWFmOXNUdnpQS2JlMjV1WVp2enEweU84eDROang2a1Q0T0o4NXh1TE9Fb2RsTFowOC9nL1I3QThkdUp3RUNWbkg3L3hRZjl1TzZ5YnciLCJtYWMiOiJjMjc0ZTMyYjk5N2Y2ODY5YjBlM2NhZTc5YThkNjVjOGI3ZTRlZjhhZjVkM2ZkNmJjY2RkYjlkZDJiNmZiZTRkIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IllaWWJLaFFXTk9OUVdhaGRNWW1nQVE9PSIsInZhbHVlIjoiZi83SmZqZm42QW9HSENnVkVaTTQwRXhXby9MRUQ1elBVL1FtL3BBdmVFOE0zQUFuSDQ3emVoQnhjOTFmSjFZS2Y3UzhxZURoTEcrc1o1bzIwdjdJRFE2UHpXOXBndTJ1bko3b2R5N0dMMjRxRzBzZDBHWEUxTUVyYTk4dUM2U0UiLCJtYWMiOiJhOTU4MjlkOWQ5Mzg1YTg3MWIzODAzMjgwMmQ5ZjdjYjJkOGE1OWY4MzQ3ODI1YmZjM2M5MmRkMWEwM2YxZDI2IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth:

@@ -14,6 +14,7 @@ class Transaction extends Model
     protected $hidden = ['user_id', 'service_id', 'produk_id', 'payment_id', 'voucher_id'];
 
     protected $casts = [
+        'date_exp' => 'datetime',
         'target_details' => 'array',
         'response_provider' => 'array',
     ];

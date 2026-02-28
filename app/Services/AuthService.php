@@ -6,6 +6,7 @@ use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class AuthService
 {
@@ -100,17 +101,19 @@ class AuthService
         return $response;
     }
 
-    public function refresh($data, $user)
+    public function refresh($data)
     {
-        // 1. Hapus semua token lama (atau token yang sedang dipakai saja)
-
+        $token = PersonalAccessToken::findToken($data['refresh_token']);
+        if (!$token) {
+            throw new \Exception("Refresh Token Expired atau Tidak Valid");
+        }
+        $user = $token->tokenable;
         $user->tokens()->delete();
-
-        // 2. Buat token baru
         $deviceName = 'API-' . md5($data['ip'] . '|' . $data['agent']);
         $newToken = $user->createToken($deviceName)->plainTextToken;
+        $newUser = $this->userRepo->findId($user->id);
         $response = [
-            'user' => $user,
+            'user' => $newUser,
             'token' => $newToken,
             'type' => "Bearer"
         ];

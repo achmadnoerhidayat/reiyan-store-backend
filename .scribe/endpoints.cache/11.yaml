@@ -104,7 +104,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IkxOdEVhR3NNTzNXeGVqZi9vT1dYa0E9PSIsInZhbHVlIjoidHZtQkZYSWRlQTJQZUNtY1JKejloTHdLV0ZPckRMUEh0a00zbHdIMkV3R1lTcWptRkJzK3lFTWQxMnFWUG15eEhLbG5nOG1OVHJGT05tNzUzY3JhcndWa2V1TFpBZXQzTkVGcnpLN2didTZIb2MvQUJQemJnZDQ5ZFIzcnZEd1QiLCJtYWMiOiI1YmRhZDIwNDc5OGZlZWEwZjg0NDA4NTY3YmJkYTdjZGRhNGZkMmQ1NTZmMDg1MDUxZGMzM2Y1MTE3NzkzNzk1IiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IktMWlh1OGIwUmVscFRuVEpnVzZmV0E9PSIsInZhbHVlIjoicU9SMEtHNm1wSHZrMm9QbExKdTE0d3JJdmZGQWx4T2hGVGxWSGIzWVdvek5qYlllTjBycG1VaWxSengvdmcwOC9tSEdySGJQQVoxa0RsaUdWQndacFdoelBhckJ0SGFvb1ErWlF6cVhDRVNUa0txS1NiZkVNQUEwSndlbERHQ2EiLCJtYWMiOiJlYTBkZGU2MjQ5NTFjNjFkZTVhNWNhNDhmN2UzMGEwYWNhMjM5M2MwMDA2N2IyMzE1MWY5MmVkZTUxODljOWYxIiwidGFnIjoiIn0%3D; expires=Wed, 18 Feb 2026 04:16:00 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6InJXZzNEbEhKcHZYY2hISDRJZ3pTMHc9PSIsInZhbHVlIjoiZGd1dy9oc2JXUnlaVUxiY0p6cFpjUU5Ea1BrMCtIRkloQ214UGNlQUp5eUlSSG8rMzM4NDUxbFp6QmNWR0N6YnpWdTk0WHZtLzltVlU1eUFPRGsvOFlkaXpjWkMwZElzRVA3eUpZRnhISEY0UkhsR1NzVUlQeWtlQUlGWFZMeSsiLCJtYWMiOiI5YWFlNDY5NjBjYTljODFkOWM0MzI4YzUwMjhjYjQxMjUyYjBjYTE1YzI2ODgyZjM5N2U1NjMwZjcxY2MyMzNlIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlM3YzdWUW9EaE9iTE1Ja1MrQlZIT1E9PSIsInZhbHVlIjoiQ29WOGRobUlnbGxoM0xpNVFTbkNUNkJEcmNYNGErY0xyOExxdHBlcXh1YVZSZlNneU82U2ZXWDN5OXFId0hUNGFaT0ovUWxxZjM4L3ZtSEZtSllKWEovd3RlZk9mM3I1RlI1c2RpcE55blE0bVUvUVlqQkJrWW1DWVpNTTc3SmYiLCJtYWMiOiI0MmUzMDQ0ZDNhNTRjMjZiYjkxNWRiNmVlZWM4ZjU3NDYwNWQ0MDI4NzkzYjZjNDIxMGQ3OTdhMDIxNTA0OTA4IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth:
@@ -163,8 +163,20 @@ endpoints:
         exampleWasSpecified: true
         nullable: false
         deprecated: false
+      service_id:
+        custom: []
+        name: service_id
+        description: 'The <code>id</code> of an existing record in the services table.'
+        required: true
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
     cleanBodyParameters:
       produk_id: 1
+      service_id: 4326.41688
     fileParameters: []
     responses: []
     responseFields: []
@@ -378,7 +390,7 @@ endpoints:
         type: string
         enumValues: []
         exampleWasSpecified: true
-        nullable: false
+        nullable: true
         deprecated: false
       type:
         custom: []

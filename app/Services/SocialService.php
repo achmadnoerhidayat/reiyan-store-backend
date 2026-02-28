@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Helper\UploadImage;
 use App\Repositories\SocialMediaRepository;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,7 +11,6 @@ class SocialService
 {
 
     protected $socialRepo;
-    protected $cacheKey = 'social-media';
     public function __construct(SocialMediaRepository $socialRepo)
     {
         $this->socialRepo = $socialRepo;
@@ -21,9 +19,7 @@ class SocialService
 
     public function getAll($data)
     {
-        return Cache::remember($this->cacheKey, now()->addDays(1), function () use ($data) {
-            return $this->socialRepo->getAll($data);
-        });
+        return $this->socialRepo->getAll($data);
     }
 
     public function findId($id)
@@ -40,7 +36,6 @@ class SocialService
                     $iconPath = UploadImage::upload($icon, 'asset/social');
                     $data['icon'] = $iconPath;
                 }
-                Cache::forget($this->cacheKey);
                 return $this->socialRepo->store($data);
             });
         } catch (\Exception $e) {
@@ -67,7 +62,6 @@ class SocialService
                     $iconPath = UploadImage::upload($icon, 'asset/social');
                     $data['icon'] = $iconPath;
                 }
-                Cache::forget($this->cacheKey);
                 return $this->socialRepo->update($data, $id);
             });
         } catch (\Exception $e) {
@@ -88,7 +82,6 @@ class SocialService
             if ($social->icon) {
                 Storage::disk('public')->delete($social->icon);
             }
-            Cache::forget($this->cacheKey);
             return $this->socialRepo->delete($id);
         });
     }

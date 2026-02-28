@@ -20,8 +20,12 @@ if [ ! -f "composer.json" ]; then
 
     echo "--- SELESAI: Laravel sudah berhasil dipasang! ---"
 else
-    echo "--- PROYEK DITEMUKAN: Jalankan composer install... ---"
-    composer install --no-interaction --optimize-autoloader
-fi
+    echo "--- PROYEK DITEMUKAN: Menyiapkan dependensi... ---"
 
+    # Cek apakah folder vendor ada, kalau tidak ada baru install
+    if [ ! -d "vendor" ]; then
+        composer install --no-interaction --optimize-autoloader
+    fi
+fi
+echo "--- READY: Menjalankan command utama... ---"
 exec "$@"

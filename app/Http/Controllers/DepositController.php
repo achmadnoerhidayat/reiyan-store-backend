@@ -23,6 +23,8 @@ class DepositController extends Controller
         $id = $request->input('id');
         $search = $request->input('search');
         $status = $request->input('status');
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
         $limit = $request->input('limit', 15);
         $deposit = null;
         if ($id) {
@@ -31,6 +33,8 @@ class DepositController extends Controller
             $deposit = $service->getAll([
                 'search' => $search,
                 'status' => $status,
+                'start_date' => $start_date,
+                'end_date' => $end_date,
                 'limit' => $limit,
             ]);
         }
@@ -68,6 +72,7 @@ class DepositController extends Controller
 
     /**
      * @group Deposit
+     * tambah deposit
      * Endpoint ini digunakan untuk membuat pesanan Topup Saldo.
      * dan mengembalikan URL pembayaran Snap Invoice Duitku.
      *
@@ -84,8 +89,8 @@ class DepositController extends Controller
             'amount' => ['required', 'numeric'],
         ]);
         try {
-            $service->createDeposit($data);
-            return ResponseFormated::success(null, 'token pembayran berhasil dibuat');
+            $snap = $service->createDeposit($data);
+            return ResponseFormated::success($snap, 'token pembayran berhasil dibuat');
         } catch (\Exception $e) {
             return ResponseFormated::error(null, $e->getMessage(), 400);
         }

@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Provider;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class VipResellerService
 {
@@ -41,6 +42,12 @@ class VipResellerService
         $sign = md5($username . $apiKey);
 
         // Kirim request pake HTTP Client Laravel
+        Log::info('request cek stok', [
+            'key' => $apiKey,
+            'sign' => $sign,
+            'type' => 'service-stock',
+            'service' => $code
+        ]);
         $response = Http::asForm()->post("{$config->url}game-feature", [
             'key' => $apiKey,
             'sign' => $sign,
@@ -50,7 +57,12 @@ class VipResellerService
 
         if ($response->status() === 200) {
             $results = $response->json();
-            return $results['result'] ?? false;
+            Log::info('response', (array) $results);
+            if ($results['message'] === "Layanan tidak support untuk cek stock.") {
+                return true;
+            } else {
+                return $results['result'];
+            }
         }
         return [];
     }
@@ -63,18 +75,34 @@ class VipResellerService
         $sign = md5($username . $apiKey);
 
         // Kirim request pake HTTP Client Laravel
-        $response = Http::asForm()->post("{$config->url}game-feature", [
+        $response = Http::asForm()->withHeaders([
+            'Accept' => 'application/json',
+        ])->post("{$config->url}game-feature", [
             'key' => $apiKey,
             'sign' => $sign,
             'type' => 'get-nickname',
-            'service' => $data['code'] ?? "",
+            'code' => $data['code'] ?? "",
             'target' => $data['user_id'] ?? "",
             'additional_target' => $data['server_id'] ?? "",
         ]);
 
         if ($response->status() === 200) {
             $results = $response->json();
-            return $results['data'] ?? [];
+            return $results ?? [];
+        }
+        return [];
+    }
+
+    public function chekIdGame($data)
+    {
+        $response = Http::get("https://cek-username.onrender.com/game/" . $data['code'], [
+            'uid' => $data['user_id'] ?? "",
+            'zone' => $data['server_id'] ?? "",
+        ]);
+
+        if ($response->status() === 200) {
+            $results = $response->json();
+            return $results ?? [];
         }
         return [];
     }

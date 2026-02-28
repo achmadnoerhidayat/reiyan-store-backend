@@ -27,13 +27,17 @@ class SocialController extends Controller
     {
         $id = $request->input('id');
         $search = $request->input('search');
+        $is_active = $request->input('is_active');
 
         try {
             $payment = null;
             if ($id) {
                 $payment = $service->findId($id);
             } else {
-                $payment = $service->getAll($search);
+                $payment = $service->getAll([
+                    'search' => $search,
+                    'is_active' => $is_active,
+                ]);
             }
             return ResponseFormated::success($payment, 'data Social Media berhasil ditampilkan');
         } catch (\Exception $e) {

@@ -225,6 +225,43 @@ class ProdukController extends Controller
     }
 
     /**
+     * Cek Validasi ID Game
+     * Endpoint ini digunakan untuk memvalidasi user ID dan server ID sebelum melakukan transaksi.
+     * Aturan validasi (required/nullable) akan berubah secara dinamis tergantung pada pengaturan produk:
+     * - Jika `is_check_id` aktif, maka `user_id` wajib diisi.
+     * - Jika `is_check_server` aktif, maka `server_id` wajib diisi.
+     *
+     * @urlParam id string Required ID Produk yang ingin dicek. Example: 1
+     * @bodyParam user_id numeric ID User dari game. Required jika produk membutuhkan validasi ID. Example: 12345678
+     * @bodyParam server_id string ID Server dari game. Required jika produk membutuhkan validasi Server. Example: 8821
+     */
+
+    public function getNickname(Request $request, ProdukService $service, $id)
+    {
+        $produk = $service->findId($id);
+        $user_id = "nullable";
+        $server_id = "nullable";
+        if ($produk && $produk->is_check_id) {
+            $user_id = "required";
+        }
+
+        if ($produk && $produk->is_check_server) {
+            $server_id = "required";
+        }
+
+        $data = $request->validate([
+            'user_id' => [$user_id, 'numeric'],
+            'server_id' => [$server_id, 'string'],
+        ]);
+        try {
+            $trans = $service->checkNikname($id, $data);
+            return ResponseFormated::success($trans, 'check username berhasil ditampilkan');
+        } catch (\Exception $e) {
+            return ResponseFormated::error(null, $e->getMessage(), 500);
+        }
+    }
+
+    /**
      * Checkout Top Up
      * Endpoint ini digunakan untuk membuat pesanan top up (Game, Pulsa, E-Wallet).
      * Sistem akan memvalidasi stok produk, menghitung harga (termasuk diskon voucher),
@@ -250,8 +287,9 @@ class ProdukController extends Controller
             'voucher_id' => ['nullable', 'numeric', 'exists:vouchers,id'],
             'target'    => ['required', 'numeric'],
             'server_id' => ['nullable', 'numeric'],
-            'nick_name' => ['nullable', 'string'],
+            'nick_name' => ['required', 'string'],
         ]);
+
         try {
             $trans = $service->storeTrans($data);
             return ResponseFormated::success($trans, 'token pembayran berhasil dibuat');
