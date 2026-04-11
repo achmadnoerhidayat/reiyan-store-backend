@@ -4,10 +4,10 @@ namespace App\Repositories;
 
 use App\Models\Transaction;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class TransactionRepository
 {
-
     public function getTransAdmin($data)
     {
         $trans = Transaction::with('produk.provider', 'service', 'user', 'voucher', 'payment');
@@ -23,7 +23,7 @@ class TransactionRepository
 
     public function getTrans($data)
     {
-        $trans = Transaction::select('user_id', 'produk_id', 'service_id', 'payment_id', 'voucher_id', 'order_id', 'price', 'total', 'discount_amount', 'va_number', 'qr_code', 'status', 'date_exp', 'target_details', 'created_at', 'updated_at')->with('service', 'produk', 'user', 'voucher', 'payment');
+        $trans = Transaction::select('id', 'user_id', 'produk_id', 'service_id', 'payment_id', 'voucher_id', 'order_id', 'price', 'total', 'discount_amount', 'va_number', 'qr_code', 'status', 'date_exp', 'target_details', 'created_at', 'updated_at')->with('service', 'produk', 'user', 'voucher', 'payment', 'reviews');
         if (!empty($data['search'])) {
             $trans->where('order_id', 'like', "%{$data['search']}%");
         }
@@ -75,6 +75,86 @@ class TransactionRepository
     public function findTrxId($data)
     {
         return Transaction::with('produk', 'service', 'user', 'voucher', 'payment')->whereJsonContains('response_provider', ['trxid' => $data['trxId']])->where('status', $data['status'])->first();
+    }
+
+    public function getRevenue($data)
+    {
+        $trans = Transaction::query();
+        if (!empty($data['status'])) {
+            $trans->where('status', $data['status']);
+        }
+        if (!empty($data['month'])) {
+            $trans->whereMonth('created_at', $data['month']);
+        }
+        if (!empty($data['year'])) {
+            $trans->whereYear('created_at', $data['year']);
+        }
+        return $trans->sum('total');
+    }
+
+    public function getSalesCount($data)
+    {
+        $trans = Transaction::query();
+        if (!empty($data['status'])) {
+            $trans->where('status', $data['status']);
+        }
+        if (!empty($data['mount'])) {
+            $trans->whereMonth('created_at', $data['mount']);
+        }
+        if (!empty($data['year'])) {
+            $trans->whereYear('created_at', $data['year']);
+        }
+        return $trans->count();
+    }
+
+    public function getSpending()
+    {
+        return Transaction::where('status', 'success')
+            ->select(DB::raw('SUM(total) / COUNT(DISTINCT user_id) as avg_per_user'))
+            ->first()->avg_per_user ?? 0;
+    }
+
+    public function getRevenueStats($type = 'month')
+    {
+        [$format, $range, $curr] = match ($type) {
+            'day'   => ['%H', range(0, 23), today()],
+            'year'  => ['%m', range(1, 12), now()->year],
+            default => ['%d', range(1, now()->daysInMonth), [now()->month, now()->year]],
+        };
+
+        $results = Transaction::where('status', 'success')
+            ->where(fn($q) => match ($type) {
+                'day'   => $q->whereDate('created_at', $curr),
+                'year'  => $q->whereYear('created_at', $curr),
+                default => $q->whereMonth('created_at', $curr[0])->whereYear('created_at', $curr[1]),
+            })
+            ->selectRaw("
+            DATE_FORMAT(created_at, '$format') as label,
+            SUM(total) as revenue_total,
+            COUNT(id) as order_count
+        ")
+            ->groupBy('label')
+            ->get()
+            ->keyBy('label');
+
+        return collect($range)->map(function ($i) use ($results, $type) {
+            $labelKey = str_pad($i, 2, '0', STR_PAD_LEFT);
+            $data = $results->get($labelKey);
+
+            // LOGIC BARU: Jika type 'year', ubah angka jadi nama bulan
+            $finalLabel = $i;
+            if ($type === 'year') {
+                $finalLabel = \Carbon\Carbon::create()->month($i)->format('M'); // Jan, Feb, Mar...
+            } elseif ($type === 'day') {
+                $finalLabel = $labelKey . ':00'; // 01:00, 02:00...
+            }
+
+            return [
+                'label'         => $finalLabel,
+                'order_count'   => $data ? (int) $data->order_count : 0,
+                'revenue_total' => $data ? (float) $data->revenue_total : 0,
+            ];
+        });
     }
 
     public function store($data)

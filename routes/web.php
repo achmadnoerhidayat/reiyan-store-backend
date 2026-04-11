@@ -3,20 +3,28 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SeoController;
+use App\Http\Controllers\SiteContentController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Route;
+
+Route::group(['middleware' => ['auth:sanctum', 'throttle:10,1', 'role:administrator,super_admin'], 'prefix' => 'dashboard'], function () {
+    Route::get('/', [DashboardController::class, 'index']);
+});
 
 Route::group(['middleware' => ['throttle:10,1'], 'prefix' => 'auth'], function () {
     Route::post('register', [AuthController::class, 'register']);
@@ -35,6 +43,10 @@ Route::group(['middleware' => ['auth:sanctum', 'throttle:10,1'], 'prefix' => 'us
         Route::put('/{id}', [UserController::class, 'update']);
         Route::delete('/{id}', [UserController::class, 'delete']);
     });
+});
+
+Route::group(['middleware' => ['auth:sanctum', 'throttle:10,1', 'role:administrator,super_admin'], 'prefix' => 'role'], function () {
+    Route::get('/', [RoleController::class, 'index']);
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'throttle:10,1'], 'prefix' => 'level'], function () {
@@ -164,21 +176,37 @@ Route::group(['prefix' => 'deposit'], function () {
     });
 });
 
-Route::group(['middleware' => ['auth:sanctum'], 'prefix' => 'review'], function () {
+Route::group(['prefix' => 'review'], function () {
     Route::get('/', [RatingController::class, 'index']);
-    Route::post('/', [RatingController::class, 'store']);
-    Route::put('/{id}', [RatingController::class, 'update']);
-
-    Route::group(['middleware' => ['role:administrator,super_admin,finance', 'throttle:10,1']], function () {
-        Route::get('/admin', [RatingController::class, 'indexAmin']);
+    Route::group(['middleware' => ['auth:sanctum']], function () {
+        Route::post('/', [RatingController::class, 'store']);
+        Route::group(['middleware' => ['role:administrator,super_admin,finance', 'throttle:10,1']], function () {
+            Route::put('/{id}', [RatingController::class, 'update']);
+            Route::get('/admin', [RatingController::class, 'indexAmin']);
+        });
     });
 });
 
 Route::group(['middleware' => ['auth:sanctum'], 'prefix' => 'wallet'], function () {
     Route::get('/', [WalletController::class, 'index']);
+    Route::post('/pin-validation', [WalletController::class, 'chekValidPin']);
     Route::post('/', [WalletController::class, 'store']);
     Route::group(['middleware' => ['role:administrator,super_admin', 'throttle:10,1']], function () {
         Route::put('/{id}', [WalletController::class, 'update']);
         Route::get('/admin', [WalletController::class, 'indexAmin']);
+    });
+});
+
+Route::group(['middleware' => ['auth:sanctum'], 'prefix' => 'notif'], function () {
+    Route::get('/', [NotificationController::class, 'index']);
+    Route::put('/{id}', [NotificationController::class, 'update']);
+});
+
+Route::group(['prefix' => 'site-conten'], function () {
+    Route::get('/', [SiteContentController::class, 'index']);
+    Route::group(['middleware' => ['auth:sanctum', 'role:administrator,super_admin', 'throttle:10,1']], function () {
+        Route::post('/', [SiteContentController::class, 'store']);
+        Route::put('/{id}', [SiteContentController::class, 'update']);
+        Route::delete('/{id}', [SiteContentController::class, 'delete']);
     });
 });

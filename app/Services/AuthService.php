@@ -26,6 +26,11 @@ class AuthService
         return $this->userRepo->getAll($data);
     }
 
+    public function getRole()
+    {
+        return $this->userRepo->getRole();
+    }
+
     public function getById($id, $user)
     {
         if (!in_array($user->role->name, ['super_admin', 'administrator'])) {
@@ -34,6 +39,11 @@ class AuthService
             }
         }
         return $this->userRepo->findId($id);
+    }
+
+    public function firstCount()
+    {
+        return $this->userRepo->getCount();
     }
 
     public function register(array $data)

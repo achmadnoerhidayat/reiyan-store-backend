@@ -1,21 +1,54 @@
-name: Review
+name: Deposit
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
-      - GET
-    uri: review
+      - POST
+    uri: deposit/callback-payment
     metadata:
       custom: []
-      groupName: Review
+      groupName: Deposit
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: |-
-        List Review User
-        Mengambil semua data Review milik user yang sedang login.
-        Bisa difilter berdasarkan ID Review untuk detail, atau produk_id.
+        Callback Payment Gateway
+        Endpoint untuk menerima notifikasi status pembayaran dari Midtrans/Duitku.
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: deposit
+    metadata:
+      custom: []
+      groupName: Deposit
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        List Deposit User
+        Mengambil semua data Deposit milik user yang sedang login.
+        Bisa difilter berdasarkan ID Deposit untuk detail, atau search order_id.
       description: ''
       authenticated: true
       deprecated: false
@@ -29,7 +62,7 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'ID Review jika ingin mengambil detail satu data.'
+        description: 'ID Deposit jika ingin mengambil detail satu data.'
         required: false
         example: 16
         type: integer
@@ -37,10 +70,10 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      produk_id:
+      search:
         custom: []
-        name: produk_id
-        description: 'Cari berdasarkan ID Produk.'
+        name: search
+        description: 'Cari berdasarkan Order ID.'
         required: false
         example: architecto
         type: string
@@ -72,7 +105,7 @@ endpoints:
         deprecated: false
     cleanQueryParameters:
       id: 16
-      produk_id: architecto
+      search: architecto
       status: architecto
       limit: 16
     bodyParameters: []
@@ -87,7 +120,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IjVHRUtoK1RkNnFTZjlBZ1ZBVzYxRmc9PSIsInZhbHVlIjoiMkpFcmVEU2lEVlBpRzV3MGkwbHhOOGk4UHJtWEQydDRqaEM5RGZmV3g0TkxjV21nSDJNaEJXMzA2anRHZ2Y1bU1mbFNMQ3dKTWtGcHk5aXZqY2g5blFtOGIvOXhMWXFBOGdvMVdRUmV3dW9wZjFCQzRIdXZtYXVCWHp5NUhpclMiLCJtYWMiOiJiOTdmNDc5MGRhZTk0MjMzMDc0YzVlOTA0NGNmMDI2MzRjNGJhYjlkYTQyZDEzM2E3ZDcxYjEwMDAxZDhmNWNlIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:44 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6InFLVjdIbUZmaHdWQTN4QXFqQUNEYlE9PSIsInZhbHVlIjoidjB1OEx5dTI1TElQL3doaXZmaXo0RGFzVWF0ZFpFS3lnVEV3cXNDQlZhVmVWOHA2ZXJsM2I1Wk8yakhBZVE0dTVUTHE3SjRqRkZUWDMyZHBSeWxpRFo2SWVISzgzSnZ0QXBmV0tlQjFvYVJTeXRpSjIzN3BtZHRBR0FpajhvWWwiLCJtYWMiOiIzODZjYmE4ZGFkNTQzY2I3MTMwYzZiOWVjNmZlZWUwYzE5NWM5MmUzZDNiOGUyOGQzNmQ5OTVkZWY0ZGQ4YzM0IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:44 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6ImlNa1hjT1RaUVpoVjlvNTNjbFMya2c9PSIsInZhbHVlIjoidlJWc0Y3ZVJ4Mzk0OE5DWm9qNXNpU3I0NXI1cTlBRCtqT0xBbHVvVWZZbVhCcVpEb3ZjNUpKMzJNTFoySUF3b3BxWGc1Z3JQYXI4Q0RUcjBZNEc3Q1l6bzFxUVoxcDg3ZFpmNXVEd2pSRkFaWEVabEF3ZE84aE1tOUZBRXQzTnciLCJtYWMiOiI5ZDNkNjBmMzNkNGM5YTkzZjI0ODljYWJhODU5MTJiN2QxNTFkN2VjN2YwMzUyM2MyMzRhZGRkMGY5NWViZDMxIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:28 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Imw5amQ1N1Ywb1BQSUJ5Q25JcTUwUUE9PSIsInZhbHVlIjoid3JBRldsYzFNdHdqb080SDlXejRSTXBodStSSVJLd0hJelFNNFNQQXM1Rmptd2UybVlHRjUrSUdVSmx0LytFMnpQWlEyNGphRVcvRk44ZFN3SmpKOERyajEvMy9UOFJWZlNJYk5YUzJ6WGl2OXhwNXBXaG4zaFlRbHlscGRia2QiLCJtYWMiOiIyY2E1NzU0MGZhMWQzZjdkNzhmNDZhNWYwY2M5OGE4YmM2M2MzYTU2ODZlOGI2ODIzM2U2YzczMjkwZmM4NmMxIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:28 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth:
@@ -101,14 +134,15 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: review
+    uri: deposit
     metadata:
       custom: []
-      groupName: Review
+      groupName: Deposit
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: |-
+        tambah deposit
         Endpoint ini digunakan untuk membuat pesanan Topup Saldo.
         dan mengembalikan URL pembayaran Snap Invoice Duitku.
       description: ''
@@ -123,153 +157,31 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      transaksi_id:
+      payment_id:
         custom: []
-        name: transaksi_id
-        description: 'ID Transaksi.'
+        name: payment_id
+        description: 'ID metode pembayaran (Midtrans, Duitku, dll).'
         required: true
-        example: 16
+        example: 2
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
-      produk_id:
+      amount:
         custom: []
-        name: produk_id
-        description: 'ID Produk.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      comment:
-        custom: []
-        name: comment
-        description: comentar.
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      rating:
-        custom: []
-        name: rating
-        description: rating.
+        name: amount
+        description: 'Jumlah Saldo.'
         required: false
-        example: 16
+        example: 200000
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      transaksi_id: 16
-      produk_id: 16
-      comment: architecto
-      rating: 16
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PUT
-    uri: 'review/{id}'
-    metadata:
-      custom: []
-      groupName: Review
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: |-
-        Update Rating & Balasan
-        Endpoint ini digunakan oleh User untuk merevisi ulasan (maks 1x)
-        atau oleh Admin untuk membalas ulasan dan mengatur status publikasi.
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        custom: []
-        name: id
-        description: 'The ID of the review.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      id: architecto
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      rating:
-        custom: []
-        name: rating
-        description: 'Skala 1-5 (Hanya untuk User).'
-        required: false
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      comment:
-        custom: []
-        name: comment
-        description: 'Isi ulasan (Hanya untuk User).'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      reply_message:
-        custom: []
-        name: reply_message
-        description: 'Balasan admin (Hanya untuk Admin).'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      is_publish:
-        custom: []
-        name: is_publish
-        description: 'Status tampil di frontend (Hanya untuk Admin).'
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      rating: 16
-      comment: architecto
-      reply_message: architecto
-      is_publish: false
+      payment_id: 2
+      amount: 200000
     fileParameters: []
     responses: []
     responseFields: []
@@ -284,16 +196,16 @@ endpoints:
     custom: []
     httpMethods:
       - GET
-    uri: review/admin
+    uri: deposit/admin
     metadata:
       custom: []
-      groupName: Review
+      groupName: Deposit
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: |-
-        List Review (Admin)
-        Mengambil semua data Review secara keseluruhan (Global) untuk dashboard admin.
+        List Deposit (Admin)
+        Mengambil semua data Deposit secara keseluruhan (Global) untuk dashboard admin.
       description: ''
       authenticated: true
       deprecated: false
@@ -307,7 +219,7 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'ID Review untuk detail admin.'
+        description: 'ID Deposit untuk detail admin.'
         required: false
         example: 16
         type: integer
@@ -353,8 +265,57 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IkZOYmU4eGdHRTV3UEFFQ2Zaa0hqOHc9PSIsInZhbHVlIjoiam40R0gyTTBHVlJFeG5LUlpNMDBEMSsrUURzQ3ltNmxmNWd5ZE5ScWZCcXlyb2Y3V25BSk5hczAwZnhOYWJ6eXE0YjR1TVY2M2IxZ2FLU3dvWGNjclducWdleHgxQW1DRnBseHZOZlBIcFlxbUV5QWVzYzAzUGo4akQ2Z0pFWUIiLCJtYWMiOiI2NjhmNzg0MzZmNmQ4NjU4YTllZDI1Y2ZmZGE1ZThjNzVhYmFkOWVkY2VmZTViM2YxMDUxMDE2MjBiNTYxMmU3IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:44 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjVMUStlWDRKc3NvOGRySi80dmdjZEE9PSIsInZhbHVlIjoiaW81R3Y3aDRoNDFwaUMySis0ZUw4M1gzbU0ySS9XU0d5c1FnN3BRbForTHJSSU9qNU1GNW80R01yejE3WTBxaSs2TnA3ZWJYSnY3WUEwNjdhSHhyNDI2RFl6Rnl0UUFQc240THIwZmJaZ0s1VjJwL2lPV1BkMkltQUpRZXR0by8iLCJtYWMiOiI3ZmU3ZjA2ODQ4ZTE5ZWJlNjNlMTJmYzUzMGFhNWU0M2E1NGYyNTA1NWFlZDE5ZDYzZDI3OTUzMTM1N2QwODk2IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:44 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IlNGWTU0bmdlN1VFM1JnM1lqcmhQQ3c9PSIsInZhbHVlIjoiSVc2Z3JuUHlXOTJvbUp6aDFIbXZ6cStXMlhjMU1RL283b2VBdm53VlNiZy9lYlZ0M1R1dG1CZm9XRkkvdVM3d1h3cVlhbFdlbmlHVVhpZ2M4UWdQc1REV1FqYk54SkRyZjNYVWRQb2IrOENhSkszNWYrRExCWURGbTY4N0ZCNTUiLCJtYWMiOiJmYzAzODViNTYxMTlmMGEwZWExMzA0YjlhMjc5OThmMGQxMjgxN2I3ODE1OTBiMWNmZGZkMjFmZTUxZDAzYzllIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:28 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Ikx4bkVWQUhCdm1HRXIxUFlLRlk1OVE9PSIsInZhbHVlIjoiNXR5ZjR3ODB3Ry9sNFlHTjJLQ2JsMnU0WEJQa3dpUXpmRGhPQ1ZtRXk3UU1aUXFlMkJ0VWdzS3hFTjZLNlJDOWJKWlZHQ2tQWGx3Sm5MclRnTVl4M0FhM0s5U28rb1ZzTVRhM0VZWkdwNEFWcjh4bUM3bURuMjdvcHFMMUpidDgiLCJtYWMiOiIwOGRlYTA2YTk5MmFjNjkzOGExOTgxMjAyNDY1MTAwNjVmYjZjZDVkMjViN2I2NTU0MGZhYTU3ODAzYWM0Y2QzIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:28 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'deposit/{id}'
+    metadata:
+      custom: []
+      groupName: Deposit
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        Hapus Deposit
+        Menghapus data Deposit berdasarkan ID.
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'ID Deposit yang akan dihapus.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
     responseFields: []
     auth:
       - headers

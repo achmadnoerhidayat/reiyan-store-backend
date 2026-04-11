@@ -10,11 +10,11 @@ class Product extends Model
 {
     use LogsActivity;
 
-    protected $fillable = ['categori_id', 'provider_id', 'name', 'slug', 'brand', 'sale', 'code', 'logo', 'banner', 'is_check_id', 'is_check_server', 'is_check_name'];
+    protected $fillable = ['categori_id', 'provider_id', 'name', 'slug', 'brand', 'sale', 'code', 'logo', 'banner', 'is_check_id', 'is_check_server', 'is_check_name', 'deskripsi'];
 
     protected $hidden = ['categori_id', 'provider_id'];
 
-    protected $appends = ['average_rating'];
+    protected $appends = ['average_rating', 'total_rating'];
 
     protected function casts(): array
     {
@@ -61,5 +61,10 @@ class Product extends Model
     public function getAverageRatingAttribute()
     {
         return round($this->rating()->avg('rating'), 1);
+    }
+
+    public function getTotalRatingAttribute()
+    {
+        return $this->rating()->count();
     }
 }

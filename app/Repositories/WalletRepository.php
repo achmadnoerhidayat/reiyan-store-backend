@@ -29,12 +29,15 @@ class WalletRepository
     public function store(array $data)
     {
         $Wallet = Wallet::create($data);
-        $Wallet->history()->create([
-            'amount' => $data['amount'],
-            'type' => $data['type'] ?? null,
-            'description' => $data['description'] ?? null,
-            'balance_before' => $data['balance_before'],
-        ]);
+        if (!empty($data['amount'])) {
+            $Wallet->history()->create([
+                'amount' => $data['amount'] ?? 0,
+                'type' => $data['type'] ?? null,
+                'description' => $data['description'] ?? null,
+                'balance_before' => $data['balance_before'] ?? 0,
+                'balance_after' => $data['amount'] ?? 0,
+            ]);
+        }
         return $Wallet;
     }
 
@@ -45,12 +48,14 @@ class WalletRepository
             return null;
         }
         $Wallet->update($data);
-        $Wallet->history()->create([
-            'amount' => $data['amount'],
-            'type' => $data['type'] ?? null,
-            'description' => $data['description'] ?? null,
-            'balance_before' => $data['balance_before'],
-        ]);
+        if (!empty($data['amount'])) {
+            $Wallet->history()->create([
+                'amount' => $data['amount'],
+                'type' => $data['type'] ?? null,
+                'description' => $data['description'] ?? null,
+                'balance_before' => $data['balance_before'],
+            ]);
+        }
         return $Wallet;
     }
 

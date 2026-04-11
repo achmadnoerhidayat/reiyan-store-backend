@@ -1,14 +1,14 @@
-name: Deposit
+name: Transaksi
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - POST
-    uri: deposit/callback-payment
+    uri: transaksi/callback-payment
     metadata:
       custom: []
-      groupName: Deposit
+      groupName: Transaksi
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
@@ -37,18 +37,52 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - GET
-    uri: deposit
+      - POST
+    uri: transaksi/callback-ppob
     metadata:
       custom: []
-      groupName: Deposit
+      groupName: Transaksi
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: |-
-        List Deposit User
-        Mengambil semua data Deposit milik user yang sedang login.
-        Bisa difilter berdasarkan ID Deposit untuk detail, atau search order_id.
+        Callback Provider PPOB
+        Endpoint untuk menerima status pesanan dari Provider (VIP/IAK/Digiflazz).
+        Pastikan header X-Client-Signature dikirim untuk validasi.
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: transaksi
+    metadata:
+      custom: []
+      groupName: Transaksi
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        List Transaksi User
+        Mengambil semua data transaksi milik user yang sedang login.
+        Bisa difilter berdasarkan ID transaksi untuk detail, atau search order_id.
       description: ''
       authenticated: true
       deprecated: false
@@ -62,12 +96,12 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'ID Deposit jika ingin mengambil detail satu data.'
+        description: 'ID transaksi jika ingin mengambil detail satu data.'
         required: false
-        example: 16
+        example: 1
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       search:
@@ -75,39 +109,27 @@ endpoints:
         name: search
         description: 'Cari berdasarkan Order ID.'
         required: false
-        example: architecto
+        example: ORD-2024
         type: string
         enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      status:
-        custom: []
-        name: status
-        description: 'Cari berdasarkan Status.'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       limit:
         custom: []
         name: limit
-        description: 'Jumlah data per halaman.'
+        description: 'Jumlah data per halaman. Default: 10.'
         required: false
-        example: 16
+        example: 15
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanQueryParameters:
-      id: 16
-      search: architecto
-      status: architecto
-      limit: 16
+      id: 1
+      search: ORD-2024
+      limit: 15
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -120,7 +142,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IlJrenM0T3pYSGVsV0d1aUoxR0ZhVWc9PSIsInZhbHVlIjoiSHlpVnExTnJ3L2VKc3gxS216Vm1wZWQ5UkVqNlhjVlh3QTEzOCt2azlYakpEcmtOcmcxNHNYMkdFSzJXNHlPSDRWREw4ZU82UGpneHBGbmhsRVpLZHdOTFg5WnBidFVuRWdQaXVYYzgzUWFLb3JZaTF0d0l4LzBkZXBac2N0RTMiLCJtYWMiOiI1Zjg3YjY0ZGY3MDAyMzZlM2Q5MmFlYTVkYjkzMzQ0ZGMwNzMwZmI2NzZhMWM5Mzc5OTA5MGNmOTc4ZDBjNWRmIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlQydmVLNVVnTXgzMW5udXpuZ0FUV1E9PSIsInZhbHVlIjoiUnRNRGRSWjJXTWFYUDhyVlNUYVBCRDNpdVBudG9kL1FZWU83dEluZ1BJaHFxaXdibGxjN25WdEcwS24zUlRZUThqRjh4ZVMvekpwVDFSY1EzOGRaMXZxUThPbHlRN0UrRmthK251VmFQVEUwcjdYam5SdGh0a3Y0TUVRbnlXNVAiLCJtYWMiOiIwNGNkZjYyZDQwZDg1MGZiNGUzOGYzZTc4NzRiNGM5NWZhYjA3NmIxOTI5MTNlNDU2MGY4N2JlODJmZjM1YzVjIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IlZzdGdPN2Z1NkRtNFRwenZjYXhzeEE9PSIsInZhbHVlIjoiM1hlSHA0UUdxaUZxQ3ZiQThzYkxYdE51QmljWDd1SUV2eURTRHd6QmxXSXpsZGRuYm1qekZmN1ZXRit1U2ZHTzJ3WXo5M0dNREZhMlhBTGkrcFRTcVFoZEVqT3FhOU5qQVI2SUZBSXA4WURUL01PZE5UbmVacmNQOGF0SVhPdDYiLCJtYWMiOiI4NDNjYWQ0ZWZmNTQ1OTA5NTUyZDViZWJlYjg2ODAzM2M3M2YxZmVlOTI5NmRmOTQyMDlkYjcxNjYxODkwNGQ1IiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:28 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkR2bHNGMXlyU3c3UlhWV0NvL2NpTEE9PSIsInZhbHVlIjoibGtsckdITEpybTFpcGRSaFYxTWEvNW1MYTZiV0tQM1c3RjdqSDBaMDVMZWk3SzdHUGQ0K3llZVlIVG5wR3FCNyt4dnJOdmQ4bUk2cGE3MDQwQUhVU2xqczMyNUl6MXJEdjd4Z3hrazZYeXd5OHZHR245dmJyMUc1Mks2VFFuNTciLCJtYWMiOiI0YzUxNTY2ZTRmMmYwMGYxZmU4MjEyYTAzZmIyMjg2YThkNzBkYjAxZTQ0NTE2MzQ5MTY0OWVjZGM1YTFmZGI1IiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:28 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth:
@@ -133,79 +155,17 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - POST
-    uri: deposit
-    metadata:
-      custom: []
-      groupName: Deposit
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: |-
-        tambah deposit
-        Endpoint ini digunakan untuk membuat pesanan Topup Saldo.
-        dan mengembalikan URL pembayaran Snap Invoice Duitku.
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      payment_id:
-        custom: []
-        name: payment_id
-        description: 'ID metode pembayaran (Midtrans, Duitku, dll).'
-        required: true
-        example: 2
-        type: integer
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      amount:
-        custom: []
-        name: amount
-        description: 'Jumlah Saldo.'
-        required: false
-        example: 200000
-        type: integer
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      payment_id: 2
-      amount: 200000
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
       - GET
-    uri: deposit/admin
+    uri: transaksi/admin
     metadata:
       custom: []
-      groupName: Deposit
+      groupName: Transaksi
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: |-
-        List Deposit (Admin)
-        Mengambil semua data Deposit secara keseluruhan (Global) untuk dashboard admin.
+        List Transaksi (Admin)
+        Mengambil semua data transaksi secara keseluruhan (Global) untuk dashboard admin.
       description: ''
       authenticated: true
       deprecated: false
@@ -219,12 +179,12 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'ID Deposit untuk detail admin.'
+        description: 'ID transaksi untuk detail admin.'
         required: false
-        example: 16
+        example: 1
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       search:
@@ -232,10 +192,10 @@ endpoints:
         name: search
         description: 'Cari berdasarkan Order ID.'
         required: false
-        example: architecto
+        example: ORD-2024
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       limit:
@@ -243,16 +203,16 @@ endpoints:
         name: limit
         description: 'Jumlah data per halaman.'
         required: false
-        example: 16
+        example: 20
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanQueryParameters:
-      id: 16
-      search: architecto
-      limit: 16
+      id: 1
+      search: ORD-2024
+      limit: 20
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -265,7 +225,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IktjbTdhTG4vWTMwMi8wSWtMUU8xS3c9PSIsInZhbHVlIjoiMVB3cG1LMDA1YzN0SXFQVW9XZ3d5R0pvL2ExYW0yRHJsZW5UWUU4bm5GWWY5WmozSFd6YnNwdXhUOEEzUGRENFpDVkpWMEF3QmRwSzV1VG90dWx3RDU2ZlJUUWlFMytIT2FGcXg3UklKUmVlM0c0LzIvSGM4U3JVOUZ5UUdlOGsiLCJtYWMiOiIyOTc0OTJiZjY0M2VmNjI5YmI2OTIyYTcyNWQ3NzdiZjVkOWI5YzU3OGIxZDQwYmMxNzk1MjhhODY5YTk1Nzk5IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:44 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImZHK0NlTWp4aDdFNjRLeFIzOGxGMHc9PSIsInZhbHVlIjoiMEgxYmsxQlIrVndpblZ0NEc5RXJjNU11Y0t5M0tkSHRyWjFxVXovZ29reEhKMENEbnh6Ukt2M00wZU1ZeEY3U2g4WEg1cVVhSFVMTVNKSE0zMzVzOXpmQzFUV2hDQ2RUVmU1WC9XSVdDWlN3d1ZheHB5OWFwVDJGVDNoZ0tlcWEiLCJtYWMiOiIwZDA5ODExNzExY2ViYjU2ZmE1NDY4YjhjYTBiOWY4ZDIxNjE1NDUwMmM3NTI4Y2RmZWY1OTE3Yzc1NmRjOWI5IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:44 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6Ims2VEUvaFladGQ3aW10NDQvb1JHc0E9PSIsInZhbHVlIjoiQXdsV0ZMNTYvcXlld2pPQWkxQ0p4WnhuVk5JYkdkWlc0bzRTdkV3c1o4Q3Z6RFN6UDNqUmgvc1g1cUpLTFQ1d0ljMmJiVi8xWmc0VzJrMGR1aXovdHpIM2tUYmFERHJxN1p6dUZwbmFRakhqbnc1TktXK3NxdnJ6ZXlRTXdVeW4iLCJtYWMiOiI0YTljYWJhYTMwNTFkNmQyNWQ3ZmY2NDM3Mjg0YmVmZDMxN2Q3ODRlZDVmMzAyN2RiOThiMjVlYmE3MjUzMTg1IiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:28 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlI1UHY4ZENMbTVsdEFxVHJxd1dva0E9PSIsInZhbHVlIjoiWmovSy9rUlVCNUc2RFdzb1lsczVSaDZoT2pnektoaWRrdllYMzFDZUQ4clV1eWluNVVlVXlPVHdONWhIYUxQcnhJZmRsQnd6ZEFjbVBrUGVxVHVwdGVLUHFiQ0N0UHY2ZWd5N2pXR2hrSlJYYTBtN0dkRVM1NER3Rm01N0s5L0ciLCJtYWMiOiI4OWEwZDgyNGJiN2Q4ZWY0NWU1MWRlOTAzZTgxYzRiNmRkY2FhMDVjMjdmNTQxNTcwMmU4ZmQyZTM2NzFiYmExIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:28 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth:
@@ -279,16 +239,16 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'deposit/{id}'
+    uri: 'transaksi/{id}'
     metadata:
       custom: []
-      groupName: Deposit
+      groupName: Transaksi
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: |-
-        Hapus Deposit
-        Menghapus data Deposit berdasarkan ID.
+        Hapus Transaksi
+        Menghapus data transaksi berdasarkan ID.
       description: ''
       authenticated: true
       deprecated: false
@@ -300,16 +260,16 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'ID Deposit yang akan dihapus.'
+        description: 'ID transaksi yang akan dihapus.'
         required: true
-        example: architecto
+        example: '1'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: architecto
+      id: '1'
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

@@ -26,6 +26,7 @@ class UpdateProdukRequest extends FormRequest
             'provider_id' => ['required', 'numeric', 'exists:providers,id'],
             'name' => ['required', 'string', 'min:3'],
             'code' => ['required', 'string', 'min:3'],
+            'deskripsi' => ['required', 'string', 'min:3'],
             'brand' => ['required', 'string', 'min:3'],
             'logo' => ['nullable', 'image', 'mimes:png,jpg,jpeg,webp', 'max:2048'],
             'banner' => ['nullable', 'image', 'mimes:png,jpg,jpeg,webp', 'max:2048'],

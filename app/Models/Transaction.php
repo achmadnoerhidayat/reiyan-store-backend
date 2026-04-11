@@ -52,4 +52,9 @@ class Transaction extends Model
     {
         return $this->belongsTo(PaymentMethod::class, 'payment_id');
     }
+
+    public function reviews()
+    {
+        return $this->hasOne(Rating::class, 'transaksi_id');
+    }
 }

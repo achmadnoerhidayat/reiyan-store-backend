@@ -1,154 +1,73 @@
-name: 'Config Website'
+name: Provider
 description: |-
 
-  API untuk mengelola Config Website
+  API untuk mengelola Provider Reiyan Store
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: config
+    uri: provider
     metadata:
       custom: []
-      groupName: 'Config Website'
+      groupName: Provider
       groupDescription: |-
 
-        API untuk mengelola Config Website
+        API untuk mengelola Provider Reiyan Store
       subgroup: ''
       subgroupDescription: ''
       title: |-
-        List Setting Website
-        Endpoint ini digunakan untuk mengambil semua data config yang aktif.
-      description: 'Cocok digunakan di halaman admin.'
-      authenticated: false
+        List provider
+        Endpoint ini digunakan untuk mengambil semua data provider yang aktif.
+      description: ''
+      authenticated: true
       deprecated: false
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
     queryParameters:
-      id:
+      search:
         custom: []
-        name: id
-        description: 'Mencari config berdasarkan id.'
+        name: search
+        description: 'Mencari provider berdasarkan nama.'
         required: false
-        example: architecto
+        example: Mobile
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      limit:
+        custom: []
+        name: limit
+        description: 'Batasi jumlah data yang tampil.'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanQueryParameters:
-      id: architecto
+      search: Mobile
+      limit: 10
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         custom: []
-        status: 200
-        content: '{"meta":{"code":200,"status":"success","message":"data config berhasil ditampilkan"},"data":null}'
+        status: 401
+        content: '{"message":"Unauthenticated."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6Ik44Vmg1cjhGYmUyL2RUcEFFU2ZZcGc9PSIsInZhbHVlIjoiVWNSZFRtZ1FnWVBSbGJvcGYwemVTV0RkUGtVWFBLOVcrMWRWc2g0VU9hMndNbmMvYjIrZkNXeUs5OFFRQ0xRZTZady9kTDVrQzduMnhmQU1qVENhcExOUHJKWDFIdUt3V20vdjFYdkh6Ky92Tm94UUNtQzJhYzZyR1pSYk9tNmkiLCJtYWMiOiIyZDMxMmY5NGRkYzJlMGYyM2NlZjFmYWQ1M2MyM2ZiNTM3MGJjNzBhNzg4NDVmMjk2MWRjZDNlYzMxMTQ5YzgyIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImtEbTNPTzIwZVd4S2xlMWlhSWJQNGc9PSIsInZhbHVlIjoiMXgzL2hTNmhjaTEzV1dMZHpSbVU3bTB0M2tsSEpjWGd6SS9qWlc1Wld2WG1MNUNSanIydklKUGQzK2IrSjJvK0RyYVRxY0wrZzFxYWZDbytibjl0dER4VWMyc1ZsNUxJdStyV2hxYVduYmtHc0s4dW5DRmkyS2lEaGdNS3hhZWsiLCJtYWMiOiIzM2QwMTQ5NDYyODgwZWYxMjM2YmJlMDYyZTc2ZGQyMjI0NTFiOTQyMDljOTRmYWQ0YjBiY2RiNTkyNTgxZjIyIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:42 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IkhuVm9TTnlCSytYMUpETWRyMFl2RkE9PSIsInZhbHVlIjoiejFMYWNleHM2Yldod2xheGFPKzRVZWhuQVB1LzNkUm9CcjcwU1hiVzB5NHhZNVRMT2JoTis1K3FQSnNXd0ljKzgzRklsVUI5Y253WUVYMFNoWmtHWEErRldvczNubkg0Z0RDZlZBY3BZQjJwUkdlb2RjSFVGOTc4VWMya3ZjUSsiLCJtYWMiOiJiZTlmMWRkZTc4ZjM4NTc5N2ZjMDZjMTk1ODVhNDNjNWY5YmM2MDhjZjBmNDc1ZDYxNzUxZTJiMTg5YzM2YWRjIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:27 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IjV0ckNqMzJUbDlEWmNIaFo0OFRKK0E9PSIsInZhbHVlIjoiMHArUm44a0ZVVjJ6dVc4RFJkZTlJZFR5ZVlIbVVMRjNLSzJWMDhvbEE4OGhNWjViQ3FJc0Vkb211OWFxVGQwM1FHYUhMcjVWTGZkaTlwcnU5ZWZnRHV4S3lGRWZpejVmL2NtMTRIZ0UxaWlFUFNZY2pQSCs0dlloc2x4SGxEdEwiLCJtYWMiOiIwMTJhMDFjMmQxOTg1ZDRiMTU0Y2RiMWQ2YTk5ZTNjYTEyYjU2NGIzNzY0OGJhZTM4YzYxMDYxOTgxMTQ5YjcwIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: config
-    metadata:
-      custom: []
-      groupName: 'Config Website'
-      groupDescription: |-
-
-        API untuk mengelola Config Website
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Tambah Setting Website'
-      description: 'Endpoint ini digunakan untuk menambahkan config web baru ke dalam sistem.'
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      title:
-        custom: []
-        name: title
-        description: 'Title config.'
-        required: true
-        example: 'Reiyan Store'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      short_title:
-        custom: []
-        name: short_title
-        description: 'Short Title config.'
-        required: true
-        example: 'Termurah & Terpercaya'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      favicon:
-        custom: []
-        name: favicon
-        description: 'Foto favicon config (PNG/JPG, max 2MB).'
-        required: true
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      logo:
-        custom: []
-        name: logo
-        description: 'Foto logo config (PNG/JPG, max 2MB).'
-        required: true
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      deskripsi:
-        custom: []
-        name: deskripsi
-        description: 'Deskripsi config.'
-        required: true
-        example: 'Website Topup Game Termurah & Terpercaya'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      title: 'Reiyan Store'
-      short_title: 'Termurah & Terpercaya'
-      deskripsi: 'Website Topup Game Termurah & Terpercaya'
-    fileParameters:
-      favicon: null
-      logo: null
-    responses: []
     responseFields: []
     auth:
       - headers
@@ -161,28 +80,28 @@ endpoints:
     custom: []
     httpMethods:
       - PUT
-    uri: 'config/{id}'
+    uri: 'provider/{id}'
     metadata:
       custom: []
-      groupName: 'Config Website'
+      groupName: Provider
       groupDescription: |-
 
-        API untuk mengelola Config Website
+        API untuk mengelola Provider Reiyan Store
       subgroup: ''
       subgroupDescription: ''
-      title: 'Edit config'
-      description: 'Endpoint ini digunakan untuk mengubah config web ke dalam sistem.'
+      title: 'Edit provider'
+      description: 'Endpoint ini digunakan untuk mengubah provider produk ke dalam sistem.'
       authenticated: true
       deprecated: false
     headers:
       Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: multipart/form-data
+      Content-Type: application/json
       Accept: application/json
     urlParameters:
       id:
         custom: []
         name: id
-        description: 'The ID of the config.'
+        description: 'The ID of the provider.'
         required: true
         example: architecto
         type: string
@@ -195,68 +114,90 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      title:
+      name:
         custom: []
-        name: title
-        description: 'Title config.'
+        name: name
+        description: 'Nama provider.'
         required: true
-        example: 'Reiyan Store'
+        example: Postpaid
         type: string
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
-      short_title:
+      driver:
         custom: []
-        name: short_title
-        description: 'Short Title config.'
+        name: driver
+        description: Driver.
         required: true
-        example: 'Termurah & Terpercaya'
+        example: App\Services\MobilepulsaService
         type: string
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
-      favicon:
+      is_active:
         custom: []
-        name: favicon
-        description: 'nullable Foto favicon config (PNG/JPG, max 2MB).'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      logo:
-        custom: []
-        name: logo
-        description: 'nullable Foto logo config (PNG/JPG, max 2MB).'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      deskripsi:
-        custom: []
-        name: deskripsi
-        description: 'Deskripsi config.'
+        name: is_active
+        description: 'Code Provider.'
         required: true
-        example: 'Website Topup Game Termurah & Terpercaya'
+        example: 'true'
         type: string
         enumValues: []
         exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      payload:
+        custom: []
+        name: payload
+        description: 'nullable Data tambahan konfigurasi (API Key, Secret, dll)'
+        required: false
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      payload.username:
+        custom: []
+        name: payload.username
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      payload.api_key:
+        custom: []
+        name: payload.api_key
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      payload.url:
+        custom: []
+        name: payload.url
+        description: 'Must be a valid URL.'
+        required: true
+        example: 'http://bailey.com/'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      title: 'Reiyan Store'
-      short_title: 'Termurah & Terpercaya'
-      deskripsi: 'Website Topup Game Termurah & Terpercaya'
-    fileParameters:
-      favicon: null
-      logo: null
+      name: Postpaid
+      driver: App\Services\MobilepulsaService
+      is_active: 'true'
+      payload:
+        url: 'http://bailey.com/'
+    fileParameters: []
     responses: []
     responseFields: []
     auth:
@@ -270,17 +211,17 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'config/{id}'
+    uri: 'provider/{id}'
     metadata:
       custom: []
-      groupName: 'Config Website'
+      groupName: Provider
       groupDescription: |-
 
-        API untuk mengelola Config Website
+        API untuk mengelola Provider Reiyan Store
       subgroup: ''
       subgroupDescription: ''
-      title: 'Hapus config Web'
-      description: 'Endpoint ini digunakan untuk menghapus config produk ke dalam sistem.'
+      title: 'Hapus provider'
+      description: 'Endpoint ini digunakan untuk menghapus provider produk ke dalam sistem.'
       authenticated: true
       deprecated: false
     headers:
@@ -291,7 +232,7 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the config.'
+        description: 'The ID of the provider.'
         required: true
         example: architecto
         type: string

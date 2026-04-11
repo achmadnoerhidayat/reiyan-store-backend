@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Role;
 use App\Models\User;
 
 class UserRepository
@@ -28,10 +29,20 @@ class UserRepository
         }
 
         if (empty($data['user_id'])) {
-            $user = $user->orderBy('name', 'asc')->paginate($data['limit']);
+            $user = $user->orderBy('created_at', 'asc')->paginate($data['limit']);
         }
 
         return $user;
+    }
+
+    public function getRole()
+    {
+        return Role::all();
+    }
+
+    public function getCount()
+    {
+        return User::count();
     }
 
     /**

@@ -1,234 +1,19 @@
-name: Autentikasi
-description: |-
-
-  API untuk mengelola login dan logout user Reiyan Store
+name: Endpoints
+description: ''
 endpoints:
   -
     custom: []
     httpMethods:
-      - POST
-    uri: auth/register
-    metadata:
-      custom: []
-      groupName: Autentikasi
-      groupDescription: |-
-
-        API untuk mengelola login dan logout user Reiyan Store
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Register User'
-      description: 'Endpoint ini digunakan untuk register akun reiyan store.'
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      full_name:
-        custom: []
-        name: full_name
-        description: 'Full Name.'
-        required: true
-        example: 'Bambang Pamungkas'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      user_name:
-        custom: []
-        name: user_name
-        description: 'User Name.'
-        required: true
-        example: Bambang
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      phone:
-        custom: []
-        name: phone
-        description: 'User Name.'
-        required: true
-        example: '081227415987'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      email:
-        custom: []
-        name: email
-        description: 'Email user.'
-        required: true
-        example: bambang@gmail.com
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      password:
-        custom: []
-        name: password
-        description: 'Password user.'
-        required: true
-        example: aP1W5B0>YC4I
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      password_confirmation:
-        custom: []
-        name: password_confirmation
-        description: 'Password user.'
-        required: true
-        example: aP1W5B0>YC4I
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      full_name: 'Bambang Pamungkas'
-      user_name: Bambang
-      phone: '081227415987'
-      email: bambang@gmail.com
-      password: aP1W5B0>YC4I
-      password_confirmation: aP1W5B0>YC4I
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: auth/login
-    metadata:
-      custom: []
-      groupName: Autentikasi
-      groupDescription: |-
-
-        API untuk mengelola login dan logout user Reiyan Store
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Login User'
-      description: 'Endpoint ini digunakan untuk mendapatkan token akses.'
-      authenticated: false
-      deprecated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      email:
-        custom: []
-        name: email
-        description: 'Email user.'
-        required: true
-        example: bambang@gmail.com
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      password:
-        custom: []
-        name: password
-        description: 'Password user.'
-        required: true
-        example: aP1W5B0>YC4I
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      email: bambang@gmail.com
-      password: aP1W5B0>YC4I
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: auth/refresh
-    metadata:
-      custom: []
-      groupName: Autentikasi
-      groupDescription: |-
-
-        API untuk mengelola login dan logout user Reiyan Store
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Refresh Token'
-      description: 'Tukar token lama dengan token baru agar masa berlaku (expiration) diperpanjang.'
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      refresh_token:
-        custom: []
-        name: refresh_token
-        description: ''
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      refresh_token: architecto
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
       - GET
-    uri: log
+    uri: dashboard
     metadata:
       custom: []
-      groupName: Autentikasi
-      groupDescription: |-
-
-        API untuk mengelola login dan logout user Reiyan Store
+      groupName: Endpoints
+      groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Log Sistem'
-      description: 'Endpoint ini digunakan untuk memantau list Log Sistem.'
+      title: ''
+      description: ''
       authenticated: false
       deprecated: false
     headers:
@@ -250,8 +35,147 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IlVIZnlzYmwxdG9hdTA0cmh3eHQ0REE9PSIsInZhbHVlIjoiRDFzYXFEcmRFaityd0hnQ3VXSDRLMUdES0ZCVURBZkF4Zm1PTGtHbTVDb0ZsMWNpUXZ1TUJTU3N4dEtKMG5kb0ZseFE1VkRvUVcwOHNaZTBUd1dGV0tmamdqQ0s5UWRvMlo0U2tycXJWcTJzYkZVU2MxTGFTTjVrR2FQajVqK2MiLCJtYWMiOiI5OTZlYTNkMjY0NWE3ZTY0MjRhNzEzMTM1NmQxOGQ4NTdiMWQzNDcyNjhhZTU0MzQzODRjZGJlYmRiYWRhZjhmIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:40 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImZtUmdLdVNSSERaaVlyYlNHcFhBNWc9PSIsInZhbHVlIjoiL1R2WDZLWEdCK09RTVV3WGZnY1FhOFlCTnJ0SWVqRk10ZGMxNHFVT3lYM0Vic3IzK0E3OS9GR0lvMWI5M25waDAraTFLTTZFOHhLRWVGamtiYmJZcFRuOHMxWitjbFlhMXhTUjN5TjQySEFGQU5uUlNGOGNBSmttaFBVbGhxT3giLCJtYWMiOiIwZGQyNTRmYjYyNDBiMDFkNDVhN2E2MGQwNmQ0ZWFkYzczZjczOTJjMTNjN2ZjMGU3MjUwZTFjYTcyYzgyNjM3IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:40 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6ImpKMC9vNFRDc3I1YytFUkxOOGJteXc9PSIsInZhbHVlIjoiOHdUK1ZGOG5GaWoyeDliTGlQSjFHWkdlMmhOK3UzMFFVYlVVckNNaTgxYkt5TTMycGhFbWFMOW9JQmREZklUQ0hvOFNsUDk3NnUzaVBxN3ZJUXcySnBlZHpQV0dHaWlXYkVCTWpyYzM1c0M0TGZzcEgzVXlsME9ETjhOdWtEcGEiLCJtYWMiOiJlY2FhMjgzMjNiYzBiM2UzMDA5OWNlNjdiNzUxMzBiZmJlMTRlZDExNzdjYTkzNjU4NzZjNjFjOWFlMDIxMTdjIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:23 GMT; Max-Age=7199; path=/; samesite=lax; reiyan-store-session=eyJpdiI6InF4b1J1SFJVWjRSaS9oZlM0bXpGbnc9PSIsInZhbHVlIjoiVTJ4UDJVem5PdllpQ09nSGVZWmQ4bDBpNTVxZTJQOFZUL3kzaGJJVC9CQVNpMkRwdU9IekRaUkxYWEtORCtCMndLdC9xT3p0V1UwbStCK29CdUtPQyswNGUzYjYzT0x0TytDKzlqOU1Nd2lQRS9aUU5paUhqd1ByekdqRnYvaG8iLCJtYWMiOiI2OGFjZWU0Y2VkMDQzNjIxMDE2Yjk1OTRkMWUyNWYzMzY4ZWY2ODhlZmRkYTgyNzBhY2EyMTk4NDc3YjY3ZDI1IiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:23 GMT; Max-Age=7199; path=/; httponly; samesite=lax'
         description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: role
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IjRKYVo1UUVpU1pGc0p6UkE5Q3lvSmc9PSIsInZhbHVlIjoiNWdJMTJlbDhWbUNYbXp2MTRzSms3dGFrcnV0WE5NNWNEODcrYVBoZ2VZRTcvV2JPd1Z3YnRKNXQ4RW5qUVVoZ0gwbTA3QVdMaUpSb3VPVVNvOHl1U2pXK2RDZyszQjlydWduQitNVXpjY0pQNUllU0o5a3d3V3lDTEVNZFJ2WEMiLCJtYWMiOiI4OWUzYWUzNjk0MjliNWZiNDZkM2VkNWQ0NGY3ZjcwOGMxZGM4NzhkMWZhZjY2ZDhmN2VlYmY5ZDcwMGVmYzQ2IiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:26 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkFNU25EMnRDb0tzWFZTS0podEhKalE9PSIsInZhbHVlIjoiWVArTGpBRWpNVjNFbWhWNkJtSzI1MnhYK1BFZW1MWHBVT0xpL3lURThWbE5hQXBhbE95c3AvQnpXZUVrcGxMZVQ3eHZWRWdyamNJWGRMQytBcmpSMXhDM2FiQXhEV3ZCNjRqQVl4dy9PdU1PeUEvWVMwSU1MOUNWdFFJMjBXdDQiLCJtYWMiOiI5YzlhMGU2OWY2MWYxYzBmMzAzODBkNmFmOTlhMTQzNjM2NjUwZjBjZTYzYTE3OTY5MzhkY2IwYTkwYWU2NmViIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:26 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: wallet/pin-validation
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      pin:
+        custom: []
+        name: pin
+        description: 'Must be at least 6.'
+        required: true
+        example: 46
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      pin: 46
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'notif/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the notif.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      is_read:
+        custom: []
+        name: is_read
+        description: ''
+        required: true
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      is_read: true
+    fileParameters: []
+    responses: []
     responseFields: []
     auth: []
     controller: null

@@ -49,6 +49,7 @@ class RatingController extends Controller
     {
         $id = $request->input('id');
         $search = $request->input('search');
+        $is_publish = $request->input('is_publish');
         $status = $request->input('status');
         $limit = $request->input('limit');
         $rating = null;
@@ -58,6 +59,7 @@ class RatingController extends Controller
             $rating = $service->getAdmin([
                 'search' => $search,
                 'status' => $status,
+                'is_publish' => $is_publish,
                 'limit' => $limit,
             ]);
         }
@@ -118,7 +120,7 @@ class RatingController extends Controller
         } else {
             $data = $request->validate([
                 'is_publish' => ['nullable', 'boolean'],
-                'reply_message' => ['nullable', 'boolean'],
+                'reply_message' => ['nullable', 'string'],
             ]);
         }
         try {

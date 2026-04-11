@@ -60,6 +60,7 @@ class UserController extends Controller
     public function store(Request $request, AuthService $service)
     {
         $data = $request->validate([
+            'member_id' => ['nullable', 'numeric', 'exists:member_levels,id'],
             'role_id' => ['required', 'numeric', 'exists:roles,id'],
             'full_name' => ['required', 'string', 'max:255'],
             'user_name' => ['required', 'string', 'max:255'],
@@ -67,17 +68,19 @@ class UserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => [
                 'required',
-                'confirmed', // butuh field password_confirmation
-                Password::min(8) // minimal 8 karakter
-                    ->letters() // wajib ada huruf
-                    ->mixedCase() // wajib ada huruf besar & kecil
-                    ->numbers() // wajib ada angka
-                    ->symbols(), // wajib ada simbol
+                'confirmed',
+                Password::min(8)
+                    ->letters()
+                    ->mixedCase()
+                    ->numbers()
+                    ->symbols(),
             ],
         ]);
 
         try {
-            $data['member_id'] = '1';
+            if (!isset($data['member_id'])) {
+                $data['member_id'] = '1';
+            }
             $service->register($data);
             return ResponseFormated::success(null, 'data user berhasil ditambahkan');
         } catch (\Exception $e) {
@@ -102,6 +105,7 @@ class UserController extends Controller
     public function update(Request $request, AuthService $service, $id)
     {
         $data = $request->validate([
+            'member_id' => ['nullable', 'numeric', 'exists:member_levels,id'],
             'role_id' => ['required', 'numeric', 'exists:roles,id'],
             'full_name' => ['required', 'string', 'max:255'],
             'user_name' => ['required', 'string', 'max:255'],
@@ -109,12 +113,12 @@ class UserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => [
                 'nullable',
-                'confirmed', // butuh field password_confirmation
-                Password::min(8) // minimal 8 karakter
-                    ->letters() // wajib ada huruf
-                    ->mixedCase() // wajib ada huruf besar & kecil
-                    ->numbers() // wajib ada angka
-                    ->symbols(), // wajib ada simbol
+                'confirmed',
+                Password::min(8)
+                    ->letters()
+                    ->mixedCase()
+                    ->numbers()
+                    ->symbols(),
             ],
         ]);
 

@@ -100,4 +100,18 @@ class WalletController extends Controller
             return ResponseFormated::error(null, $e->getMessage(), 500);
         }
     }
+
+    public function chekValidPin(Request $request)
+    {
+        $data = $request->validate([
+            'pin' => ['required', 'min:6', 'numeric']
+        ]);
+
+        try {
+            $wallet = $this->service->validPin($data['pin']);
+            return ResponseFormated::success($wallet, 'Pin Sesuai');
+        } catch (\Exception $e) {
+            return ResponseFormated::error(null, $e->getMessage(), 500);
+        }
+    }
 }

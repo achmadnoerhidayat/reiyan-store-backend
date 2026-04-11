@@ -253,7 +253,7 @@ class ProdukService
         if (Str::contains($produk->code, ['ML'], true)) {
             $data['code'] = "mobile-legends";
         } elseif (Str::contains($produk->code, ['FFMAX'], true)) {
-            $data['code'] = "free-fire-max";
+            $data['code'] = "free-fire";
         } elseif (Str::contains($produk->code, ['FF'], true)) {
             $data['code'] = "free-fire";
         } elseif (Str::contains($produk->code, ['PUBG'], true)) {
@@ -318,7 +318,7 @@ class ProdukService
             return DB::transaction(function () use ($id, $data, $imageLogo, $imageBanner, &$logoPath, &$bannerPath) {
                 $produk = $this->produkRepo->findId($id);
 
-                if (!$id) {
+                if (!$produk) {
                     throw new \Exception("Produk dengan ID {$id} tidak ditemukan.");
                 }
 

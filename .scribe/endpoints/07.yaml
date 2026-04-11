@@ -1,24 +1,24 @@
-name: Banner
+name: 'Config Website'
 description: |-
 
-  API untuk mengelola Banner
+  API untuk mengelola Config Website
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: banner
+    uri: config
     metadata:
       custom: []
-      groupName: Banner
+      groupName: 'Config Website'
       groupDescription: |-
 
-        API untuk mengelola Banner
+        API untuk mengelola Config Website
       subgroup: ''
       subgroupDescription: ''
       title: |-
-        List Banner
-        Endpoint ini digunakan untuk mengambil semua data banner.
+        List Setting Website
+        Endpoint ini digunakan untuk mengambil semua data config yang aktif.
       description: 'Cocok digunakan di halaman admin.'
       authenticated: false
       deprecated: false
@@ -28,67 +28,19 @@ endpoints:
     urlParameters: []
     cleanUrlParameters: []
     queryParameters:
-      search:
+      id:
         custom: []
-        name: search
-        description: 'Mencari banner berdasarkan nama.'
+        name: id
+        description: 'Mencari config berdasarkan id.'
         required: false
-        example: Mobile
+        example: architecto
         type: string
         enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      starts_at:
-        custom: []
-        name: starts_at
-        description: 'date Mencari banner berdasarkan tanggal dimulai.'
-        required: false
-        example: '2026-02-15'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      ends_at:
-        custom: []
-        name: ends_at
-        description: 'date Mencari banner berdasarkan tanggal berakhir.'
-        required: false
-        example: '2026-02-30'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      is_active:
-        custom: []
-        name: is_active
-        description: 'Mencari banner berdasarkan status aktif.'
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      limit:
-        custom: []
-        name: limit
-        description: 'Batasi jumlah data yang tampil.'
-        required: false
-        example: 10
-        type: integer
-        enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanQueryParameters:
-      search: Mobile
-      starts_at: '2026-02-15'
-      ends_at: '2026-02-30'
-      is_active: true
-      limit: 10
+      id: architecto
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -96,12 +48,12 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"meta":{"code":200,"status":"success","message":"data banner berhasil ditampilkan"},"data":[{"id":2,"title":"Promo PUBG","image_url":"asset\/banner\/wjKqra9VbNHQ8xGEiWwC2HBoNV44jgzSpRXBSOz7.webp","link_url":"http:\/\/localhost:5173\/admin\/banner","is_active":true,"starts_at":"2026-02-20T00:00:00.000000Z","end_at":"2026-06-28T00:00:00.000000Z","created_at":"2026-02-17T13:24:43.000000Z","updated_at":"2026-02-24T14:03:41.000000Z"},{"id":1,"title":"Promo Mobile Legend","image_url":"asset\/banner\/1W1oTxNqfXfRZVnT4WrwKYiBl7kgTzoLztu5ubOU.webp","link_url":"http:\/\/localhost:5173\/admin\/banner","is_active":true,"starts_at":"2026-02-20T00:00:00.000000Z","end_at":"2026-06-26T00:00:00.000000Z","created_at":"2026-02-17T13:11:36.000000Z","updated_at":"2026-02-24T14:04:35.000000Z"}]}'
+        content: '{"meta":{"code":200,"status":"success","message":"data config berhasil ditampilkan"},"data":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6ImJBbjVDUFUzbnoxS3BMRmhqUEd2cGc9PSIsInZhbHVlIjoiTDNvNTVYcXdqV1didXl1MEE4a0xib0VkMGFSU0FEekVZVGVEMS82dGpLSUFCUTdRTFRDWndZc1dmLzFFOWcxa21Oc2IxUnkrQUs0ZDNtdTFsYitDVkpHWEV2MFNxMzFVS0JDd0s2OHh2V3Yyc24vZWtsY1N4WmFPU2VjVGdpR2YiLCJtYWMiOiJkMjczMjU5NmYzYmZkZTI5ZjJiNDg1NmM3NDBiMDg5YzljNzBjNzMzY2Y1Nzk3MDY5ZDJhOWU5MjUyNTkxYjc0IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IkRJVSsweDFPaU9hV24xK3VUNzhJZmc9PSIsInZhbHVlIjoiVFBnUzRjemVBc0lJRWExRWZTbkFHZWpiY3hXTnFOSS9rUXM0LzdpaldyVkVIU0liNWx6VHNGUEUva1I5TWVhdUFMOEJOZVNQby84YitsQUNhWFVJaURXeGVQZjErcGJhQ3JKZzJLYjVTNEdlZkZYNFpWTUxUUUl0d0huU1pndjkiLCJtYWMiOiI1NGNhZTQxZTE0Njc4ZTFmOWY2NzQzM2M0YmMwNTI1ZDM4MmY3YTlkMmQwNGQyOGMyOTM1NzZlN2MwMWUyYWEzIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6Im9XMUN4RENmK0hRYWJESWNzcnoxZmc9PSIsInZhbHVlIjoiekxFMFFVNGl2dUxHYVhTOERQcnBQQ1dSR2xIT2VxdkNYZXYxbzNMUk0wMk1HS2lVY3poODBPZEh5Z1Q1cGdhbnA4WWpsQUNGYzBYSDB4c0ViY0RGSDdwTVhsMVVYakFEM0NVVXFvWGVpTXBQYWpiNFcyWkZCVXltcm1EMisrNjkiLCJtYWMiOiJmODI3MTEwMjI2MWYyOTBiOWM4YjEzOWNiNTRjOTI1OTdhNDE3ZjM3YTYxNTAyNWFiNzlkYWVlOGM1ZDk4YTIxIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:27 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Ikhpay9NRXFXRER5ai9oNUVCVnB2MUE9PSIsInZhbHVlIjoiR084VGJaYVFELzREYVVCMWxqWTduY09kbzNMRWlLV1NpQ1VaYjM1N1VLS0J4Y2ZDRkp6Y21Db2xUODhuYWxSTlFZMjZQOXVTM25tN21JWHFURUdjaUlOZTdSWXYyRWxsSXEzV28yT21RNlFQRCtYdUFrL25VMjcxZ3l5aFJTdVIiLCJtYWMiOiIwY2QyZDU5OGM0N2MyNTNjOTU4MWRlNjBmZDhlNzdhYTZmY2IzNTg3Y2U3MjE2NWUyODI0ZDI4YWUyN2YyZWNmIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth: []
@@ -112,17 +64,17 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: banner
+    uri: config
     metadata:
       custom: []
-      groupName: Banner
+      groupName: 'Config Website'
       groupDescription: |-
 
-        API untuk mengelola Banner
+        API untuk mengelola Config Website
       subgroup: ''
       subgroupDescription: ''
-      title: 'Tambah Banner'
-      description: 'Endpoint ini digunakan untuk menambahkan Banner baru ke dalam sistem.'
+      title: 'Tambah Setting Website'
+      description: 'Endpoint ini digunakan untuk menambahkan config web baru ke dalam sistem.'
       authenticated: true
       deprecated: false
     headers:
@@ -137,7 +89,7 @@ endpoints:
       title:
         custom: []
         name: title
-        description: 'Title banner.'
+        description: 'Title config.'
         required: true
         example: 'Reiyan Store'
         type: string
@@ -145,10 +97,21 @@ endpoints:
         exampleWasSpecified: true
         nullable: false
         deprecated: false
-      image:
+      short_title:
         custom: []
-        name: image
-        description: 'Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB.'
+        name: short_title
+        description: 'Short Title config.'
+        required: true
+        example: 'Termurah & Terpercaya'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      favicon:
+        custom: []
+        name: favicon
+        description: 'Foto favicon config (PNG/JPG, max 2MB).'
         required: true
         example: null
         type: file
@@ -156,58 +119,35 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      link_url:
+      logo:
         custom: []
-        name: link_url
-        description: 'URL tujuan saat banner diklik.'
+        name: logo
+        description: 'Foto logo config (PNG/JPG, max 2MB).'
         required: true
-        example: 'https://reiyanstore.com/promo/ramadhan'
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      deskripsi:
+        custom: []
+        name: deskripsi
+        description: 'Deskripsi config.'
+        required: true
+        example: 'Website Topup Game Termurah & Terpercaya'
         type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      starts_at:
-        custom: []
-        name: starts_at
-        description: 'Tanggal mulai publikasi banner (ISO Format).'
-        required: true
-        example: '2026-03-01'
-        type: date
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      end_at:
-        custom: []
-        name: end_at
-        description: 'Tanggal berakhir publikasi. Harus setelah tanggal mulai.'
-        required: true
-        example: '2026-03-31'
-        type: date
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      is_active:
-        custom: []
-        name: is_active
-        description: 'Status aktif banner (1 untuk aktif, 0 untuk draft).'
-        required: true
-        example: true
-        type: boolean
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanBodyParameters:
       title: 'Reiyan Store'
-      link_url: 'https://reiyanstore.com/promo/ramadhan'
-      starts_at: '2026-03-01'
-      end_at: '2026-03-31'
-      is_active: true
+      short_title: 'Termurah & Terpercaya'
+      deskripsi: 'Website Topup Game Termurah & Terpercaya'
     fileParameters:
-      image: null
+      favicon: null
+      logo: null
     responses: []
     responseFields: []
     auth:
@@ -221,17 +161,17 @@ endpoints:
     custom: []
     httpMethods:
       - PUT
-    uri: 'banner/{id}'
+    uri: 'config/{id}'
     metadata:
       custom: []
-      groupName: Banner
+      groupName: 'Config Website'
       groupDescription: |-
 
-        API untuk mengelola Banner
+        API untuk mengelola Config Website
       subgroup: ''
       subgroupDescription: ''
-      title: 'Edit banner'
-      description: 'Endpoint ini digunakan untuk mengubah banner web ke dalam sistem.'
+      title: 'Edit config'
+      description: 'Endpoint ini digunakan untuk mengubah config web ke dalam sistem.'
       authenticated: true
       deprecated: false
     headers:
@@ -242,23 +182,23 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the banner.'
+        description: 'The ID of the config.'
         required: true
-        example: 1
-        type: integer
+        example: architecto
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 1
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       title:
         custom: []
         name: title
-        description: 'Title banner.'
+        description: 'Title config.'
         required: true
         example: 'Reiyan Store'
         type: string
@@ -266,69 +206,57 @@ endpoints:
         exampleWasSpecified: true
         nullable: false
         deprecated: false
-      image:
+      short_title:
         custom: []
-        name: image
-        description: 'Gambar banner. Must be an image (png, jpg, jpeg, webp), max 2048KB.'
+        name: short_title
+        description: 'Short Title config.'
         required: true
+        example: 'Termurah & Terpercaya'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      favicon:
+        custom: []
+        name: favicon
+        description: 'nullable Foto favicon config (PNG/JPG, max 2MB).'
+        required: false
         example: null
         type: file
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         deprecated: false
-      link_url:
+      logo:
         custom: []
-        name: link_url
-        description: 'URL tujuan saat banner diklik.'
+        name: logo
+        description: 'nullable Foto logo config (PNG/JPG, max 2MB).'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      deskripsi:
+        custom: []
+        name: deskripsi
+        description: 'Deskripsi config.'
         required: true
-        example: 'https://reiyanstore.com/promo/ramadhan'
+        example: 'Website Topup Game Termurah & Terpercaya'
         type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      starts_at:
-        custom: []
-        name: starts_at
-        description: 'Tanggal mulai publikasi banner (ISO Format).'
-        required: true
-        example: '2026-03-01'
-        type: date
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      end_at:
-        custom: []
-        name: end_at
-        description: 'Tanggal berakhir publikasi. Harus setelah tanggal mulai.'
-        required: true
-        example: '2026-03-31'
-        type: date
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      is_active:
-        custom: []
-        name: is_active
-        description: 'Status aktif banner (1 untuk aktif, 0 untuk draft).'
-        required: true
-        example: true
-        type: boolean
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanBodyParameters:
       title: 'Reiyan Store'
-      link_url: 'https://reiyanstore.com/promo/ramadhan'
-      starts_at: '2026-03-01'
-      end_at: '2026-03-31'
-      is_active: true
+      short_title: 'Termurah & Terpercaya'
+      deskripsi: 'Website Topup Game Termurah & Terpercaya'
     fileParameters:
-      image: null
+      favicon: null
+      logo: null
     responses: []
     responseFields: []
     auth:
@@ -342,17 +270,17 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'banner/{id}'
+    uri: 'config/{id}'
     metadata:
       custom: []
-      groupName: Banner
+      groupName: 'Config Website'
       groupDescription: |-
 
-        API untuk mengelola Banner
+        API untuk mengelola Config Website
       subgroup: ''
       subgroupDescription: ''
-      title: 'Hapus banner Web'
-      description: 'Endpoint ini digunakan untuk menghapus banner produk ke dalam sistem.'
+      title: 'Hapus config Web'
+      description: 'Endpoint ini digunakan untuk menghapus config produk ke dalam sistem.'
       authenticated: true
       deprecated: false
     headers:
@@ -363,16 +291,16 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the banner.'
+        description: 'The ID of the config.'
         required: true
-        example: 1
-        type: integer
+        example: architecto
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 1
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

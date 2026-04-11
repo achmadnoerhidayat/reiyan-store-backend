@@ -55,6 +55,26 @@ class TransactionService
         return $this->transRepo->firstId($id);
     }
 
+    public function firstRevenue($data)
+    {
+        return $this->transRepo->getRevenue($data);
+    }
+
+    public function firstSales($data)
+    {
+        return $this->transRepo->getSalesCount($data);
+    }
+
+    public function firstSpending()
+    {
+        return $this->transRepo->getSpending();
+    }
+
+    public function getRevenueStats($type)
+    {
+        return $this->transRepo->getRevenueStats($type);
+    }
+
     public function storeTrans($data)
     {
         return DB::transaction(function () use ($data) {
@@ -166,6 +186,10 @@ class TransactionService
 
                 if (!$wallet) {
                     throw new \Exception('data saldo user tidak ditemukan');
+                }
+
+                if ($wallet->is_frozen) {
+                    throw new \Exception('Akun Dibekukan Sementara');
                 }
 
                 $balance = $wallet->balance;

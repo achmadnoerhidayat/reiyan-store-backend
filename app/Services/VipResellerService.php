@@ -83,7 +83,7 @@ class VipResellerService
             'type' => 'get-nickname',
             'code' => $data['code'] ?? "",
             'target' => $data['user_id'] ?? "",
-            'additional_target' => $data['server_id'] ?? "",
+            'additional_target' => $data['server_id'] ?? $data['code'],
         ]);
 
         if ($response->status() === 200) {

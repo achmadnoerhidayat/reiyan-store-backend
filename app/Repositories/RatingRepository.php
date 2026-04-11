@@ -6,7 +6,7 @@ use App\Models\Rating;
 
 class RatingRepository
 {
-    public function getAll($data)
+    public function getAdmin($data)
     {
         return Rating::with('produk', 'user', 'transaksi', 'admin')->where(function ($q) use ($data) {
             if (!empty($data['produk_id'])) {
@@ -27,7 +27,28 @@ class RatingRepository
                     $t->where('order_id', 'like', "%{$search}%");
                 });
             }
-        })->where('is_publish', true)->latest()->paginate($data['limit']);
+        })->latest()->paginate($data['limit']);
+    }
+
+    public function getAll($data)
+    {
+        return Rating::with('produk', 'user', 'transaksi')->where(function ($q) use ($data) {
+            if (!empty($data['produk_id'])) {
+                $q->where('produk_id', $data['produk_id']);
+            }
+
+            if (!empty($data['user_id'])) {
+                $q->where('user_id', $data['user_id']);
+            }
+
+            if (!empty($data['search'])) {
+                $search = $data['search'];
+                $q->whereHas('transaksi', function ($t) use ($search) {
+                    $t->where('order_id', 'like', "%{$search}%");
+                });
+            }
+            $q->where('is_publish', true);
+        })->latest()->paginate($data['limit']);
     }
 
     public function findId($id)

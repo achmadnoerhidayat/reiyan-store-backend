@@ -21,17 +21,12 @@ class RatingService
 
     public function getAll($data)
     {
-        $user = request()->user();
-        return $this->ratingRepo->getAll([
-            'produk_id' => $data['produk_id'],
-            'user_id' => $user->id,
-            'limit' => $data['limit'],
-        ]);
+        return $this->ratingRepo->getAll($data);
     }
 
     public function getAdmin($data)
     {
-        return $this->ratingRepo->getAll($data);
+        return $this->ratingRepo->getAdmin($data);
     }
 
     public function findId($id)

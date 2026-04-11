@@ -1,24 +1,24 @@
-name: Voucher
+name: 'Seo Meta Tags'
 description: |-
 
-  API untuk mengelola Voucher
+  API untuk mengelola Seo Meta Tags
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: voucher
+    uri: seo
     metadata:
       custom: []
-      groupName: Voucher
+      groupName: 'Seo Meta Tags'
       groupDescription: |-
 
-        API untuk mengelola Voucher
+        API untuk mengelola Seo Meta Tags
       subgroup: ''
       subgroupDescription: ''
       title: |-
-        List Voucher
-        Endpoint ini digunakan untuk mengambil semua data Voucher.
+        List Seo Meta Tags
+        Endpoint ini digunakan untuk mengambil semua data Seo Meta Tags.
       description: 'Cocok digunakan di halaman pembelian produk.'
       authenticated: true
       deprecated: false
@@ -32,7 +32,7 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'Mencari Voucher berdasarkan id.'
+        description: 'Mencari Seo Meta Tags berdasarkan id.'
         required: false
         example: 16
         type: integer
@@ -43,7 +43,7 @@ endpoints:
       search:
         custom: []
         name: search
-        description: 'Mencari Voucher berdasarkan nama.'
+        description: 'Mencari Seo Meta Tags berdasarkan nama.'
         required: false
         example: Mobile
         type: string
@@ -51,35 +51,13 @@ endpoints:
         exampleWasSpecified: true
         nullable: false
         deprecated: false
-      start_at:
+      is_active:
         custom: []
-        name: start_at
-        description: 'date Mencari Voucher berdasarkan Tanggal Dimulai.'
+        name: is_active
+        description: 'Mencari Seo Meta Tags berdasarkan status aktif.'
         required: false
-        example: '2026-02-25'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      end_at:
-        custom: []
-        name: end_at
-        description: 'date Mencari Voucher berdasarkan Tanggal Berakhir.'
-        required: false
-        example: '2026-03-25'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      type:
-        custom: []
-        name: type
-        description: "enum Mencari Voucher berdasarkan Type ('percent', 'flat')."
-        required: false
-        example: percent
-        type: string
+        example: true
+        type: boolean
         enumValues: []
         exampleWasSpecified: true
         nullable: false
@@ -87,22 +65,20 @@ endpoints:
     cleanQueryParameters:
       id: 16
       search: Mobile
-      start_at: '2026-02-25'
-      end_at: '2026-03-25'
-      type: percent
+      is_active: true
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 200
+        content: '{"meta":{"code":200,"status":"success","message":"data Seo Meta Tags berhasil ditampilkan"},"data":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6InJXZzNEbEhKcHZYY2hISDRJZ3pTMHc9PSIsInZhbHVlIjoiZGd1dy9oc2JXUnlaVUxiY0p6cFpjUU5Ea1BrMCtIRkloQ214UGNlQUp5eUlSSG8rMzM4NDUxbFp6QmNWR0N6YnpWdTk0WHZtLzltVlU1eUFPRGsvOFlkaXpjWkMwZElzRVA3eUpZRnhISEY0UkhsR1NzVUlQeWtlQUlGWFZMeSsiLCJtYWMiOiI5YWFlNDY5NjBjYTljODFkOWM0MzI4YzUwMjhjYjQxMjUyYjBjYTE1YzI2ODgyZjM5N2U1NjMwZjcxY2MyMzNlIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlM3YzdWUW9EaE9iTE1Ja1MrQlZIT1E9PSIsInZhbHVlIjoiQ29WOGRobUlnbGxoM0xpNVFTbkNUNkJEcmNYNGErY0xyOExxdHBlcXh1YVZSZlNneU82U2ZXWDN5OXFId0hUNGFaT0ovUWxxZjM4L3ZtSEZtSllKWEovd3RlZk9mM3I1RlI1c2RpcE55blE0bVUvUVlqQkJrWW1DWVpNTTc3SmYiLCJtYWMiOiI0MmUzMDQ0ZDNhNTRjMjZiYjkxNWRiNmVlZWM4ZjU3NDYwNWQ0MDI4NzkzYjZjNDIxMGQ3OTdhMDIxNTA0OTA4IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IldmTndvTUFrOGNEb09kandySzlLN1E9PSIsInZhbHVlIjoiUm9LMFdvY1ZHeVlCWHJqY2RoOXRLSCtuaUI4UHlPMWJSSy9HMWtZb0hLK2hVN1Z6YUJXbUpCbHZxR1licWJQR3VKREFwbDFnM1ZiUFViWmF3RDYxSzZZY3p3RDZtODh0c2JxYVUrVFJ2eEVmQ2tVcGRpaDdySElXV00yY2xVRHUiLCJtYWMiOiI0MDAwNDFhZGYzNDE2NDE0OWVlYzRkYjNkZDE1OTczMTNkZGY1NGY1YmFhZDM4YjlmNTkxNzY3MmJjMDA3ZGE0IiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:28 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Ind6RDg0bnhhaU1aQk1PTWFlWndvbWc9PSIsInZhbHVlIjoiNWFDak4rVTNZdlRTSXFsdTlCOHhjcXlKZ1QrNVlSNGErWW5MZFB0SjBTTzYxalV4SHZrS1Yvb1NmVXo1OWplQXFnUFA0WXJHM0FHM05PRWo2cDExN2xjbjQyMVh5cHl2d2pOcURxRjlBelNYUHllUWZ4TVpUTVRvYnp4c3NIdk4iLCJtYWMiOiJkN2JhMWU4ZGY0YmQ3NzJkYjhiNjc3OTM5YTBmYmIxMGFkYjc3NjkwODcyMjBmNTE1ZjkxNGE0MTllZjk5MGQ1IiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:28 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth:
@@ -116,90 +92,17 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: 'voucher/check/{code}'
+    uri: seo
     metadata:
       custom: []
-      groupName: Voucher
+      groupName: 'Seo Meta Tags'
       groupDescription: |-
 
-        API untuk mengelola Voucher
+        API untuk mengelola Seo Meta Tags
       subgroup: ''
       subgroupDescription: ''
-      title: 'Cek Ketersedian Voucher'
-      description: 'Endpoint ini digunakan untuk Mengecek Ketersedian Voucher.'
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      code:
-        custom: []
-        name: code
-        description: ''
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      code: architecto
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      produk_id:
-        custom: []
-        name: produk_id
-        description: 'ID dari tabel products.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      service_id:
-        custom: []
-        name: service_id
-        description: 'The <code>id</code> of an existing record in the services table.'
-        required: true
-        example: 4326.41688
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      produk_id: 1
-      service_id: 4326.41688
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: voucher
-    metadata:
-      custom: []
-      groupName: Voucher
-      groupDescription: |-
-
-        API untuk mengelola Voucher
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Tambah Voucher'
-      description: 'Endpoint ini digunakan untuk menambahkan Voucher baru ke dalam sistem.'
+      title: 'Tambah Seo Meta Tags'
+      description: 'Endpoint ini digunakan untuk menambahkan Seo Meta Tags baru ke dalam sistem.'
       authenticated: true
       deprecated: false
     headers:
@@ -211,115 +114,31 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      produk_id:
+      meta_key:
         custom: []
-        name: produk_id
-        description: 'ID dari tabel products.'
+        name: meta_key
+        description: 'Meta Key (ex: og:description).'
         required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      code:
-        custom: []
-        name: code
-        description: 'Kode unik voucher (max 255 karakter).'
-        required: true
-        example: DISKONMERDEKA
+        example: 'og:description'
         type: string
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
-      type:
+      meta_value:
         custom: []
-        name: type
-        description: 'Tipe potongan harga. Must be one of: percent, flat.'
+        name: meta_value
+        description: 'Meta Value.'
         required: true
-        example: percent
+        example: 'Topup Game Terpercaya'
         type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      value:
-        custom: []
-        name: value
-        description: 'Nilai potongan (persentase atau nominal rupiah).'
-        required: true
-        example: 10.0
-        type: number
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      quota:
-        custom: []
-        name: quota
-        description: 'Jumlah total voucher yang tersedia.'
-        required: true
-        example: 100
-        type: integer
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      min_order:
-        custom: []
-        name: min_order
-        description: 'Minimal belanja untuk bisa menggunakan voucher ini.'
-        required: true
-        example: 50000.0
-        type: number
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      start_at:
-        custom: []
-        name: start_at
-        description: 'Tanggal mulai berlakunya voucher (YYYY-MM-DD).'
-        required: true
-        example: '2026-08-01'
-        type: date
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      end_at:
-        custom: []
-        name: end_at
-        description: 'Tanggal berakhirnya voucher (YYYY-MM-DD).'
-        required: true
-        example: '2026-08-17'
-        type: date
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      is_active:
-        custom: []
-        name: is_active
-        description: 'Status keaktifan voucher.'
-        required: true
-        example: true
-        type: boolean
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      produk_id: 1
-      code: DISKONMERDEKA
-      type: percent
-      value: 10.0
-      quota: 100
-      min_order: 50000.0
-      start_at: '2026-08-01'
-      end_at: '2026-08-17'
-      is_active: true
+      meta_key: 'og:description'
+      meta_value: 'Topup Game Terpercaya'
     fileParameters: []
     responses: []
     responseFields: []
@@ -334,17 +153,17 @@ endpoints:
     custom: []
     httpMethods:
       - PUT
-    uri: 'voucher/{id}'
+    uri: 'seo/{id}'
     metadata:
       custom: []
-      groupName: Voucher
+      groupName: 'Seo Meta Tags'
       groupDescription: |-
 
-        API untuk mengelola Voucher
+        API untuk mengelola Seo Meta Tags
       subgroup: ''
       subgroupDescription: ''
-      title: 'Edit Voucher'
-      description: 'Endpoint ini digunakan untuk mengubah Voucher ke dalam sistem.'
+      title: 'Edit Seo Meta Tags'
+      description: 'Endpoint ini digunakan untuk mengubah Seo Meta Tags web ke dalam sistem.'
       authenticated: true
       deprecated: false
     headers:
@@ -355,7 +174,7 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the voucher.'
+        description: 'The ID of the seo.'
         required: true
         example: architecto
         type: string
@@ -368,115 +187,31 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      produk_id:
+      meta_key:
         custom: []
-        name: produk_id
-        description: 'ID dari tabel products.'
+        name: meta_key
+        description: 'Meta Key (ex: og:description).'
         required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      code:
-        custom: []
-        name: code
-        description: 'Kode unik voucher (max 255 karakter).'
-        required: true
-        example: DISKONMERDEKA
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: true
-        deprecated: false
-      type:
-        custom: []
-        name: type
-        description: 'Tipe potongan harga. Must be one of: percent, flat.'
-        required: true
-        example: percent
+        example: 'og:description'
         type: string
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
-      value:
+      meta_value:
         custom: []
-        name: value
-        description: 'Nilai potongan (persentase atau nominal rupiah).'
+        name: meta_value
+        description: 'Meta Value.'
         required: true
-        example: 10.0
-        type: number
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      quota:
-        custom: []
-        name: quota
-        description: 'Jumlah total voucher yang tersedia.'
-        required: true
-        example: 100
-        type: integer
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      min_order:
-        custom: []
-        name: min_order
-        description: 'Minimal belanja untuk bisa menggunakan voucher ini.'
-        required: true
-        example: 50000.0
-        type: number
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      start_at:
-        custom: []
-        name: start_at
-        description: 'Tanggal mulai berlakunya voucher (YYYY-MM-DD).'
-        required: true
-        example: '2026-08-01'
-        type: date
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      end_at:
-        custom: []
-        name: end_at
-        description: 'Tanggal berakhirnya voucher (YYYY-MM-DD).'
-        required: true
-        example: '2026-08-17'
-        type: date
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        deprecated: false
-      is_active:
-        custom: []
-        name: is_active
-        description: 'Status keaktifan voucher.'
-        required: true
-        example: true
-        type: boolean
+        example: 'Topup Game Terpercaya'
+        type: string
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      produk_id: 1
-      code: DISKONMERDEKA
-      type: percent
-      value: 10.0
-      quota: 100
-      min_order: 50000.0
-      start_at: '2026-08-01'
-      end_at: '2026-08-17'
-      is_active: true
+      meta_key: 'og:description'
+      meta_value: 'Topup Game Terpercaya'
     fileParameters: []
     responses: []
     responseFields: []
@@ -491,17 +226,17 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'voucher/{id}'
+    uri: 'seo/{id}'
     metadata:
       custom: []
-      groupName: Voucher
+      groupName: 'Seo Meta Tags'
       groupDescription: |-
 
-        API untuk mengelola Voucher
+        API untuk mengelola Seo Meta Tags
       subgroup: ''
       subgroupDescription: ''
-      title: 'Hapus Voucher'
-      description: 'Endpoint ini digunakan untuk menghapus Voucher ke dalam sistem.'
+      title: 'Hapus Seo Meta Tags'
+      description: 'Endpoint ini digunakan untuk menghapus Seo Meta Tags produk ke dalam sistem.'
       authenticated: true
       deprecated: false
     headers:
@@ -512,7 +247,7 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the voucher.'
+        description: 'The ID of the seo.'
         required: true
         example: architecto
         type: string

@@ -1,4 +1,4 @@
-name: 'Member Level'
+name: User
 description: |-
 
   API untuk mengelola User / Pengguna
@@ -7,10 +7,10 @@ endpoints:
     custom: []
     httpMethods:
       - GET
-    uri: level
+    uri: user
     metadata:
       custom: []
-      groupName: 'Member Level'
+      groupName: User
       groupDescription: |-
 
         API untuk mengelola User / Pengguna
@@ -29,6 +29,17 @@ endpoints:
     urlParameters: []
     cleanUrlParameters: []
     queryParameters:
+      id:
+        custom: []
+        name: id
+        description: 'Mencari user berdasarkan id.'
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
       search:
         custom: []
         name: search
@@ -40,8 +51,21 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      limit:
+        custom: []
+        name: limit
+        description: 'Batasi jumlah data yang tampil.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
     cleanQueryParameters:
+      id: architecto
       search: architecto
+      limit: 16
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -54,7 +78,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IjhGUi92WFZMN1p6dlJwTE5FQnpBWUE9PSIsInZhbHVlIjoiL2ExcGdaemlxYTZhTkpSa0RhR0hUSXZNeitKRVhSM3FGYi8wZW5VVVVVRDJvZmNTWVUrMElVdm1Ya3FhVitJUTJQUThMT1ByK1dXWkVUdDRWbmpicXNHNXE1K3p0L3Mvd3dMTXRnNEFIZ3NGUlRqbFY1QmNkSkx0cVhWM0VTQUwiLCJtYWMiOiJlNzkzMGJhY2NhNzU4M2MzMzk5ZjYyYmI2MGE3MTEwNTQyZGE5M2ZhNzY1ZjU2ZmYzOGYxNDIwYTgzN2UxOTkzIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:41 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlM3YjJsL1Fad21GTUZoMnFFQ25SV3c9PSIsInZhbHVlIjoic05iaUFuV2loNUN4VWx0TDhzaGRFWlhYS0o0MGZOc2hDTlcvSXRHMGZsc2ZMTHJYNVc3NnlDd0tIbVlwNTRXcHFkSVhSUUJuS0htRWU5Z2h2WC9tR3Jvam9IQUVURExvN2t6QkZRL3F3ZWtyNVB0QVE4Qzd5QjdDT3J0WEd1MHciLCJtYWMiOiI5NDMxYTFlNTcwMGYxMGQxMDkzZmVlZTY3MjE1YWU5YmY2NjU2ZjI0MDQ1MmQ0YjI1ZTBlNmI0MTc2NzUzMDZiIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:41 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IkJZUUlsTUtEUDlPSlkwY0tWL1FjeVE9PSIsInZhbHVlIjoiakxVbnkySnVaNEhaTXNMWGRkS25zVnB0NEFqUWk4YU1LOURuM0N5cGtuSjJScGxVSGd2S0dhZlJ1cnVwVTFXajVNRDY4K2VOWFBvcUEzZ3F3ZUxraUMvV1FqSkpuSU9PNDF0cmdFeWplOTR5OGpQbU5kb2FOY2YxY2JmRllHMjgiLCJtYWMiOiI1MmRlZDkyNjQ0YjFlNTU0MWY5YzJkMjMzZDI3MzAwMTc4ZTFkMWNmZjIzOTMxOWQyNTdmYTM0N2FhMmQxMGU4IiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:26 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Imd0Ym1XZ3pteXkyZ0l2QmNZQjFFNXc9PSIsInZhbHVlIjoiUzhFQ1djZ2hHSklZNGdHbk5pcHNMNHloOWtOZkVDU0lyMUZVM0FHVWF2YW5xbDVnTU9ad2R0cDBoMHd2VEwzejVWTUg0ZXZ4d0t3eWJqcURRUC9JVGVrZ2lXeklPdSt3TzJEMFFGNDI2QzZUTWE2QnRucjJ5R0VDWDFuSUVRSDMiLCJtYWMiOiJmYjhmYzZkYWFiMjQ4ZjE2MGZkNmIxNTZjZDhlZTMyYjRlZjgwOTA3Zjc4ZjE1YWJiZjc1NzQ5MTA4ODE3Y2Y0IiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:26 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth:
@@ -67,18 +91,139 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - PUT
-    uri: 'level/{id}'
+      - POST
+    uri: user
     metadata:
       custom: []
-      groupName: 'Member Level'
+      groupName: User
       groupDescription: |-
 
         API untuk mengelola User / Pengguna
       subgroup: ''
       subgroupDescription: ''
-      title: 'Edit Member'
-      description: 'Endpoint ini digunakan untuk menambahkan Member baru ke dalam sistem Reiyan Store.'
+      title: 'Tambah User'
+      description: 'Endpoint ini digunakan untuk menambahkan User baru ke dalam sistem Reiyan Store.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      member_id:
+        custom: []
+        name: member_id
+        description: 'The <code>id</code> of an existing record in the member_levels table.'
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      role_id:
+        custom: []
+        name: role_id
+        description: 'ID Roles.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      full_name:
+        custom: []
+        name: full_name
+        description: 'Full Name.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      user_name:
+        custom: []
+        name: user_name
+        description: 'User Name.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      phone:
+        custom: []
+        name: phone
+        description: 'No HP.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      email:
+        custom: []
+        name: email
+        description: Email.
+        required: true
+        example: gbailey@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      password:
+        custom: []
+        name: password
+        description: Password.
+        required: true
+        example: '|]|{+-'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      member_id: 4326.41688
+      role_id: 16
+      full_name: architecto
+      user_name: architecto
+      phone: architecto
+      email: gbailey@example.net
+      password: '|]|{+-'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'user/{id}'
+    metadata:
+      custom: []
+      groupName: User
+      groupDescription: |-
+
+        API untuk mengelola User / Pengguna
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Edit User'
+      description: 'Endpoint ini digunakan untuk menambahkan User baru ke dalam sistem Reiyan Store.'
       authenticated: true
       deprecated: false
     headers:
@@ -89,7 +234,7 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the level.'
+        description: 'The ID of the user.'
         required: true
         example: architecto
         type: string
@@ -102,10 +247,32 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
+      member_id:
         custom: []
-        name: name
-        description: Name.
+        name: member_id
+        description: 'The <code>id</code> of an existing record in the member_levels table.'
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      role_id:
+        custom: []
+        name: role_id
+        description: 'ID Roles.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      full_name:
+        custom: []
+        name: full_name
+        description: 'Full Name.'
         required: true
         example: architecto
         type: string
@@ -113,10 +280,10 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      markup_type:
+      user_name:
         custom: []
-        name: markup_type
-        description: 'markup Type.'
+        name: user_name
+        description: 'User Name.'
         required: true
         example: architecto
         type: string
@@ -124,10 +291,10 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      markup_value:
+      phone:
         custom: []
-        name: markup_value
-        description: 'Markup Value.'
+        name: phone
+        description: 'No HP.'
         required: true
         example: architecto
         type: string
@@ -135,22 +302,85 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      min_threshold:
+      email:
         custom: []
-        name: min_threshold
-        description: 'Min Order.'
+        name: email
+        description: Email.
         required: true
-        example: architecto
+        example: gbailey@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
+        deprecated: false
+      password:
+        custom: []
+        name: password
+        description: 'nullable Password.'
+        required: false
+        example: '|]|{+-'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
         deprecated: false
     cleanBodyParameters:
-      name: architecto
-      markup_type: architecto
-      markup_value: architecto
-      min_threshold: architecto
+      member_id: 4326.41688
+      role_id: 16
+      full_name: architecto
+      user_name: architecto
+      phone: architecto
+      email: gbailey@example.net
+      password: '|]|{+-'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'user/{id}'
+    metadata:
+      custom: []
+      groupName: User
+      groupDescription: |-
+
+        API untuk mengelola User / Pengguna
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete User'
+      description: 'Endpoint ini digunakan untuk menambahkan User baru ke dalam sistem Reiyan Store.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses: []
     responseFields: []

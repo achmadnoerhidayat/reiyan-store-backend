@@ -1,25 +1,185 @@
-name: User
+name: Autentikasi
 description: |-
 
-  API untuk mengelola User / Pengguna
+  API untuk mengelola login dan logout user Reiyan Store
 endpoints:
   -
     custom: []
     httpMethods:
-      - GET
-    uri: user
+      - POST
+    uri: auth/register
     metadata:
       custom: []
-      groupName: User
+      groupName: Autentikasi
       groupDescription: |-
 
-        API untuk mengelola User / Pengguna
+        API untuk mengelola login dan logout user Reiyan Store
       subgroup: ''
       subgroupDescription: ''
-      title: |-
-        List User
-        Endpoint ini digunakan untuk mengambil semua data User.
-      description: ''
+      title: 'Register User'
+      description: 'Endpoint ini digunakan untuk register akun reiyan store.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      full_name:
+        custom: []
+        name: full_name
+        description: 'Full Name.'
+        required: true
+        example: 'Bambang Pamungkas'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      user_name:
+        custom: []
+        name: user_name
+        description: 'User Name.'
+        required: true
+        example: Bambang
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      phone:
+        custom: []
+        name: phone
+        description: 'User Name.'
+        required: true
+        example: '081227415987'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      email:
+        custom: []
+        name: email
+        description: 'Email user.'
+        required: true
+        example: bambang@gmail.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      password:
+        custom: []
+        name: password
+        description: 'Password user.'
+        required: true
+        example: aP1W5B0>YC4I
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      password_confirmation:
+        custom: []
+        name: password_confirmation
+        description: 'Password user.'
+        required: true
+        example: aP1W5B0>YC4I
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      full_name: 'Bambang Pamungkas'
+      user_name: Bambang
+      phone: '081227415987'
+      email: bambang@gmail.com
+      password: aP1W5B0>YC4I
+      password_confirmation: aP1W5B0>YC4I
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: auth/login
+    metadata:
+      custom: []
+      groupName: Autentikasi
+      groupDescription: |-
+
+        API untuk mengelola login dan logout user Reiyan Store
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Login User'
+      description: 'Endpoint ini digunakan untuk mendapatkan token akses.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        custom: []
+        name: email
+        description: 'Email user.'
+        required: true
+        example: bambang@gmail.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      password:
+        custom: []
+        name: password
+        description: 'Password user.'
+        required: true
+        example: aP1W5B0>YC4I
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      email: bambang@gmail.com
+      password: aP1W5B0>YC4I
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: auth/refresh
+    metadata:
+      custom: []
+      groupName: Autentikasi
+      groupDescription: |-
+
+        API untuk mengelola login dan logout user Reiyan Store
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Refresh Token'
+      description: 'Tukar token lama dengan token baru agar masa berlaku (expiration) diperpanjang.'
       authenticated: true
       deprecated: false
     headers:
@@ -28,44 +188,56 @@ endpoints:
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters:
-      id:
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      refresh_token:
         custom: []
-        name: id
-        description: 'Mencari user berdasarkan id.'
-        required: false
+        name: refresh_token
+        description: ''
+        required: true
         example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      search:
-        custom: []
-        name: search
-        description: 'Mencari user berdasarkan nama.'
-        required: false
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      limit:
-        custom: []
-        name: limit
-        description: 'Batasi jumlah data yang tampil.'
-        required: false
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanQueryParameters:
-      id: architecto
-      search: architecto
-      limit: 16
+    cleanBodyParameters:
+      refresh_token: architecto
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: log
+    metadata:
+      custom: []
+      groupName: Autentikasi
+      groupDescription: |-
+
+        API untuk mengelola login dan logout user Reiyan Store
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Log Sistem'
+      description: 'Endpoint ini digunakan untuk memantau list Log Sistem.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -78,292 +250,10 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6ImJnaTRsM1J2SUlIbHBpeGpUVWlpekE9PSIsInZhbHVlIjoiZ2dOd2tpUWxCR3FrUndoTWUzUGhmd0xIc1ppTUNwSXZGaUlFQWZJM1FVQnlBYTJLSEFwVDNZOVp5dzJDM2dtZDI3S2I1UytQN3VWV25wUlcwRSt0TDZXb0MvK1d1SC83QkRaeGVwd05GdURyekt2MW9vK1ZGaUo2T09TZ1ZIQVkiLCJtYWMiOiJiZGM3YTU1NDYyMzM1MmViMTYzYTJkNTQ4YjU2ODY4YjI4OTdiMTU2ZGFmM2VmYzUwMjdjNjE4NWY2MTZiMzU3IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:41 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IktNaGJDZFpIV1l5UHA3eWg0QUVmc2c9PSIsInZhbHVlIjoiM0lJbm52cVRmMFdlZU5oazVUeXQ3Ynl6cHk4RWlhM1Y0Yk1CcTZyVytRd1o1eklmZDNyWk9xYWtDci9ibHhXOGJ5V2h0Mi9BeXRZeEhjay91aTQ1MzRTZGc5azNRY3VjdDJFQ0NmdE9lS3hRZnVQZEd0USt6ODZEZVpZekVjODciLCJtYWMiOiJmNWMyZTI1MDI2YzFkZGIyM2Y5Y2ZhMTQ0ODRiYTFhNjNmZmVkM2E0N2M4MzY5Yzc3ZTU4MmRlMzgyZmNlNDM1IiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:41 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6Ik4yRkdxYzViOUM2bWlaTCt3UTVWNUE9PSIsInZhbHVlIjoiTXlYT0tSYlNUNm1mcHpiNkZBbXlyYm5Ld21JQ3VyS2duZUpLb3M4OVo5NythOWRyMVlKVTNob01JZFViOHV0b2lQZWtvSkVQSzQrb2lLMHJzSml2ZGVBc3hyVFJaRVpLbWxLVG5qWWhkRStNVkZtVlAwWUJ3ZnlwQy9OMTNWNjIiLCJtYWMiOiJlYmU0MTJlMDljNGQ4ZWE4MjU5Mjk4ZjA3MmExYjYzOWViMjgyNzhjOWQxYzBhODZjYWUwNzEzYTBkZDI2YjVmIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:25 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6InVqdlJaeFVCOWtIdjJRdlNSZVFobmc9PSIsInZhbHVlIjoiQ1M0dUFuQWJiektlTzJ3TWxWV3EzVDF4UFI5VTRnazhSaG9QMTJJbDlyL0w2a2tQZFY0Zk5pN01sTjRlaGVmcXNPbzBlRFR4L0ZtaGNjMm41cWxhZkppTUdXRzdGcm4rb3puWi9kOEpmTHJ6cWlGaXh2M3F3b0Y4U2dPOU1wYnMiLCJtYWMiOiIwZTc3NjkxMGUwNWYyODhkYjZmYjJhNDAzN2UwNjM4MGZmYjcwYzZkYzE3MGM1MTg4N2FjNzMwMGY0NzQ3YjRkIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:25 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: user
-    metadata:
-      custom: []
-      groupName: User
-      groupDescription: |-
-
-        API untuk mengelola User / Pengguna
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Tambah User'
-      description: 'Endpoint ini digunakan untuk menambahkan User baru ke dalam sistem Reiyan Store.'
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      role_id:
-        custom: []
-        name: role_id
-        description: 'ID Roles.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      full_name:
-        custom: []
-        name: full_name
-        description: 'Full Name.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      user_name:
-        custom: []
-        name: user_name
-        description: 'User Name.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      phone:
-        custom: []
-        name: phone
-        description: 'No HP.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      email:
-        custom: []
-        name: email
-        description: Email.
-        required: true
-        example: gbailey@example.net
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      password:
-        custom: []
-        name: password
-        description: Password.
-        required: true
-        example: '|]|{+-'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      role_id: 16
-      full_name: architecto
-      user_name: architecto
-      phone: architecto
-      email: gbailey@example.net
-      password: '|]|{+-'
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PUT
-    uri: 'user/{id}'
-    metadata:
-      custom: []
-      groupName: User
-      groupDescription: |-
-
-        API untuk mengelola User / Pengguna
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Edit User'
-      description: 'Endpoint ini digunakan untuk menambahkan User baru ke dalam sistem Reiyan Store.'
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        custom: []
-        name: id
-        description: 'The ID of the user.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      id: architecto
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      role_id:
-        custom: []
-        name: role_id
-        description: 'ID Roles.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      full_name:
-        custom: []
-        name: full_name
-        description: 'Full Name.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      user_name:
-        custom: []
-        name: user_name
-        description: 'User Name.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      phone:
-        custom: []
-        name: phone
-        description: 'No HP.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      email:
-        custom: []
-        name: email
-        description: Email.
-        required: true
-        example: gbailey@example.net
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      password:
-        custom: []
-        name: password
-        description: 'nullable Password.'
-        required: false
-        example: '|]|{+-'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-    cleanBodyParameters:
-      role_id: 16
-      full_name: architecto
-      user_name: architecto
-      phone: architecto
-      email: gbailey@example.net
-      password: '|]|{+-'
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - DELETE
-    uri: 'user/{id}'
-    metadata:
-      custom: []
-      groupName: User
-      groupDescription: |-
-
-        API untuk mengelola User / Pengguna
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Delete User'
-      description: 'Endpoint ini digunakan untuk menambahkan User baru ke dalam sistem Reiyan Store.'
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        custom: []
-        name: id
-        description: 'The ID of the user.'
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      id: architecto
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    auth: []
     controller: null
     method: null
     route: null

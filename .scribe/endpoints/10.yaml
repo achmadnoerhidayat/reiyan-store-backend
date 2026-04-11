@@ -1,29 +1,28 @@
-name: 'Seo Meta Tags'
+name: 'Social Media'
 description: |-
 
-  API untuk mengelola Seo Meta Tags
+  API untuk mengelola Social Media
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: seo
+    uri: social-media
     metadata:
       custom: []
-      groupName: 'Seo Meta Tags'
+      groupName: 'Social Media'
       groupDescription: |-
 
-        API untuk mengelola Seo Meta Tags
+        API untuk mengelola Social Media
       subgroup: ''
       subgroupDescription: ''
       title: |-
-        List Seo Meta Tags
-        Endpoint ini digunakan untuk mengambil semua data Seo Meta Tags.
+        List Social Media
+        Endpoint ini digunakan untuk mengambil semua data Social Media.
       description: 'Cocok digunakan di halaman pembelian produk.'
-      authenticated: true
+      authenticated: false
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -32,7 +31,7 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'Mencari Seo Meta Tags berdasarkan id.'
+        description: 'Mencari Social Media berdasarkan id.'
         required: false
         example: 16
         type: integer
@@ -43,7 +42,7 @@ endpoints:
       search:
         custom: []
         name: search
-        description: 'Mencari Seo Meta Tags berdasarkan nama.'
+        description: 'Mencari Social Media berdasarkan nama.'
         required: false
         example: Mobile
         type: string
@@ -54,7 +53,7 @@ endpoints:
       is_active:
         custom: []
         name: is_active
-        description: 'Mencari Seo Meta Tags berdasarkan status aktif.'
+        description: 'Mencari Social Media berdasarkan status aktif.'
         required: false
         example: true
         type: boolean
@@ -73,18 +72,15 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"meta":{"code":200,"status":"success","message":"data Seo Meta Tags berhasil ditampilkan"},"data":null}'
+        content: '{"meta":{"code":200,"status":"success","message":"data Social Media berhasil ditampilkan"},"data":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6InBlZHBiM21xMkUvNWhyVmxLbFpraUE9PSIsInZhbHVlIjoiMVQ1NjJwTDhoSmFUbng1WEc0TUNQQTlYVEhMUGZEQjFhcHVHTUYyb0Z3M3Q3MkdwTTV2ek5GdCsxcGVNN3VWTWMrQm1KRXVuSUp1VnRacGtOZ2w1TExXdlFpQmcxVm9rSW1PTVpUVWg1YllaeVZRSFY5U2ZqaS9pOGpvdnpRRXIiLCJtYWMiOiJmMTRiMWNkOWRiZGNmYmUyNWE1ODBlOWI1OTA3ODYwMGNiMmY3NDQ4NDgxNzM3Y2FlZGNhNzkzMjM1YjYwMzNlIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Imp5eGJoSmtpcGV2UGdrNThsaFE1cVE9PSIsInZhbHVlIjoiK0pYYmplVVkxVlRyUi9LWFdtMkp3MWx3SFZFREJ4UFc1UzlzamkrSWJTMmNNeUpTM0pwZTdQYWV0alQwVVlLZ1hGNHpkbHNmTmpjK041NmJYakdsbjJEdWFvMjl5Q01hOEpmNER5a1FEalllVXZ0ak0xK1FsOVZDU2VaclBHa1UiLCJtYWMiOiIyYjNiYzllNGY0N2JmYWY4NGJjM2UzZTY3ODVjMjE3NTM5OTVhMDgzNmY2N2Q4ZjQyMmExZTUwYzYxM2I5ZjRlIiwidGFnIjoiIn0%3D; expires=Thu, 26 Feb 2026 13:13:43 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IkdtbVVManBoTWRDSnZpTmduUmpnRFE9PSIsInZhbHVlIjoiZm0xMGRCTmNFY3RPaDJFMGJJT1REdW0vcUZ1TTBjR09CUVo2N2Z1NnJXV3RGVmRZbFhlWi8yMXNTdGU3UlFFSnh6dUJac29LVWhTeHAyVlhmcis5WVc2dU41YzcwREtDSDIvYmNmSlpUTmtrcmRSQU5PcE1vajBZTzdqTFBzS1YiLCJtYWMiOiIzMmQ1ZWNkNDY2OTgxZjYwM2RlYTU0ZDE2YWExYWNiNzNkN2NjMTQ0ZGMxNDViZTQzZmM2M2Q0YWUxM2Q3OGQ5IiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:27 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6Ik1KUkIvVmpoVzBnOEN1SEp4TW5DM0E9PSIsInZhbHVlIjoiRFZYWUpIWkdFUG9oY3I4aU1KV2pCYnIxays5aCtuYmpKRjNEVGxLcFhJWVljZWwvbnFTb3BYamJPdmxnY3FNa2Jyd1dkL3A3dDI4cmk5Z1ZlYnRBYVgxYlF6SCtLTS9ubXEyaUZzajZES2h6eldtOXdleVd2RWprYkR2aGthTHAiLCJtYWMiOiJkMzI2YTFiZDM0Y2JiOWM3MGFkYWU5NzRlODAwNDEyZDI4Yzk1YjNkZmFmYjY5N2Y1M2I3NDJkODliNjM1MDE1IiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    auth: []
     controller: null
     method: null
     route: null
@@ -92,54 +88,78 @@ endpoints:
     custom: []
     httpMethods:
       - POST
-    uri: seo
+    uri: social-media
     metadata:
       custom: []
-      groupName: 'Seo Meta Tags'
+      groupName: 'Social Media'
       groupDescription: |-
 
-        API untuk mengelola Seo Meta Tags
+        API untuk mengelola Social Media
       subgroup: ''
       subgroupDescription: ''
-      title: 'Tambah Seo Meta Tags'
-      description: 'Endpoint ini digunakan untuk menambahkan Seo Meta Tags baru ke dalam sistem.'
+      title: 'Tambah Social Media'
+      description: 'Endpoint ini digunakan untuk menambahkan Social Media baru ke dalam sistem.'
       authenticated: true
       deprecated: false
     headers:
       Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      meta_key:
+      platform:
         custom: []
-        name: meta_key
-        description: 'Meta Key (ex: og:description).'
+        name: platform
+        description: 'Platform (ex: Instagram).'
         required: true
-        example: 'og:description'
+        example: Instagram
         type: string
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
-      meta_value:
+      url:
         custom: []
-        name: meta_value
-        description: 'Meta Value.'
+        name: url
+        description: 'Url Profil.'
         required: true
-        example: 'Topup Game Terpercaya'
+        example: 'https://ig.com/profil'
         type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      icon:
+        custom: []
+        name: icon
+        description: 'Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp).'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: 'Status aktif (1 atau 0).'
+        required: true
+        example: true
+        type: boolean
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      meta_key: 'og:description'
-      meta_value: 'Topup Game Terpercaya'
-    fileParameters: []
+      platform: Instagram
+      url: 'https://ig.com/profil'
+      is_active: true
+    fileParameters:
+      icon: null
     responses: []
     responseFields: []
     auth:
@@ -153,28 +173,28 @@ endpoints:
     custom: []
     httpMethods:
       - PUT
-    uri: 'seo/{id}'
+    uri: 'social-media/{id}'
     metadata:
       custom: []
-      groupName: 'Seo Meta Tags'
+      groupName: 'Social Media'
       groupDescription: |-
 
-        API untuk mengelola Seo Meta Tags
+        API untuk mengelola Social Media
       subgroup: ''
       subgroupDescription: ''
-      title: 'Edit Seo Meta Tags'
-      description: 'Endpoint ini digunakan untuk mengubah Seo Meta Tags web ke dalam sistem.'
+      title: 'Edit Social Media'
+      description: 'Endpoint ini digunakan untuk mengubah Social Media web ke dalam sistem.'
       authenticated: true
       deprecated: false
     headers:
       Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       id:
         custom: []
         name: id
-        description: 'The ID of the seo.'
+        description: 'The ID of the social medium.'
         required: true
         example: architecto
         type: string
@@ -187,32 +207,56 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      meta_key:
+      platform:
         custom: []
-        name: meta_key
-        description: 'Meta Key (ex: og:description).'
+        name: platform
+        description: 'Platform (ex: Instagram).'
         required: true
-        example: 'og:description'
+        example: Instagram
         type: string
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
-      meta_value:
+      url:
         custom: []
-        name: meta_value
-        description: 'Meta Value.'
+        name: url
+        description: 'Url Profil.'
         required: true
-        example: 'Topup Game Terpercaya'
+        example: 'https://ig.com/profil'
         type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      icon:
+        custom: []
+        name: icon
+        description: 'Logo gateway (Max: 2MB, Format: png,jpg,jpeg,webp).'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      is_active:
+        custom: []
+        name: is_active
+        description: 'Status aktif (1 atau 0).'
+        required: true
+        example: true
+        type: boolean
         enumValues: []
         exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      meta_key: 'og:description'
-      meta_value: 'Topup Game Terpercaya'
-    fileParameters: []
+      platform: Instagram
+      url: 'https://ig.com/profil'
+      is_active: true
+    fileParameters:
+      icon: null
     responses: []
     responseFields: []
     auth:
@@ -226,17 +270,17 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'seo/{id}'
+    uri: 'social-media/{id}'
     metadata:
       custom: []
-      groupName: 'Seo Meta Tags'
+      groupName: 'Social Media'
       groupDescription: |-
 
-        API untuk mengelola Seo Meta Tags
+        API untuk mengelola Social Media
       subgroup: ''
       subgroupDescription: ''
-      title: 'Hapus Seo Meta Tags'
-      description: 'Endpoint ini digunakan untuk menghapus Seo Meta Tags produk ke dalam sistem.'
+      title: 'Hapus Social Media'
+      description: 'Endpoint ini digunakan untuk menghapus Social Media produk ke dalam sistem.'
       authenticated: true
       deprecated: false
     headers:
@@ -247,7 +291,7 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the seo.'
+        description: 'The ID of the social medium.'
         required: true
         example: architecto
         type: string

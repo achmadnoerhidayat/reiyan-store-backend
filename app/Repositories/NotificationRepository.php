@@ -15,6 +15,9 @@ class NotificationRepository
             if (!empty($data['is_read'])) {
                 $q->where('is_read', $data['is_read']);
             }
+            if (!empty($data['user_id'])) {
+                $q->where('user_id', $data['user_id']);
+            }
         })->latest()->paginate($data['limit']);
     }
 
