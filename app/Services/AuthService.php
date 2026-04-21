@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\ValidationException;
 use Laravel\Sanctum\PersonalAccessToken;
 
@@ -49,6 +50,10 @@ class AuthService
     public function register(array $data)
     {
         return DB::transaction(function () use ($data) {
+            $outcome = $this->validateTokenTrustile($data['token']);
+            if (!$outcome['success']) {
+                throw new \Exception('Captcha tidak valid atau sudah kedaluwarsa');
+            }
             $data['password'] = Hash::make($data['password']);
             $data['member_id'] = 1;
             $register = $this->userRepo->store($data);
@@ -69,6 +74,10 @@ class AuthService
 
     public function login(array $data)
     {
+        $outcome = $this->validateTokenTrustile($data['token']);
+        if (!$outcome['success']) {
+            throw new \Exception('Captcha tidak valid atau sudah kedaluwarsa');
+        }
         $user = $this->userRepo->getUserByEmail($data['email']);
         if (! $user || ! Hash::check($data['password'], $user->password)) {
 
@@ -158,5 +167,16 @@ class AuthService
             $user->delete();
             return $user;
         });
+    }
+
+    private function validateTokenTrustile($token)
+    {
+        $response = Http::asForm()->post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
+            'secret' => env('TURNSTILE_SECRET_KEY'),
+            'response' => $token,
+            'remoteip' => request()->ip(),
+        ]);
+
+        return $response->json();
     }
 }

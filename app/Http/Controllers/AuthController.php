@@ -30,6 +30,7 @@ class AuthController extends Controller
     public function register(Request $request, AuthService $service)
     {
         $data = $request->validate([
+            'token' => ['required', 'string'],
             'full_name' => ['required', 'string', 'max:255'],
             'user_name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'numeric', 'min:9'],
@@ -65,6 +66,7 @@ class AuthController extends Controller
     public function login(Request $request, AuthService $service)
     {
         $data = $request->validate([
+            'token' => ['required', 'string'],
             'email' => ['required', 'email'],
             'password' => ['required']
         ]);

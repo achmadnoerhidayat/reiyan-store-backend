@@ -34,6 +34,29 @@ class VipResellerService
         });
     }
 
+    public function getPricePrepaid(Provider $provider)
+    {
+        return Cache::remember($this->cacheKey . '_prepaid', now()->addDays(1), function () use ($provider) {
+            $config = $this->getPayload($provider);
+            $username = $config->username ?? '';
+            $apiKey = $config->api_key ?? '';
+            $sign = md5($username . $apiKey);
+
+            // Kirim request pake HTTP Client Laravel
+            $response = Http::asForm()->post("{$config->url}prepaid", [
+                'key' => $apiKey,
+                'sign' => $sign,
+                'type' => 'services'
+            ]);
+
+            if ($response->status() === 200) {
+                $results = $response->json();
+                return $results['data'] ?? [];
+            }
+            return [];
+        });
+    }
+
     public function getStokGame(Provider $provider, $code)
     {
         $config = $this->getPayload($provider);

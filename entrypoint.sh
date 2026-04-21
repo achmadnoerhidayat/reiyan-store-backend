@@ -1,31 +1,29 @@
 #!/bin/bash
 set -e
 
-if [ ! -f "composer.json" ]; then
-    echo "--- FOLDER PROYEK: Sedang menginstall Laravel... ---"
-
-    export COMPOSER_PROCESS_TIMEOUT=3600
-    # 1. Install ke folder sementara 'temp_laravel'
-    composer create-project laravel/laravel temp_laravel --prefer-dist --no-progress
-
-    # 2. Pindahkan isinya ke folder utama (termasuk file hidden seperti .env)
-    cp -rn temp_laravel/. .
-
-    # 3. Hapus folder sementara
-    rm -rf temp_laravel
-
-    # 4. Atur permission
-    chown -R www-data:www-data storage bootstrap/cache
-    chmod -R 775 storage bootstrap/cache
-
-    echo "--- SELESAI: Laravel sudah berhasil dipasang! ---"
+if [ "$APP_ENV" = "production" ]; then
+    echo "--- MODE PRODUKSI: Menjalankan optimasi Laravel... ---"
+    php artisan config:cache
+    php artisan route:cache
+    php artisan view:cache
+    php artisan migrate --force
 else
-    echo "--- PROYEK DITEMUKAN: Menyiapkan dependensi... ---"
-
-    # Cek apakah folder vendor ada, kalau tidak ada baru install
-    if [ ! -d "vendor" ]; then
-        composer install --no-interaction --optimize-autoloader
+    if [ ! -f "composer.json" ]; then
+        echo "--- FOLDER PROYEK KOSONG: Sedang menginstall Laravel... ---"
+        composer create-project laravel/laravel temp_laravel --prefer-dist --no-progress
+        cp -rn temp_laravel/. .
+        rm -rf temp_laravel
+    else
+        echo "--- PROYEK DITEMUKAN: Menyiapkan dependensi... ---"
+        if [ ! -d "vendor" ]; then
+            composer install --no-interaction --optimize-autoloader
+        fi
     fi
 fi
-echo "--- READY: Menjalankan command utama... ---"
+
+# Atur permission (Wajib di kedua environment)
+chown -R www-data:www-data storage bootstrap/cache
+chmod -R 775 storage bootstrap/cache
+
+echo "--- READY: Menjalankan command utama ($@) ---"
 exec "$@"

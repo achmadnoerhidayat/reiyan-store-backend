@@ -61,8 +61,8 @@ class BannerService
                     throw new \Exception('data Banner tidak ditemukan');
                 }
                 if ($image) {
-                    if ($banner->image) {
-                        Storage::disk('public')->delete($banner->image);
+                    if ($banner->image_url) {
+                        Storage::disk('public')->delete($banner->image_url);
                     }
                     $imagePath = UploadImage::upload($image, 'asset/banner');
                     $data['image_url'] = $imagePath;

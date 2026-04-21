@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\KategoriController;
@@ -78,6 +79,7 @@ Route::group(['prefix' => 'produk'], function () {
                 Route::post('/layanan/{id}', [ProdukController::class, 'updateLayanan']);
                 Route::put('/{id}', [ProdukController::class, 'update']);
                 Route::delete('/{id}', [ProdukController::class, 'delete']);
+                Route::delete('/layanan{id}', [ProdukController::class, 'deleteLayanan']);
             });
         });
     });
@@ -208,5 +210,14 @@ Route::group(['prefix' => 'site-conten'], function () {
         Route::post('/', [SiteContentController::class, 'store']);
         Route::put('/{id}', [SiteContentController::class, 'update']);
         Route::delete('/{id}', [SiteContentController::class, 'delete']);
+    });
+});
+
+Route::group(['prefix' => 'contact-us'], function () {
+    Route::get('/', [ContactUsController::class, 'index']);
+    Route::post('/', [ContactUsController::class, 'store']);
+    Route::group(['middleware' => ['auth:sanctum', 'role:administrator,super_admin', 'throttle:10,1']], function () {
+        Route::put('/{id}', [ContactUsController::class, 'update']);
+        Route::delete('/{id}', [ContactUsController::class, 'delete']);
     });
 });

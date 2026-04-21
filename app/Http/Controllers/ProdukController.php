@@ -225,6 +225,24 @@ class ProdukController extends Controller
     }
 
     /**
+     * Hapus Layanan
+     *
+     * Endpoint ini digunakan untuk menghapus Layanan ke dalam sistem.
+     *
+     * @authenticated
+     */
+
+    public function deleteLayanan(ProdukService $service, $id)
+    {
+        try {
+            $produk = $service->deleteLayanan($id);
+            return ResponseFormated::success($produk, 'data layanan produk berhasil dihapus');
+        } catch (\Exception $e) {
+            return ResponseFormated::error(null, $e->getMessage(), 500);
+        }
+    }
+
+    /**
      * Cek Validasi ID Game
      * Endpoint ini digunakan untuk memvalidasi user ID dan server ID sebelum melakukan transaksi.
      * Aturan validasi (required/nullable) akan berubah secara dinamis tergantung pada pengaturan produk:

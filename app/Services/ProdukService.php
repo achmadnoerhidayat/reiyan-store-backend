@@ -174,6 +174,10 @@ class ProdukService
             $rawData = $service->getPriceGame($provider);
         }
 
+        if ($isVIP && Str::contains($produk->kategori->name, ['pulsa', 'tagihan', 'voucher'], true)) {
+            $rawData = $service->getPricePrepaid($provider);
+        }
+
         // Ambil semua member sekali aja (Eager Loading mindset)
         $members = $this->memberRepo->getAll();
         $batchLayanan = [];
@@ -206,6 +210,9 @@ class ProdukService
                     'status' => isset($value['status']) ? $value['status'] : null,
                     'price_provider' => $price,
                 ];
+                if (Str::contains($produk->kategori->name, ['pulsa', 'tagihan', 'voucher'], true)) {
+                    $temp['deskripsi'] = isset($value['note']) ? $value['note'] : null;
+                }
             }
 
             if (!empty($temp)) {
@@ -230,6 +237,13 @@ class ProdukService
                 throw new \Exception('data produk tidak ditemukan');
             }
             return $this->produkRepo->storeLayanan($id, $data);
+        });
+    }
+
+    public function deleteLayanan($id)
+    {
+        return DB::transaction(function () use ($id) {
+            return $this->produkRepo->deleteLayanan($id);
         });
     }
 

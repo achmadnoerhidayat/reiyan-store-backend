@@ -35,7 +35,7 @@ class StoreProdukRequest extends FormRequest
             'provider_id' => ['required', 'numeric', 'exists:providers,id'],
             'name' => ['required', 'string', 'min:3'],
             'brand' => ['required', 'string', 'min:3'],
-            'code' => ['required', 'string', 'min:3'],
+            'code' => ['required', 'string', 'min:2'],
             'deskripsi' => ['required', 'string', 'min:3'],
             'logo' => ['required', 'image', 'mimes:png,jpg,jpeg,webp', 'max:2048'],
             'banner' => ['required', 'image', 'mimes:png,jpg,jpeg,webp', 'max:2048'],

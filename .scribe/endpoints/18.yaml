@@ -83,16 +83,13 @@ endpoints:
     responses:
       -
         custom: []
-        status: 500
-        content: |-
-          {
-              "message": "Server Error"
-          }
+        status: 200
+        content: '{"meta":{"code":200,"status":"success","message":"data site conten berhasil ditampilkan"},"data":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6IjBEcEVxNDArcjVJaUw5VC9uU29lVGc9PSIsInZhbHVlIjoiQmZUN216b1pNb3JIZjd4cFBWZWdIQVp4VTA5MUthQW5vMDhiOXFxU09aUjV5RXBxNldRRHAvVUFpYk81aEJCQUZhSXVOdXlhdG1heGpkRzRMYnVnZ1FUazhtT1hRc3BFYU5BZTE1MmVBWmZhc05FTDFKaGpRT1E5NmM0MEc4TEciLCJtYWMiOiIwMWEzODM3MzA5OGQ1NWEyOTYzODBjOTAxNDBjMjhiMjY1ODFhYWMxODU2ZTEzMTlkZmI0NzkzM2Y1OGNkZDg4IiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:29 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlNyclZJaXBqMjhCMXJrZkt4eHlIaUE9PSIsInZhbHVlIjoiNTR2Wkx3ZStqVloyaTB5L0NwT2VzSEMreWF2eEUyZURobm1SM2l5WkN4NVI1UUVwMG9CbmpLclI2L0pNUXIraWJMcUVEMGxXeURLVDV3eTZqUXA4dVRSblNYKzk0T3k4WnhFUS9RV1ZDTE5oejFUNzJoZ0g0cUlVRE9hSUtSOFUiLCJtYWMiOiI4YzgwMWI4NGQ2YjA2YmQ0Mzg5YjIzZWMxZjQ3ZWJlZWE3MjdhMDMzNGZlYzhkMjU2NDE1NTIzMzY3YzQxOWZhIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:29 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IkZuWVRtMjdpVVlxcXFYSnc2RmdVcmc9PSIsInZhbHVlIjoiaG4xWVkyQ0IrcjlEMzhBNWpudm5ScEs4WGhhWmpKVWFxL0xxYW1zV05Fa0srNjZiNXJQTCtUVUlTNEJPa3FpNHd3OEx3aDUzUmdycVpLSTJUc280UnlwMHg1Nk44SnlsTG5lZnpUZEthdmczNCs0bFgxTUpUTXZiak9qbHVqajciLCJtYWMiOiJhNzQ5ZGQ2NzkzZDAyNDNlYmUxYWRmMDQyNTdiZWRlNTU0Y2EyZTk0Mjg2YzhlNDI4ODZhOWY3NzFkMjViNTE0IiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 10:36:28 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6ImlSMms0R09TNE0wTmt3Wm90M0pXMlE9PSIsInZhbHVlIjoicno5eFR4bnNyTCtvUWdnWUtMaEdDWDM3cllLbFRIbXpiZ2FKYnY5eFJzeHpncjlCNS8zbWwxa091YzZFS1FraVdWU3FlcnlJYlR4MDdZZ0YzRWxMREdjQVl2cFltTkJHMFhTUC8yQUVoNGVIOWRwK1VSUUVmdUNoVVIzLzVFUDQiLCJtYWMiOiJmODk0ZTI0MzY5MTIzZjI2ZGRmYzk0MWZiZmZiZDk3YjU5ZTZkYWQyYzc0ZDQyMzMyMGJlZDY5MDgzNGU2OWVjIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 10:36:28 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth: []
@@ -318,56 +315,8 @@ endpoints:
       id: architecto
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      type:
-        custom: []
-        name: type
-        description: type.
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      title:
-        custom: []
-        name: title
-        description: title.
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      content:
-        custom: []
-        name: content
-        description: content.
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      is_active:
-        custom: []
-        name: is_active
-        description: is_active.
-        required: true
-        example: architecto
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      type: architecto
-      title: architecto
-      content: architecto
-      is_active: architecto
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses: []
     responseFields: []

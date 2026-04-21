@@ -107,11 +107,6 @@ class SiteContentController extends Controller
      * Endpoint ini digunakan untuk menghapus Site Content baru ke dalam sistem.
      *
      * @authenticated
-     *
-     * @bodyParam type string required type.
-     * @bodyParam title string required title.
-     * @bodyParam content string required content.
-     * @bodyParam is_active string required is_active.
      */
 
     public function delete(SiteContentService $service, $id)

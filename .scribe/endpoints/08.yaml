@@ -95,13 +95,13 @@ endpoints:
     responses:
       -
         custom: []
-        status: 200
-        content: '{"meta":{"code":200,"status":"success","message":"data banner berhasil ditampilkan"},"data":[{"id":2,"title":"Promo PUBG","image_url":"asset\/banner\/wjKqra9VbNHQ8xGEiWwC2HBoNV44jgzSpRXBSOz7.webp","link_url":"http:\/\/localhost:5173\/admin\/banner","is_active":true,"starts_at":"2026-02-20T00:00:00.000000Z","end_at":"2026-06-28T00:00:00.000000Z","created_at":"2026-02-17T13:24:43.000000Z","updated_at":"2026-02-24T14:03:41.000000Z"},{"id":1,"title":"Promo Mobile Legend","image_url":"asset\/banner\/1W1oTxNqfXfRZVnT4WrwKYiBl7kgTzoLztu5ubOU.webp","link_url":"http:\/\/localhost:5173\/admin\/banner","is_active":true,"starts_at":"2026-02-20T00:00:00.000000Z","end_at":"2026-06-26T00:00:00.000000Z","created_at":"2026-02-17T13:11:36.000000Z","updated_at":"2026-02-24T14:04:35.000000Z"}]}'
+        status: 403
+        content: '{"meta":{"code":403,"status":"error","message":"SQLSTATE[42S22]: Column not found: 1054 Unknown column ''ends_at'' in ''where clause'' (Connection: mysql, Host: db, Port: 3306, Database: reiyan_store, SQL: select * from `banners` where (`title` like %Mobile% and `starts_at` like %2026-02-15% and `ends_at` like %2026-02-30% and `is_active` = 1) order by `created_at` desc limit 4)"},"data":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6Im05WkF1amlOOWZ0bEc4TWhBM1VBUGc9PSIsInZhbHVlIjoiaHdpUkl5VkVnTGhZc3hlVUtQVy82ZEplejVRaEk0VWRzRXI5aTBZUXM4b3B5Sy9IVW8rdHJkRXI1QmhtK2hsS3hoZ2VQL210S25lTm1yMXhrNTV6YkZPTVp2U2E3aW96VTJ1VkpCSFhvMmFHUXcxRExVdDJNaDRTUUhsNnBYNysiLCJtYWMiOiI3N2I1MjVlMTU4NDkzYzAyNjEwZGVmZDRjNDVlZTUwN2IwMGViYTQzYTE0MDRhYTA0YjA3ZmRhYjY0ZGI1Y2Y5IiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:27 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlpEME0rc1c5c1JXcXdhMy9rbmdYQmc9PSIsInZhbHVlIjoidnJoKzhOOTJpRUFzaExicUFOSUwrSmUydUlBanArUmtBUDNzdFFSQllUTCs4SHhRV3N1eDgzZGIvQUYyY2tKSmpSa055aGlvbVdJWlRkbDVGcnhaNjd6S0tka2FaNURxOFgrdXdDditZc2t0RHJsQXJZc1JqNEN2Njhwb2lXaHIiLCJtYWMiOiIyOTNiMmJiNDQyMzAxNDc1NmMzZThjNWFkMmQ1MGFhOTc3MjcwZmUwYzI5Mzc4OTVhZDA2MGYwY2JhMmNhODEyIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 09:16:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IlB6ZmN4MGtwREpCVmJDZk96b1lxeHc9PSIsInZhbHVlIjoiWmZYU3J5SVlpT1R0d2o1bzROeVZMbzBJN2pWMm10bXRsZGRDdHRXREZ0UzVYVXBzZFJvK1JGOWt5dFdxN1h0K0NTaTZkUitBZWFQWG1PMkRKOFI4eWtiZ2krNzI5aHQvcGt5eUUvS2xnRWNlSjJBSHFnSHZUZHliV0t3ZlhXaXQiLCJtYWMiOiJiMTZiOTY4MWMzMWQyZWZmMTBlNWIzN2ZmMDg3MGIzZTFiMmVkOWY0MjI1N2ZlM2M2ODVjYjkyNmI5Y2MxNmM2IiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 10:36:27 GMT; Max-Age=7200; path=/; samesite=lax; reiyan-store-session=eyJpdiI6IlVNRFVUYW1yamMvVWJZZ0JsUnVkSEE9PSIsInZhbHVlIjoiOHYrL2lMZ250dHV4ZzBPWno1RGxBRTZabVh1ZVcycGZGM0g2SGtrL0N4bzlDOXhPcVVkV3UvbTk2bHRsNzNRejdXbVdpTTFRZ2xxamorQUZ1TXRDL0JFMloxMDd1ZEFtdzlWdXV4VkpRd0ljVjNWbWxoVWNVYXVaL00zTHhyQTIiLCJtYWMiOiI2ZTk3MzcxMDQxOGY4MGY3NWVkZDY0ZmZhNDIzZWU0YzQyMGQ5OTViMDcxMWUyN2ViNmYxMGQyZDNhMGJkMGRiIiwidGFnIjoiIn0%3D; expires=Sat, 11 Apr 2026 10:36:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
     responseFields: []
     auth: []

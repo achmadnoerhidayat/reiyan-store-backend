@@ -103,6 +103,9 @@ class ProdukRepository
     {
         $produk = Product::find($id);
         if ($produk) {
+            $produk->layanan()->delete();
+            $produk->layanan()->faq();
+            $produk->layanan()->rating();
             $produk->delete();
         }
         return $produk;
@@ -114,11 +117,19 @@ class ProdukRepository
         if ($produk) {
             return Service::updateOrCreate(
                 [
-                    'produk_id' => $produk->id,
                     'code' => $data['code'],
                 ],
                 $data
             );
         }
+    }
+
+    public function deleteLayanan($id)
+    {
+        $service = Service::find($id);
+        if (!$service) {
+            throw new \Exception('data service tidak ditemukan');
+        }
+        return $service->delete();
     }
 }
