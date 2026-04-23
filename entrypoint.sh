@@ -6,6 +6,7 @@ if [ "$APP_ENV" = "production" ]; then
     php artisan config:cache
     php artisan route:cache
     php artisan view:cache
+    php artisan cache:clear
     php artisan migrate --force
 else
     if [ ! -f "composer.json" ]; then

@@ -226,8 +226,8 @@ class DepositService
                     'countryCode' => "IDN"
                 ],
             ],
-            'callbackUrl'     => url('/deposit/callback-payment'),
-            'returnUrl'       => url('/transaksi'),
+            'callbackUrl'     => env('APP_URL') . '/deposit/callback-payment',
+            'returnUrl'       => env('APP_URL') . '/transaksi',
             'expiryPeriod'    => 60,
         ];
 

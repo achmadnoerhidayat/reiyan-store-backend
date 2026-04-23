@@ -16,6 +16,19 @@ services:
     depends_on:
       - db
 
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: reiyan-store-worker
+    command: php artisan queue:work --sleep=10 --verbose --tries=3 --timeout=90 --max-jobs=20 --max-time=600 --memory=64
+    volumes:
+      - ./:/var/www
+    depends_on:
+      - db
+      - app
+    restart: always
+
   nginx:
     image: nginx:stable-alpine
     container_name: reiyan-store-nginx

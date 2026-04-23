@@ -121,6 +121,11 @@ class DepositController extends Controller
     public function callbackPayment(Request $request, DepositService $service)
     {
         try {
+            $realIp = $request->header('CF-Connecting-IP') ?? $request->ip();
+            $allowedIps = ['182.23 .85 .11', '182.23 .85 .12', '103.177 .101 .187', '103.177 .101 .188'];
+            if (!collect($allowedIps)->contains($realIp)) {
+                return ResponseFormated::error(null, "IP {$realIp} ditolak", 403);
+            }
             $callback = $service->callbackPayment($request);
             return ResponseFormated::success($callback, 'data callback berhasil diproses');
         } catch (\Exception $e) {

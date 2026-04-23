@@ -115,8 +115,10 @@ class ProdukRepository
     {
         $produk = Product::find($id);
         if ($produk) {
+            Service::whereNull('produk_id')->delete();
             return Service::updateOrCreate(
                 [
+                    'produk_id' => $produk->id,
                     'code' => $data['code'],
                 ],
                 $data

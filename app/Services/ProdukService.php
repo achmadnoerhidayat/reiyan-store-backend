@@ -16,12 +16,14 @@ class ProdukService
     protected $produkRepo;
     protected $provider;
     protected $memberRepo;
+    protected $pituService;
 
-    public function __construct(ProdukRepository $produkRepo, ProviderRepository $provider, MemberRepository $memberRepo)
+    public function __construct(ProdukRepository $produkRepo, ProviderRepository $provider, MemberRepository $memberRepo, PitucodeService $pituService)
     {
         $this->produkRepo = $produkRepo;
         $this->provider = $provider;
         $this->memberRepo = $memberRepo;
+        $this->pituService = $pituService;
         // throw new \Exception('Not implemented');
     }
 
@@ -224,6 +226,7 @@ class ProdukService
         // Eksekusi Transaction untuk Bulk Insert
         return DB::transaction(function () use ($produk, $batchLayanan) {
             foreach ($batchLayanan as $value) {
+                $value['produk_id'] = $produk->id;
                 $this->produkRepo->storeLayanan($produk->id, $value);
             }
         });
@@ -252,31 +255,32 @@ class ProdukService
         $produk = $this->produkRepo->findId($id);
         if (!$produk) throw new \Exception('produk tidak ditemukan');
 
-        $provider = $produk->provider;
-        $driverClass = $provider->driver;
-
-        if (!class_exists($driverClass)) {
-            throw new \Exception("Driver {$driverClass} tidak ditemukan.");
-        }
-
-        if (!$provider->is_active) {
-            throw new \Exception("Provider Tidak Aktif");
-        }
-
-        $service = app($driverClass);
+        // $service = app($driverClass);
+        $game = false;
         if (Str::contains($produk->code, ['ML'], true)) {
-            $data['code'] = "mobile-legends";
+            $data['code'] = "MOBILE_LEGENDS";
+            $game = true;
         } elseif (Str::contains($produk->code, ['FFMAX'], true)) {
-            $data['code'] = "free-fire";
+            $data['code'] = "FREEFIRE";
+            $game = true;
         } elseif (Str::contains($produk->code, ['FF'], true)) {
-            $data['code'] = "free-fire";
+            $data['code'] = "FREEFIRE";
+            $game = true;
         } elseif (Str::contains($produk->code, ['PUBG'], true)) {
-            $data['code'] = "pubgm";
-        } else {
-            throw new \Exception('Code game tidak ditemukan: ' . $produk->code);
+            $data['code'] = "PUBG_MOBILE";
+            $game = true;
         }
-        $rawData = $service->getNickName($provider, $data);
-        return $rawData;
+        // $rawData = $service->getNickName($provider, $data);
+        $rawData = [];
+        if ($game) {
+            $rawData = $this->pituService->checkIdGame($data);
+        } else {
+            $rawData = $this->pituService->checkNameToken($data['user_id']);
+        }
+        if (!$rawData['success']) {
+            throw new \Exception('Nomor salah / terblokir / expired.');
+        }
+        return $game ? $rawData['data'] : $rawData['result'];
     }
 
     public function findId($id)

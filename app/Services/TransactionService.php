@@ -437,8 +437,8 @@ class TransactionService
                     'countryCode' => "IDN"
                 ],
             ],
-            'callbackUrl'     => url('/transaksi/callback-payment'),
-            'returnUrl'       => url('/transaksi'),
+            'callbackUrl'     => env('APP_URL') . '/transaksi/callback-payment',
+            'returnUrl'       => env('APP_URL') . '/transaksi',
             'expiryPeriod'    => 60,
         ];
 

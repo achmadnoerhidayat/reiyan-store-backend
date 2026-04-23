@@ -51,7 +51,7 @@ class ProcessOrderJob implements ShouldQueue
         $services = app($driverClass);
 
         $rawData = $services->orderGame($provider, [
-            'code' => $transaksi->target_details['code'],
+            'code' => $transaksi->service->code,
             'target' => $transaksi->target_details['target'],
             'server_id' => $transaksi->target_details['server_id'],
         ]);

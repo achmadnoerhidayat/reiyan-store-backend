@@ -74,12 +74,12 @@ Route::group(['prefix' => 'produk'], function () {
         Route::post('/payment', [ProdukController::class, 'payment']);
         Route::group(['middleware' => ['role:administrator,super_admin,product_manager']], function () {
             Route::get('/list-harga/{slug}', [ProdukController::class, 'priceList']);
+            Route::delete('/layanan/{id}', [ProdukController::class, 'deleteLayanan']);
             Route::group(['middleware' => ['throttle:10,1']], function () {
                 Route::post('/', [ProdukController::class, 'store']);
                 Route::post('/layanan/{id}', [ProdukController::class, 'updateLayanan']);
                 Route::put('/{id}', [ProdukController::class, 'update']);
                 Route::delete('/{id}', [ProdukController::class, 'delete']);
-                Route::delete('/layanan{id}', [ProdukController::class, 'deleteLayanan']);
             });
         });
     });
